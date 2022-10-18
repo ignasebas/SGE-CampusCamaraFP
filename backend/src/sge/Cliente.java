@@ -6,10 +6,15 @@ public class Cliente extends Persona {
 	public int getIdCliente() {
 		return idCliente;
 	}
+
+	public Cliente() {
+		super();
+	}
+
 	@Override
 	public String toString() {
 		return "Cliente [idCliente=" + idCliente + ", getNif()=" + getNif() + ", getNombre()=" + getNombre()
-				+ ", getDireccion()=" + getDireccion() + ", getTelefono()=" + getTelefono() + ", getEmail()="
-				+ getEmail() + "]";
+				+ ", getApellido()=" + getApellido() + ", getDireccion()=" + getDireccion() + ", getTelefono()="
+				+ getTelefono() + ", getEmail()=" + getEmail() + "]";
 	}
 }
