@@ -20,15 +20,8 @@ export default function App() {
                     <Route path="/forget-password" element={ <ForgetPasswordPage/> } />
                     <Route path="/home" element={ <HomePage/> } />
                 </Routes>
-                <Footer />
             </div>
         </Router>
-    )
-}
-
-const Footer = () => {
-    return (
-        <p className="text-center" style={ FooterStyle }>Designed & coded by <a href="https://izemspot.netlify.com" target="_blank" rel="noopener noreferrer">IZEMSPOT</a></p>
     )
 }
 
