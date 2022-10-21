@@ -1,3 +1,63 @@
+/*GENERAL*/ /*#region*/
+html:not(.macos):not(.mobile) ::-webkit-scrollbar {
+  background-color:transparent;
+  -webkit-border-radius: 100px;
+  height: 10px;
+  width: 10px;
+}
+html:not(.macos):not(.mobile) ::-webkit-scrollbar-thumb {
+  background: #95a445;
+  background-clip: padding-box;
+  border-left: 2px solid transparent!important;
+  -webkit-border-radius: 4px;
+  border-right: 2px solid transparent!important;
+  min-height: 10px;
+}
+.link:hover{
+  text-decoration: none;
+}
+/*#endregion*/
+
+/*HEADER COMPONENT*/ /*#region*/
+html:not(.macos):not(.mobile) ::-webkit-scrollbar {
+  background-color:transparent;
+  -webkit-border-radius: 100px;
+  height: 10px;
+  width: 10px;
+}
+html:not(.macos):not(.mobile) ::-webkit-scrollbar-thumb {
+  background: #95a445;
+  background-clip: padding-box;
+  border-left: 2px solid transparent!important;
+  -webkit-border-radius: 4px;
+  border-right: 2px solid transparent!important;
+  min-height: 10px;
+}
+.link:hover{
+  text-decoration: none;
+}
+/*#endregion*/
+
+/*SIDEBAR COMPONENT*/ /*#region*/
+html:not(.macos):not(.mobile) ::-webkit-scrollbar {
+  background-color:transparent;
+  -webkit-border-radius: 100px;
+  height: 10px;
+  width: 10px;
+}
+html:not(.macos):not(.mobile) ::-webkit-scrollbar-thumb {
+  background: #95a445;
+  background-clip: padding-box;
+  border-left: 2px solid transparent!important;
+  -webkit-border-radius: 4px;
+  border-right: 2px solid transparent!important;
+  min-height: 10px;
+}
+.link:hover{
+  text-decoration: none;
+}
+/*#endregion*/
+
 /***    General     ***/
 * {
   box-sizing: border-box;

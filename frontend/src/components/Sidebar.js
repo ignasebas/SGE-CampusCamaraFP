@@ -3,7 +3,7 @@ const Sidebar = ({ props }) => {
     return (
         <>
             <div>
-                <span>COMPANY WIKI</span>
+                <div></div>
             </div>          
         </>
     );
