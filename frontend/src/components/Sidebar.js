@@ -39,6 +39,54 @@ const Sidebar = ({ props }) => {
                         <div className="sidebar_icon">
                             <FontAwesomeIcon icon={faHouse}/>
                         </div>
+                        <h5 className="sidebar_text">Empleados</h5>
+                    </div>
+                </Link>
+                <Link to="/register" style={{ textDecoration: 'none' }}>
+                    <div className='sidebar_section'>
+                        <div className="sidebar_icon">
+                            <FontAwesomeIcon icon={faHouse}/>
+                        </div>
+                        <h5 className="sidebar_text">Proveedores</h5>
+                    </div>
+                </Link>
+                <Link to="/register" style={{ textDecoration: 'none' }}>
+                    <div className='sidebar_section'>
+                        <div className="sidebar_icon">
+                            <FontAwesomeIcon icon={faHouse}/>
+                        </div>
+                        <h5 className="sidebar_text">Compras</h5>
+                    </div>
+                </Link>
+                <Link to="/register" style={{ textDecoration: 'none' }}>
+                    <div className='sidebar_section'>
+                        <div className="sidebar_icon">
+                            <FontAwesomeIcon icon={faHouse}/>
+                        </div>
+                        <h5 className="sidebar_text">Ventas</h5>
+                    </div>
+                </Link>
+                <Link to="/register" style={{ textDecoration: 'none' }}>
+                    <div className='sidebar_section'>
+                        <div className="sidebar_icon">
+                            <FontAwesomeIcon icon={faHouse}/>
+                        </div>
+                        <h5 className="sidebar_text">Productos</h5>
+                    </div>
+                </Link>
+                <Link to="/register" style={{ textDecoration: 'none' }}>
+                    <div className='sidebar_section'>
+                        <div className="sidebar_icon">
+                            <FontAwesomeIcon icon={faHouse}/>
+                        </div>
+                        <h5 className="sidebar_text">Facturas</h5>
+                    </div>
+                </Link>
+                <Link to="/register" style={{ textDecoration: 'none' }}>
+                    <div className='sidebar_section'>
+                        <div className="sidebar_icon">
+                            <FontAwesomeIcon icon={faHouse}/>
+                        </div>
                         <h5 className="sidebar_text">Pedidos</h5>
                     </div>
                 </Link>
@@ -50,6 +98,48 @@ const Sidebar = ({ props }) => {
                         <FontAwesomeIcon icon={faHouse}/>
                     </div>
                 </div>
+                <Link to="/register" style={{ textDecoration: 'none' }}>
+                    <div className='sidebar_section_close'>
+                        <div className="sidebar_icon">
+                            <FontAwesomeIcon icon={faHouse}/>
+                        </div>
+                    </div>
+                </Link>
+                <Link to="/register" style={{ textDecoration: 'none' }}>
+                    <div className='sidebar_section_close'>
+                        <div className="sidebar_icon">
+                            <FontAwesomeIcon icon={faHouse}/>
+                        </div>
+                    </div>
+                </Link>
+                <Link to="/register" style={{ textDecoration: 'none' }}>
+                    <div className='sidebar_section_close'>
+                        <div className="sidebar_icon">
+                            <FontAwesomeIcon icon={faHouse}/>
+                        </div>
+                    </div>
+                </Link>
+                <Link to="/register" style={{ textDecoration: 'none' }}>
+                    <div className='sidebar_section_close'>
+                        <div className="sidebar_icon">
+                            <FontAwesomeIcon icon={faHouse}/>
+                        </div>
+                    </div>
+                </Link>
+                <Link to="/register" style={{ textDecoration: 'none' }}>
+                    <div className='sidebar_section_close'>
+                        <div className="sidebar_icon">
+                            <FontAwesomeIcon icon={faHouse}/>
+                        </div>
+                    </div>
+                </Link>
+                <Link to="/register" style={{ textDecoration: 'none' }}>
+                    <div className='sidebar_section_close'>
+                        <div className="sidebar_icon">
+                            <FontAwesomeIcon icon={faHouse}/>
+                        </div>
+                    </div>
+                </Link>
                 <Link to="/register" style={{ textDecoration: 'none' }}>
                     <div className='sidebar_section_close'>
                         <div className="sidebar_icon">
