@@ -47,7 +47,7 @@ CREATE TABLE clientes (
 CREATE TABLE productos (
     idProducto INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     idProveedor INT NOT NULL,
-    CONSTRAINT `fk_idProveedor` FOREIGN KEY (idProveedor) REFERENCES proveedores (idProveedor) ON DELETE CASCADE ON UPDATE CASCADE ,
+    CONSTRAINT `fk_idProveedorEnProductos` FOREIGN KEY (idProveedor) REFERENCES proveedores (idProveedor) ON DELETE CASCADE ON UPDATE CASCADE ,
     precioVenta DECIMAL(8,2) NOT NULL,
     precioCompra DECIMAL(8,2) NOT NULL,
     imagen VARCHAR(255) NOT NULL,
@@ -60,8 +60,8 @@ CREATE TABLE compras (
     idCompra INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     idProducto INT NOT NULL,
     idProveedor INT NOT NULL,
-    CONSTRAINT `fk_idProducto` FOREIGN KEY (idProducto) REFERENCES productos (idProducto) ON DELETE CASCADE ON UPDATE CASCADE,
-    CONSTRAINT `fk_idProveedor` FOREIGN KEY (idProveedor) REFERENCES proveedores (idProveedor) ON DELETE CASCADE ON UPDATE CASCADE
+    CONSTRAINT `fk_idProductoEnCompras` FOREIGN KEY (idProducto) REFERENCES productos (idProducto) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT `fk_idProveedorEnCompras` FOREIGN KEY (idProveedor) REFERENCES proveedores (idProveedor) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 
@@ -69,8 +69,8 @@ CREATE TABLE ventas (
     idVenta INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     idCliente INT NOT NULL,
     idProducto INT NOT NULL,
-    CONSTRAINT `fk_idCliente` FOREIGN KEY (idCliente) REFERENCES clientes (idCliente) ON DELETE CASCADE ON UPDATE CASCADE,
-    CONSTRAINT `fk_idProducto` FOREIGN KEY (idProducto) REFERENCES productos (idProducto) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT `fk_idClienteEnVentas` FOREIGN KEY (idCliente) REFERENCES clientes (idCliente) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT `fk_idProductoEnVentas` FOREIGN KEY (idProducto) REFERENCES productos (idProducto) ON DELETE CASCADE ON UPDATE CASCADE,
     cantidad INT(6) NOT NULL,
     precioTotal DECIMAL(8, 2) NOT NULL
 );
@@ -78,7 +78,7 @@ CREATE TABLE ventas (
 CREATE TABLE calendario (
     idEntradaCalendario INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     idEmpleado INT NOT NULL,
-    CONSTRAINT `fk_idEmpleado` FOREIGN KEY (idEmpleado) REFERENCES empleados (idEmpleados) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT `fk_idEmpleadoEnCalendario` FOREIGN KEY (idEmpleado) REFERENCES empleados (idEmpleado) ON DELETE CASCADE ON UPDATE CASCADE,
     nombre VARCHAR(50),
     descripcion TEXT(200),
     fecha DATETIME,
