@@ -1,8 +1,9 @@
 import React from "react";
-import { CDBBtn, CDBIframe} from "cdbreact";
+import { CDBBtn, CDBIcon, CDBIframe } from "cdbreact";
 import Sidebar from "../Sidebar";
 import Navbar from "../Navbar";
 import "./Profile.css"
+import { NavLink } from "react-router-dom";
 
 export const Ventas = () => {
 
@@ -28,9 +29,15 @@ export const Ventas = () => {
 											<p>Fecha: 00/00/0000</p>
 										</div>
 										<div className="p-3">
-											<CDBBtn color="dark" flat outline circle>
-												+
-											</CDBBtn>
+
+											<NavLink
+												exact
+												to="/"
+												activeClassName="activeClicked">
+												<CDBBtn color="dark" size="large" flat outline circle>
+													+
+												</CDBBtn>
+											</NavLink>
 										</div>
 									</div>
 								</div>
@@ -44,8 +51,8 @@ export const Ventas = () => {
 											<p>Fecha: 00/00/0000</p>
 										</div>
 										<div className="p-3">
-											<CDBBtn color="dark" flat outline circle>
-												+
+											<CDBBtn color="primary" flat outline circle>
+												<CDBIcon icon="magic" className="ml-1" />
 											</CDBBtn>
 										</div>
 									</div>
@@ -60,7 +67,7 @@ export const Ventas = () => {
 											<p>Fecha: 00/00/0000</p>
 										</div>
 										<div className="p-3">
-											<CDBBtn color="dark" flat outline circle>
+											<CDBBtn color="primary" flat outline circle>
 												+
 											</CDBBtn>
 										</div>
@@ -76,7 +83,7 @@ export const Ventas = () => {
 											<p>Fecha: 00/00/0000</p>
 										</div>
 										<div className="p-3">
-											<CDBBtn color="dark" flat outline circle>
+											<CDBBtn color="primary" flat outline circle>
 												+
 											</CDBBtn>
 										</div>
@@ -92,7 +99,7 @@ export const Ventas = () => {
 											<p>Fecha: 00/00/0000</p>
 										</div>
 										<div className="p-3">
-											<CDBBtn color="dark" flat outline circle>
+											<CDBBtn color="primary" flat outline circle>
 												+
 											</CDBBtn>
 										</div>
