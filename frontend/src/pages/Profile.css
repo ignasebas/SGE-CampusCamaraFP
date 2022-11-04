@@ -1,3 +1,18 @@
+:root {
+	--red: #ff3b30;
+	--yellow: #ffcc00;
+	--green: #34c759;
+  }
+
+.delete-button{
+	background-color: var(--red) !important;
+	border: none !important;
+}
+
+.edit-button{
+	background-color: var(--yellow) !important;
+	border: none !important;
+}
 .profile .cards-container1 {
 	display:grid;
 	grid-gap:30px;

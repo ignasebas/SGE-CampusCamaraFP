@@ -1,5 +1,6 @@
 import React from "react";
 import { CDBBtn, CDBIframe, CDBView } from "cdbreact";
+import { CDBTable, CDBTableHeader, CDBTableBody } from "cdbreact";
 import Sidebar from "../Sidebar";
 import Navbar from "../Navbar";
 import "./Profile.css"
@@ -14,7 +15,51 @@ export const Clientes = () => {
 			<div style={{flex:"1 1 auto", display:"flex", flexFlow:"column", height:"100vh", overflowY:"hidden"}}>
 				<Navbar/>
 				<div style={{height:"100%"}}>
-							<div style={{height:"calc(100% - 64px)", padding:"20px 5%", overflowY:"scroll"}}>
+					<div style={{height:"calc(100% - 64px)", padding:"20px 5%", overflowY:"scroll"}}>
+							<div className="mt-5">
+								<h4 className="font-weight-bold mb-3">Clientes</h4>
+								<CDBTable striped responsive>
+								<CDBTableHeader>
+									<tr>
+									<th>#</th>
+									<th>First</th>
+									<th>Last</th>
+									<th>Handle</th>
+									</tr>
+								</CDBTableHeader>
+								<CDBTableBody>
+									<tr>
+									<td>1</td>
+									<td>Mark</td>
+									<td>Otto</td>
+									<td>@mdo</td>
+									<td>
+										<CDBBtn className={"edit-button"}>
+											Editar
+										</CDBBtn>
+									</td>
+									<td>
+										<CDBBtn className={"delete-button"}>
+											Eliminar
+										</CDBBtn>
+									</td>
+									</tr>
+									<tr>
+									<td>2</td>
+									<td>Jacob</td>
+									<td>Thornton</td>
+									<td>@fat</td>
+									</tr>
+									<tr>
+									<td>3</td>
+									<td>Larry</td>
+									<td>the Bird</td>
+									<td>@twitter</td>
+									</tr>
+								</CDBTableBody>
+								</CDBTable>
+							</div>
+								
 								<div style={{margin:"0 auto", maxWidth:"1320px"}}>
 									<div  className="cards-container1">
 										<div>
@@ -143,7 +188,7 @@ export const Clientes = () => {
 							<small className="mx-auto my-1 text-center">&copy; Devwares, 2020. All rights reserved.</small>
 							</footer>
 							</div>
-							</div>
+					</div>
 				</div>
 			</div>
 		</div>
