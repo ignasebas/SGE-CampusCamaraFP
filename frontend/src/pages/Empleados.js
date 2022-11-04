@@ -4,7 +4,7 @@ import Sidebar from "../Sidebar";
 import Navbar from "../Navbar";
 import "./Profile.css"
 
-export const Profile = () => {
+export const Empleados = () => {
 
 	return (
 		<div className="d-flex profile">
