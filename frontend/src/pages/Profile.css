@@ -1,7 +1,9 @@
 :root {
 	--red: #ff3b30;
 	--yellow: #ffcc00;
-	--green: #34c759;
+	--green: #28d353;
+	--blue:  #0091EA;
+	--white: #FFFFFF;
   }
 
 .delete-button{
@@ -10,14 +12,18 @@
 	display: inline-block !important;
 }
 .edit-button{
-	background-color: var(--yellow) !important;
+	background-color: var(--blue) !important;
 	border: none !important;
 	display: inline-block !important;
 }
 .add-button{
-	background-color: var(--green) !important;
-	border: none !important;
+	background-color: var(--white) !important;
+	border-color: var(--green) !important;
 	display: inline-block !important;
+	border-radius: 100px !important;
+	font-size: 15px !important;
+	color: var(--green) !important;
+	outline: circle !important;
 }
 
 .title-with-add{
@@ -26,42 +32,42 @@
     justify-content: space-between;
 }
 
-.profile .cards-container1 {
+.cards-container1 {
 	display:grid;
 	grid-gap:30px;
 	grid-template-columns: 1fr 2fr;
 }
-.profile .mini-container {
+.mini-container {
 	display:grid;
 	grid-gap:30px;
 	grid-template-columns: repeat(2, 1fr);
 }
-.profile .cards-container2 {
+.cards-container2 {
 	margin-top:20px;
 	display:grid;
 	grid-gap:40px;
 	grid-template-columns: repeat(2, 1fr)
 }
-.profile .cards-container2 .card {
+.cards-container2 .card {
 	max-width:500px;
 }
 
 @media (max-width:1240px) {
-	.profile .cards-container1 {
+	.cards-container1 {
 		grid-template-columns: repeat(2, 1fr);
 	}
-	.profile .mini-container {
+	.mini-container {
 		grid-template-columns: 1fr;
 	}
 }
 
 @media (max-width:900px) {
-	.profile .cards-container1 {
+	.cards-container1 {
 		margin:0 auto;
 		max-width:450px;
 		grid-template-columns: 1fr;
 	}
-	.profile .cards-container2 {
+	.cards-container2 {
 		margin:30px auto;
 		max-width:450px;
 		grid-template-columns: 1fr;

@@ -1,112 +1,84 @@
 import React from "react";
-import { CDBBtn, CDBIcon, CDBIframe } from "cdbreact";
+import { CDBBtn} from "cdbreact";
+import { CDBTable, CDBTableHeader, CDBTableBody } from "cdbreact";
 import Sidebar from "../Sidebar";
+import {CDBIcon} from "cdbreact";
 import Navbar from "../Navbar";
 import "./Profile.css"
 import { NavLink } from "react-router-dom";
 
 export const Ventas = () => {
 
+	const data = [							
+		{ id: 1, idCliente: 3, idProducto:"4", cantidad:"100", precioTotal:500.90},
+		{ id: 2, idCliente: 3, idProducto:"4", cantidad:"100", precioTotal:500.90},
+		{ id: 3, idCliente: 3, idProducto:"4", cantidad:"100", precioTotal:500.90},
+		{ id: 4, idCliente: 3, idProducto:"4", cantidad:"100", precioTotal:500.90},
+		{ id: 5, idCliente: 3, idProducto:"4", cantidad:"100", precioTotal:500.90},
+	]
+
 	return (
 		<div className="d-flex profile">
 			<div>
-				<Sidebar />
+				<Sidebar/>
 			</div>
-			<div style={{ flex: "1 1 auto", display: "flex", flexFlow: "column", height: "100vh", overflowY: "hidden" }}>
-				<Navbar />
-				<div style={{ height: "100%" }}>
-					<div style={{ height: "calc(100% - 64px)", padding: "20px 5%", overflowY: "scroll" }}>
-						{/*EDITAR A PARTIR DE AQUÍ*/}
-						<div style={{ margin: "0 auto", maxWidth: "1320px" }}>
-							<div className="cards-container2">
-								<div>
-									<div className="card shadow border-0">
-										<div className="p-3">
-											<h4 className="mt-3">Venta ejemplo 1</h4>
-											<p>Código: 001</p>
-											<p>Cliente: XXXX</p>
-											<p>Total: 0000.00</p>
-											<p>Fecha: 00/00/0000</p>
-										</div>
-										<div className="p-3">
-
-											<NavLink
+			<div style={{flex:"1 1 auto", display:"flex", flexFlow:"column", height:"100vh", overflowY:"hidden"}}>
+				<Navbar/>
+				<div style={{height:"100%"}}>					
+					<div style={{height:"calc(100% - 64px)", padding:"20px 5%", overflowY:"scroll"}}>
+							
+							<div className="mt-5">
+								<div className="mb-3 title-with-add">
+									<h4 className="font-weight-bold" style={{marginBottom:"0"}}>Ventas</h4>
+									<CDBBtn className={"add-button"}>
+										<CDBIcon icon="plus" className="ml-1" />
+									</CDBBtn>
+								</div>
+								
+								<CDBTable striped responsive>
+									<CDBTableHeader>
+										<tr>
+											<th>ID</th>
+											<th>ID Cliente</th>
+											<th>ID Producto</th>
+											<th>Cantidad</th>
+											<th>Precio total</th>
+											<th>Acciones</th>
+										</tr>
+									</CDBTableHeader>
+									<CDBTableBody style={{verticalAlign: "middle"}}>
+										{data.map((venta) =>
+											<tr>
+												<td>{venta.id}</td>
+												<td>{venta.idCliente}</td>
+												<td>{venta.idProducto}</td>
+												<td>{venta.cantidad}</td>
+												<td>{venta.precioTotal} €</td>
+												<td style={{whiteSpace: "nowrap"}}>
+												<NavLink
 												exact
 												to="/"
 												activeClassName="activeClicked">
-												<CDBBtn color="dark" size="large" flat outline circle>
-													+
-												</CDBBtn>
-											</NavLink>
-										</div>
-									</div>
-								</div>
-								<div>
-									<div className="card shadow border-0">
-										<div className="p-3">
-											<h4 className="mt-3">Venta ejemplo 2</h4>
-											<p>Código: 002</p>
-											<p>Cliente: XXXX</p>
-											<p>Total: 0000.00</p>
-											<p>Fecha: 00/00/0000</p>
-										</div>
-										<div className="p-3">
-											<CDBBtn color="primary" flat outline circle>
-												<CDBIcon icon="magic" className="ml-1" />
-											</CDBBtn>
-										</div>
-									</div>
-								</div>
-								<div>
-									<div className="card shadow border-0">
-										<div className="p-3">
-											<h4 className="mt-3">Venta ejemplo 3</h4>
-											<p>Código: 003</p>
-											<p>Cliente: XXXX</p>
-											<p>Total: 0000.00</p>
-											<p>Fecha: 00/00/0000</p>
-										</div>
-										<div className="p-3">
-											<CDBBtn color="primary" flat outline circle>
-												+
-											</CDBBtn>
-										</div>
-									</div>
-								</div>
-								<div>
-									<div className="card shadow border-0">
-										<div className="p-3">
-											<h4 className="mt-3">Venta ejemplo 4</h4>
-											<p>Código: 004</p>
-											<p>Cliente: XXXX</p>
-											<p>Total: 0000.00</p>
-											<p>Fecha: 00/00/0000</p>
-										</div>
-										<div className="p-3">
-											<CDBBtn color="primary" flat outline circle>
-												+
-											</CDBBtn>
-										</div>
-									</div>
-								</div>
-								<div>
-									<div className="card shadow border-0">
-										<div className="p-3">
-											<h4 className="mt-3">Venta ejemplo 5</h4>
-											<p>Código: 005</p>
-											<p>Cliente: XXXX</p>
-											<p>Total: 0000.00</p>
-											<p>Fecha: 00/00/0000</p>
-										</div>
-										<div className="p-3">
-											<CDBBtn color="primary" flat outline circle>
-												+
-											</CDBBtn>
-										</div>
-									</div>
-								</div>
+													<CDBBtn className={"edit-button"} style={{marginRight:"10px"}}>
+														<CDBIcon icon="pen" className="ml-1" />
+													</CDBBtn>
+												</NavLink>	
+													<CDBBtn className={"delete-button"}>
+														<CDBIcon icon="trash" className="ml-1" />
+													</CDBBtn>
+												</td>
+											</tr>
+										)}
+										
+									</CDBTableBody>
+								</CDBTable>
 							</div>
-						</div>
+								
+							<div style={{margin:"0 auto", maxWidth:"1320px"}}>
+								<footer className="d-flex mx-auto py-4">
+									<small className="mx-auto my-1 text-center">&copy; EMS Tech, 2022. All rights reserved.</small>
+								</footer>
+							</div>
 					</div>
 				</div>
 			</div>
