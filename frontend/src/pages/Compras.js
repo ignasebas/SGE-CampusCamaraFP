@@ -1,10 +1,11 @@
 import React from "react";
-import { CDBBtn, CDBTable, CDBTableHeader, CDBTableBody, CDBSidebarMenuItem} from "cdbreact";
+import { CDBBtn, CDBTable, CDBTableHeader, CDBTableBody} from "cdbreact";
 import Sidebar from "../Sidebar";
 import {CDBIcon} from "cdbreact";
 import Navbar from "../Navbar";
 import "./Profile.css"
 import { NavLink } from "react-router-dom";
+import {AiOutlineShoppingCart} from 'react-icons/ai';
 
 export const Compras = () => {
 
@@ -28,7 +29,7 @@ export const Compras = () => {
 							
 							<div className="mt-5">
 								<div className="mb-3 title-with-add">
-									<h4 className="font-weight-bold" style={{marginBottom:"0"}}>Compras</h4>
+									<h4 className="font-weight-bold" style={{marginBottom:"0"}}><AiOutlineShoppingCart /> Compras</h4>
 									<CDBBtn className={"add-button"}>
 										<CDBIcon icon="plus" className="ml-1" />
 									</CDBBtn>
