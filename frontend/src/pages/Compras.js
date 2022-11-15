@@ -1,6 +1,5 @@
 import React from "react";
-import { CDBBtn, CDBIframe, CDBView } from "cdbreact";
-import { CDBTable, CDBTableHeader, CDBTableBody } from "cdbreact";
+import { CDBBtn, CDBTable, CDBTableHeader, CDBTableBody, CDBSidebarMenuItem} from "cdbreact";
 import Sidebar from "../Sidebar";
 import {CDBIcon} from "cdbreact";
 import Navbar from "../Navbar";
