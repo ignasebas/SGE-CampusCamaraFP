@@ -7,6 +7,14 @@ import {
 	CDBSidebarMenu,
 	CDBSidebarMenuItem } from "cdbreact";
 import { NavLink } from "react-router-dom";
+import {CgProfile} from 'react-icons/cg';
+import {IoCalendarOutline} from 'react-icons/io5';
+import {HiOutlineUserGroup} from 'react-icons/hi2';
+import {BsGraphUp} from 'react-icons/bs';
+import {AiOutlineShoppingCart} from 'react-icons/ai';
+import {GoPackage} from 'react-icons/go';
+import {GiOrganigram} from 'react-icons/gi';
+import {SlChemistry} from 'react-icons/sl';
 
 const Sidebar = () => {
 
@@ -48,8 +56,8 @@ const Sidebar = () => {
 					exact
 					to="/profile"
 					activeClassName="activeClicked">
-						<CDBSidebarMenuItem icon="user">
-							profile
+						<CDBSidebarMenuItem>
+							<h6><CgProfile/> Perfil</h6>
 						</CDBSidebarMenuItem>
 					</NavLink>
 
@@ -57,8 +65,8 @@ const Sidebar = () => {
 					exact
 					to="/calendario"
 					activeClassName="activeClicked">
-						<CDBSidebarMenuItem icon="user">
-							Calendario
+						<CDBSidebarMenuItem>
+							<h6><IoCalendarOutline/> Calendario</h6>
 						</CDBSidebarMenuItem>
 					</NavLink>
 
@@ -66,8 +74,8 @@ const Sidebar = () => {
 					exact
 					to="/clientes"
 					activeClassName="activeClicked">
-						<CDBSidebarMenuItem icon="user">
-							Clientes
+						<CDBSidebarMenuItem>
+							<h6><HiOutlineUserGroup/> Clientes</h6>
 						</CDBSidebarMenuItem>
 					</NavLink>
 
@@ -75,8 +83,8 @@ const Sidebar = () => {
 					exact
 					to="/ventas"
 					activeClassName="activeClicked">
-						<CDBSidebarMenuItem icon="user">
-							Ventas
+						<CDBSidebarMenuItem>
+							<h6><BsGraphUp/> Ventas</h6>
 						</CDBSidebarMenuItem>
 					</NavLink>
 
@@ -84,8 +92,8 @@ const Sidebar = () => {
 					exact
 					to="/compras"
 					activeClassName="activeClicked">
-						<CDBSidebarMenuItem icon="user">
-							Compras
+						<CDBSidebarMenuItem>
+							<h6><AiOutlineShoppingCart/> Compras</h6>
 						</CDBSidebarMenuItem>
 					</NavLink>
 
@@ -93,8 +101,8 @@ const Sidebar = () => {
 					exact
 					to="/proveedores"
 					activeClassName="activeClicked">
-						<CDBSidebarMenuItem icon="user">
-							Proveedores
+						<CDBSidebarMenuItem>
+							<h6><GoPackage/> Proveedores</h6>
 						</CDBSidebarMenuItem>
 					</NavLink>
 
@@ -102,8 +110,8 @@ const Sidebar = () => {
 					exact
 					to="/empleados"
 					activeClassName="activeClicked">
-						<CDBSidebarMenuItem icon="user">
-							Empleados
+						<CDBSidebarMenuItem>
+							<h6><GiOrganigram/> Empleados</h6>
 						</CDBSidebarMenuItem>
 					</NavLink>
 
@@ -111,8 +119,8 @@ const Sidebar = () => {
 					exact
 					to="/productos"
 					activeClassName="activeClicked">
-						<CDBSidebarMenuItem icon="user">
-							Productos
+						<CDBSidebarMenuItem>
+							<h6><SlChemistry/> Productos</h6>
 						</CDBSidebarMenuItem>
 					</NavLink>
 

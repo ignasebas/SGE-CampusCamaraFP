@@ -6,6 +6,7 @@ import {CDBIcon} from "cdbreact";
 import Navbar from "../Navbar";
 import "./Profile.css"
 import { NavLink } from "react-router-dom";
+import {BsGraphUp} from 'react-icons/bs';
 
 export const Ventas = () => {
 
@@ -29,7 +30,7 @@ export const Ventas = () => {
 							
 							<div className="mt-5">
 								<div className="mb-3 title-with-add">
-									<h4 className="font-weight-bold" style={{marginBottom:"0"}}>Ventas</h4>
+									<h4 className="font-weight-bold" style={{marginBottom:"0"}}><BsGraphUp/> Ventas</h4>
 									<CDBBtn className={"add-button"}>
 										<CDBIcon icon="plus" className="ml-1" />
 									</CDBBtn>

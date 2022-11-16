@@ -6,6 +6,7 @@ import {CDBIcon} from "cdbreact";
 import Navbar from "../Navbar";
 import "./Profile.css"
 import { NavLink } from "react-router-dom";
+import {GiOrganigram} from 'react-icons/gi';
 
 export const Empleados = () => {
 
@@ -29,7 +30,7 @@ export const Empleados = () => {
 							
 							<div className="mt-5">
 								<div className="mb-3 title-with-add">
-									<h4 className="font-weight-bold" style={{marginBottom:"0"}}>Empleados</h4>
+									<h4 className="font-weight-bold" style={{marginBottom:"0"}}><GiOrganigram/> Empleados</h4>
 									<CDBBtn className={"add-button"}>
 										<CDBIcon icon="plus" className="ml-1" />
 									</CDBBtn>

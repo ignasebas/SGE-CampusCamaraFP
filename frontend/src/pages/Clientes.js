@@ -6,6 +6,7 @@ import {CDBIcon} from "cdbreact";
 import Navbar from "../Navbar";
 import "./Profile.css"
 import { NavLink } from "react-router-dom";
+import {HiOutlineUserGroup} from 'react-icons/hi2';
 
 export const Clientes = () => {
 
@@ -30,7 +31,7 @@ export const Clientes = () => {
 							
 							<div className="mt-5">
 								<div className="mb-3 title-with-add">
-									<h4 className="font-weight-bold" style={{marginBottom:"0"}}>Clientes</h4>
+									<h4 className="font-weight-bold" style={{marginBottom:"0"}}><HiOutlineUserGroup/> Clientes</h4>
 									<CDBBtn className={"add-button"}>
 										<CDBIcon icon="plus" className="ml-1" />
 									</CDBBtn>
