@@ -6,6 +6,7 @@ import Navbar from "../Navbar";
 import "./Profile.css"
 import { NavLink } from "react-router-dom";
 import {AiOutlineShoppingCart} from 'react-icons/ai';
+import {HiMagnifyingGlass} from 'react-icons/hi2';
 
 export const Compras = () => {
 
@@ -55,21 +56,14 @@ export const Compras = () => {
 												<td>{compra.observaciones}</td>
 												<td>{compra.precioTotal} €</td>
 												<td style={{whiteSpace: "nowrap"}}>
-												<NavLink
-												exact
-												to="/"
-												activeClassName="activeClicked">
+												<NavLink exact to="/" activeClassName="activeClicked">
 													<CDBBtn className={"edit-button"} style={{marginRight:"10px"}}>
-														<CDBIcon icon="pen" className="ml-1" />
+														<HiMagnifyingGlass/>
 													</CDBBtn>
 												</NavLink>	
-													<CDBBtn className={"delete-button"}>
-														<CDBIcon icon="trash" className="ml-1" />
-													</CDBBtn>
 												</td>
 											</tr>
 										)}
-										
 									</CDBTableBody>
 								</CDBTable>
 							</div>

@@ -63,7 +63,9 @@ CREATE TABLE compras ( //AQUÍ
     telefono VARCHAR(15) NOT NULL,
     email VARCHAR(100) NOT NULL,
     fechaCompra DATETIME NOT NULL,
-    observaciones TEXT(200)
+    observaciones TEXT(200),
+    precioTotal DECIMAL(8, 2) NOT NULL
+
 );
 
 CREATE TABLE detalles_compras (
@@ -84,7 +86,7 @@ CREATE TABLE ventas (
     telefono VARCHAR(50),
     email VARCHAR(50),
     direccion VARCHAR(50),
-    precioTotal DECIMAL(8, 2) NOT NULL,s
+    precioTotal DECIMAL(8, 2) NOT NULL,
     fechaVenta DATETIME,
     observaciones TEXT(200)
 );

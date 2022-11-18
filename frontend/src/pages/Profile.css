@@ -18,12 +18,11 @@
 }
 .add-button{
 	background-color: var(--white) !important;
-	border-color: var(--green) !important;
 	display: inline-block !important;
 	border-radius: 100px !important;
 	font-size: 15px !important;
 	color: var(--green) !important;
-	outline: circle !important;
+	outline: auto !important;
 }
 
 .title-with-add{
