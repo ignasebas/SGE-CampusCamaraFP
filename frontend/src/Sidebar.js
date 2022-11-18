@@ -21,134 +21,134 @@ const Sidebar = () => {
 	return (
 		<div
 		className={`app`}
-		style={{ display: "flex", height: "100%", overflow:"scroll initial"}}>
-		<CDBSidebar
-		textColor="#fff"
-		backgroundColor="#333">
-			<CDBSidebarHeader
-			prefix={
-				<i className="fa fa-bars fa-large"></i>
-			}>
-				<a href="/" className="text-decoration-none" style={{color:"inherit"}}>
-					Contrast
-				</a>
-			</CDBSidebarHeader>
+		style={{ display: "flex", height: "100vh", overflow:"hidden"}}>
+			<CDBSidebar
+			textColor="#fff"
+			backgroundColor="#333">
+				<CDBSidebarHeader
+				prefix={
+					<i className="fa fa-bars fa-large"></i>
+				}>
+					<a href="/" className="text-decoration-none" style={{color:"inherit"}}>
+						Contrast
+					</a>
+				</CDBSidebarHeader>
 
-			<CDBSidebarContent className="sidebar-content">
-				<CDBSidebarMenu>
-					<NavLink
-					exact
-					to="/"
-					activeClassName="activeClicked">
-						<CDBSidebarMenuItem icon="columns">
-							Dashboard
-						</CDBSidebarMenuItem>
-					</NavLink>
-					<NavLink
-					exact
-					to="/tables"
-					activeClassName="activeClicked">
-						<CDBSidebarMenuItem icon="table">
-							Tables
-						</CDBSidebarMenuItem>
-					</NavLink>
-					<NavLink
-					exact
-					to="/profile"
-					activeClassName="activeClicked">
-						<CDBSidebarMenuItem>
-							<h6><CgProfile/> Perfil</h6>
-						</CDBSidebarMenuItem>
-					</NavLink>
+					<div style={{overflow:"scroll"}}>
+						<CDBSidebarContent className="sidebar-content">
+							<CDBSidebarMenu>
+								<NavLink
+								exact
+								to="/"
+								activeClassName="activeClicked">
+									<CDBSidebarMenuItem icon="columns">
+										Dashboard
+									</CDBSidebarMenuItem>
+								</NavLink>
+								<NavLink
+								exact
+								to="/tables"
+								activeClassName="activeClicked">
+									<CDBSidebarMenuItem icon="table">
+										Tables
+									</CDBSidebarMenuItem>
+								</NavLink>
+								<NavLink
+								exact
+								to="/profile"
+								activeClassName="activeClicked">
+									<CDBSidebarMenuItem>
+										<h6><CgProfile/> Perfil</h6>
+									</CDBSidebarMenuItem>
+								</NavLink>
 
-					<NavLink
-					exact
-					to="/calendario"
-					activeClassName="activeClicked">
-						<CDBSidebarMenuItem>
-							<h6><IoCalendarOutline/> Calendario</h6>
-						</CDBSidebarMenuItem>
-					</NavLink>
+								<NavLink
+								exact
+								to="/calendario"
+								activeClassName="activeClicked">
+									<CDBSidebarMenuItem>
+										<h6><IoCalendarOutline/> Calendario</h6>
+									</CDBSidebarMenuItem>
+								</NavLink>
 
-					<NavLink
-					exact
-					to="/clientes"
-					activeClassName="activeClicked">
-						<CDBSidebarMenuItem>
-							<h6><HiOutlineUserGroup/> Clientes</h6>
-						</CDBSidebarMenuItem>
-					</NavLink>
+								<NavLink
+								exact
+								to="/clientes"
+								activeClassName="activeClicked">
+									<CDBSidebarMenuItem>
+										<h6><HiOutlineUserGroup/> Clientes</h6>
+									</CDBSidebarMenuItem>
+								</NavLink>
 
-					<NavLink
-					exact
-					to="/ventas"
-					activeClassName="activeClicked">
-						<CDBSidebarMenuItem>
-							<h6><BsGraphUp/> Ventas</h6>
-						</CDBSidebarMenuItem>
-					</NavLink>
+								<NavLink
+								exact
+								to="/ventas"
+								activeClassName="activeClicked">
+									<CDBSidebarMenuItem>
+										<h6><BsGraphUp/> Ventas</h6>
+									</CDBSidebarMenuItem>
+								</NavLink>
 
-					<NavLink
-					exact
-					to="/compras"
-					activeClassName="activeClicked">
-						<CDBSidebarMenuItem>
-							<h6><AiOutlineShoppingCart/> Compras</h6>
-						</CDBSidebarMenuItem>
-					</NavLink>
+								<NavLink
+								exact
+								to="/compras"
+								activeClassName="activeClicked">
+									<CDBSidebarMenuItem>
+										<h6><AiOutlineShoppingCart/> Compras</h6>
+									</CDBSidebarMenuItem>
+								</NavLink>
 
-					<NavLink
-					exact
-					to="/proveedores"
-					activeClassName="activeClicked">
-						<CDBSidebarMenuItem>
-							<h6><GoPackage/> Proveedores</h6>
-						</CDBSidebarMenuItem>
-					</NavLink>
+								<NavLink
+								exact
+								to="/proveedores"
+								activeClassName="activeClicked">
+									<CDBSidebarMenuItem>
+										<h6><GoPackage/> Proveedores</h6>
+									</CDBSidebarMenuItem>
+								</NavLink>
 
-					<NavLink
-					exact
-					to="/empleados"
-					activeClassName="activeClicked">
-						<CDBSidebarMenuItem>
-							<h6><GiOrganigram/> Empleados</h6>
-						</CDBSidebarMenuItem>
-					</NavLink>
+								<NavLink
+								exact
+								to="/empleados"
+								activeClassName="activeClicked">
+									<CDBSidebarMenuItem>
+										<h6><GiOrganigram/> Empleados</h6>
+									</CDBSidebarMenuItem>
+								</NavLink>
 
-					<NavLink
-					exact
-					to="/productos"
-					activeClassName="activeClicked">
-						<CDBSidebarMenuItem>
-							<h6><SlChemistry/> Productos</h6>
-						</CDBSidebarMenuItem>
-					</NavLink>
+								<NavLink
+								exact
+								to="/productos"
+								activeClassName="activeClicked">
+									<CDBSidebarMenuItem>
+										<h6><SlChemistry/> Productos</h6>
+									</CDBSidebarMenuItem>
+								</NavLink>
 
-					<NavLink
-					exact
-					to="/hero404"
-					target="_blank"
-					activeClassName="activeClicked">
-						<CDBSidebarMenuItem icon="exclamation-circle">
-							404 page
-						</CDBSidebarMenuItem>
-					</NavLink>
+								<NavLink
+								exact
+								to="/hero404"
+								target="_blank"
+								activeClassName="activeClicked">
+									<CDBSidebarMenuItem icon="exclamation-circle">
+										404 page
+									</CDBSidebarMenuItem>
+								</NavLink>
 
-				</CDBSidebarMenu>
-				<CDBSidebarMenu>
-				</CDBSidebarMenu>
-			</CDBSidebarContent>
+							</CDBSidebarMenu>
+						</CDBSidebarContent>
 
-			<CDBSidebarFooter style={{ textAlign: "center" }}>
-				<div
-					className="sidebar-btn-wrapper"
-					style={{
-					padding: "20px 5px"
-					}}>
-					Sidebar Footer
-				</div>
-			</CDBSidebarFooter>
-		</CDBSidebar>
+						<CDBSidebarFooter style={{ textAlign: "center" }}>
+							<div
+								className="sidebar-btn-wrapper"
+								style={{
+								padding: "20px 5px"
+								}}>
+								Sidebar Footer
+							</div>
+						</CDBSidebarFooter>
+					</div>
+			</CDBSidebar>
 		</div>
 	);
 }
