@@ -11,7 +11,6 @@ const Navbar = () => {
             <div className="ml-auto">
               <i className="fas fa-bell"></i>
               <i className="fas fa-comment-alt mx-4"></i>
-              <img alt="panelImage" src="img/pane/pane4.png" style={{width:"3rem",height:"3rem"}}/>
             </div>
           </CDBNavbar>
         </Header>

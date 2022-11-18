@@ -7,15 +7,17 @@ import Navbar from "../Navbar";
 import "./Profile.css"
 import { NavLink } from "react-router-dom";
 import {BsGraphUp} from 'react-icons/bs';
+import {HiMagnifyingGlass} from 'react-icons/hi2';
+
 
 export const Ventas = () => {
 
-	const data = [							
-		{ id: 1, idCliente: 3, idProducto:"4", cantidad:"100", precioTotal:500.90},
-		{ id: 2, idCliente: 3, idProducto:"4", cantidad:"100", precioTotal:500.90},
-		{ id: 3, idCliente: 3, idProducto:"4", cantidad:"100", precioTotal:500.90},
-		{ id: 4, idCliente: 3, idProducto:"4", cantidad:"100", precioTotal:500.90},
-		{ id: 5, idCliente: 3, idProducto:"4", cantidad:"100", precioTotal:500.90},
+	const data = [		
+		{ id: 1, nombre: "Desiree", apellidos: "Collado Ortiz", fechaVenta:"2022/10/20", observaciones:"Bueno, bonito, barato.", precioTotal:500.90},
+		{ id: 2, nombre: "Nerea", apellidos: "Baena Llamas", fechaVenta:"2022/10/19", observaciones:"Bueno, bonito, barato.", precioTotal:500.90},
+		{ id: 3, nombre: "Pol", apellidos: "Barrio Barrios", fechaVenta:"2022/10/18", observaciones:"Bueno, bonito, barato.", precioTotal:500.90},
+		{ id: 4, nombre: "Yaiza", apellidos: "Palma Soriano", fechaVenta:"2022/10/17", observaciones:"Bueno, bonito, barato.", precioTotal:500.90},
+		{ id: 5, nombre: "Gregoria", apellidos: "Diaz Valdes", fechaVenta:"2022/10/21", observaciones:"Bueno, bonito, barato.", precioTotal:500.90},
 	]
 
 	return (
@@ -40,9 +42,10 @@ export const Ventas = () => {
 									<CDBTableHeader>
 										<tr>
 											<th>ID</th>
-											<th>ID Cliente</th>
-											<th>ID Producto</th>
-											<th>Cantidad</th>
+											<th>Nombre cliente</th>
+											<th>Apellido cliente</th>
+											<th>Fecha de venta</th>
+											<th>Observaciones</th>
 											<th>Precio total</th>
 											<th>Acciones</th>
 										</tr>
@@ -51,9 +54,10 @@ export const Ventas = () => {
 										{data.map((venta) =>
 											<tr>
 												<td>{venta.id}</td>
-												<td>{venta.idCliente}</td>
-												<td>{venta.idProducto}</td>
-												<td>{venta.cantidad}</td>
+												<td>{venta.nombre}</td>
+												<td>{venta.apellidos}</td>
+												<td>{venta.fechaVenta}</td>
+												<td>{venta.observaciones}</td>
 												<td>{venta.precioTotal} €</td>
 												<td style={{whiteSpace: "nowrap"}}>
 												<NavLink
@@ -61,16 +65,12 @@ export const Ventas = () => {
 												to="/"
 												activeClassName="activeClicked">
 													<CDBBtn className={"edit-button"} style={{marginRight:"10px"}}>
-														<CDBIcon icon="pen" className="ml-1" />
+														<HiMagnifyingGlass/>
 													</CDBBtn>
 												</NavLink>	
-													<CDBBtn className={"delete-button"}>
-														<CDBIcon icon="trash" className="ml-1" />
-													</CDBBtn>
 												</td>
 											</tr>
 										)}
-										
 									</CDBTableBody>
 								</CDBTable>
 							</div>
