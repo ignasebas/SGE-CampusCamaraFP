@@ -9,12 +9,12 @@ import {AiOutlineShoppingCart} from 'react-icons/ai';
 
 export const Compras = () => {
 
-	const data = [							
-		{ id: 1, idProveedor: 2, idProducto: 5, cantidad: 700, precioTotal:600.90},
-		{ id: 2, idProveedor: 2, idProducto: 5, cantidad: 700, precioTotal:600.90},
-		{ id: 3, idProveedor: 2, idProducto: 5, cantidad: 700, precioTotal:600.90},
-		{ id: 4, idProveedor: 2, idProducto: 5, cantidad: 700, precioTotal:600.90},
-		{ id: 5, idProveedor: 2, idProducto: 5, cantidad: 700, precioTotal:600.90},
+	const data = [	
+		{ id: 1, nombre: "Lessong S.A.", fechaCompra: "2022/10/22", observaciones: "Bueno, bonito, barato.", precioTotal:600.90},
+		{ id: 2, nombre: "Viaspect S.A.", fechaCompra: "2022/08/30", observaciones: "Bueno, bonito, barato.", precioTotal:600.90},
+		{ id: 3, nombre: "Cellap S.A.", fechaCompra: "2022/07/23", observaciones: "Bueno, bonito, barato.", precioTotal:600.90},
+		{ id: 4, nombre: "Karmat S.A.", fechaCompra: "2022/05/12", observaciones: "Bueno, bonito, barato.", precioTotal:600.90},
+		{ id: 5, nombre: "Spacus S.A.", fechaCompra: "2022/06/21", observaciones: "Bueno, bonito, barato.", precioTotal:600.90},
 	]
 
 	return (
@@ -39,9 +39,9 @@ export const Compras = () => {
 									<CDBTableHeader>
 										<tr>
 											<th>ID</th>
-											<th>ID Proveedor</th>
-											<th>ID Producto</th>
-											<th>Cantidad</th>
+											<th>Nombre proveedor</th>
+											<th>Fecha de compra</th>
+											<th>Observaciones</th>
 											<th>Precio total</th>
 											<th>Acciones</th>
 										</tr>
@@ -50,9 +50,9 @@ export const Compras = () => {
 										{data.map((compra) =>
 											<tr>
 												<td>{compra.id}</td>
-												<td>{compra.idProveedor}</td>
-												<td>{compra.idProducto}</td>
-												<td>{compra.cantidad}</td>
+												<td>{compra.nombre}</td>
+												<td>{compra.fechaCompra}</td>
+												<td>{compra.observaciones}</td>
 												<td>{compra.precioTotal} €</td>
 												<td style={{whiteSpace: "nowrap"}}>
 												<NavLink

@@ -9,7 +9,6 @@ DROP TABLE IF EXISTS empresa;
 
 CREATE TABLE empresa (
     nombre VARCHAR(50),
-    colorCorporativo VARCHAR(50),
     logo VARCHAR(255)
 );
 
@@ -47,7 +46,7 @@ CREATE TABLE clientes (
 CREATE TABLE productos (
     idProducto INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     idProveedor INT NOT NULL,
-    CONSTRAINT `fk_idProveedorEnProductos` FOREIGN KEY (idProveedor) REFERENCES proveedores (idProveedor) ON DELETE CASCADE ON UPDATE CASCADE ,
+    CONSTRAINT `fk_idProveedorEnProductos` FOREIGN KEY (idProveedor) REFERENCES proveedores (idProveedor) ON DELETE CASCADE,
     precioVenta DECIMAL(8,2) NOT NULL,
     precioCompra DECIMAL(8,2) NOT NULL,
     imagen VARCHAR(255) NULL,
@@ -55,35 +54,57 @@ CREATE TABLE productos (
     descripcion TEXT(200) NOT NULL
 );
 
-
-CREATE TABLE compras (
+CREATE TABLE compras ( //AQUÍ
     idCompra INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    idProducto INT NOT NULL,
-    idProveedor INT NOT NULL,
-    cantidad INT(10) NOT NULL,
-    CONSTRAINT `fk_idProductoEnCompras` FOREIGN KEY (idProducto) REFERENCES productos (idProducto) ON DELETE CASCADE ON UPDATE CASCADE,
-    CONSTRAINT `fk_idProveedorEnCompras` FOREIGN KEY (idProveedor) REFERENCES proveedores (idProveedor) ON DELETE CASCADE ON UPDATE CASCADE
+    cif VARCHAR(15) NOT NULL,
+    nombre VARCHAR(50) NOT NULL,
+    contacto VARCHAR(50) NOT NULL,
+    direccion VARCHAR(150) NOT NULL,
+    telefono VARCHAR(15) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    fechaCompra DATETIME NOT NULL,
+    observaciones TEXT(200)
+);
+
+CREATE TABLE detalles_compras (
+    idCompra INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    cantidad INT(6) NOT NULL,
+    precioCompra DECIMAL(8,2) NOT NULL,
+    tasas INT(2) NOT NULL,
+    descripcion TEXT(200) NOT NULL,
+    CONSTRAINT `fk_idVentaEnDetallesVentas` FOREIGN KEY (idCompra) REFERENCES compras (idCompra) ON DELETE CASCADE
 );
 
 
 CREATE TABLE ventas (
     idVenta INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    idCliente INT NOT NULL,
-    idProducto INT NOT NULL,
-    CONSTRAINT `fk_idClienteEnVentas` FOREIGN KEY (idCliente) REFERENCES clientes (idCliente) ON DELETE CASCADE ON UPDATE CASCADE,
-    CONSTRAINT `fk_idProductoEnVentas` FOREIGN KEY (idProducto) REFERENCES productos (idProducto) ON DELETE CASCADE ON UPDATE CASCADE,
+    nif VARCHAR(15) NOT NULL,
+    nombre VARCHAR(50) NOT NULL,
+    apellidos VARCHAR(50) NOT NULL,
+    telefono VARCHAR(50),
+    email VARCHAR(50),
+    direccion VARCHAR(50),
+    precioTotal DECIMAL(8, 2) NOT NULL,s
+    fechaVenta DATETIME,
+    observaciones TEXT(200)
+);
+
+CREATE TABLE detalles_ventas (
+    idVenta INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     cantidad INT(6) NOT NULL,
-    precioTotal DECIMAL(8, 2) NOT NULL
+    precioVenta DECIMAL(8,2) NOT NULL,
+    tasas INT(2) NOT NULL,
+    descripcion TEXT(200) NOT NULL,
+    CONSTRAINT `fk_idVentaEnDetallesVentas` FOREIGN KEY (idVenta) REFERENCES ventas (idVenta) ON DELETE CASCADE
 );
 
 CREATE TABLE calendario (
     idEntradaCalendario INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     idEmpleado INT NOT NULL,
-    CONSTRAINT `fk_idEmpleadoEnCalendario` FOREIGN KEY (idEmpleado) REFERENCES empleados (idEmpleado) ON DELETE CASCADE ON UPDATE CASCADE,
-    nombre VARCHAR(50),
+    CONSTRAINT `fk_idEmpleadoEnCalendario` FOREIGN KEY (idEmpleado) REFERENCES empleados (idEmpleado) ON DELETE CASCADE,
+    titulo VARCHAR(50) NOT NULL,
     descripcion TEXT(200),
     fecha DATETIME,
-    direccion VARCHAR(100)
 );
 
 INSERT INTO `clientes`(
