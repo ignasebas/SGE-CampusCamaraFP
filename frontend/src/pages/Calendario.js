@@ -21,25 +21,27 @@ export const Calendario = () => {
 				<Navbar/>
 				<div style={{height:"100%"}}>
 							<div style={{height:"calc(100% - 64px)", padding:"20px 5%", overflowY:"scroll"}}>
+								<br></br><br></br>
 								<div>
 		  							<Calendar onChange={onChange} 
 									value={value}
 									onClickDay={formulario}/>
 									
 								</div>
-
+								<br></br><br></br>
 								<div>
 											<div className="card shadow border-0">
-												<img alt="profileImage" src="/img/pages/heroImage2.png" className="w-100" style={{objectFit:"cover", maxHeight:"500px"}}/>
 												<div className="card-body">
-													<h4 className="card-title mb-2" style={{fontWeight:"600"}}>Warren Briggs</h4>
-													<h5 className="mb-2">Photographer</h5>
-													<p className="text-justify mt-4">
-														<strong className="mb-2">Desciption: </strong>
-														Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione perferendis quod animi dignissimos
-													</p>
+													<h4 className="card-title mb-2" style={{fontWeight:"600"}}>Introduce que tienes ese día</h4>
+													<label>Título &nbsp;</label>
+													<input value = {""}></input>
+													<br></br>
+													<br></br>
+													<textarea rows="10" cols="26" wrap="soft">Descripción</textarea>
+													<br></br>
+													<br></br>
 													<div className="justify-content-end pr-1">
-														<CDBBtn color="dark" outline>More</CDBBtn>
+														<CDBBtn color="dark" outline>Introducir</CDBBtn>
 													</div>
 												</div>
 											</div>
