@@ -1,7 +1,7 @@
-import React,{useState} from "react";
-import { CDBBtn, CDBIframe, CDBView } from "cdbreact";
+import {React,useState} from "react";
+import {CDBBtn} from "cdbreact";
 import Sidebar from "../Sidebar";
-import Calendar,{onClickDay} from 'react-calendar';
+import {Calendar} from 'react-calendar';
 import Navbar from "../Navbar";
 import 'react-calendar/dist/Calendar.css';
 import "./Profile.css"
