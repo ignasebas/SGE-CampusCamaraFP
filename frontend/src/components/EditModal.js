@@ -9,7 +9,45 @@ const EditModal = ({handleShow}) => {
 				<div className="modal-header">
 					<div>Editar</div>
 				</div>
-				<div className="modal-body">Introduzca la nueva información...</div>
+				<div className="modal-body">
+					Introduzca la nueva información...
+					{!clientes ? (
+						<>
+						</>
+					):(
+						<ClientesForm edit/>
+					)}
+					{!compras ? (
+						<>
+						</>
+					):(
+						<ComprasForm edit/>
+					)}
+					{!empleados ? (
+						<>
+						</>
+					):(
+						<EmpleadosForm edit/>
+					)}
+					{!productos ? (
+						<>
+						</>
+					):(
+						<ProductosForm edit/>
+					)}
+					{!proveedores ? (
+						<>
+						</>
+					):(
+						<ProveedoresForm edit/>
+					)}
+					{!ventas ? (
+						<>
+						</>
+					):(
+						<VentasForm edit/>
+					)}
+				</div>
 				<div className="modal-footer">
 					<CDBBtn className={"delete-button"} onClick={handleShow}>
 						Cerrar

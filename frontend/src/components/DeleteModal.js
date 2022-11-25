@@ -11,6 +11,41 @@ const DeleteModal = ({handleShow}) => {
 				</div>
 				<div className="modal-body">
 					¿Estás seguro de que deseas eliminar a ... de la base de datos?
+					{!clientes ? (
+						<>
+						</>
+					):(
+						<ClientesForm del/>
+					)}
+					{!compras ? (
+						<>
+						</>
+					):(
+						<ComprasForm del/>
+					)}
+					{!empleados ? (
+						<>
+						</>
+					):(
+						<EmpleadosForm del/>
+					)}
+					{!productos ? (
+						<>
+						</>
+					):(
+					)}
+					{!proveedores ? (
+						<>
+						</>
+					):(
+						<ProveedoresForm del/>
+					)}
+					{!ventas ? (
+						<>
+						</>
+					):(
+						<VentasForm del/>
+					)}
 				</div>
 				<div className="modal-footer">
 					<CDBBtn className={"discard-button"} onClick={handleShow}>
