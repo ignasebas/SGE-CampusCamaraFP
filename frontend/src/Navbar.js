@@ -1,7 +1,8 @@
 import React from "react";
 import { Header } from "./Navbar.style";
 import { CDBNavbar, CDBInput } from "cdbreact";
-import {CgProfile} from 'react-icons/cg';
+import {BsPersonCircle} from 'react-icons/bs';
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
 
@@ -12,7 +13,12 @@ const Navbar = () => {
             <div className="header-icons">
               <i className="fas fa-bell"></i>
               <i className="fas fa-comment-alt mx-4"></i>
-              <CgProfile size={40}/>
+              <NavLink
+                exact
+                to="/profile"
+                activeClassName="activeClicked">
+                  <BsPersonCircle size={35} className="profile-icon"/>  
+							</NavLink>
             </div>
           </CDBNavbar>
         </Header>
@@ -20,3 +26,4 @@ const Navbar = () => {
 }
 
 export default Navbar;
+

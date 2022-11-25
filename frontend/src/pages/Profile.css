@@ -8,7 +8,11 @@
   }
 
 .header-icons{
-	margin-left:450px;
+	margin-left:400px;
+}
+
+.profile-icon{
+	color: white;
 }
 
 .discard-button{
