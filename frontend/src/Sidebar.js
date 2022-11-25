@@ -15,6 +15,7 @@ import {GoPackage} from 'react-icons/go';
 import {GiOrganigram} from 'react-icons/gi';
 import {SlChemistry} from 'react-icons/sl';
 import {TbLayoutDashboard} from  'react-icons/tb';
+import {CgMenuCheese} from  'react-icons/cg';
 
 const Sidebar = () => {
 
@@ -27,7 +28,7 @@ const Sidebar = () => {
 			backgroundColor="#333">
 				<CDBSidebarHeader
 				prefix={
-					<i className="fa fa-bars fa-large"></i>
+					<CgMenuCheese size={30}/>
 				}>
 					<a href="/" className="text-decoration-none" style={{color:"inherit"}}>
 						EMS Tech
