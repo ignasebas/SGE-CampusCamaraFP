@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { CDBBtn} from "cdbreact";
 import { CDBTable, CDBTableHeader, CDBTableBody } from "cdbreact";
 import Sidebar from "../Sidebar";
@@ -8,7 +8,7 @@ import "./Profile.css"
 import { NavLink } from "react-router-dom";
 import {BsGraphUp} from 'react-icons/bs';
 import {HiMagnifyingGlass} from 'react-icons/hi2';
-
+import LensModal from "../components/LensModal"
 
 export const Ventas = () => {
 
@@ -20,7 +20,17 @@ export const Ventas = () => {
 		{ id: 5, nombre: "Gregoria", apellidos: "Diaz Valdes", fechaVenta:"2022/10/21", observaciones:"Bueno, bonito, barato.", precioTotal:500.90},
 	]
 
+	const [showLens, setShowLens] = useState(false);
+	const handleShowLens = () => setShowLens(!showLens);
+
 	return (
+		<>
+			{!showLens ? (
+				<>
+				</>
+			):(
+				<LensModal handleShow={handleShowLens}/>
+			)}
 		<div className="d-flex profile">
 			<div>
 				<Sidebar/>
@@ -60,14 +70,9 @@ export const Ventas = () => {
 												<td>{venta.observaciones}</td>
 												<td>{venta.precioTotal} €</td>
 												<td style={{whiteSpace: "nowrap"}}>
-												<NavLink
-												exact
-												to="/"
-												activeClassName="activeClicked">
-													<CDBBtn className={"edit-button"} style={{marginRight:"10px"}}>
+													<CDBBtn onClick={handleShowLens} className={"edit-button"} style={{marginRight:"10px"}}>
 														<HiMagnifyingGlass/>
 													</CDBBtn>
-												</NavLink>	
 												</td>
 											</tr>
 										)}
@@ -84,6 +89,6 @@ export const Ventas = () => {
 				</div>
 			</div>
 		</div>
-
+		</>
 	);
 }

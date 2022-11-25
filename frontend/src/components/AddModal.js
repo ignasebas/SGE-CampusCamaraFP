@@ -7,17 +7,14 @@ const AddModal = ({handleShow}) => {
 		<div className="modal-full">
 			<div className="modal-container">
 				<div className="modal-header">
-					<div>Hola</div>
-					<div onClick={handleShow}>
-						<button>X</button>
-					</div>
+					<div>Añadir datos</div>
 				</div>
-				<div className="modal-body">BODY</div>
+				<div className="modal-body">Introduzca la información...</div>
 				<div className="modal-footer">
-					<CDBBtn className={"delete-button"} onClick={handleShow}>
-						Cerrar
+					<CDBBtn className={"discard-button"} onClick={handleShow}>
+						Descartar
 					</CDBBtn>
-					<CDBBtn className={"add-button"} onClick={handleShow}>
+					<CDBBtn className={"confirm-button"} onClick={handleShow}>
 						Guardar
 					</CDBBtn>
 				</div>

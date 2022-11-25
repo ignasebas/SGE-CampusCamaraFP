@@ -45,7 +45,7 @@ export const Empleados = () => {
 											<th>Apellidos</th>
 											<th>Telefono</th>
 											<th>Email</th>
-											<th>Direccion</th>
+											<th>Dirección</th>
 											<th>Puesto</th>
 											<th>Acciones</th>
 										</tr>

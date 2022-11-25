@@ -7,7 +7,6 @@ import {
 	CDBSidebarMenu,
 	CDBSidebarMenuItem } from "cdbreact";
 import { NavLink } from "react-router-dom";
-import {CgProfile} from 'react-icons/cg';
 import {IoCalendarOutline} from 'react-icons/io5';
 import {HiOutlineUserGroup} from 'react-icons/hi2';
 import {BsGraphUp} from 'react-icons/bs';

@@ -4,7 +4,31 @@
 	--green: #28d353;
 	--blue:  #0091EA;
 	--white: #FFFFFF;
+	--grey: #bfbfbf;
   }
+
+.header-icons{
+	margin-left:450px;
+}
+
+.discard-button{
+	background-color: var(--red) !important;
+	border: none !important;
+	display: inline-block !important;
+    margin-right:10px;
+}
+
+.confirm-button{
+	background-color: var(--green) !important;
+	border: none !important;
+	display: inline-block !important;
+}
+
+.cancel-button{
+	background-color: var(--grey) !important;
+	border: none !important;
+	display: inline-block !important;
+}
 
 .delete-button{
 	background-color: var(--red) !important;

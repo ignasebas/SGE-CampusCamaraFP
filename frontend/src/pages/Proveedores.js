@@ -44,7 +44,7 @@ export const Proveedores = () => {
 											<th>Contacto</th>
 											<th>Teléfono</th>
 											<th>Email</th>
-											<th>Direccion</th>
+											<th>Dirección</th>
 											<th>Acciones</th>
 										</tr>
 									</CDBTableHeader>

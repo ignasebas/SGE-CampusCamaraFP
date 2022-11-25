@@ -8,18 +8,15 @@ const EditModal = ({handleShow}) => {
 			<div className="modal-container">
 				<div className="modal-header">
 					<div>Editar</div>
-					<div onClick={handleShow}>
-						<button>X</button>
-					</div>
 				</div>
-				<div className="modal-body">d</div>
+				<div className="modal-body">Introduzca la nueva información...</div>
 				<div className="modal-footer">
-					<CDBBtn className={"delete-button"} onClick={handleShow}>
-						Cerrar
+					<CDBBtn className={"discard-button"} onClick={handleShow}>
+						Descartar
 					</CDBBtn>
-					<CDBBtn className={"add-button"} onClick={handleShow}>
-						Guardar Cambios
-					</CDBBtn>
+					<CDBBtn className={"confirm-button"} onClick={handleShow}>
+						Guardar cambios
+					</CDBBtn>	
 				</div>
 			</div>
 		</div>
