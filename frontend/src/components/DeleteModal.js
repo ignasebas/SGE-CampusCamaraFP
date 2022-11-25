@@ -1,5 +1,11 @@
 import React from "react";
 import { CDBBtn} from "cdbreact";
+import ClientesForm from "./ClientesForm";
+import VentasForm from "./VentasForm";
+import ComprasForm from "./ComprasForm";
+import EmpleadosForm from "./EmpleadosForm";
+import ProductosForm from "./ProductosForm";
+import ProveedoresForm from "./ProveedoresForm";
 
 const DeleteModal = ({handleShow}) => {
 
@@ -33,6 +39,7 @@ const DeleteModal = ({handleShow}) => {
 						<>
 						</>
 					):(
+						<ProductosForm del/>
 					)}
 					{!proveedores ? (
 						<>
