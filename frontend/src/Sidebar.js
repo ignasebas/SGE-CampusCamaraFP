@@ -48,15 +48,6 @@ const Sidebar = () => {
 								</NavLink>
 								<NavLink
 								exact
-								to="/profile"
-								activeClassName="activeClicked">
-									<CDBSidebarMenuItem>
-										<h6><CgProfile/> Perfil</h6>
-									</CDBSidebarMenuItem>
-								</NavLink>
-
-								<NavLink
-								exact
 								to="/calendario"
 								activeClassName="activeClicked">
 									<CDBSidebarMenuItem>

@@ -2,6 +2,7 @@ import React from "react";
 import { CDBBtn } from "cdbreact";
 import Sidebar from "../Sidebar";
 import Navbar from "../Navbar";
+import { NavLink } from "react-router-dom";
 import "./Profile.css"
 
 export const Hero404 = () => {
@@ -21,7 +22,12 @@ export const Hero404 = () => {
                 <h4 className="h1 font-weight-bold">Oops</h4>
                 <h4 className="h3 my-4">Se ha producido un error</h4>
                 <p>Lo sentimos, hmmm... probablemente falta una página o el enlace es incorrecto.</p>
-                <CDBBtn flat color="dark" className="py-2 btn-block">Volver</CDBBtn>
+                <NavLink
+												exact
+												to="/"
+												activeClassName="activeClicked">
+                        <CDBBtn flat color="dark" className="py-2 btn-block">Volver</CDBBtn>
+								</NavLink>
               </div>
               <img className="image404" alt="404" src="/sad.png" width="200px" />
             </section>
