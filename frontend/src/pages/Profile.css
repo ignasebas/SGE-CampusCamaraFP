@@ -52,6 +52,9 @@
 	color: var(--green) !important;
 	outline: auto !important;
 }
+.add-button_modal{
+	margin-left: 15px;
+}
 
 .title-with-add{
 	display: flex;
