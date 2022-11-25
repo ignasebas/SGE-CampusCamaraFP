@@ -15,6 +15,7 @@ import {AiOutlineShoppingCart} from 'react-icons/ai';
 import {GoPackage} from 'react-icons/go';
 import {GiOrganigram} from 'react-icons/gi';
 import {SlChemistry} from 'react-icons/sl';
+import {TbLayoutDashboard} from  'react-icons/tb';
 
 const Sidebar = () => {
 
@@ -30,7 +31,7 @@ const Sidebar = () => {
 					<i className="fa fa-bars fa-large"></i>
 				}>
 					<a href="/" className="text-decoration-none" style={{color:"inherit"}}>
-						Contrast
+						EMS Tech
 					</a>
 				</CDBSidebarHeader>
 
@@ -41,8 +42,8 @@ const Sidebar = () => {
 								exact
 								to="/"
 								activeClassName="activeClicked">
-									<CDBSidebarMenuItem icon="columns">
-										Salpicadero
+									<CDBSidebarMenuItem>
+										<h6><TbLayoutDashboard/> Salpicadero</h6>
 									</CDBSidebarMenuItem>
 								</NavLink>
 								<NavLink
