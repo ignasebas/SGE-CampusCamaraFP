@@ -42,15 +42,7 @@ const Sidebar = () => {
 								to="/"
 								activeClassName="activeClicked">
 									<CDBSidebarMenuItem icon="columns">
-										Dashboard
-									</CDBSidebarMenuItem>
-								</NavLink>
-								<NavLink
-								exact
-								to="/tables"
-								activeClassName="activeClicked">
-									<CDBSidebarMenuItem icon="table">
-										Tables
+										Salpicadero
 									</CDBSidebarMenuItem>
 								</NavLink>
 								<NavLink
@@ -144,7 +136,6 @@ const Sidebar = () => {
 								style={{
 								padding: "20px 5px"
 								}}>
-								Sidebar Footer
 							</div>
 						</CDBSidebarFooter>
 					</div>
