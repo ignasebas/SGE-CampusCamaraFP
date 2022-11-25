@@ -53,7 +53,7 @@ export const Clientes = () => {
 				<>
 				</>
 			):(
-				<AddModal handleShow={handleShowAdd}/>
+				<AddModal clientes handleShow={handleShowAdd}/>
 			)}
 			{!showEdit ? (
 				<>
