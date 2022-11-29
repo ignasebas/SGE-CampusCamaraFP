@@ -19,7 +19,6 @@
 	background-color: var(--red) !important;
 	border: none !important;
 	display: inline-block !important;
-    margin-right:10px;
 }
 
 .confirm-button{
@@ -52,7 +51,7 @@
 	color: var(--green) !important;
 	outline: auto !important;
 }
-.add-button_modal{
+.margin-left{
 	margin-left: 15px;
 }
 

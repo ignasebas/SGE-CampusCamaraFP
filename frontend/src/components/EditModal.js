@@ -7,7 +7,7 @@ import EmpleadosForm from "./EmpleadosForm";
 import ProductosForm from "./ProductosForm";
 import ProveedoresForm from "./ProveedoresForm";
 
-const EditModal = ({handleShow}) => {
+const EditModal = ({handleShow,clientes,compras,empleados,productos,proveedores,ventas}) => {
 
 	return (
 		<div className="modal-full">
@@ -58,12 +58,9 @@ const EditModal = ({handleShow}) => {
 					<CDBBtn className={"delete-button"} onClick={handleShow}>
 						Cerrar
 					</CDBBtn>
-					<CDBBtn className={"edit-button"} onClick={handleShow}>
+					<CDBBtn className={"edit-button"} onClick={handleShow} style={{marginLeft:"15px"}}>
 						Guardar Cambios
 					</CDBBtn>
-					<CDBBtn className={"confirm-button"} onClick={handleShow}>
-						Guardar cambios
-					</CDBBtn>	
 				</div>
 			</div>
 		</div>

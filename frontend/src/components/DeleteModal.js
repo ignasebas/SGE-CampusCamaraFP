@@ -7,7 +7,7 @@ import EmpleadosForm from "./EmpleadosForm";
 import ProductosForm from "./ProductosForm";
 import ProveedoresForm from "./ProveedoresForm";
 
-const DeleteModal = ({handleShow}) => {
+const DeleteModal = ({handleShow,clientes,compras,empleados,productos,proveedores,ventas}) => {
 
 	return (
 		<div className="modal-full">
@@ -16,7 +16,6 @@ const DeleteModal = ({handleShow}) => {
 					<div>ELIMINAR</div>
 				</div>
 				<div className="modal-body">
-					¿Estás seguro de que deseas eliminar a ... de la base de datos?
 					{!clientes ? (
 						<>
 						</>
@@ -58,7 +57,7 @@ const DeleteModal = ({handleShow}) => {
 					<CDBBtn className={"discard-button"} onClick={handleShow}>
 						Eliminar
 					</CDBBtn>
-					<CDBBtn className={"cancel-button"} onClick={handleShow}>
+					<CDBBtn className={"cancel-button"} onClick={handleShow} style={{marginLeft:"15px"}}>
 						Cancelar
 					</CDBBtn>
 				</div>

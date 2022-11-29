@@ -59,7 +59,7 @@ const AddModal = ({handleShow,clientes,compras,empleados,productos,proveedores,v
 					<CDBBtn className={"discard-button"} onClick={handleShow}>
 						Descartar
 					</CDBBtn>
-					<CDBBtn className={"add-button, add-button_modal"} onClick={handleShow}>
+					<CDBBtn className={"confirm-button"} onClick={handleShow} style={{marginLeft:"15px"}}>
 						Guardar
 					</CDBBtn>
 				</div>

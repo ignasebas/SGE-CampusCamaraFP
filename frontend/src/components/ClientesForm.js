@@ -9,13 +9,63 @@ const ClientesForm = ({add,edit,del}) => {
 				<>
 				</>
 			):(
-				<input type={'text'}></input>
+				<>
+					<div>
+						<label>DNI/NIF: </label>
+						<input type={'text'} style={{marginLeft:"20px"}}></input>
+					</div>
+					<div>
+						<label>Nombre: </label>
+						<input type={'text'} style={{marginLeft:"20px"}}></input>
+					</div>
+					<div>
+						<label>Apellidos: </label>
+						<input type={'text'} style={{marginLeft:"20px"}}></input>
+					</div>
+					<div>
+						<label>Teléfono: </label>
+						<input type={'text'} style={{marginLeft:"20px"}}></input>
+					</div>
+					<div>
+						<label>Email: </label>
+						<input type={'text'} style={{marginLeft:"20px"}}></input>
+					</div>
+					<div>
+						<label>Dirección: </label>
+						<input type={'text'} style={{marginLeft:"20px"}}></input>
+					</div>
+				</>
 			)}
 			{!edit ? (
 				<>
 				</>
 			):(
-				<input type={'text'}></input>
+				<>
+					<div>
+						<label>DNI/NIF: </label>
+						<input type={'text'} style={{marginLeft:"20px"}}></input>
+					</div>
+					<div>
+						<label>Nombre: </label>
+						<input type={'text'} style={{marginLeft:"20px"}}></input>
+					</div>
+					<div>
+						<label>Apellidos: </label>
+						<input type={'text'} style={{marginLeft:"20px"}}></input>
+					</div>
+					<div>
+						<label>Teléfono: </label>
+						<input type={'text'} style={{marginLeft:"20px"}}></input>
+					</div>
+					<div>
+						<label>Email: </label>
+						<input type={'text'} style={{marginLeft:"20px"}}></input>
+					</div>
+					<div>
+						<label>Dirección: </label>
+						<input type={'text'} style={{marginLeft:"20px"}}></input>
+					</div>
+				</>
 			)}
 			{!del ? (
 				<>

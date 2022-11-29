@@ -59,13 +59,13 @@ export const Clientes = () => {
 				<>
 				</>
 			):(
-				<EditModal handleShow={handleShowEdit}/>
+				<EditModal clientes handleShow={handleShowEdit}/>
 			)}
 			{!showDelete ? (
 				<>
 				</>
 			):(
-				<DeleteModal handleShow={handleShowDelete}/>
+				<DeleteModal clientes handleShow={handleShowDelete}/>
 			)}
 			<div className="d-flex profile" style={{overflowY:"hidden"}}>
 				<div>
