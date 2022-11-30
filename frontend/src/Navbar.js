@@ -7,21 +7,22 @@ import { NavLink } from "react-router-dom";
 const Navbar = () => {
 
 	return (
-        <Header style={{background:"#333", color:"#fff"}}>
-          <CDBNavbar dark expand="md" scrolling className="justify-content-start">
-            <CDBInput type="search" size="md" hint="Search" className="mb-n4 mt-n3 input-nav"/>
-            <div className="header-icons">
-              <i className="fas fa-bell"></i>
-              <i className="fas fa-comment-alt mx-4"></i>
-              <NavLink
-                exact
-                to="/profile"
-                activeClassName="activeClicked">
-                  <BsPersonCircle size={35} className="profile-icon"/>  
-							</NavLink>
-            </div>
-          </CDBNavbar>
-        </Header>
+		<Header style={{background:"#333", color:"#fff"}}>
+			<CDBNavbar dark expand="md" scrolling style={{justifyContent: "space-between"}}>
+				<CDBInput type="search" size="md" hint="Search" className="mb-n4 mt-n3 input-nav"/>
+				<div className="header-icons">
+					<i className="fas fa-bell"></i>
+					<i className="fas fa-comment-alt mx-4"></i>
+					<NavLink
+					exact
+					to="/profile"
+					style={{width:"3rem",height:"3rem"}}
+					activeClassName="activeClicked">
+						<BsPersonCircle size={35} className="profile-icon"/>  
+					</NavLink>
+				</div>
+			</CDBNavbar>
+		</Header>
 	);
 }
 

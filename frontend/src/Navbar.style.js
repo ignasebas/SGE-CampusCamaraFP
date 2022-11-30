@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Header = styled.header`
 	.input-nav {
-		margin-left:5rem !important;
+		margin-left:2rem !important;
 		width:25rem;
 	}
 

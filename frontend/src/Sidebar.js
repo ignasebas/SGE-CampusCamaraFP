@@ -35,23 +35,23 @@ const Sidebar = () => {
 					</a>
 				</CDBSidebarHeader>
 
-					<div style={{overflow:"scroll"}}>
+					<div style={{overflowY:"scroll"}}>
 						<CDBSidebarContent className="sidebar-content">
 							<CDBSidebarMenu>
 								<NavLink
 								exact
 								to="/"
 								activeClassName="activeClicked">
-									<CDBSidebarMenuItem>
-										<h6><TbLayoutDashboard/> Salpicadero</h6>
+									<CDBSidebarMenuItem icon="table">
+										Salpicadero
 									</CDBSidebarMenuItem>
 								</NavLink>
 								<NavLink
 								exact
 								to="/calendario"
 								activeClassName="activeClicked">
-									<CDBSidebarMenuItem>
-										<h6><IoCalendarOutline/> Calendario</h6>
+									<CDBSidebarMenuItem icon="calendar-alt">
+										Calendario
 									</CDBSidebarMenuItem>
 								</NavLink>
 
@@ -59,8 +59,8 @@ const Sidebar = () => {
 								exact
 								to="/clientes"
 								activeClassName="activeClicked">
-									<CDBSidebarMenuItem>
-										<h6><HiOutlineUserGroup/> Clientes</h6>
+									<CDBSidebarMenuItem icon="users">
+										Clientes
 									</CDBSidebarMenuItem>
 								</NavLink>
 
@@ -68,8 +68,8 @@ const Sidebar = () => {
 								exact
 								to="/ventas"
 								activeClassName="activeClicked">
-									<CDBSidebarMenuItem>
-										<h6><BsGraphUp/> Ventas</h6>
+									<CDBSidebarMenuItem icon="poll">
+										Ventas
 									</CDBSidebarMenuItem>
 								</NavLink>
 
@@ -77,8 +77,8 @@ const Sidebar = () => {
 								exact
 								to="/compras"
 								activeClassName="activeClicked">
-									<CDBSidebarMenuItem>
-										<h6><AiOutlineShoppingCart/> Compras</h6>
+									<CDBSidebarMenuItem icon="shopping-cart">
+										Compras
 									</CDBSidebarMenuItem>
 								</NavLink>
 
@@ -86,8 +86,8 @@ const Sidebar = () => {
 								exact
 								to="/proveedores"
 								activeClassName="activeClicked">
-									<CDBSidebarMenuItem>
-										<h6><GoPackage/> Proveedores</h6>
+									<CDBSidebarMenuItem icon="boxes">
+										Proveedores
 									</CDBSidebarMenuItem>
 								</NavLink>
 
@@ -95,8 +95,8 @@ const Sidebar = () => {
 								exact
 								to="/empleados"
 								activeClassName="activeClicked">
-									<CDBSidebarMenuItem>
-										<h6><GiOrganigram/> Empleados</h6>
+									<CDBSidebarMenuItem icon="sitemap">
+										Empleados
 									</CDBSidebarMenuItem>
 								</NavLink>
 
@@ -104,8 +104,8 @@ const Sidebar = () => {
 								exact
 								to="/productos"
 								activeClassName="activeClicked">
-									<CDBSidebarMenuItem>
-										<h6><SlChemistry/> Productos</h6>
+									<CDBSidebarMenuItem icon="flask">
+										Productos
 									</CDBSidebarMenuItem>
 								</NavLink>
 
