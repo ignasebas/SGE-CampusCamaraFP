@@ -78,7 +78,7 @@ export const Clientes = () => {
 								
 								<div className="mt-5">
 									<div className="mb-3 title-with-add">
-										<h4 className="font-weight-bold" style={{marginBottom:"0"}}><HiOutlineUserGroup/> Clientes</h4>
+										<h4 className="font-weight-bold" style={{marginBottom:"0"}}><CDBIcon icon="users"/> Clientes</h4>
 										<CDBBtn className={"add-button"} onClick={handleShowAdd}>
 											<CDBIcon icon="plus" className="ml-1" />
 										</CDBBtn>
