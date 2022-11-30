@@ -4,7 +4,6 @@ import Sidebar from "../Sidebar";
 import {CDBIcon} from "cdbreact";
 import Navbar from "../Navbar";
 import "./Profile.css"
-import {AiOutlineShoppingCart} from 'react-icons/ai';
 import {HiMagnifyingGlass} from 'react-icons/hi2';
 import AddModal from "../components/AddModal"
 import LensModal from "../components/LensModal"

@@ -5,7 +5,6 @@ import Sidebar from "../Sidebar";
 import {CDBIcon} from "cdbreact";
 import Navbar from "../Navbar";
 import "./Profile.css"
-import {GoPackage} from 'react-icons/go';
 import AddModal from "../components/AddModal"
 import EditModal from "../components/EditModal"
 import DeleteModal from "../components/DeleteModal"
