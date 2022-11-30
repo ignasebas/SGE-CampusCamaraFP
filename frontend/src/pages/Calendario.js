@@ -22,7 +22,7 @@ export const Calendario = () => {
 				<div style={{height:"100%"}}>
 							<div style={{height:"calc(100% - 64px)", padding:"20px 5%", overflowY:"scroll"}}>
 								<br></br><br></br>
-								<div>
+								<div >
 		  							<Calendar onChange={onChange} 
 									value={value}
 									onClickDay={formulario}/>

@@ -9,13 +9,73 @@ const ClientesForm = ({add,edit,del}) => {
 				<>
 				</>
 			):(
-				<input type={'text'}></input>
+				<>
+					<div>
+						<label>Precio venta: </label>
+						<input type={'text'} style={{marginLeft:"20px"}}></input>
+					</div>
+					<br/>
+					<div>
+						<label>Precio de compra: </label>
+						<input type={'text'} style={{marginLeft:"20px"}}></input>
+					</div>
+					<br/>
+					<div>
+						<label>Tasas: </label>
+						<input type={'text'} style={{marginLeft:"20px"}}></input>
+					</div>
+					<br/>
+					<div>
+						<label>ID Proveedor: </label>
+						<input type={'text'} style={{marginLeft:"20px"}}></input>
+					</div>
+					<br/>
+					<div>
+						<label>Imagen: </label>
+						<input type={'text'} style={{marginLeft:"20px"}}></input>
+					</div>
+					<br/>
+					<div>
+						<label>Descripción: </label>
+						<input type={'text'} style={{marginLeft:"20px"}}></input>
+					</div>
+				</>
 			)}
 			{!edit ? (
 				<>
 				</>
 			):(
-				<input type={'text'}></input>
+				<>
+					<div>
+						<label>Precio venta: </label>
+						<input type={'text'} style={{marginLeft:"20px"}}></input>
+					</div>
+					<br/>
+					<div>
+						<label>Precio de compra: </label>
+						<input type={'text'} style={{marginLeft:"20px"}}></input>
+					</div>
+					<br/>
+					<div>
+						<label>Tasas: </label>
+						<input type={'text'} style={{marginLeft:"20px"}}></input>
+					</div>
+					<br/>
+					<div>
+						<label>ID Proveedor: </label>
+						<input type={'text'} style={{marginLeft:"20px"}}></input>
+					</div>
+					<br/>
+					<div>
+						<label>Imagen: </label>
+						<input type={'text'} style={{marginLeft:"20px"}}></input>
+					</div>
+					<br/>
+					<div>
+						<label>Descripción: </label>
+						<input type={'text'} style={{marginLeft:"20px"}}></input>
+					</div>
+				</>
 			)}
 			{!del ? (
 				<>

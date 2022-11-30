@@ -5,9 +5,9 @@ import Sidebar from "../Sidebar";
 import {CDBIcon} from "cdbreact";
 import Navbar from "../Navbar";
 import "./Profile.css"
-import { NavLink } from "react-router-dom";
 import {BsGraphUp} from 'react-icons/bs';
 import {HiMagnifyingGlass} from 'react-icons/hi2';
+import AddModal from "../components/AddModal"
 import LensModal from "../components/LensModal"
 
 export const Ventas = () => {
@@ -20,11 +20,19 @@ export const Ventas = () => {
 		{ id: 5, nombre: "Gregoria", apellidos: "Diaz Valdes", fechaVenta:"2022/10/21", observaciones:"Bueno, bonito, barato.", precioTotal:500.90},
 	]
 
+	const [showAdd, setShowAdd] = useState(false);
+	const handleShowAdd = () => setShowAdd(!showAdd);
 	const [showLens, setShowLens] = useState(false);
 	const handleShowLens = () => setShowLens(!showLens);
 
 	return (
 		<>
+			{!showAdd ? (
+				<>
+				</>
+			):(
+				<AddModal ventas handleShow={handleShowAdd}/>
+			)}
 			{!showLens ? (
 				<>
 				</>
@@ -43,7 +51,7 @@ export const Ventas = () => {
 							<div className="mt-5">
 								<div className="mb-3 title-with-add">
 									<h4 className="font-weight-bold" style={{marginBottom:"0"}}><BsGraphUp/> Ventas</h4>
-									<CDBBtn className={"add-button"}>
+									<CDBBtn className={"add-button"} onClick={handleShowAdd}>
 										<CDBIcon icon="plus" className="ml-1" />
 									</CDBBtn>
 								</div>

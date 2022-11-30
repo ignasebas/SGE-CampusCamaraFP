@@ -9,13 +9,74 @@ const ClientesForm = ({add,edit,del}) => {
 				<>
 				</>
 			):(
-				<input type={'text'}></input>
+				<>
+					
+					<div>
+						<label>Nombre: </label>
+						<input type={'text'} style={{marginLeft:"20px"}}></input>
+					</div>
+					<br/>
+					<div>
+						<label>Apellidos: </label>
+						<input type={'text'} style={{marginLeft:"20px"}}></input>
+					</div>
+					<br/>
+					<div>
+						<label>Teléfono: </label>
+						<input type={'text'} style={{marginLeft:"20px"}}></input>
+					</div>
+					<br/>
+					<div>
+						<label>Email: </label>
+						<input type={'text'} style={{marginLeft:"20px"}}></input>
+					</div>
+					<br/>
+					<div>
+						<label>Dirección: </label>
+						<input type={'text'} style={{marginLeft:"20px"}}></input>
+					</div>
+					<br/>
+					<div>
+						<label>Puesto: </label>
+						<input type={'text'} style={{marginLeft:"20px"}}></input>
+					</div>
+				</>
 			)}
 			{!edit ? (
 				<>
 				</>
 			):(
-				<input type={'text'}></input>
+				<>
+					<div>
+						<label>Nombre: </label>
+						<input type={'text'} style={{marginLeft:"20px"}}></input>
+					</div>
+					<br/>
+					<div>
+						<label>Apellidos: </label>
+						<input type={'text'} style={{marginLeft:"20px"}}></input>
+					</div>
+					<br/>
+					<div>
+						<label>Teléfono: </label>
+						<input type={'text'} style={{marginLeft:"20px"}}></input>
+					</div>
+					<br/>
+					<div>
+						<label>Email: </label>
+						<input type={'text'} style={{marginLeft:"20px"}}></input>
+					</div>
+					<br/>
+					<div>
+						<label>Dirección: </label>
+						<input type={'text'} style={{marginLeft:"20px"}}></input>
+					</div>
+					<br/>
+					<div>
+						<label>Puesto: </label>
+						<input type={'text'} style={{marginLeft:"20px"}}></input>
+					</div>
+				</>
 			)}
 			{!del ? (
 				<>

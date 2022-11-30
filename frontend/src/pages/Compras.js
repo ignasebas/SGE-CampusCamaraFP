@@ -1,12 +1,13 @@
-import React from "react";
+import React, {useState} from "react";
 import { CDBBtn, CDBTable, CDBTableHeader, CDBTableBody} from "cdbreact";
 import Sidebar from "../Sidebar";
 import {CDBIcon} from "cdbreact";
 import Navbar from "../Navbar";
 import "./Profile.css"
-import { NavLink } from "react-router-dom";
 import {AiOutlineShoppingCart} from 'react-icons/ai';
 import {HiMagnifyingGlass} from 'react-icons/hi2';
+import AddModal from "../components/AddModal"
+import LensModal from "../components/LensModal"
 
 export const Compras = () => {
 
@@ -18,7 +19,25 @@ export const Compras = () => {
 		{ id: 5, nombre: "Spacus S.A.", fechaCompra: "2022/06/21", observaciones: "Bueno, bonito, barato.", precioTotal:600.90},
 	]
 
+	const [showAdd, setShowAdd] = useState(false);
+	const handleShowAdd = () => setShowAdd(!showAdd);
+	const [showLens, setShowLens] = useState(false);
+	const handleShowLens = () => setShowLens(!showLens);
+
 	return (
+		<>
+			{!showAdd ? (
+				<>
+				</>
+			):(
+				<AddModal compras handleShow={handleShowAdd}/>
+			)}
+			{!showLens ? (
+				<>
+				</>
+			):(
+				<LensModal handleShow={handleShowLens}/>
+			)}
 		<div className="d-flex profile">
 			<div>
 				<Sidebar/>
@@ -31,7 +50,7 @@ export const Compras = () => {
 							<div className="mt-5">
 								<div className="mb-3 title-with-add">
 									<h4 className="font-weight-bold" style={{marginBottom:"0"}}><AiOutlineShoppingCart /> Compras</h4>
-									<CDBBtn className={"add-button"}>
+									<CDBBtn className={"add-button"} onClick={handleShowAdd}>
 										<CDBIcon icon="plus" className="ml-1" />
 									</CDBBtn>
 								</div>
@@ -56,11 +75,9 @@ export const Compras = () => {
 												<td>{compra.observaciones}</td>
 												<td>{compra.precioTotal} €</td>
 												<td style={{whiteSpace: "nowrap"}}>
-												<NavLink exact to="/" activeClassName="activeClicked">
-													<CDBBtn className={"edit-button"} style={{marginRight:"10px"}}>
+													<CDBBtn onClick={handleShowLens} className={"edit-button"} style={{marginRight:"10px"}}>
 														<HiMagnifyingGlass/>
 													</CDBBtn>
-												</NavLink>	
 												</td>
 											</tr>
 										)}
@@ -77,6 +94,6 @@ export const Compras = () => {
 				</div>
 			</div>
 		</div>
-
+		</>
 	);
 }
