@@ -7,14 +7,6 @@ import {
 	CDBSidebarMenu,
 	CDBSidebarMenuItem } from "cdbreact";
 import { NavLink } from "react-router-dom";
-import {IoCalendarOutline} from 'react-icons/io5';
-import {HiOutlineUserGroup} from 'react-icons/hi2';
-import {BsGraphUp} from 'react-icons/bs';
-import {AiOutlineShoppingCart} from 'react-icons/ai';
-import {GoPackage} from 'react-icons/go';
-import {GiOrganigram} from 'react-icons/gi';
-import {SlChemistry} from 'react-icons/sl';
-import {TbLayoutDashboard} from  'react-icons/tb';
 import {CgMenuCheese} from  'react-icons/cg';
 
 const Sidebar = () => {
