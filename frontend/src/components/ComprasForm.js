@@ -9,7 +9,27 @@ const ClientesForm = ({add,edit,del}) => {
 				<>
 				</>
 			):(
-				<input type={'text'}></input>
+				<>
+					<div>
+						<label>Nombre proveedor: </label>
+						<input type={'text'} style={{marginLeft:"20px"}}></input>
+					</div>
+					<br/>
+					<div>
+						<label>Fecha de compra: </label>
+						<input type={'text'} style={{marginLeft:"20px"}}></input>
+					</div>
+					<br/>
+					<div>
+						<label>Observaciones: </label>
+						<input type={'text'} style={{marginLeft:"20px"}}></input>
+					</div>
+					<br/>
+					<div>
+						<label>Precio total: </label>
+						<input type={'text'} style={{marginLeft:"20px"}}></input>
+					</div>
+				</>
 			)}
 			{!edit ? (
 				<>

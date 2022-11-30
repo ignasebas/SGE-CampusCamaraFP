@@ -1,12 +1,14 @@
-import React from "react";
+import React, {useState} from "react";
 import { CDBBtn} from "cdbreact";
 import { CDBTable, CDBTableHeader, CDBTableBody } from "cdbreact";
 import Sidebar from "../Sidebar";
 import {CDBIcon} from "cdbreact";
 import Navbar from "../Navbar";
 import "./Profile.css"
-import { NavLink } from "react-router-dom";
 import {GiOrganigram} from 'react-icons/gi';
+import AddModal from "../components/AddModal"
+import EditModal from "../components/EditModal"
+import DeleteModal from "../components/DeleteModal"
 
 export const Empleados = () => {
 
@@ -18,7 +20,33 @@ export const Empleados = () => {
 		{ id: 5, nif:"Y2192133D", nombre:"Sebas", apellido:"Kuhnel", telefono:"6271618", email:"sebastian@gmail.com", direccion:"Calle Palancia, 32", puesto:"Recursos humanos"},
 	]
 
+	const [showAdd, setShowAdd] = useState(false);
+	const [showEdit, setShowEdit] = useState(false);
+	const [showDelete, setShowDelete] = useState(false);
+	const handleShowAdd = () => setShowAdd(!showAdd);
+	const handleShowEdit = () => setShowEdit(!showEdit);
+	const handleShowDelete = () => setShowDelete(!showDelete);
+
 	return (
+		<>
+			{!showAdd ? (
+				<>
+				</>
+			):(
+				<AddModal empleados handleShow={handleShowAdd}/>
+			)}
+			{!showEdit ? (
+				<>
+				</>
+			):(
+				<EditModal empleados handleShow={handleShowEdit}/>
+			)}
+			{!showDelete ? (
+				<>
+				</>
+			):(
+				<DeleteModal empleados handleShow={handleShowDelete}/>
+			)}
 		<div className="d-flex profile">
 			<div>
 				<Sidebar/>
@@ -31,7 +59,7 @@ export const Empleados = () => {
 							<div className="mt-5">
 								<div className="mb-3 title-with-add">
 									<h4 className="font-weight-bold" style={{marginBottom:"0"}}><GiOrganigram/> Empleados</h4>
-									<CDBBtn className={"add-button"}>
+									<CDBBtn className={"add-button"} onClick={handleShowAdd}>
 										<CDBIcon icon="plus" className="ml-1" />
 									</CDBBtn>
 								</div>
@@ -43,7 +71,7 @@ export const Empleados = () => {
 											<th>NIF</th>
 											<th>Nombre</th>
 											<th>Apellidos</th>
-											<th>Telefono</th>
+											<th>Teléfono</th>
 											<th>Email</th>
 											<th>Dirección</th>
 											<th>Puesto</th>
@@ -62,15 +90,10 @@ export const Empleados = () => {
 												<td>{empleado.direccion}</td>
 												<td>{empleado.puesto}</td>
 												<td style={{whiteSpace: "nowrap"}}>
-												<NavLink
-												exact
-												to="/"
-												activeClassName="activeClicked">
-													<CDBBtn className={"edit-button"} style={{marginRight:"10px"}}>
+													<CDBBtn onClick={handleShowEdit} className={"edit-button"} style={{marginRight:"10px"}}>
 														<CDBIcon icon="pen" className="ml-1" />
 													</CDBBtn>
-												</NavLink>	
-													<CDBBtn className={"delete-button"}>
+													<CDBBtn className={"delete-button"} onClick={handleShowDelete}>
 														<CDBIcon icon="trash" className="ml-1" />
 													</CDBBtn>
 												</td>
@@ -90,6 +113,6 @@ export const Empleados = () => {
 				</div>
 			</div>
 		</div>
-
+		</>
 	);
 }

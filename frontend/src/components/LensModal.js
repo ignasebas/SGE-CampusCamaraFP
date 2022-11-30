@@ -10,9 +10,6 @@ const LensModal = ({handleShow}) => {
 			<div className="modal-container">
 				<div className="modal-header">
 					<div><HiMagnifyingGlass/></div>
-                    <div onClick={handleShow}>
-                        <button> <SlClose/> </button>
-                    </div>
 				</div>
 				<div>
 					<img className="image404" alt="404" src="/pagame.webp"  width="500px" />

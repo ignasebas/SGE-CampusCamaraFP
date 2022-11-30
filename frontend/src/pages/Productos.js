@@ -1,11 +1,13 @@
-import React from "react";
+import React, {useState} from "react";
 import { CDBBtn} from "cdbreact";
 import { CDBTable, CDBTableHeader, CDBTableBody } from "cdbreact";
 import Sidebar from "../Sidebar";
 import {CDBIcon} from "cdbreact";
 import Navbar from "../Navbar";
 import "./Profile.css"
-import { NavLink } from "react-router-dom";
+import AddModal from "../components/AddModal"
+import EditModal from "../components/EditModal"
+import DeleteModal from "../components/DeleteModal"
 import {SlChemistry} from 'react-icons/sl';
 
 
@@ -18,7 +20,33 @@ export const Productos = () => {
 		{ id: 5, precioVenta:5.40, precioCompra: 3.20, tasas:"21%", idProveedor:3, imagen:"archivo_imagen.png", descripcion:"Breve descripción del producto."},
 	]
 
+	const [showAdd, setShowAdd] = useState(false);
+	const [showEdit, setShowEdit] = useState(false);
+	const [showDelete, setShowDelete] = useState(false);
+	const handleShowAdd = () => setShowAdd(!showAdd);
+	const handleShowEdit = () => setShowEdit(!showEdit);
+	const handleShowDelete = () => setShowDelete(!showDelete);
+
 	return (
+		<>
+			{!showAdd ? (
+				<>
+				</>
+			):(
+				<AddModal productos handleShow={handleShowAdd}/>
+			)}
+			{!showEdit ? (
+				<>
+				</>
+			):(
+				<EditModal productos handleShow={handleShowEdit}/>
+			)}
+			{!showDelete ? (
+				<>
+				</>
+			):(
+				<DeleteModal productos handleShow={handleShowDelete}/>
+			)}
 		<div className="d-flex profile">
 			<div>
 				<Sidebar/>
@@ -31,7 +59,7 @@ export const Productos = () => {
 							<div className="mt-5">
 								<div className="mb-3 title-with-add">
 									<h4 className="font-weight-bold" style={{marginBottom:"0"}}><SlChemistry/> Productos</h4>
-									<CDBBtn className={"add-button"}>
+									<CDBBtn className={"add-button"} onClick={handleShowAdd}>
 										<CDBIcon icon="plus" className="ml-1" />
 									</CDBBtn>
 								</div>
@@ -45,7 +73,7 @@ export const Productos = () => {
 											<th>Tasas</th>
 											<th>ID Proveedor</th>
 											<th>Imagen</th>
-											<th>Descripcion</th>
+											<th>Descripción</th>
 											<th>Acciones</th>
 										</tr>
 									</CDBTableHeader>
@@ -60,15 +88,11 @@ export const Productos = () => {
 												<td>{producto.imagen}</td>
 												<td>{producto.descripcion}</td>
 												<td style={{whiteSpace: "nowrap"}}>
-												<NavLink
-												exact
-												to="/"
-												activeClassName="activeClicked">
-													<CDBBtn className={"edit-button"} style={{marginRight:"10px"}}>
+													<CDBBtn onClick={handleShowEdit} className={"edit-button"} style={{marginRight:"10px"}}>
 														<CDBIcon icon="pen" className="ml-1" />
 													</CDBBtn>
-												</NavLink>	
-													<CDBBtn className={"delete-button"}>
+
+													<CDBBtn className={"delete-button"} onClick={handleShowDelete}>
 														<CDBIcon icon="trash" className="ml-1" />
 													</CDBBtn>
 												</td>
@@ -88,6 +112,6 @@ export const Productos = () => {
 				</div>
 			</div>
 		</div>
-
+		</>
 	);
 }
