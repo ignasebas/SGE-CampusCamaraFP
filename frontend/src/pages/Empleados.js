@@ -58,7 +58,7 @@ export const Empleados = () => {
 							
 							<div className="mt-5">
 								<div className="mb-3 title-with-add">
-									<h4 className="font-weight-bold" style={{marginBottom:"0"}}><GiOrganigram/> Empleados</h4>
+									<h4 className="font-weight-bold" style={{marginBottom:"0"}}><CDBIcon icon="sitemap"/> Empleados</h4>
 									<CDBBtn className={"add-button"} onClick={handleShowAdd}>
 										<CDBIcon icon="plus" className="ml-1" />
 									</CDBBtn>
