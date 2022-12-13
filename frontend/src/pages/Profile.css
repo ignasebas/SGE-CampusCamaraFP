@@ -86,7 +86,7 @@
 	z-index: 1010;
 	position:fixed;
 	background-color: hsla(0, 0%, 0%, 0.281);
-	-webkit-transform: none;
+	transform: none;
     display: flex;
     justify-content: center;
     align-items: center;

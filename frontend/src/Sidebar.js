@@ -35,7 +35,7 @@ const Sidebar = () => {
 								to="/"
 								activeClassName="activeClicked">
 									<CDBSidebarMenuItem icon="table">
-										Salpicadero
+										Menú principal
 									</CDBSidebarMenuItem>
 								</NavLink>
 								<NavLink
