@@ -8,7 +8,7 @@ import "./Profile.css"
 import AddModal from "../components/AddModal"
 import EditModal from "../components/EditModal"
 import DeleteModal from "../components/DeleteModal"
-import { getClientes } from "../services/clientesAPI";
+import { getClientes, postCliente } from "../services/clientesAPI";
 
 export const Clientes = () => {
 
@@ -27,10 +27,18 @@ export const Clientes = () => {
 	const [showAdd, setShowAdd] = useState(false);
 	const [showEdit, setShowEdit] = useState(false);
 	const [showDelete, setShowDelete] = useState(false);
-	const handleShowAdd = () => setShowAdd(!showAdd);
+	const handleShowAdd = () => add();
 	const handleShowEdit = () => setShowEdit(!showEdit);
 	const handleShowDelete = () => setShowDelete(!showDelete);
-	
+	function add() {
+		if (!showAdd) {
+			setShowAdd(!showAdd)
+			return
+		} else {
+			setShowAdd(!showAdd)
+			postCliente({"nif":"123456789","nombre":"Sebas","apellidos":"123456789012345","telefono":123456789,"email":"sebas@gmail.com","direccion":"Calle Ejemplo 12414"});
+		}
+	}
 	console.log(data)
 	
 
@@ -89,7 +97,7 @@ export const Clientes = () => {
 												<tr>
 													<td>{cliente.nif}</td>
 													<td>{cliente.nombre}</td>
-													<td>{cliente.apellido}</td>
+													<td>{cliente.apellidos}</td>
 													<td>{cliente.telefono}</td>
 													<td>{cliente.email}</td>
 													<td>{cliente.direccion}</td>
