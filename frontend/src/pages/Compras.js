@@ -10,31 +10,12 @@ import LensModal from "../components/LensModal"
 
 export const Compras = () => {
 
-<<<<<<< Updated upstream
 	const data = [	
 		{ id: 1, nombre: "Lessong S.A.", fechaCompra: "2022/10/22", observaciones: "Bueno, bonito, barato.", precioTotal:600.90},
 		{ id: 2, nombre: "Viaspect S.A.", fechaCompra: "2022/08/30", observaciones: "Bueno, bonito, barato.", precioTotal:600.90},
 		{ id: 3, nombre: "Cellap S.A.", fechaCompra: "2022/07/23", observaciones: "Bueno, bonito, barato.", precioTotal:600.90},
 		{ id: 4, nombre: "Karmat S.A.", fechaCompra: "2022/05/12", observaciones: "Bueno, bonito, barato.", precioTotal:600.90},
 		{ id: 5, nombre: "Spacus S.A.", fechaCompra: "2022/06/21", observaciones: "Bueno, bonito, barato.", precioTotal:600.90},
-=======
-	const data = [							
-		{ id: 1, idProveedor: 2, idProducto: 5, cantidad: 700, precioTotal:600.90},
-		{ id: 2, idProveedor: 2, idProducto: 5, cantidad: 700, precioTotal:600.90},
-		{ id: 3, idProveedor: 2, idProducto: 5, cantidad: 700, precioTotal:600.90},
-		{ id: 4, idProveedor: 2, idProducto: 5, cantidad: 700, precioTotal:600.90},
-		{ id: 5, idProveedor: 2, idProducto: 5, cantidad: 700, precioTotal:600.90},
-		{ id: 1, idProveedor: 2, idProducto: 5, cantidad: 700, precioTotal:600.90},
-		{ id: 2, idProveedor: 2, idProducto: 5, cantidad: 700, precioTotal:600.90},
-		{ id: 3, idProveedor: 2, idProducto: 5, cantidad: 700, precioTotal:600.90},
-		{ id: 4, idProveedor: 2, idProducto: 5, cantidad: 700, precioTotal:600.90},
-		{ id: 5, idProveedor: 2, idProducto: 5, cantidad: 700, precioTotal:600.90},
-		{ id: 1, idProveedor: 2, idProducto: 5, cantidad: 700, precioTotal:600.90},
-		{ id: 2, idProveedor: 2, idProducto: 5, cantidad: 700, precioTotal:600.90},
-		{ id: 3, idProveedor: 2, idProducto: 5, cantidad: 700, precioTotal:600.90},
-		{ id: 4, idProveedor: 2, idProducto: 5, cantidad: 700, precioTotal:600.90},
-		{ id: 5, idProveedor: 2, idProducto: 5, cantidad: 700, precioTotal:600.90},
->>>>>>> Stashed changes
 	]
 
 	const [showAdd, setShowAdd] = useState(false);
