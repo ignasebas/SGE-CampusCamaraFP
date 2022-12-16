@@ -2,7 +2,6 @@ import React from "react";
 
 const ClientesForm = ({add,edit,del}) => {
 
-
 	return (
 		<>
 			{!add ? (
