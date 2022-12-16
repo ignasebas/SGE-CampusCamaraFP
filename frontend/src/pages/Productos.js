@@ -22,6 +22,7 @@ export const Productos = () => {
 	  
 
 	const [data, setData] = useState([]);
+	const [showAdd, setShowAdd] = useState(false);
 	const [showEdit, setShowEdit] = useState(false);
 	const [showDelete, setShowDelete] = useState(false);
 	const handleShowAdd = () => setShowAdd(!showAdd);
