@@ -75,7 +75,6 @@ export const Clientes = () => {
 									<CDBTable striped responsive>
 										<CDBTableHeader>
 											<tr>
-												<th>ID</th>
 												<th>NIF/DNI</th>
 												<th>Nombre</th>
 												<th>Apellidos</th>
@@ -88,7 +87,6 @@ export const Clientes = () => {
 										<CDBTableBody style={{verticalAlign: "middle"}}>
 											{data.map((cliente) =>
 												<tr>
-													<td>{cliente._id}</td>
 													<td>{cliente.nif}</td>
 													<td>{cliente.nombre}</td>
 													<td>{cliente.apellido}</td>
