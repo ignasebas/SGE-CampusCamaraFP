@@ -8,7 +8,6 @@ import "./Profile.css"
 import AddModal from "../components/AddModal"
 import EditModal from "../components/EditModal"
 import DeleteModal from "../components/DeleteModal"
-import {SlChemistry} from 'react-icons/sl';
 
 
 export const Productos = () => {

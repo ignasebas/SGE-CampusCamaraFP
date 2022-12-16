@@ -3,6 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const mongoString = process.env.DATABASE_URL;
+const cors = require('cors');
 
 mongoose.connect(mongoString);
 const database = mongoose.connection;
@@ -16,18 +17,20 @@ database.once('connected', () => {
 })
 const app = express();
 
+app.use(cors());
+
 app.use(express.json());
 
-app.listen(3000, () => {
-    console.log(`Server Started at ${3000}`)
-})
+app.listen(8000, () => {
+    console.log(`Server Started at ${8000}`)
+});
 
 const rutasClientes = require('./routes/rutasClientes');
-const routasProveedores = require('./routes/rutasProveedores');
-const rutasClientes = require('./routes/rutasCompras');
-const routasProveedores = require('./routes/rutasVentas');
+//const rutasProveedores = require('./routes/rutasProveedores');
+//const rutasCompras = require('./routes/rutasCompras');
+//const routasVentas = require('./routes/rutasVentas');
 
 app.use('/api', rutasClientes)
-app.use('/api', routasProveedores)
-app.use('/api', rutasCompras)
-app.use('/api', routasVentas)
+//app.use('/api', rutasProveedores)
+//app.use('/api', rutasCompras)
+//app.use('/api', routasVentas)
