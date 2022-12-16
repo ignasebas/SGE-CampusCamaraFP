@@ -7,7 +7,7 @@ module.exports = router;
 const ModelVentas = require('../models/modelVentas');
 
 //Post Method
-router.post('/venta', async (req, res) => {
+router.post('/postVenta', async (req, res) => {
     const data = new ModelVentas({
         idVenta: req.body.idVenta,
         nombreCliente: req.body.nombreCliente,
@@ -25,8 +25,8 @@ router.post('/venta', async (req, res) => {
     }
 })
 
-//Get all Method
-router.get('/allVentas', async (req, res) => {
+//Get All Method
+router.get('/getAllVentas', async (req, res) => {
     try{
         const data = await ModelVentas.find();
         res.json(data)
@@ -36,8 +36,8 @@ router.get('/allVentas', async (req, res) => {
     }
 })
 
-//Get by ID Method
-router.get('/byIdVenta/:id', async (req, res) => {
+//Get By Id Method
+router.get('/getByIdVenta/:id', async (req, res) => {
     try{
         const data = await ModelVentas.findById(req.params.id);
         res.json(data)
@@ -47,8 +47,8 @@ router.get('/byIdVenta/:id', async (req, res) => {
     }
 })
 
-//Update by ID Method
-router.patch('/byIdVenta/:id', async (req, res) => {
+//Update By Id Method
+router.patch('/updateByIdVenta/:id', async (req, res) => {
     try {
         const id = req.params.id;
         const updatedData = req.body;
@@ -66,7 +66,7 @@ router.patch('/byIdVenta/:id', async (req, res) => {
 })
 
 //Delete by ID Method
-router.delete('/byIdVenta/:id', async (req, res) => {
+router.delete('/deleteByIdVenta/:id', async (req, res) => {
     try {
         const id = req.params.id;
         const data = await ModelVentas.findByIdAndDelete(id)

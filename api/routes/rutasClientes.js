@@ -6,8 +6,8 @@ module.exports = router;
 
 const Model = require('../models/cliente.js');
 
-//POST
-router.post('/cliente', async (req, res) => {
+//Post Method
+router.post('/postCliente', async (req, res) => {
 	const data = new Model({
 		nif: req.body.nif,
 		nombre: req.body.nombre,
@@ -26,8 +26,8 @@ router.post('/cliente', async (req, res) => {
 	}
 })
 
-//GET ALL (SELECT *)
-router.get('/allCliente', async (req, res) => {
+//Get Method
+router.get('/getAllCliente', async (req, res) => {
 	try{
 		const data = await Model.find();
 		res.json(data)
@@ -37,8 +37,8 @@ router.get('/allCliente', async (req, res) => {
 	}
 })
 
-//GET ONE (SELECT WHERE = ID)
-router.get('/byIdCliente/:id', async (req, res) => {
+//Get By Id Method
+router.get('/getByIdCliente/:id', async (req, res) => {
 	try{
 		const data = await Model.findById(req.params.id);
 		res.json(data)
@@ -48,8 +48,8 @@ router.get('/byIdCliente/:id', async (req, res) => {
 	}
 })
 
-//UPDATE (PATCH)
-router.patch('/byIdCliente/:id', async (req, res) => {
+//Update By Id Method
+router.patch('/getByIdCliente/:id', async (req, res) => {
 	try {
 		const id = req.params.id;
 		const updatedData = req.body;
@@ -66,8 +66,8 @@ router.patch('/byIdCliente/:id', async (req, res) => {
 	}
 })
 
-//DELETE
-router.delete('/byIdCliente/:id', async (req, res) => {
+//Delete By Id Method
+router.delete('/deleteByIdCliente/:id', async (req, res) => {
 	try {
 		const id = req.params.id;
 		const data = await Model.findByIdAndDelete(id)
