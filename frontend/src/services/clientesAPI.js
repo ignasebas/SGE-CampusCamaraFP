@@ -17,5 +17,5 @@ export const deleteCliente = async (id) => {
     const apiUrl = getApiUrl(`/deleteByIdCliente/${id}`);
     const response = await axios.delete(apiUrl);
     return response.data;
-  }
+}
   
