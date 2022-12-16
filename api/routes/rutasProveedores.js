@@ -78,7 +78,7 @@ router.patch('/updateByIdProveedor/:id', async (req, res) => {
 	}
 })
 
-//DELETE
+//Delete By Id Proveedor
 router.delete('/deleteByIdProveedor/:id', async (req, res) => {
 	try {
 		const id = req.params.id;

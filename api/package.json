@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon index.js"
   },
-  "author": "Antonio Díaz Santacruz",
+  "author": "EMS Tech",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
