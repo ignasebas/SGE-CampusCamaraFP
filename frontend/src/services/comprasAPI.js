@@ -2,13 +2,13 @@ import axios from 'axios';
 
 import { getApiUrl } from "./config";
 
-export const getClientes = () => {
-    const ApiUrl = getApiUrl('/allCliente')
+export const getCompras = () => {
+    const ApiUrl = getApiUrl('/getAllCompra')
     return axios.get(ApiUrl).then(res => res.data)
 }
 
-export const postliente = async (data) => {
-  const apiUrl = getApiUrl('/postCliente');
+export const postCompras = async (data) => {
+  const apiUrl = getApiUrl('/postCompra');
   const response = await axios.post(apiUrl, data);
   return response.data;
 }
