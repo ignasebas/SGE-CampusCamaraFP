@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState,useEffect} from "react";
 import { CDBBtn} from "cdbreact";
 import { CDBTable, CDBTableHeader, CDBTableBody } from "cdbreact";
 import Sidebar from "../Sidebar";
@@ -8,17 +8,20 @@ import "./Profile.css"
 import AddModal from "../components/AddModal"
 import EditModal from "../components/EditModal"
 import DeleteModal from "../components/DeleteModal"
+import { getProductos } from "../services/productosAPI";
 
 
 export const Productos = () => {
-	const data = [							
-		{ precioVenta:5.40, precioCompra: 3.20, tasas:"21%", idProveedor:3, imagen:"archivo_imagen.png", descripcion:"Breve descripción del producto."},
-		{ precioVenta:5.40, precioCompra: 3.20, tasas:"21%", idProveedor:3, imagen:"archivo_imagen.png", descripcion:"Breve descripción del producto."},
-		{ precioVenta:5.40, precioCompra: 3.20, tasas:"21%", idProveedor:3, imagen:"archivo_imagen.png", descripcion:"Breve descripción del producto."},
-		{ precioVenta:5.40, precioCompra: 3.20, tasas:"21%", idProveedor:3, imagen:"archivo_imagen.png", descripcion:"Breve descripción del producto."},
-		{ precioVenta:5.40, precioCompra: 3.20, tasas:"21%", idProveedor:3, imagen:"archivo_imagen.png", descripcion:"Breve descripción del producto."},
-	]
 
+	useEffect(() => {
+		
+		getProductos().then(ProductData => {
+		  setData(ProductData);
+		});
+	}, []);
+	  
+
+	const [data, setData] = useState([]);
 	const [showAdd, setShowAdd] = useState(false);
 	const [showEdit, setShowEdit] = useState(false);
 	const [showDelete, setShowDelete] = useState(false);
@@ -78,10 +81,10 @@ export const Productos = () => {
 									<CDBTableBody style={{verticalAlign: "middle"}}>
 										{data.map((producto) =>
 											<tr>
-												<td>{producto.precioVenta}</td>
-												<td>{producto.precioCompra}</td>
+												<td>{producto.precioVenta.$numberDecimal}</td>
+												<td>{producto.proveedor.precioCompra.$numberDecimal}</td>
 												<td>{producto.tasas}</td>
-												<td>{producto.idProveedor}</td>
+												<td>{producto.proveedor.id}</td>
 												<td>{producto.imagen}</td>
 												<td>{producto.descripcion}</td>
 												<td style={{whiteSpace: "nowrap"}}>
