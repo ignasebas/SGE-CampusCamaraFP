@@ -9,26 +9,35 @@ const ClientesForm = ({add,edit,del}) => {
 				</>
 			):(
 				<>
-					
+					<div>
 						<label>DNI/NIF: </label>
 						<input type={'text'} style={{marginLeft:"20px"}}></input>
-					
+					</div>
+					<br/>
+					<div>
 						<label>Nombre: </label>
 						<input type={'text'} style={{marginLeft:"20px"}}></input>
-
-					
+					</div>
+					<br/>
+					<div>
 						<label>Apellidos: </label>
 						<input type={'text'} style={{marginLeft:"20px"}}></input>
-					
+					</div>
+					<br/>
+					<div>
 						<label>Teléfono: </label>
 						<input type={'text'} style={{marginLeft:"20px"}}></input>
-					
+					</div>
+					<br/>
+					<div>
 						<label>Email: </label>
 						<input type={'text'} style={{marginLeft:"20px"}}></input>
-					
-				
+					</div>
+					<br/>
+					<div>
 						<label>Dirección: </label>
 						<input type={'text'} style={{marginLeft:"20px"}}></input>
+			</div>
 			
 				</>
 			)}
