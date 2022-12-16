@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import { CDBBtn} from "cdbreact";
 import { CDBTable, CDBTableHeader, CDBTableBody } from "cdbreact";
 import Sidebar from "../Sidebar";
@@ -8,16 +8,18 @@ import "./Profile.css"
 import AddModal from "../components/AddModal"
 import EditModal from "../components/EditModal"
 import DeleteModal from "../components/DeleteModal"
+import { getProveedores } from "../services/proveedoresAPI";
 
 export const Proveedores = () => {
 
-	const data = [							
-		{ nombre:"Pantuflas S.L.", contacto: "Belén Puerto", telefono:"6271618", email:"belpuerto@pantuflassl.com", direccion:"Calle Flores, 32"},
-		{ nombre:"Pantuflas S.L.", contacto: "Belén Puerto", telefono:"6271618", email:"belpuerto@pantuflassl.com", direccion:"Calle Flores, 32"},
-		{ nombre:"Pantuflas S.L.", contacto: "Belén Puerto", telefono:"6271618", email:"belpuerto@pantuflassl.com", direccion:"Calle Flores, 32"},
-		{ nombre:"Pantuflas S.L.", contacto: "Belén Puerto", telefono:"6271618", email:"belpuerto@pantuflassl.com", direccion:"Calle Flores, 32"},
-		{ nombre:"Pantuflas S.L.", contacto: "Belén Puerto", telefono:"6271618", email:"belpuerto@pantuflassl.com", direccion:"Calle Flores, 32"},
-	]
+	useEffect(() => {
+		getProveedores().then(ProveedorData => {
+		  setData(ProveedorData);
+		});
+	}, []);
+	  
+
+	const [data, setData] = useState([]);
 
 	const [showAdd, setShowAdd] = useState(false);
 	const [showEdit, setShowEdit] = useState(false);
