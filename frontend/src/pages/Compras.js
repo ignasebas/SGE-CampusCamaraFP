@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import { CDBBtn, CDBTable, CDBTableHeader, CDBTableBody} from "cdbreact";
 import Sidebar from "../Sidebar";
 import {CDBIcon} from "cdbreact";
@@ -7,17 +7,18 @@ import "./Profile.css"
 import {HiMagnifyingGlass} from 'react-icons/hi2';
 import AddModal from "../components/AddModal"
 import LensModal from "../components/LensModal"
+import { getCompras } from "../services/comprasAPI";
 
 export const Compras = () => {
 
-	const data = [							
-		{ idProveedor: 2, idProducto: 5, cantidad: 700, precioTotal:600.90},
-		{ idProveedor: 2, idProducto: 5, cantidad: 700, precioTotal:600.90},
-		{ idProveedor: 2, idProducto: 5, cantidad: 700, precioTotal:600.90},
-		{ idProveedor: 2, idProducto: 5, cantidad: 700, precioTotal:600.90},
-		{ idProveedor: 2, idProducto: 5, cantidad: 700, precioTotal:600.90},
-	]
+	useEffect(() => {
+		getCompras().then(clientData => {
+		  setData(clientData);
+		});
+	}, []);
+	  
 
+	const [data, setData] = useState([]);
 	const [showAdd, setShowAdd] = useState(false);
 	const handleShowAdd = () => setShowAdd(!showAdd);
 	const [showLens, setShowLens] = useState(false);
