@@ -81,10 +81,10 @@ export const Productos = () => {
 									<CDBTableBody style={{verticalAlign: "middle"}}>
 										{data.map((producto) =>
 											<tr>
-												<td>{producto.precioVenta}</td>
-												<td>{producto.precioCompra}</td>
+												<td>{producto.precioVenta.$numberDecimal}</td>
+												<td>{producto.proveedor.precioCompra.$numberDecimal}</td>
 												<td>{producto.tasas}</td>
-												<td>{producto.idProveedor}</td>
+												<td>{producto.proveedor.id}</td>
 												<td>{producto.imagen}</td>
 												<td>{producto.descripcion}</td>
 												<td style={{whiteSpace: "nowrap"}}>
