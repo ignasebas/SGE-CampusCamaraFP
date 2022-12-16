@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import { CDBBtn} from "cdbreact";
 import { CDBTable, CDBTableHeader, CDBTableBody } from "cdbreact";
 import Sidebar from "../Sidebar";
@@ -8,21 +8,36 @@ import "./Profile.css"
 import {HiMagnifyingGlass} from 'react-icons/hi2';
 import AddModal from "../components/AddModal"
 import LensModal from "../components/LensModal"
+import { getVentas, postVentas } from "../services/ventasAPI";
 
 export const Ventas = () => {
 
-	const data = [		
-		{ nombre: "Desiree", apellidos: "Collado Ortiz", fechaVenta:"2022/10/20", observaciones:"Bueno, bonito, barato.", precioTotal:500.90},
-		{ nombre: "Nerea", apellidos: "Baena Llamas", fechaVenta:"2022/10/19", observaciones:"Bueno, bonito, barato.", precioTotal:500.90},
-		{ nombre: "Pol", apellidos: "Barrio Barrios", fechaVenta:"2022/10/18", observaciones:"Bueno, bonito, barato.", precioTotal:500.90},
-		{ nombre: "Yaiza", apellidos: "Palma Soriano", fechaVenta:"2022/10/17", observaciones:"Bueno, bonito, barato.", precioTotal:500.90},
-		{ nombre: "Gregoria", apellidos: "Diaz Valdes", fechaVenta:"2022/10/21", observaciones:"Bueno, bonito, barato.", precioTotal:500.90},
-	]
+	useEffect(() => {
+		setIsLoading(true);
+		getVentas().then(clientData => {
+		  setData(clientData);
+		});
+	}, []);
+
+	const [data, setData] = useState([]);
+	const [error, setError] = useState(null);
+	const [isLoading, setIsLoading] = useState(false);
 
 	const [showAdd, setShowAdd] = useState(false);
 	const handleShowAdd = () => setShowAdd(!showAdd);
 	const [showLens, setShowLens] = useState(false);
 	const handleShowLens = () => setShowLens(!showLens);
+
+	function add() {
+		if (!showAdd) {
+			setShowAdd(!showAdd)
+			return
+		} else {
+			setShowAdd(!showAdd)
+			postVentas({"idVenta":"7","nombreCliente":"Iria Lúa", "fechaVenta":"10/12/2022", "precioTotal":"150", "observaciones":"Sin retraso."});
+		}
+	}
+	console.log(data)
 
 	return (
 		<>
@@ -59,7 +74,6 @@ export const Ventas = () => {
 									<CDBTableHeader>
 										<tr>
 											<th>Nombre cliente</th>
-											<th>Apellido cliente</th>
 											<th>Fecha de venta</th>
 											<th>Observaciones</th>
 											<th>Precio total</th>
@@ -69,8 +83,7 @@ export const Ventas = () => {
 									<CDBTableBody style={{verticalAlign: "middle"}}>
 										{data.map((venta) =>
 											<tr>
-												<td>{venta.nombre}</td>
-												<td>{venta.apellidos}</td>
+												<td>{venta.nombreCliente}</td>
 												<td>{venta.fechaVenta}</td>
 												<td>{venta.observaciones}</td>
 												<td>{venta.precioTotal} €</td>

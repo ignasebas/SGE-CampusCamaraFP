@@ -8,7 +8,7 @@ export const getVentas = () => {
 }
 
 export const postVentas = async (data) => {
-  const apiUrl = getApiUrl('/postCliente');
+  const apiUrl = getApiUrl('/postVenta');
   const response = await axios.post(apiUrl, data);
   return response.data;
 }
