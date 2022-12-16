@@ -23,11 +23,13 @@ app.listen(3000, () => {
 })
 
 const rutasClientes = require('./routes/rutasClientes');
-const routasProveedores = require('./routes/rutasProveedores');
-const rutasClientes = require('./routes/rutasCompras');
-const routasProveedores = require('./routes/rutasVentas');
+const rutasProveedores = require('./routes/rutasProveedores');
+const rutasCompras = require('./routes/rutasCompras');
+const rutasVentas = require('./routes/rutasVentas');
+const rutasProducto = require('./routes/rutasProducto');
 
 app.use('/api', rutasClientes)
-app.use('/api', routasProveedores)
+app.use('/api', rutasProveedores)
 app.use('/api', rutasCompras)
-app.use('/api', routasVentas)
+app.use('/api', rutasVentas)
+app.use('/api', rutasProducto)

@@ -4,10 +4,10 @@ const router = express.Router()
 
 module.exports = router;
 
-const ModelCompras = require('../models/modelCompras');
+const ModelCompras = require('../models/compra');
 
 //Post Method
-router.post('/compra', async (req, res) => {
+router.post('/postCompra', async (req, res) => {
     const data = new ModelCompras({
         idCompra: req.body.idCompra,
         idProveedor: req.body.idProveedor,
@@ -26,7 +26,7 @@ router.post('/compra', async (req, res) => {
 })
 
 //Get all Method
-router.get('/allCompras', async (req, res) => {
+router.get('/getAllCompras', async (req, res) => {
     try{
         const data = await ModelCompras.find();
         res.json(data)
@@ -37,7 +37,7 @@ router.get('/allCompras', async (req, res) => {
 })
 
 //Get by ID Method
-router.get('/byIdCompra/:id', async (req, res) => {
+router.get('/getByIdCompra/:id', async (req, res) => {
     try{
         const data = await ModelCompras.findById(req.params.id);
         res.json(data)
@@ -48,7 +48,7 @@ router.get('/byIdCompra/:id', async (req, res) => {
 })
 
 //Update by ID Method
-router.patch('/byIdCompra/:id', async (req, res) => {
+router.patch('/updateByIdCompra/:id', async (req, res) => {
     try {
         const id = req.params.id;
         const updatedData = req.body;
@@ -67,7 +67,7 @@ router.patch('/byIdCompra/:id', async (req, res) => {
 
 
 //Delete by ID Method
-router.delete('/byIdCompra/:id', async (req, res) => {
+router.delete('/deleteByIdCompra/:id', async (req, res) => {
     try {
         const id = req.params.id;
         const data = await ModelCompras.findByIdAndDelete(id)
@@ -78,7 +78,8 @@ router.delete('/byIdCompra/:id', async (req, res) => {
     }
 })
 
-router.get('/byPrecioCompra/:min/:max', async (req, res) => {
+//Get Between PrecioTotal Method
+router.get('/getBetweenPrecioTotalCompra/:min/:max', async (req, res) => {
     try{
         const data = await ModelCompras.find({"precioTotal":{ 
             $gte : req.params.min,

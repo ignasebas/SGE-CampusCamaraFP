@@ -6,7 +6,7 @@ module.exports = router;
 
 const Model = require('../models/proveedor.js');
 
-//POST
+//Post Method
 router.post('/postProveedor', async (req, res) => {
 	const data = new Model({
 		cif: req.body.cif,
@@ -26,7 +26,7 @@ router.post('/postProveedor', async (req, res) => {
 	}
 })
 
-//GET ALL (SELECT *)
+//Get All Method
 router.get('/getAllProveedor', async (req, res) => {
 	try{
 		const data = await Model.find();
@@ -37,8 +37,8 @@ router.get('/getAllProveedor', async (req, res) => {
 	}
 })
 
-//GET ONE (SELECT WHERE = ID)
-router.get('/getOneProveedor/:id', async (req, res) => {
+//Get By Id Method
+router.get('/getByIdProveedor/:id', async (req, res) => {
 	try{
 		const data = await Model.findById(req.params.id);
 		res.json(data)
@@ -48,7 +48,7 @@ router.get('/getOneProveedor/:id', async (req, res) => {
 	}
 })
 
-//GET ONE (SELECT WHERE = Contacto)
+//Get All Method
 router.get('/getContactoProveedor/:contacto', async (req, res) => {
 	try{
 		const data = await Model.find({contacto: {$regex: req.params.contacto}});
@@ -60,8 +60,8 @@ router.get('/getContactoProveedor/:contacto', async (req, res) => {
 })
 
 
-//UPDATE (PATCH)
-router.patch('/updateProveedor/:id', async (req, res) => {
+//Update By Id Method
+router.patch('/updateByIdProveedor/:id', async (req, res) => {
 	try {
 		const id = req.params.id;
 		const updatedData = req.body;
@@ -79,7 +79,7 @@ router.patch('/updateProveedor/:id', async (req, res) => {
 })
 
 //DELETE
-router.delete('/deleteProveedor/:id', async (req, res) => {
+router.delete('/deleteByIdProveedor/:id', async (req, res) => {
 	try {
 		const id = req.params.id;
 		const data = await Model.findByIdAndDelete(id)
