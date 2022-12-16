@@ -12,11 +12,11 @@ import DeleteModal from "../components/DeleteModal"
 
 export const Productos = () => {
 	const data = [							
-		{ id: 1, precioVenta:5.40, precioCompra: 3.20, tasas:"21%", idProveedor:3, imagen:"archivo_imagen.png", descripcion:"Breve descripción del producto."},
-		{ id: 2, precioVenta:5.40, precioCompra: 3.20, tasas:"21%", idProveedor:3, imagen:"archivo_imagen.png", descripcion:"Breve descripción del producto."},
-		{ id: 3, precioVenta:5.40, precioCompra: 3.20, tasas:"21%", idProveedor:3, imagen:"archivo_imagen.png", descripcion:"Breve descripción del producto."},
-		{ id: 4, precioVenta:5.40, precioCompra: 3.20, tasas:"21%", idProveedor:3, imagen:"archivo_imagen.png", descripcion:"Breve descripción del producto."},
-		{ id: 5, precioVenta:5.40, precioCompra: 3.20, tasas:"21%", idProveedor:3, imagen:"archivo_imagen.png", descripcion:"Breve descripción del producto."},
+		{ precioVenta:5.40, precioCompra: 3.20, tasas:"21%", idProveedor:3, imagen:"archivo_imagen.png", descripcion:"Breve descripción del producto."},
+		{ precioVenta:5.40, precioCompra: 3.20, tasas:"21%", idProveedor:3, imagen:"archivo_imagen.png", descripcion:"Breve descripción del producto."},
+		{ precioVenta:5.40, precioCompra: 3.20, tasas:"21%", idProveedor:3, imagen:"archivo_imagen.png", descripcion:"Breve descripción del producto."},
+		{ precioVenta:5.40, precioCompra: 3.20, tasas:"21%", idProveedor:3, imagen:"archivo_imagen.png", descripcion:"Breve descripción del producto."},
+		{ precioVenta:5.40, precioCompra: 3.20, tasas:"21%", idProveedor:3, imagen:"archivo_imagen.png", descripcion:"Breve descripción del producto."},
 	]
 
 	const [showAdd, setShowAdd] = useState(false);
@@ -66,7 +66,6 @@ export const Productos = () => {
 								<CDBTable striped responsive>
 									<CDBTableHeader>
 										<tr>
-											<th>Id</th>
 											<th>Precio de venta</th>
 											<th>Precio de compra</th>
 											<th>Tasas</th>
@@ -79,7 +78,6 @@ export const Productos = () => {
 									<CDBTableBody style={{verticalAlign: "middle"}}>
 										{data.map((producto) =>
 											<tr>
-												<td>{producto.id}</td>
 												<td>{producto.precioVenta}</td>
 												<td>{producto.precioCompra}</td>
 												<td>{producto.tasas}</td>

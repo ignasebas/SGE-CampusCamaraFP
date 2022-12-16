@@ -12,11 +12,11 @@ import DeleteModal from "../components/DeleteModal"
 export const Empleados = () => {
 
 	const data = [							
-		{ id: 1, nif:"Y2192133D", nombre:"Sebas", apellido:"Kuhnel", telefono:"6271618", email:"sebastian@gmail.com", direccion:"Calle Palancia, 32", puesto:"Programador"},
-		{ id: 2, nif:"Y2192133D", nombre:"Sebas", apellido:"Kuhnel", telefono:"6271618", email:"sebastian@gmail.com", direccion:"Calle Palancia, 32", puesto:"Director general"},
-		{ id: 3, nif:"Y2192133D", nombre:"Sebas", apellido:"Kuhnel", telefono:"6271618", email:"sebastian@gmail.com", direccion:"Calle Palancia, 32", puesto:"Secretario"},
-		{ id: 4, nif:"Y2192133D", nombre:"Sebas", apellido:"Kuhnel", telefono:"6271618", email:"sebastian@gmail.com", direccion:"Calle Palancia, 32", puesto:"Consultor"},
-		{ id: 5, nif:"Y2192133D", nombre:"Sebas", apellido:"Kuhnel", telefono:"6271618", email:"sebastian@gmail.com", direccion:"Calle Palancia, 32", puesto:"Recursos humanos"},
+		{ nif:"Y2192133D", nombre:"Sebas", apellido:"Kuhnel", telefono:"6271618", email:"sebastian@gmail.com", direccion:"Calle Palancia, 32", puesto:"Programador"},
+		{ nif:"Y2192133D", nombre:"Sebas", apellido:"Kuhnel", telefono:"6271618", email:"sebastian@gmail.com", direccion:"Calle Palancia, 32", puesto:"Director general"},
+		{ nif:"Y2192133D", nombre:"Sebas", apellido:"Kuhnel", telefono:"6271618", email:"sebastian@gmail.com", direccion:"Calle Palancia, 32", puesto:"Secretario"},
+		{ nif:"Y2192133D", nombre:"Sebas", apellido:"Kuhnel", telefono:"6271618", email:"sebastian@gmail.com", direccion:"Calle Palancia, 32", puesto:"Consultor"},
+		{ nif:"Y2192133D", nombre:"Sebas", apellido:"Kuhnel", telefono:"6271618", email:"sebastian@gmail.com", direccion:"Calle Palancia, 32", puesto:"Recursos humanos"},
 	]
 
 	const [showAdd, setShowAdd] = useState(false);
@@ -66,7 +66,6 @@ export const Empleados = () => {
 								<CDBTable striped responsive>
 									<CDBTableHeader>
 										<tr>
-											<th>Id</th>
 											<th>NIF</th>
 											<th>Nombre</th>
 											<th>Apellidos</th>
@@ -80,7 +79,6 @@ export const Empleados = () => {
 									<CDBTableBody style={{verticalAlign: "middle"}}>
 										{data.map((empleado) =>
 											<tr>
-												<td>{empleado.id}</td>
 												<td>{empleado.nif}</td>
 												<td>{empleado.nombre}</td>
 												<td>{empleado.apellido}</td>

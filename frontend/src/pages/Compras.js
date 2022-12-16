@@ -11,21 +11,11 @@ import LensModal from "../components/LensModal"
 export const Compras = () => {
 
 	const data = [							
-		{ id: 1, idProveedor: 2, idProducto: 5, cantidad: 700, precioTotal:600.90},
-		{ id: 2, idProveedor: 2, idProducto: 5, cantidad: 700, precioTotal:600.90},
-		{ id: 3, idProveedor: 2, idProducto: 5, cantidad: 700, precioTotal:600.90},
-		{ id: 4, idProveedor: 2, idProducto: 5, cantidad: 700, precioTotal:600.90},
-		{ id: 5, idProveedor: 2, idProducto: 5, cantidad: 700, precioTotal:600.90},
-		{ id: 1, idProveedor: 2, idProducto: 5, cantidad: 700, precioTotal:600.90},
-		{ id: 2, idProveedor: 2, idProducto: 5, cantidad: 700, precioTotal:600.90},
-		{ id: 3, idProveedor: 2, idProducto: 5, cantidad: 700, precioTotal:600.90},
-		{ id: 4, idProveedor: 2, idProducto: 5, cantidad: 700, precioTotal:600.90},
-		{ id: 5, idProveedor: 2, idProducto: 5, cantidad: 700, precioTotal:600.90},
-		{ id: 1, idProveedor: 2, idProducto: 5, cantidad: 700, precioTotal:600.90},
-		{ id: 2, idProveedor: 2, idProducto: 5, cantidad: 700, precioTotal:600.90},
-		{ id: 3, idProveedor: 2, idProducto: 5, cantidad: 700, precioTotal:600.90},
-		{ id: 4, idProveedor: 2, idProducto: 5, cantidad: 700, precioTotal:600.90},
-		{ id: 5, idProveedor: 2, idProducto: 5, cantidad: 700, precioTotal:600.90},
+		{ idProveedor: 2, idProducto: 5, cantidad: 700, precioTotal:600.90},
+		{ idProveedor: 2, idProducto: 5, cantidad: 700, precioTotal:600.90},
+		{ idProveedor: 2, idProducto: 5, cantidad: 700, precioTotal:600.90},
+		{ idProveedor: 2, idProducto: 5, cantidad: 700, precioTotal:600.90},
+		{ idProveedor: 2, idProducto: 5, cantidad: 700, precioTotal:600.90},
 	]
 
 	const [showAdd, setShowAdd] = useState(false);
@@ -67,8 +57,7 @@ export const Compras = () => {
 								<CDBTable striped responsive>
 									<CDBTableHeader>
 										<tr>
-											<th>ID</th>
-											<th>Nombre proveedor</th>
+											<th>Proveedor</th>
 											<th>Fecha de compra</th>
 											<th>Observaciones</th>
 											<th>Precio total</th>
@@ -78,7 +67,6 @@ export const Compras = () => {
 									<CDBTableBody style={{verticalAlign: "middle"}}>
 										{data.map((compra) =>
 											<tr>
-												<td>{compra.id}</td>
 												<td>{compra.nombre}</td>
 												<td>{compra.fechaCompra}</td>
 												<td>{compra.observaciones}</td>

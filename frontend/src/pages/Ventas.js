@@ -12,11 +12,11 @@ import LensModal from "../components/LensModal"
 export const Ventas = () => {
 
 	const data = [		
-		{ id: 1, nombre: "Desiree", apellidos: "Collado Ortiz", fechaVenta:"2022/10/20", observaciones:"Bueno, bonito, barato.", precioTotal:500.90},
-		{ id: 2, nombre: "Nerea", apellidos: "Baena Llamas", fechaVenta:"2022/10/19", observaciones:"Bueno, bonito, barato.", precioTotal:500.90},
-		{ id: 3, nombre: "Pol", apellidos: "Barrio Barrios", fechaVenta:"2022/10/18", observaciones:"Bueno, bonito, barato.", precioTotal:500.90},
-		{ id: 4, nombre: "Yaiza", apellidos: "Palma Soriano", fechaVenta:"2022/10/17", observaciones:"Bueno, bonito, barato.", precioTotal:500.90},
-		{ id: 5, nombre: "Gregoria", apellidos: "Diaz Valdes", fechaVenta:"2022/10/21", observaciones:"Bueno, bonito, barato.", precioTotal:500.90},
+		{ nombre: "Desiree", apellidos: "Collado Ortiz", fechaVenta:"2022/10/20", observaciones:"Bueno, bonito, barato.", precioTotal:500.90},
+		{ nombre: "Nerea", apellidos: "Baena Llamas", fechaVenta:"2022/10/19", observaciones:"Bueno, bonito, barato.", precioTotal:500.90},
+		{ nombre: "Pol", apellidos: "Barrio Barrios", fechaVenta:"2022/10/18", observaciones:"Bueno, bonito, barato.", precioTotal:500.90},
+		{ nombre: "Yaiza", apellidos: "Palma Soriano", fechaVenta:"2022/10/17", observaciones:"Bueno, bonito, barato.", precioTotal:500.90},
+		{ nombre: "Gregoria", apellidos: "Diaz Valdes", fechaVenta:"2022/10/21", observaciones:"Bueno, bonito, barato.", precioTotal:500.90},
 	]
 
 	const [showAdd, setShowAdd] = useState(false);
@@ -58,7 +58,6 @@ export const Ventas = () => {
 								<CDBTable striped responsive>
 									<CDBTableHeader>
 										<tr>
-											<th>ID</th>
 											<th>Nombre cliente</th>
 											<th>Apellido cliente</th>
 											<th>Fecha de venta</th>
@@ -70,7 +69,6 @@ export const Ventas = () => {
 									<CDBTableBody style={{verticalAlign: "middle"}}>
 										{data.map((venta) =>
 											<tr>
-												<td>{venta.id}</td>
 												<td>{venta.nombre}</td>
 												<td>{venta.apellidos}</td>
 												<td>{venta.fechaVenta}</td>
