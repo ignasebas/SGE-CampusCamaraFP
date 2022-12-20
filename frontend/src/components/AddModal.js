@@ -22,7 +22,7 @@ const AddModal = ({handleShow,clientes,compras,empleados,productos,proveedores,v
 				<div className="modal-header">
 					<div>Añadir datos</div>
 				</div>
-				<div className="modal-body">Introduzca la información...</div>
+				<div className="modal-body">Introduzca la información:</div>
 				<div className="modal-body">
 					{!clientes ? (
 						<>

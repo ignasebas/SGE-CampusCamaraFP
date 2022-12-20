@@ -10,26 +10,28 @@ const ClientesForm = ({add,edit,del}) => {
 				</>
 			):(
 				<>
-					<div>
-						<label>Nombre proveedor: </label>
-						<input type={'text'} style={{marginLeft:"20px"}}></input>
-					</div>
-					<br/>
-					<div>
-						<label>Fecha de compra: </label>
-						<input type={'text'} style={{marginLeft:"20px"}}></input>
-					</div>
-					<br/>
-					<div>
-						<label>Observaciones: </label>
-						<input type={'text'} style={{marginLeft:"20px"}}></input>
-					</div>
-					<br/>
-					<div>
-						<label>Precio total: </label>
-						<input type={'text'} style={{marginLeft:"20px"}}></input>
-					</div>
+				<center>
+					<table cellPadding={"5px"}>
+						<tr>
+							<td><label>Nombre del proveedor: </label></td>
+							<td><input type={'text'} style={{marginLeft:"20px"}}></input></td>
+						</tr>
+						<tr>
+							<td><label>Fecha de compra: </label></td>
+							<td><input type={'text'} style={{marginLeft:"20px"}}></input></td>
+						</tr>
+						<tr>
+							<td><label>Observaciones: </label></td>
+							<td><input type={'text'} style={{marginLeft:"20px"}}></input></td>
+						</tr>
+						<tr>
+							<td><label>Precio total: </label></td>
+							<td><input type={'text'} style={{marginLeft:"20px"}}></input></td>
+						</tr>
+					</table>
+				</center>
 				</>
+				
 			)}
 			{!edit ? (
 				<>
