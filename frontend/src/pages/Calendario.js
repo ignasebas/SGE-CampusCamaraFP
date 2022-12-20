@@ -9,10 +9,8 @@ import {CDBIcon} from "cdbreact";
 
 export const Calendario = () => {
 	const [value, onChange] = useState(new Date());
-	function formulario(){
-		return <h2>hola</h2>
-	}
-	
+	const [dia] = useState(new Date());
+
 	return (
 		<div className="d-flex profile">
 			<div>
@@ -28,15 +26,14 @@ export const Calendario = () => {
 							</div>
 							<div >
 								<Calendar onChange={onChange} 
-								value={value}
-								onClickDay={formulario}/>
+								value={value}/>
 								
 							</div>
 							<br></br><br></br>
 							<div>
 										<div className="card shadow border-0">
 											<div className="card-body">
-												<h4 className="card-title mb-2" style={{fontWeight:"600"}}>Introduce que tienes ese día</h4>
+												<h4 className="card-title mb-2" style={{fontWeight:"600"}}>Introduce que tienes el día<Calendar value={dia}/> </h4>
 												<label>Título &nbsp;</label>
 												<input value = {""}></input>
 												<br></br>

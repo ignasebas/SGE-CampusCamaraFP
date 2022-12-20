@@ -10,7 +10,7 @@ import { postCliente } from "../services/clientesAPI";
 import { postProducto } from "../services/productosAPI";
 import { postVentas } from "../services/ventasAPI";
 import { postProveedor } from "../services/proveedoresAPI";
-
+import { postEmpleados } from "../services/empleadosAPI";
 const AddModal = ({handleShow,place,state,clientes,compras,empleados,productos,proveedores,ventas}) => {
 
 	
@@ -22,8 +22,8 @@ const AddModal = ({handleShow,place,state,clientes,compras,empleados,productos,p
 		} 
 		
 		if (place === "productos") {
-			const { nombre, proveedor, precioVenta, imagen, tasas, descripcion } = state;
-		  	postProducto({"nombre":nombre,"proveedor":proveedor,"precioVenta":precioVenta, "imagen":imagen,"tasas":tasas,"descripcion":descripcion, });
+			const { nombre, proveedorID, proveedorNombre, proveedorPrecioCompra, precioVenta, imagen, tasas, descripcion } = state;
+		  	postProducto({"nombre":nombre, "provedor.id":proveedorID, "proveedor.nombre":proveedorNombre, "proveedor.precioCompra":proveedorPrecioCompra, "precioVenta":precioVenta, "imagen":imagen,"tasas":tasas,"descripcion":descripcion, });
 			handleShow()
 		}
 
@@ -36,6 +36,12 @@ const AddModal = ({handleShow,place,state,clientes,compras,empleados,productos,p
 		if (place === "proveedor") {
 			const { cif, nombre, contacto, direccion, telefono, email } = state;
 		  	postProveedor({"cif":cif,"nombre":nombre,"contacto":contacto,"direccion":direccion,"telefono":telefono,"email":email});
+			handleShow()
+		}
+		if (place === "empleados") {
+			const { nif, nombre, apellidos, telefono, email, direccion, puesto } = state;
+			console.log(puesto);
+		  	postEmpleados({"nif":nif,"nombre":nombre,"apellidos":apellidos,"telefono":telefono,"email":email, "direccion":direccion,"puesto":puesto});
 			handleShow()
 		}
 	};
@@ -58,13 +64,13 @@ const AddModal = ({handleShow,place,state,clientes,compras,empleados,productos,p
 						<>
 						</>
 					):(
-						<ComprasForm add/>
+						<ComprasForm add state={state}/>
 					)}
 					{!empleados ? (
 						<>
 						</>
 					):(
-						<EmpleadosForm add/>
+						<EmpleadosForm add state={state}/>
 					)}
 					{!productos ? (
 						<>

@@ -32,7 +32,9 @@ export const Productos = () => {
 
 	
 	const [nombre, setNombre] = useState("");
-	const [proveedor, setProveedor] = useState("");
+	const [proveedorID, setProveedorID] = useState("");
+	const [proveedorNombre, setProveedorNombre] = useState("");
+	const [proveedorPrecioCompra, setProveedorPrecioCompra] = useState("");
 	const [precioVenta, setPrecioVenta] = useState("");
 	const [imagen, setImagen] = useState("");
 	const [tasas, setTasas] = useState("");
@@ -41,8 +43,12 @@ export const Productos = () => {
 	const state = {
 		nombre,
 		setNombre,
-		proveedor,
-		setProveedor,
+		proveedorID,
+		setProveedorID,
+		proveedorNombre,
+		setProveedorNombre,
+		proveedorPrecioCompra,
+		setProveedorPrecioCompra,
 		precioVenta,
 		setPrecioVenta,
 		imagen,

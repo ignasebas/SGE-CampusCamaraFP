@@ -24,13 +24,46 @@ export const Compras = () => {
 	const [showLens, setShowLens] = useState(false);
 	const handleShowLens = () => setShowLens(!showLens);
 
+	const [cif, setCif] = useState("");
+	const [nombre, setNombre] = useState("");
+	const [direccion, setDireccion] = useState("");
+	const [telefono, setTelefono] = useState("");
+	const [email, setEmail] = useState("");
+	const [fechaCompra, setFechaCompra] = useState("");
+	const [precioTotal, setPrecioTotal] = useState("");
+	const [observaciones, setObservaciones] = useState("");
+
+	const state = {
+		cif,
+		setCif,
+		nombre,
+		setNombre,
+		direccion,
+		setDireccion,
+		telefono,
+		setTelefono,
+		email,
+		setEmail,
+		fechaCompra,
+		setFechaCompra,
+		precioTotal,
+		setPrecioTotal,
+		observaciones,
+		setObservaciones
+		
+	};
+
+	const place = "compras"
+
+	console.log(data)
+	
 	return (
 		<>
 			{!showAdd ? (
 				<>
 				</>
 			):(
-				<AddModal compras handleShow={handleShowAdd}/>
+				<AddModal compras handleShow={handleShowAdd }state={state}/>
 			)}
 			{!showLens ? (
 				<>
