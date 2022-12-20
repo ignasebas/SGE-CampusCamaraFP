@@ -28,6 +28,29 @@ export const Proveedores = () => {
 	const handleShowEdit = () => setShowEdit(!showEdit);
 	const handleShowDelete = () => setShowDelete(!showDelete);
 
+	const [cif, setCif] = useState("");
+	const [nombre, setNombre] = useState("");
+	const [contacto, setContacto] = useState("");
+	const [direccion, setDireccion] = useState("");
+	const [telefono, setTelefono] = useState("");
+	const [email, setEmail] = useState("");
+	const state = {
+		cif,
+		setCif,
+		nombre,
+		setNombre,
+		contacto,
+		setContacto,
+		direccion,
+		setDireccion,
+		telefono,
+		setTelefono,
+		email,
+		setEmail
+	};
+
+	const place = "clientes"
+
 	return (
 		<>
 			{!showAdd ? (
