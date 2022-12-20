@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import { CDBBtn} from "cdbreact";
 import { CDBTable, CDBTableHeader, CDBTableBody } from "cdbreact";
 import Sidebar from "../Sidebar";
@@ -8,16 +8,21 @@ import "./Profile.css"
 import AddModal from "../components/AddModal"
 import EditModal from "../components/EditModal"
 import DeleteModal from "../components/DeleteModal"
+import { getEmpleados, postEmpleados } from "../services/empleadosAPI";
 
 export const Empleados = () => {
 
-	const data = [							
-		{ nif:"Y2192133D", nombre:"Sebas", apellido:"Kuhnel", telefono:"6271618", email:"sebastian@gmail.com", direccion:"Calle Palancia, 32", puesto:"Programador"},
-		{ nif:"Y2192133D", nombre:"Sebas", apellido:"Kuhnel", telefono:"6271618", email:"sebastian@gmail.com", direccion:"Calle Palancia, 32", puesto:"Director general"},
-		{ nif:"Y2192133D", nombre:"Sebas", apellido:"Kuhnel", telefono:"6271618", email:"sebastian@gmail.com", direccion:"Calle Palancia, 32", puesto:"Secretario"},
-		{ nif:"Y2192133D", nombre:"Sebas", apellido:"Kuhnel", telefono:"6271618", email:"sebastian@gmail.com", direccion:"Calle Palancia, 32", puesto:"Consultor"},
-		{ nif:"Y2192133D", nombre:"Sebas", apellido:"Kuhnel", telefono:"6271618", email:"sebastian@gmail.com", direccion:"Calle Palancia, 32", puesto:"Recursos humanos"},
-	]
+	useEffect(() => {
+		setIsLoading(true);
+		getEmpleados().then(empleadoData => {
+		  setData(empleadoData);
+		});
+	}, []);
+
+	const [data, setData] = useState([]);
+	const [error, setError] = useState(null);
+	const [isLoading, setIsLoading] = useState(false);
+
 
 	const [showAdd, setShowAdd] = useState(false);
 	const [showEdit, setShowEdit] = useState(false);
@@ -26,25 +31,54 @@ export const Empleados = () => {
 	const handleShowEdit = () => setShowEdit(!showEdit);
 	const handleShowDelete = () => setShowDelete(!showDelete);
 
+	const [nif, setNif] = useState("");
+	const [nombre, setNombre] = useState("");
+	const [apellidos, setApellidos] = useState("");
+	const [telefono, setTelefono] = useState("");
+	const [email, setEmail] = useState("");
+	const [direccion, setDireccion] = useState("");
+	const [puesto, setPuesto] = useState("");
+
+	const state = {
+		nif,
+		setNif,
+		nombre,
+		setNombre,
+		apellidos,
+		setApellidos,
+		telefono,
+		setTelefono,
+		email,
+		setEmail,
+		direccion,
+		setDireccion,
+		puesto,
+		setPuesto
+	};
+
+	const place = "empleados"
+
+	console.log(data)
+
 	return (
 		<>
 			{!showAdd ? (
 				<>
 				</>
 			):(
-				<AddModal empleados handleShow={handleShowAdd}/>
+				<AddModal empleados handleShow={handleShowAdd} place={place} state={state}/>
 			)}
 			{!showEdit ? (
 				<>
 				</>
 			):(
-				<EditModal empleados handleShow={handleShowEdit}/>
+				<EditModal empleados handleShow={handleShowEdit} place={place}/>
 			)}
 			{!showDelete ? (
 				<>
 				</>
 			):(
-				<DeleteModal empleados handleShow={handleShowDelete}/>
+				<DeleteModal empleados handleShow={handleShowDelete} place={place} state={state}/>
 			)}
 		<div className="d-flex profile">
 			<div>
@@ -73,7 +107,6 @@ export const Empleados = () => {
 											<th>Email</th>
 											<th>Dirección</th>
 											<th>Puesto</th>
-											<th>Acciones</th>
 										</tr>
 									</CDBTableHeader>
 									<CDBTableBody style={{verticalAlign: "middle"}}>
