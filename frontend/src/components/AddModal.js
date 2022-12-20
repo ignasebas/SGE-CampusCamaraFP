@@ -7,6 +7,7 @@ import EmpleadosForm from "./EmpleadosForm";
 import ProductosForm from "./ProductosForm";
 import ProveedoresForm from "./ProveedoresForm";
 import { postCliente } from "../services/clientesAPI";
+import { postProducto } from "../services/productosAPI";
 
 const AddModal = ({handleShow,place,state,clientes,compras,empleados,productos,proveedores,ventas}) => {
 
@@ -16,9 +17,14 @@ const AddModal = ({handleShow,place,state,clientes,compras,empleados,productos,p
 			const { dni, nombre, apellidos, telefono, email, direccion } = state;
 		  	postCliente({"nif":dni,"nombre":nombre,"apellidos":apellidos,"telefono":telefono,"email":email,"direccion":direccion});
 			handleShow()
-		} else {
-		  	console.log("Not cliente");
+		} 
+		
+		if (place === "productos") {
+			const { nombre, proveedor, precioVenta, tasas, descripcion } = state;
+		  	postProducto({"Nombre":nombre,"Proveedor":proveedor,"Precio Venta":precioVenta,"Tasas":tasas,"Descripción":descripcion});
+			handleShow()
 		}
+
 	};
 	  
 	return (
@@ -51,7 +57,7 @@ const AddModal = ({handleShow,place,state,clientes,compras,empleados,productos,p
 						<>
 						</>
 					):(
-						<ProductosForm add/>
+						<ProductosForm add state={state} />
 					)}
 					{!proveedores ? (
 						<>
