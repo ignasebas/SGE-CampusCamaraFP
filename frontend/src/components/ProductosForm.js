@@ -1,7 +1,19 @@
 import React from "react";
 
-const ClientesForm = ({add,edit,del}) => {
+const ClientesForm = ({add,edit,del,state}) => {
 
+	const state = {
+		nombre,
+		setNombre,
+		proveedor,
+		setProveedor,
+		precioVenta,
+		setPrecioVenta,
+		tasas,
+		setTasas,
+		descripcion,
+		setDescripcion
+	};
 
 	return (
 		<>
@@ -11,33 +23,56 @@ const ClientesForm = ({add,edit,del}) => {
 			):(
 				<>
 					<div>
-						<label>Precio venta: </label>
-						<input type={'text'} style={{marginLeft:"20px"}}></input>
+						<label>Nombre: </label>
+						<input 
+							type={'text'} 
+							style={{marginLeft:"20px"}}
+							value={nombre}
+							onChange={(event) => setNombre(event.target.value)}></input>
 					</div>
+
 					<br/>
+
 					<div>
-						<label>Precio de compra: </label>
-						<input type={'text'} style={{marginLeft:"20px"}}></input>
+						<label>Proveedor: </label>
+						<input 
+							type={'text'} 
+							style={{marginLeft:"20px"}}
+							value={proveedor}
+							onChange={(event) => setProveedor(event.target.value)}></input>
 					</div>
+
 					<br/>
+
+					<div>
+						<label>Precio Venta: </label>
+						<input 
+							type={'text'} 
+							style={{marginLeft:"20px"}}
+							value={precioVenta}
+							onChange={(event) => setPrecioVenta(event.target.value)}></input>
+					</div>
+
+					<br/>
+
 					<div>
 						<label>Tasas: </label>
-						<input type={'text'} style={{marginLeft:"20px"}}></input>
+						<input 
+							type={'text'} 
+							style={{marginLeft:"20px"}}
+							value={tasas}
+							onChange={(event) => setTasas(event.target.value)}></input>
 					</div>
+
 					<br/>
-					<div>
-						<label>ID Proveedor: </label>
-						<input type={'text'} style={{marginLeft:"20px"}}></input>
-					</div>
-					<br/>
-					<div>
-						<label>Imagen: </label>
-						<input type={'text'} style={{marginLeft:"20px"}}></input>
-					</div>
-					<br/>
+
 					<div>
 						<label>Descripción: </label>
-						<input type={'text'} style={{marginLeft:"20px"}}></input>
+						<input 
+							type={'text'} 
+							style={{marginLeft:"20px"}}
+							value={descripcion}
+							onChange={(event) => setDescripcion(event.target.value)}></input>
 					</div>
 				</>
 			)}
