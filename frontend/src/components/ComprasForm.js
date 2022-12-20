@@ -44,7 +44,7 @@ const ClientesForm = ({add,edit,del}) => {
 				</>
 			):(
 				<div>
-					¿Estás seguro de que deseas eliminar ... de la base de datos?
+					<center>¿Estás seguro de que deseas eliminar ... de la base de datos?</center>
 				</div>
 			)}
 		</>

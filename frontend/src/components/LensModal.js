@@ -12,7 +12,7 @@ const LensModal = ({handleShow}) => {
 					<div><HiMagnifyingGlass/></div>
 				</div>
 				<div>
-					<img className="image404" alt="404" src="/pagame.webp"  width="500px" />
+					<center><img className="image404" alt="404" src="/pagame.webp"  width="500px" /></center>
 				</div>
 				<div className="modal-footer">
                     <CDBBtn className={"cancel-button"} onClick={handleShow}>
