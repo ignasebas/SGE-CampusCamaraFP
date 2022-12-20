@@ -40,7 +40,8 @@ const AddModal = ({handleShow,place,state,clientes,compras,empleados,productos,p
 		}
 		if (place === "empleados") {
 			const { nif, nombre, apellidos, telefono, email, direccion, puesto } = state;
-		  	postEmpleados({"Nif":nif,"Nombre":nombre,"Apellidos":apellidos,"Telefono":telefono,"Email":email, "Direccion":direccion,"Puesto":puesto});
+			console.log(puesto);
+		  	postEmpleados({"nif":nif,"nombre":nombre,"apellidos":apellidos,"telefono":telefono,"email":email, "direccion":direccion,"puesto":puesto});
 			handleShow()
 		}
 	};
@@ -69,7 +70,7 @@ const AddModal = ({handleShow,place,state,clientes,compras,empleados,productos,p
 						<>
 						</>
 					):(
-						<EmpleadosForm add/>
+						<EmpleadosForm add state={state}/>
 					)}
 					{!productos ? (
 						<>

@@ -1,7 +1,7 @@
 import React from "react";
 
-const ClientesForm = ({add,edit,del, state}) => {
-	const { nif, setNif, nombre, setNombre, apellidos, setApellidos, telefono, setTelefono, email, setEmail, direccion, setDireccion, puesto, setPuesto } = state;
+const EmpleadosForm = ({add,edit,del, state}) => {
+	const {nif, setNif, nombre, setNombre, apellidos, setApellidos, telefono, setTelefono, email, setEmail, direccion, setDireccion, puesto, setPuesto } = state;
 
 	return (
 		<>
@@ -11,6 +11,12 @@ const ClientesForm = ({add,edit,del, state}) => {
 			):(
 				<>
 					
+					<div>
+						<label>Nif: </label>
+						<input type={'text'} style={{marginLeft:"20px"}}
+						value={nif}
+						onChange={(event) => setNif(event.target.value)}></input>
+					</div>
 					<div>
 						<label>Nombre: </label>
 						<input type={'text'} style={{marginLeft:"20px"}}
@@ -34,9 +40,9 @@ const ClientesForm = ({add,edit,del, state}) => {
 					<br/>
 					<div>
 						<label>Email: </label>
-						<input type={'text'} style={{marginLeft:"20px"}}></input>
+						<input type={'text'} style={{marginLeft:"20px"}}
 						value={email}
-						onChange={(event) => setEmail(event.target.value)}
+						onChange={(event) => setEmail(event.target.value)}></input>
 					</div>
 					<br/>
 					<div>
@@ -103,4 +109,4 @@ const ClientesForm = ({add,edit,del, state}) => {
 	);
 }
 
-export default ClientesForm;
+export default EmpleadosForm;
