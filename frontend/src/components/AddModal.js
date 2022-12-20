@@ -20,8 +20,8 @@ const AddModal = ({handleShow,place,state,clientes,compras,empleados,productos,p
 		} 
 		
 		if (place === "productos") {
-			const { nombre, proveedor, precioVenta, tasas, descripcion } = state;
-		  	postProducto({"Nombre":nombre,"Proveedor":proveedor,"Precio Venta":precioVenta,"Tasas":tasas,"Descripción":descripcion});
+			const { nombre, proveedor, precioVenta, imagen, tasas, descripcion } = state;
+		  	postProducto({"nombre":nombre,"proveedor":proveedor,"precioVenta":precioVenta, "imagen":imagen,"tasas":tasas,"descripcion":descripcion, });
 			handleShow()
 		}
 

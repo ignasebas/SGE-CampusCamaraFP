@@ -2,7 +2,7 @@ import React from "react";
 
 const ClientesForm = ({add,edit,del,state}) => {
 
-	const state = {
+	const{
 		nombre,
 		setNombre,
 		proveedor,
@@ -13,7 +13,7 @@ const ClientesForm = ({add,edit,del,state}) => {
 		setTasas,
 		descripcion,
 		setDescripcion
-	};
+	} = state;
 
 	return (
 		<>
