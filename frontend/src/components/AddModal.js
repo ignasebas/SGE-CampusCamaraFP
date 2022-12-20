@@ -63,7 +63,7 @@ const AddModal = ({handleShow,place,state,clientes,compras,empleados,productos,p
 						<>
 						</>
 					):(
-						<ComprasForm add/>
+						<ComprasForm add state={state}/>
 					)}
 					{!empleados ? (
 						<>
