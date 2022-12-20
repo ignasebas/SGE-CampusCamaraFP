@@ -1,7 +1,27 @@
 import React from "react";
 
-const ClientesForm = ({add,edit,del}) => {
+const VentasForm = ({add,edit,del,state}) => {
 
+	const {
+		dni,
+		setDni,
+		nombreCliente,
+		setNombre,
+		apellidos,
+		setApellidos,
+		email,
+		setEmail,
+		direccion,
+		setDireccion,
+		fechaVenta,
+		setFechaVenta,
+		precioTotal,
+		setPrecioTotal,
+		observaciones,
+		setObservaciones,
+		productos,
+	 	setProductos
+	} = state;
 
 	return (
 		<>
@@ -13,24 +33,68 @@ const ClientesForm = ({add,edit,del}) => {
 					<center>
 						<table cellPadding={"5px"}>
 							<tr>
-								<td><label>Nombre cliente: </label></td>
-								<td><input type={'text'} style={{marginLeft:"20px"}}></input></td>
+								<td><label>NIF/DNI del cliente: </label></td>
+								<td><input 
+									type={'text'} 
+									style={{marginLeft:"20px"}}
+									value={dni}
+									onChange={(event) => setDni(event.target.value)}></input></td>
 							</tr>
 							<tr>
-								<td><label>Apellidos cliente: </label></td>
-								<td><input type={'text'} style={{marginLeft:"20px"}}></input></td>
+								<td><label>Nombre del cliente: </label></td>
+								<td><input 
+									type={'text'} 
+									style={{marginLeft:"20px"}}
+									value={nombreCliente}
+									onChange={(event) => setNombre(event.target.value)}></input></td>
+							</tr>
+							<tr>
+								<td><label>Apellidos del cliente: </label></td>
+								<td><input 
+									type={'text'} 
+									style={{marginLeft:"20px"}}
+									value={apellidos}
+									onChange={(event) => setApellidos(event.target.value)}></input></td>
+							</tr>
+							<tr>
+								<td><label>Email: </label></td>
+								<td><input 
+									type={'text'} 
+									style={{marginLeft:"20px"}}
+									value={email}
+									onChange={(event) => setEmail(event.target.value)}></input></td>
+							</tr>
+							<tr>
+								<td><label>Dirección: </label></td>
+								<td><input 
+									type={'text'} 
+									style={{marginLeft:"20px"}}
+									value={direccion}
+									onChange={(event) => setDireccion(event.target.value)}></input></td>
 							</tr>
 							<tr>
 								<td><label>Fecha de venta: </label></td>
-								<td><input type={'text'} style={{marginLeft:"20px"}}></input></td>
-							</tr>
-							<tr>
-								<td><label>Observaciones: </label></td>
-								<td><input type={'text'} style={{marginLeft:"20px"}}></input></td>
+								<td><input 
+									type={'text'} 
+									style={{marginLeft:"20px"}}
+									value={fechaVenta}
+									onChange={(event) => setFechaVenta(event.target.value)}></input></td>
 							</tr>
 							<tr>
 								<td><label>Precio total: </label></td>
-								<td><input type={'text'} style={{marginLeft:"20px"}}></input></td>
+								<td><input 
+									type={'text'} 
+									style={{marginLeft:"20px"}}
+									value={precioTotal}
+									onChange={(event) => setPrecioTotal(event.target.value)}></input></td>
+							</tr>
+							<tr>
+								<td><label>Observaciones: </label></td>
+								<td><input 
+									type={'text'} 
+									style={{marginLeft:"20px"}}
+									value={observaciones}
+									onChange={(event) => setObservaciones(event.target.value)}></input></td>
 							</tr>
 						</table>
 					</center>
@@ -54,4 +118,4 @@ const ClientesForm = ({add,edit,del}) => {
 	);
 }
 
-export default ClientesForm;
+export default VentasForm;

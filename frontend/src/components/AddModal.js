@@ -27,16 +27,11 @@ const AddModal = ({handleShow,place,state,clientes,compras,empleados,productos,p
 		}
 
 		if (place === "ventas") {
-			const { dni, nombre, apellidos, email, direccion, fechaVenta, precioTotal, observaciones, descripcion} = state;
-		  	postVentas({"DNI":dni, "Nombre":nombre, "Apellidos":apellidos, "Email":email, "Direccion":direccion, "Fecha venta":fechaVenta, "Precio total":precioTotal, "Observaciones":observaciones,"Descripción":descripcion});
+			const { dni, nombreCliente, apellidos, email, direccion, fechaVenta, precioTotal, observaciones, descripcion} = state;
+		  	postVentas({"nif":dni, "nombreCliente":nombreCliente, "apellidos":apellidos, "email":email, "direccion":direccion, "fechaVenta":fechaVenta, "precioTotal":precioTotal, "observaciones":observaciones,"descripcion":descripcion});
 			handleShow()
 		}
 
-		if (place === "proveedor") {
-			const { cif, nombre, contacto, direccion, telefono, email } = state;
-		  	postProveedor({"CIF":cif,"Nombre":nombre,"Contacto":contacto,"Dirección":direccion,"Teléfono":telefono,"Email":email});
-			handleShow()
-		}
 	};
 	  
 	return (
@@ -81,7 +76,7 @@ const AddModal = ({handleShow,place,state,clientes,compras,empleados,productos,p
 						<>
 						</>
 					):(
-						<VentasForm add/>
+						<VentasForm add state={state}/>
 					)}
 				</div>
 				<div className="modal-footer">

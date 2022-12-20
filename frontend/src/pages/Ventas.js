@@ -29,7 +29,7 @@ export const Ventas = () => {
 	const handleShowLens = () => setShowLens(!showLens);
 
 	const [dni, setDni] = useState("");
-	const [nombre, setNombre] = useState("");
+	const [nombreCliente, setNombre] = useState("");
 	const [apellidos, setApellidos] = useState("");
 	const [email, setEmail] = useState("");
 	const [direccion, setDireccion] = useState("");
@@ -37,12 +37,11 @@ export const Ventas = () => {
 	const [precioTotal, setPrecioTotal] = useState("");
 	const [observaciones, setObservaciones] = useState("");
 	const [productos, setProductos] = useState("");
-	const [descripcion, setDescripcion] = useState("");
 
 	const state = {
 		dni,
 		setDni,
-		nombre,
+		nombreCliente,
 		setNombre,
 		apellidos,
 		setApellidos,
@@ -56,8 +55,6 @@ export const Ventas = () => {
 		setPrecioTotal,
 		observaciones,
 		setObservaciones,
-		descripcion,
-		setDescripcion,
 		productos,
 		setProductos
 	};
