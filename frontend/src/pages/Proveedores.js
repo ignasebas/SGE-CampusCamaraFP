@@ -49,7 +49,7 @@ export const Proveedores = () => {
 		setEmail
 	};
 
-	const place = "clientes"
+	const place = "proveedor"
 
 	return (
 		<>
@@ -57,13 +57,13 @@ export const Proveedores = () => {
 				<>
 				</>
 			):(
-				<AddModal proveedores handleShow={handleShowAdd}/>
+				<AddModal proveedores handleShow={handleShowAdd} state={state} place={place}/>
 			)}
 			{!showEdit ? (
 				<>
 				</>
 			):(
-				<EditModal proveedores handleShow={handleShowEdit}/>
+				<EditModal proveedores handleShow={handleShowEdit} state={state} />
 			)}
 			{!showDelete ? (
 				<>

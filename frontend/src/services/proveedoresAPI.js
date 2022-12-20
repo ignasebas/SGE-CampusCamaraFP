@@ -10,6 +10,7 @@ export const getProveedores = () => {
 export const postProveedor = async (data) => {
   const apiUrl = getApiUrl('/postProveedor');
   const response = await axios.post(apiUrl, data);
+  console.log(response)
   return response.data;
 }
 

@@ -35,13 +35,13 @@ const AddModal = ({handleShow,place,state,clientes,compras,empleados,productos,p
 
 		if (place === "proveedor") {
 			const { cif, nombre, contacto, direccion, telefono, email } = state;
-		  	postProveedor({"CIF":cif,"Nombre":nombre,"Contacto":contacto,"Dirección":direccion,"Teléfono":telefono,"Email":email});
+		  	postProveedor({"cif":cif,"nombre":nombre,"contacto":contacto,"direccion":direccion,"telefono":telefono,"email":email});
 			handleShow()
 		}
-		if (place === "compras") {
-			const { cif, nombre, direccion, telefono, email, fechaCompra, precioTotal, observaciones } = state;
-		  	postCompras({"cif":cif,"nombre":nombre,"direccion":direccion,"email":email,"telefono":telefono,"fechaCompra":fechaCompra,"precioTotal":precioTotal,"observaciones":observaciones});
-			//handleShow()
+		if (place === "empleados") {
+			const { nif, nombre, apellidos, telefono, email, direccion, puesto } = state;
+		  	postEmpleados({"Nif":nif,"Nombre":nombre,"Apellidos":apellidos,"Telefono":telefono,"Email":email, "Direccion":direccion,"Puesto":puesto});
+			handleShow()
 		}
 	};
 	  
@@ -69,7 +69,7 @@ const AddModal = ({handleShow,place,state,clientes,compras,empleados,productos,p
 						<>
 						</>
 					):(
-						<EmpleadosForm add/>
+						<EmpleadosForm add state={state}/>
 					)}
 					{!productos ? (
 						<>
@@ -81,7 +81,7 @@ const AddModal = ({handleShow,place,state,clientes,compras,empleados,productos,p
 						<>
 						</>
 					):(
-						<ProveedoresForm add/>
+						<ProveedoresForm add state={state}/>
 					)}
 					{!ventas ? (
 						<>
