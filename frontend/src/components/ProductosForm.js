@@ -1,6 +1,6 @@
 import React from "react";
 
-const ClientesForm = ({add,edit,del}) => {
+const ClientesForm = ({add,edit,del,state}) => {
 
 	const state = {
 		nombre,
