@@ -9,6 +9,8 @@ const ClientesForm = ({add,edit,del,state}) => {
 		setProveedor,
 		precioVenta,
 		setPrecioVenta,
+		imagen,
+		setImagen,
 		tasas,
 		setTasas,
 		descripcion,
@@ -51,6 +53,17 @@ const ClientesForm = ({add,edit,del,state}) => {
 							style={{marginLeft:"20px"}}
 							value={precioVenta}
 							onChange={(event) => setPrecioVenta(event.target.value)}></input>
+					</div>
+
+					<br/>
+
+					<div>
+						<label>Imagen: </label>
+						<input 
+							type={'text'} 
+							style={{marginLeft:"20px"}}
+							value={imagen}
+							onChange={(event) => setImagen(event.target.value)}></input>
 					</div>
 
 					<br/>

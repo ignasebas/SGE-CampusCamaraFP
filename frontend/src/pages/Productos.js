@@ -34,6 +34,7 @@ export const Productos = () => {
 	const [nombre, setNombre] = useState("");
 	const [proveedor, setProveedor] = useState("");
 	const [precioVenta, setPrecioVenta] = useState("");
+	const [imagen, setImagen] = useState("");
 	const [tasas, setTasas] = useState("");
 	const [descripcion, setDescripcion] = useState("");
 
@@ -44,6 +45,8 @@ export const Productos = () => {
 		setProveedor,
 		precioVenta,
 		setPrecioVenta,
+		imagen,
+		setImagen,
 		tasas,
 		setTasas,
 		descripcion,
