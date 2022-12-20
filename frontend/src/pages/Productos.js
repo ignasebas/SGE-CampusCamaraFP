@@ -30,13 +30,37 @@ export const Productos = () => {
 	const handleShowEdit = () => setShowEdit(!showEdit);
 	const handleShowDelete = () => setShowDelete(!showDelete);
 
+	
+	const [nombre, setNombre] = useState("");
+	const [proveedor, setProveedor] = useState("");
+	const [precioVenta, setPrecioVenta] = useState("");
+	const [tasas, setTasas] = useState("");
+	const [descripcion, setDescripcion] = useState("");
+
+	const state = {
+		nombre,
+		setNombre,
+		proveedor,
+		setProveedor,
+		precioVenta,
+		setPrecioVenta,
+		tasas,
+		setTasas,
+		descripcion,
+		setDescripcion
+	};
+
+	const place = "productos"
+
+	console.log(data)
+
 	return (
 		<>
 			{!showAdd ? (
 				<>
 				</>
 			):(
-				<AddModal productos handleShow={handleShowAdd}/>
+				<AddModal productos handleShow={handleShowAdd} place={place} state={state}/>
 			)}
 			{!showEdit ? (
 				<>
