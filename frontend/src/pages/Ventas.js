@@ -28,15 +28,42 @@ export const Ventas = () => {
 	const [showLens, setShowLens] = useState(false);
 	const handleShowLens = () => setShowLens(!showLens);
 
-	function add() {
-		if (!showAdd) {
-			setShowAdd(!showAdd)
-			return
-		} else {
-			setShowAdd(!showAdd)
-			postVentas({"idVenta":"7","nombreCliente":"Iria Lúa", "fechaVenta":"10/12/2022", "precioTotal":"150", "observaciones":"Sin retraso."});
-		}
-	}
+	const [dni, setDni] = useState("");
+	const [nombre, setNombre] = useState("");
+	const [apellidos, setApellidos] = useState("");
+	const [email, setEmail] = useState("");
+	const [direccion, setDireccion] = useState("");
+	const [fechaVenta, setFechaVenta] = useState("");
+	const [precioTotal, setPrecioTotal] = useState("");
+	const [observaciones, setObservaciones] = useState("");
+	const [productos, setProductos] = useState("");
+	const [descripcion, setDescripcion] = useState("");
+
+	const state = {
+		dni,
+		setDni,
+		nombre,
+		setNombre,
+		apellidos,
+		setApellidos,
+		email,
+		setEmail,
+		direccion,
+		setDireccion,
+		fechaVenta,
+		setFechaVenta,
+		precioTotal,
+		setPrecioTotal,
+		observaciones,
+		setObservaciones,
+		descripcion,
+		setDescripcion,
+		productos,
+		setProductos
+	};
+
+	const place = "ventas"
+
 	console.log(data)
 
 	return (
@@ -45,7 +72,7 @@ export const Ventas = () => {
 				<>
 				</>
 			):(
-				<AddModal ventas handleShow={handleShowAdd}/>
+				<AddModal ventas handleShow={handleShowAdd} place={place} state={state}/>
 			)}
 			{!showLens ? (
 				<>
