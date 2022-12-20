@@ -9,6 +9,7 @@ import ProveedoresForm from "./ProveedoresForm";
 import { postCliente } from "../services/clientesAPI";
 import { postProducto } from "../services/productosAPI";
 import { postVentas } from "../services/ventasAPI";
+import { postProveedor } from "../services/proveedoresAPI";
 
 const AddModal = ({handleShow,place,state,clientes,compras,empleados,productos,proveedores,ventas}) => {
 
