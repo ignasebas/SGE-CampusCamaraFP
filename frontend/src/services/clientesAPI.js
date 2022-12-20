@@ -15,8 +15,13 @@ export const postCliente = async (data) => {
 }
 
 export const deleteCliente = async (id) => {
-    const apiUrl = getApiUrl(`/deleteByIdCliente/${id}`);
-    const response = await axios.delete(apiUrl);
-    return response.data;
+  const apiUrl = getApiUrl(`/deleteByIdCliente/${id}`);
+  const response = await axios.delete(apiUrl);
+  return response.data;
 }
   
+export const updateCliente = async (id) => {
+  const apiUrl = getApiUrl(`/updateByIdCliente/${id}`);
+  const response = await axios.patch(apiUrl);
+  return response.data;
+}

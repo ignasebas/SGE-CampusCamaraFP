@@ -12,3 +12,5 @@ export const postCompras = async (data) => {
   const response = await axios.post(apiUrl, data);
   return response.data;
 }
+
+//No se pueden eliminar ni modificar las compras.
