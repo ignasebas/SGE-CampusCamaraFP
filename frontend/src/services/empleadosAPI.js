@@ -12,8 +12,10 @@ export const getEmpleados = () => {
 export const postEmpleados = async (data) => {
   const apiUrl = getApiUrl('/postEmpleado');
   const response = await axios.post(apiUrl, data);
+  console.log(response);
   return response.data;
 }
+
 
 export const deleteEmpleados = async (id) => {
     const apiUrl = getApiUrl(`/updateByIdEmpleado/${id}`);

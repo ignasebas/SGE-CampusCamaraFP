@@ -5,8 +5,12 @@ const ClientesForm = ({add,edit,del,state}) => {
 	const{
 		nombre,
 		setNombre,
-		proveedor,
-		setProveedor,
+		proveedorID,
+		setProveedorID,
+		proveedorNombre,
+		setProveedorNombre,
+		proveedorPrecioCompra,
+		setProveedorPrecioCompra,
 		precioVenta,
 		setPrecioVenta,
 		imagen,
@@ -36,12 +40,34 @@ const ClientesForm = ({add,edit,del,state}) => {
 					<br/>
 
 					<div>
-						<label>Proveedor: </label>
+						<label>Proveedor ID: </label>
 						<input 
 							type={'text'} 
 							style={{marginLeft:"20px"}}
-							value={proveedor}
-							onChange={(event) => setProveedor(event.target.value)}></input>
+							value={proveedorID}
+							onChange={(event) => setProveedorID(event.target.value)}></input>
+					</div>
+
+					<br/>
+
+					<div>
+						<label>Proveedor Nombre: </label>
+						<input 
+							type={'text'} 
+							style={{marginLeft:"20px"}}
+							value={proveedorNombre}
+							onChange={(event) => setProveedorNombre(event.target.value)}></input>
+					</div>
+
+					<br/>
+
+					<div>
+						<label>Proveedor Precio Compra: </label>
+						<input 
+							type={'text'} 
+							style={{marginLeft:"20px"}}
+							value={proveedorPrecioCompra}
+							onChange={(event) => setProveedorPrecioCompra(event.target.value)}></input>
 					</div>
 
 					<br/>

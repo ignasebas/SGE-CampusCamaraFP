@@ -7,9 +7,10 @@ export const getProveedores = () => {
     return axios.get(ApiUrl).then(res => res.data)
 }
 
-export const postProveedores = async (data) => {
+export const postProveedor = async (data) => {
   const apiUrl = getApiUrl('/postProveedor');
   const response = await axios.post(apiUrl, data);
+  console.log(response)
   return response.data;
 }
 

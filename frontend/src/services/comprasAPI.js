@@ -10,6 +10,7 @@ export const getCompras = () => {
 export const postCompras = async (data) => {
   const apiUrl = getApiUrl('/postCompra');
   const response = await axios.post(apiUrl, data);
+  console.log(response)
   return response.data;
 }
 
