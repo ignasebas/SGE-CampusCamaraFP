@@ -9,8 +9,8 @@ import ProveedoresForm from "./ProveedoresForm";
 import { postCliente } from "../services/clientesAPI";
 import { postProducto } from "../services/productosAPI";
 import { postVentas } from "../services/ventasAPI";
-import { postProveedor } from "../services/proveedoresAPI";
-import { postEmpleados } from "../services/empleadosAPI";
+import { postCompras } from "../services/comprasAPI";
+
 const AddModal = ({handleShow,place,state,clientes,compras,empleados,productos,proveedores,ventas}) => {
 
 	
@@ -22,8 +22,8 @@ const AddModal = ({handleShow,place,state,clientes,compras,empleados,productos,p
 		} 
 		
 		if (place === "productos") {
-			const { nombre, proveedorID, proveedorNombre, proveedorPrecioCompra, precioVenta, imagen, tasas, descripcion } = state;
-		  	postProducto({"nombre":nombre, "provedor.id":proveedorID, "proveedor.nombre":proveedorNombre, "proveedor.precioCompra":proveedorPrecioCompra, "precioVenta":precioVenta, "imagen":imagen,"tasas":tasas,"descripcion":descripcion, });
+			const { nombre, proveedor, precioVenta, imagen, tasas, descripcion } = state;
+		  	postProducto({"nombre":nombre,"proveedor":proveedor,"precioVenta":precioVenta, "imagen":imagen,"tasas":tasas,"descripcion":descripcion, });
 			handleShow()
 		}
 
@@ -38,10 +38,10 @@ const AddModal = ({handleShow,place,state,clientes,compras,empleados,productos,p
 		  	postProveedor({"CIF":cif,"Nombre":nombre,"Contacto":contacto,"Dirección":direccion,"Teléfono":telefono,"Email":email});
 			handleShow()
 		}
-		if (place === "empleados") {
-			const { nif, nombre, apellidos, telefono, email, direccion, puesto } = state;
-		  	postEmpleados({"Nif":nif,"Nombre":nombre,"Apellidos":apellidos,"Telefono":telefono,"Email":email, "Direccion":direccion,"Puesto":puesto});
-			handleShow()
+		if (place === "compras") {
+			const { cif, nombre, direccion, telefono, email, fechaCompra, precioTotal, observaciones } = state;
+		  	postCompras({"cif":cif,"nombre":nombre,"direccion":direccion,"email":email,"telefono":telefono,"fechaCompra":fechaCompra,"precioTotal":precioTotal,"observaciones":observaciones});
+			//handleShow()
 		}
 	};
 	  

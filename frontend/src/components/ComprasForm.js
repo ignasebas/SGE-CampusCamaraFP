@@ -117,4 +117,4 @@ const ComprasForm = ({add,edit,del,state}) => {
 	);
 }
 
-export default ClientesForm;
+export default ComprasForm;

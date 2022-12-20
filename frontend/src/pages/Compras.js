@@ -63,7 +63,7 @@ export const Compras = () => {
 				<>
 				</>
 			):(
-				<AddModal compras handleShow={handleShowAdd }state={state}/>
+				<AddModal compras handleShow={handleShowAdd} state={state} place={place}/>
 			)}
 			{!showLens ? (
 				<>
