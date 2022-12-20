@@ -6,16 +6,21 @@ import ComprasForm from "./ComprasForm";
 import EmpleadosForm from "./EmpleadosForm";
 import ProductosForm from "./ProductosForm";
 import ProveedoresForm from "./ProveedoresForm";
+import { postCliente } from "../services/clientesAPI";
 
-const AddModal = ({handleShow,clientes,compras,empleados,productos,proveedores,ventas}) => {
+const AddModal = ({handleShow,place,state,clientes,compras,empleados,productos,proveedores,ventas}) => {
 
-	const [dni, setDni] = useState(false);
-	const [nombre, setNombre] = useState(false);
-	const [apellidos, setApellidos] = useState(false);
-	const [telefono, setTelefono] = useState(false);
-	const [email, setEmail] = useState(false);
-	const [direccion, setDireccion] = useState(false);
-
+	
+	const addNew = () => {
+		if (place === "clientes") {
+			const { dni, nombre, apellidos, telefono, email, direccion } = state;
+		  	postCliente({"nif":dni,"nombre":nombre,"apellidos":apellidos,"telefono":telefono,"email":email,"direccion":direccion});
+			handleShow()
+		} else {
+		  	console.log("Not cliente");
+		}
+	};
+	  
 	return (
 		<div className="modal-full">
 			<div className="modal-container">
@@ -28,7 +33,7 @@ const AddModal = ({handleShow,clientes,compras,empleados,productos,proveedores,v
 						<>
 						</>
 					):(
-						<ClientesForm add/>
+						<ClientesForm add state={state} />
 					)}
 					{!compras ? (
 						<>
@@ -65,7 +70,7 @@ const AddModal = ({handleShow,clientes,compras,empleados,productos,proveedores,v
 					<CDBBtn className={"discard-button"} onClick={handleShow}>
 						Descartar
 					</CDBBtn>
-					<CDBBtn className={"confirm-button"} onClick={handleShow} style={{marginLeft:"15px"}}>
+					<CDBBtn className={"confirm-button"} onClick={addNew} style={{marginLeft:"15px"}}>
 						Guardar
 					</CDBBtn>
 				</div>
