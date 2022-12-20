@@ -27,18 +27,33 @@ export const Clientes = () => {
 	const [showAdd, setShowAdd] = useState(false);
 	const [showEdit, setShowEdit] = useState(false);
 	const [showDelete, setShowDelete] = useState(false);
-	const handleShowAdd = () => add();
+	const handleShowAdd = () => setShowAdd(!showAdd)
 	const handleShowEdit = () => setShowEdit(!showEdit);
 	const handleShowDelete = () => setShowDelete(!showDelete);
-	function add() {
-		if (!showAdd) {
-			setShowAdd(!showAdd)
-			return
-		} else {
-			setShowAdd(!showAdd)
-			postCliente({"nif":"123456789","nombre":"Sebas","apellidos":"123456789012345","telefono":123456789,"email":"sebas@gmail.com","direccion":"Calle Ejemplo 12414"});
-		}
-	}
+	
+	const [dni, setDni] = useState("");
+	const [nombre, setNombre] = useState("");
+	const [apellidos, setApellidos] = useState("");
+	const [telefono, setTelefono] = useState("");
+	const [email, setEmail] = useState("");
+	const [direccion, setDireccion] = useState("");
+	const state = {
+		dni,
+		setDni,
+		nombre,
+		setNombre,
+		apellidos,
+		setApellidos,
+		telefono,
+		setTelefono,
+		email,
+		setEmail,
+		direccion,
+		setDireccion
+	};
+
+	const place = "clientes"
+
 	console.log(data)
 	
 
@@ -48,19 +63,19 @@ export const Clientes = () => {
 				<>
 				</>
 			):(
-				<AddModal clientes handleShow={handleShowAdd}/>
+				<AddModal clientes handleShow={handleShowAdd} place={place} state={state}/>
 			)}
 			{!showEdit ? (
 				<>
 				</>
 			):(
-				<EditModal clientes handleShow={handleShowEdit}/>
+				<EditModal clientes handleShow={handleShowEdit} place={place}/>
 			)}
 			{!showDelete ? (
 				<>
 				</>
 			):(
-				<DeleteModal clientes handleShow={handleShowDelete}/>
+				<DeleteModal clientes handleShow={handleShowDelete} place={place}/>
 			)}
 			<div className="d-flex profile" style={{overflowY:"hidden"}}>
 				<div>

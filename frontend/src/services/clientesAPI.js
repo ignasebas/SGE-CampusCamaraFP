@@ -10,6 +10,7 @@ export const getClientes = () => {
 export const postCliente = async (data) => {
   const apiUrl = getApiUrl('/postCliente');
   const response = await axios.post(apiUrl, data);
+  console.log(response)
   return response.data;
 }
 

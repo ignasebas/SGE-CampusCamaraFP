@@ -18,6 +18,7 @@ export const Productos = () => {
 		getProductos().then(ProductData => {
 		  setData(ProductData);
 		});
+		
 	}, []);
 	  
 
