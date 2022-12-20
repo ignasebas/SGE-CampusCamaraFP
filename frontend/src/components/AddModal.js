@@ -25,6 +25,12 @@ const AddModal = ({handleShow,place,state,clientes,compras,empleados,productos,p
 			handleShow()
 		}
 
+		if (place === "proveedor") {
+			const { cif, nombre, contacto, direccion, telefono, email } = state;
+		  	postProveedor({"CIF":cif,"Nombre":nombre,"Contacto":contacto,"Dirección":direccion,"Teléfono":telefono,"Email":email});
+			handleShow()
+		}
+
 	};
 	  
 	return (
