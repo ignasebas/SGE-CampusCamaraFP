@@ -13,9 +13,4 @@ export const postVentas = async (data) => {
   return response.data;
 }
 
-export const deleteVenta= async (id) => {
-    const apiUrl = getApiUrl(`/deleteByIdVenta/${id}`);
-    const response = await axios.delete(apiUrl);
-    return response.data;
-}
-  
+//No se pueden eliminar ni modificar las ventas.

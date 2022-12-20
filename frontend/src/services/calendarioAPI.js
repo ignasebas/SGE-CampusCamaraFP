@@ -13,9 +13,15 @@ export const postCalendario = async (data) => {
   return response.data;
 }
 
-export const deleteCliente = async (id) => {
-    const apiUrl = getApiUrl(`/deleteByIdCliente/${id}`);
-    const response = await axios.delete(apiUrl);
-    return response.data;
-  }
+export const deleteCalendario = async (id) => {
+  const apiUrl = getApiUrl(`/deleteByIdCalendario/${id}`);
+  const response = await axios.delete(apiUrl);
+  return response.data;
+}
+
+export const updateCalendario = async (id) => {
+  const apiUrl = getApiUrl(`/updateByIdCalendario/${id}`);
+  const response = await axios.patch(apiUrl);
+  return response.data;
+}
   
