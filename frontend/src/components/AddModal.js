@@ -10,7 +10,7 @@ import { postCliente } from "../services/clientesAPI";
 import { postProducto } from "../services/productosAPI";
 import { postVentas } from "../services/ventasAPI";
 import { postProveedor } from "../services/proveedoresAPI";
-
+import { postEmpleados } from "../services/empleadosAPI";
 const AddModal = ({handleShow,place,state,clientes,compras,empleados,productos,proveedores,ventas}) => {
 
 	
@@ -36,6 +36,11 @@ const AddModal = ({handleShow,place,state,clientes,compras,empleados,productos,p
 		if (place === "proveedor") {
 			const { cif, nombre, contacto, direccion, telefono, email } = state;
 		  	postProveedor({"CIF":cif,"Nombre":nombre,"Contacto":contacto,"Dirección":direccion,"Teléfono":telefono,"Email":email});
+			handleShow()
+		}
+		if (place === "empleados") {
+			const { nif, nombre, apellidos, telefono, email, direccion, puesto } = state;
+		  	postEmpleados({"Nif":nif,"Nombre":nombre,"Apellidos":apellidos,"Telefono":telefono,"Email":email, "Direccion":direccion,"Puesto":puesto});
 			handleShow()
 		}
 	};
