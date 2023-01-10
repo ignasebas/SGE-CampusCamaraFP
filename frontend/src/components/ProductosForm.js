@@ -103,35 +103,39 @@ const ClientesForm = ({add,edit,del,state}) => {
 				</>
 			):(
 				<>
-					<div>
-						<label>Precio venta: </label>
-						<input type={'text'} style={{marginLeft:"20px"}}></input>
-					</div>
-					<br/>
-					<div>
-						<label>Precio de compra: </label>
-						<input type={'text'} style={{marginLeft:"20px"}}></input>
-					</div>
-					<br/>
-					<div>
-						<label>Tasas: </label>
-						<input type={'text'} style={{marginLeft:"20px"}}></input>
-					</div>
-					<br/>
-					<div>
-						<label>ID Proveedor: </label>
-						<input type={'text'} style={{marginLeft:"20px"}}></input>
-					</div>
-					<br/>
-					<div>
-						<label>Imagen: </label>
-						<input type={'text'} style={{marginLeft:"20px"}}></input>
-					</div>
-					<br/>
-					<div>
-						<label>Descripción: </label>
-						<input type={'text'} style={{marginLeft:"20px"}}></input>
-					</div>
+					<center>
+						<table>
+							<tr>
+								<td><label>Precio venta: </label></td>
+								<td><input type={'text'} style={{marginLeft:"20px"}}></input></td>
+							</tr>
+							
+							<tr>
+								<td><label>Precio de compra: </label></td>
+								<td><input type={'text'} style={{marginLeft:"20px"}}></input></td>
+							</tr>
+							
+							<tr>
+								<td><label>Tasas: </label></td>
+								<td><input type={'text'} style={{marginLeft:"20px"}}></input></td>
+							</tr>
+							
+							<tr>
+								<td><label>ID Proveedor: </label></td>
+								<td><input type={'text'} style={{marginLeft:"20px"}}></input></td>
+							</tr>
+							
+							<tr>
+								<td><label>Imagen: </label></td>
+								<td><input type={'text'} style={{marginLeft:"20px"}}></input></td>
+							</tr>
+							
+							<tr>
+								<td><label>Descripción: </label></td>
+								<td><input type={'text'} style={{marginLeft:"20px"}}></input></td>
+							</tr>
+						</table>
+					</center>
 				</>
 			)}
 			{!del ? (
