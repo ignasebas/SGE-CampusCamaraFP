@@ -16,15 +16,14 @@ export const postEmpleados = async (data) => {
   return response.data;
 }
 
-
-export const deleteEmpleados = async (id) => {
-    const apiUrl = getApiUrl(`/updateByIdEmpleado/${id}`);
-    const response = await axios.delete(apiUrl);
-    return response.data;
-  }
-
 export const updateEmpleado = async (id) => {
   const apiUrl = getApiUrl(`/updateByIdEmpleado/${id}`)
   const response = await axios.patch(apiUrl, id);
+  return response.data;
+}
+
+export const deleteEmpleados = async (id) => {
+  const apiUrl = getApiUrl(`/deleteByIdEmpleado/${id}`);
+  const response = await axios.delete(apiUrl);
   return response.data;
 }

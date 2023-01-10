@@ -10,6 +10,8 @@ import { postCliente } from "../services/clientesAPI";
 import { postProducto } from "../services/productosAPI";
 import { postVentas } from "../services/ventasAPI";
 import { postCompras } from "../services/comprasAPI";
+import { postProveedor } from "../services/proveedoresAPI";
+import { postEmpleados } from "../services/empleadosAPI";
 
 const AddModal = ({handleShow,place,state,clientes,compras,empleados,productos,proveedores,ventas}) => {
 
