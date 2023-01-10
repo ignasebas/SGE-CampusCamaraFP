@@ -10,55 +10,58 @@ const EmpleadosForm = ({add,edit,del, state}) => {
 				</>
 			):(
 				<>
+					<center>
+						<table cellPadding={"5px"}>
+							<tr>
+								<td><label>NIF: </label></td>
+								<td><input type={'text'} style={{marginLeft:"20px"}}
+								value={nif}
+								onChange={(event) => setNif(event.target.value)}></input></td>
+							</tr>
+							<tr>
+								<td><label>Nombre: </label></td>
+								<td><input type={'text'} style={{marginLeft:"20px"}}
+								value={nombre}
+								onChange={(event) => setNombre(event.target.value)}></input></td>
+							</tr>
 					
-					<div>
-						<label>Nif: </label>
-						<input type={'text'} style={{marginLeft:"20px"}}
-						value={nif}
-						onChange={(event) => setNif(event.target.value)}></input>
-					</div>
-					<div>
-						<label>Nombre: </label>
-						<input type={'text'} style={{marginLeft:"20px"}}
-						value={nombre}
-						onChange={(event) => setNombre(event.target.value)}></input>
-					</div>
-					<br/>
-					<div>
-						<label>Apellidos: </label>
-						<input type={'text'} style={{marginLeft:"20px"}}
-						value={apellidos}
-						onChange={(event) => setApellidos(event.target.value)}></input>
-					</div>
-					<br/>
-					<div>
-						<label>Teléfono: </label>
-						<input type={'text'} style={{marginLeft:"20px"}}
-						value={telefono}
-						onChange={(event) => setTelefono(event.target.value)}></input>
-					</div>
-					<br/>
-					<div>
-						<label>Email: </label>
-						<input type={'text'} style={{marginLeft:"20px"}}
-						value={email}
-						onChange={(event) => setEmail(event.target.value)}></input>
-					</div>
-					<br/>
-					<div>
-						<label>Dirección: </label>
-						<input type={'text'} style={{marginLeft:"20px"}}
-						value={direccion}
-						onChange={(event) => setDireccion(event.target.value)}></input>
-					</div>
-					<br/>
-					<div>
-						<label>Puesto: </label>
-						<input type={'text'} style={{marginLeft:"20px"}}
-						value={puesto}
-						onChange={(event) => setPuesto(event.target.value)}
-						></input>
-					</div>
+							<tr>
+								<td><label>Apellidos: </label></td>
+								<td><input type={'text'} style={{marginLeft:"20px"}}
+								value={apellidos}
+								onChange={(event) => setApellidos(event.target.value)}></input></td>
+							</tr>
+							
+							<tr>
+								<td><label>Teléfono: </label></td>
+								<td><input type={'text'} style={{marginLeft:"20px"}}
+								value={telefono}
+								onChange={(event) => setTelefono(event.target.value)}></input></td>
+							</tr>
+							
+							<tr>
+								<td><label>Email: </label></td>
+								<td><input type={'text'} style={{marginLeft:"20px"}}
+								value={email}
+								onChange={(event) => setEmail(event.target.value)}></input></td>
+							</tr>
+							
+							<tr>
+								<td><label>Dirección: </label></td>
+								<td><input type={'text'} style={{marginLeft:"20px"}}
+								value={direccion}
+								onChange={(event) => setDireccion(event.target.value)}></input></td>
+							</tr>
+							
+							<tr>
+								<td><label>Puesto: </label></td>
+								<td><input type={'text'} style={{marginLeft:"20px"}}
+								value={puesto}
+								onChange={(event) => setPuesto(event.target.value)}
+								></input></td>
+							</tr>
+						</table>
+					</center>
 				</>
 			)}
 			{!edit ? (
@@ -66,35 +69,38 @@ const EmpleadosForm = ({add,edit,del, state}) => {
 				</>
 			):(
 				<>
-					<div>
-						<label>Nombre: </label>
-						<input type={'text'} style={{marginLeft:"20px"}}></input>
-					</div>
-					<br/>
-					<div>
-						<label>Apellidos: </label>
-						<input type={'text'} style={{marginLeft:"20px"}}></input>
-					</div>
-					<br/>
-					<div>
-						<label>Teléfono: </label>
-						<input type={'text'} style={{marginLeft:"20px"}}></input>
-					</div>
-					<br/>
-					<div>
-						<label>Email: </label>
-						<input type={'text'} style={{marginLeft:"20px"}}></input>
-					</div>
-					<br/>
-					<div>
-						<label>Dirección: </label>
-						<input type={'text'} style={{marginLeft:"20px"}}></input>
-					</div>
-					<br/>
-					<div>
-						<label>Puesto: </label>
-						<input type={'text'} style={{marginLeft:"20px"}}></input>
-					</div>
+					<center>
+						<table cellPadding={"5px"}>
+							<tr>
+								<td><label>NIF: </label></td>
+								<td><input type={'text'} style={{marginLeft:"20px"}}></input></td>
+							</tr>
+							<tr>
+								<td><label>Nombre: </label></td>
+								<td><input type={'text'} style={{marginLeft:"20px"}}></input></td>
+							</tr>	
+							<tr>
+								<td><label>Apellidos: </label></td>
+								<td><input type={'text'} style={{marginLeft:"20px"}}></input></td>
+							</tr>
+							<tr>
+								<td><label>Teléfono: </label></td>
+								<td><input type={'text'} style={{marginLeft:"20px"}}></input></td>
+							</tr>
+							<tr>
+								<td><label>Email: </label></td>
+								<td><input type={'text'} style={{marginLeft:"20px"}}></input></td>
+							</tr>
+							<tr>
+								<td><label>Dirección: </label></td>
+								<td><input type={'text'} style={{marginLeft:"20px"}}></input></td>
+							</tr>
+							<tr>
+								<td><label>Puesto: </label></td>
+								<td><input type={'text'} style={{marginLeft:"20px"}}></input></td>
+							</tr>
+						</table>
+					</center>			
 				</>
 			)}
 			{!del ? (
