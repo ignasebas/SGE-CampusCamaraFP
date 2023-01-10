@@ -28,91 +28,74 @@ const ClientesForm = ({add,edit,del,state}) => {
 				</>
 			):(
 				<>
-					<div>
-						<label>Nombre: </label>
-						<input 
-							type={'text'} 
-							style={{marginLeft:"20px"}}
-							value={nombre}
-							onChange={(event) => setNombre(event.target.value)}></input>
-					</div>
-
-					<br/>
-
-					<div>
-						<label>Proveedor ID: </label>
-						<input 
-							type={'text'} 
-							style={{marginLeft:"20px"}}
-							value={proveedorID}
-							onChange={(event) => setProveedorID(event.target.value)}></input>
-					</div>
-
-					<br/>
-
-					<div>
-						<label>Proveedor Nombre: </label>
-						<input 
-							type={'text'} 
-							style={{marginLeft:"20px"}}
-							value={proveedorNombre}
-							onChange={(event) => setProveedorNombre(event.target.value)}></input>
-					</div>
-
-					<br/>
-
-					<div>
-						<label>Proveedor Precio Compra: </label>
-						<input 
-							type={'text'} 
-							style={{marginLeft:"20px"}}
-							value={proveedorPrecioCompra}
-							onChange={(event) => setProveedorPrecioCompra(event.target.value)}></input>
-					</div>
-
-					<br/>
-
-					<div>
-						<label>Precio Venta: </label>
-						<input 
-							type={'text'} 
-							style={{marginLeft:"20px"}}
-							value={precioVenta}
-							onChange={(event) => setPrecioVenta(event.target.value)}></input>
-					</div>
-
-					<br/>
-
-					<div>
-						<label>Imagen: </label>
-						<input 
-							type={'text'} 
-							style={{marginLeft:"20px"}}
-							value={imagen}
-							onChange={(event) => setImagen(event.target.value)}></input>
-					</div>
-
-					<br/>
-
-					<div>
-						<label>Tasas: </label>
-						<input 
-							type={'text'} 
-							style={{marginLeft:"20px"}}
-							value={tasas}
-							onChange={(event) => setTasas(event.target.value)}></input>
-					</div>
-
-					<br/>
-
-					<div>
-						<label>Descripción: </label>
-						<input 
-							type={'text'} 
-							style={{marginLeft:"20px"}}
-							value={descripcion}
-							onChange={(event) => setDescripcion(event.target.value)}></input>
-					</div>
+					<center>
+						<table cellPadding={"5px"}>
+							<tr>
+								<td><label>Nombre: </label></td>
+								<td><input 
+									type={'text'} 
+									style={{marginLeft:"20px"}}
+									value={nombre}
+									onChange={(event) => setNombre(event.target.value)}></input></td>
+							</tr>
+							<tr>
+								<td><label>Proveedor ID: </label></td>
+								<td><input 
+									type={'text'} 
+									style={{marginLeft:"20px"}}
+									value={proveedorID}
+									onChange={(event) => setProveedorID(event.target.value)}></input></td>
+							</tr>
+							<tr>
+								<td><label>Proveedor Nombre: </label></td>
+								<td><input 
+									type={'text'} 
+									style={{marginLeft:"20px"}}
+									value={proveedorNombre}
+									onChange={(event) => setProveedorNombre(event.target.value)}></input></td>
+							</tr>
+							<tr>
+								<td><label>Proveedor Precio Compra: </label></td>
+								<td><input 
+									type={'text'} 
+									style={{marginLeft:"20px"}}
+									value={proveedorPrecioCompra}
+									onChange={(event) => setProveedorPrecioCompra(event.target.value)}></input></td>
+							</tr>
+							<tr>
+								<td><label>Precio Venta: </label></td>
+								<td><input 
+									type={'text'} 
+									style={{marginLeft:"20px"}}
+									value={precioVenta}
+									onChange={(event) => setPrecioVenta(event.target.value)}></input></td>
+							</tr>
+							<tr>
+								<td><label>Imagen: </label></td>
+								<td><input 
+									type={'text'} 
+									style={{marginLeft:"20px"}}
+									value={imagen}
+									onChange={(event) => setImagen(event.target.value)}></input></td>
+							</tr>
+							<tr>
+								<td><label>Tasas: </label></td>
+								<td><input 
+									type={'text'} 
+									style={{marginLeft:"20px"}}
+									value={tasas}
+									onChange={(event) => setTasas(event.target.value)}></input></td>
+							</tr>
+							<tr>
+								<td><label>Descripción: </label></td>
+								<td><input 
+									type={'text'} 
+									style={{marginLeft:"20px"}}
+									value={descripcion}
+									onChange={(event) => setDescripcion(event.target.value)}></input></td>
+							</tr>
+						</table>
+					</center>
 				</>
 			)}
 			{!edit ? (
