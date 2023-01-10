@@ -104,7 +104,7 @@ const ClientesForm = ({add,edit,del,state}) => {
 			):(
 				<>
 					<center>
-						<table>
+						<table cellPadding={"5px"}>
 							<tr>
 								<td><label>Precio venta: </label></td>
 								<td><input type={'text'} style={{marginLeft:"20px"}}></input></td>
