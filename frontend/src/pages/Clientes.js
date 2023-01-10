@@ -29,15 +29,32 @@ export const Clientes = () => {
 	const [showDelete, setShowDelete] = useState(false);
 	const handleShowAdd = () => setShowAdd(!showAdd)
 	const handleShowEdit = () => setShowEdit(!showEdit);
-	const handleShowDelete = () => setShowDelete(!showDelete);
+	const handleShowDelete = (cliente) => {
+		setShowDelete(!showDelete); 
+		setId(cliente._id);
+		setDni(cliente.dni);
+		setNombre(cliente.nombre);
+		setApellidos(cliente.apellidos);
+		setTelefono(cliente.telefono);
+		setEmail(cliente.email);
+		setDireccion(cliente.direccion);
+		
+	}
 	
+	const [id, setId] = useState("");
 	const [dni, setDni] = useState("");
 	const [nombre, setNombre] = useState("");
 	const [apellidos, setApellidos] = useState("");
 	const [telefono, setTelefono] = useState("");
 	const [email, setEmail] = useState("");
 	const [direccion, setDireccion] = useState("");
+	const dataModifier = {
+		data,
+		setData
+	}
 	const state = {
+		id,
+		setId,
 		dni,
 		setDni,
 		nombre,
@@ -75,7 +92,7 @@ export const Clientes = () => {
 				<>
 				</>
 			):(
-				<DeleteModal clientes handleShow={handleShowDelete} place={place}/>
+				<DeleteModal clientes handleShow={handleShowDelete} dataModifier={dataModifier} state={state}/>
 			)}
 			<div className="d-flex profile" style={{overflowY:"hidden"}}>
 				<div>
@@ -120,7 +137,7 @@ export const Clientes = () => {
 														<CDBBtn onClick={handleShowEdit} className={"edit-button"} style={{marginRight:"10px"}}>
 															<CDBIcon icon="pen" className="ml-1" />
 														</CDBBtn>
-														<CDBBtn className={"delete-button"} onClick={handleShowDelete}>
+														<CDBBtn className={"delete-button"} onClick={() => handleShowDelete(cliente)}>
 															<CDBIcon icon="trash" className="ml-1" />
 														</CDBBtn>
 													</td>

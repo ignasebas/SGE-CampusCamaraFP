@@ -6,8 +6,41 @@ import ComprasForm from "./ComprasForm";
 import EmpleadosForm from "./EmpleadosForm";
 import ProductosForm from "./ProductosForm";
 import ProveedoresForm from "./ProveedoresForm";
+import { deleteCliente } from "../services/clientesAPI";
+import { deleteProducto } from "../services/productosAPI";
+import { deleteProveedor } from "../services/proveedoresAPI";
+import { deleteEmpleados } from "../services/empleadosAPI";
 
-const DeleteModal = ({handleShow,clientes,compras,empleados,productos,proveedores,ventas}) => {
+const DeleteModal = ({handleShow,dataModifier,state,clientes,compras,empleados,productos,proveedores,ventas}) => {
+
+	const addNew = () => {
+		const { id } = state;
+		const { data, setData } = dataModifier
+		if (clientes) {
+			deleteCliente(id)
+			.then(() => {
+				setData(data.filter(client => client._id !== id));
+				handleShow();
+			})
+			.catch(error => {
+				handleShow();
+			});
+		} 
+		
+		if (productos) {
+		  	deleteProducto(id);
+			handleShow()
+		}
+
+		if (proveedores) {
+			deleteProveedor(id);
+		  	handleShow()
+		}
+		if (empleados) {
+			deleteEmpleados(id);
+		  	handleShow()
+		}
+	};
 
 	return (
 		<div className="modal-full">
@@ -20,7 +53,7 @@ const DeleteModal = ({handleShow,clientes,compras,empleados,productos,proveedore
 						<>
 						</>
 					):(
-						<ClientesForm del/>
+						<ClientesForm del state={state}/>
 					)}
 					{!compras ? (
 						<>
@@ -54,7 +87,7 @@ const DeleteModal = ({handleShow,clientes,compras,empleados,productos,proveedore
 					)}
 				</div>
 				<div className="modal-footer">
-					<CDBBtn className={"discard-button"} onClick={handleShow}>
+					<CDBBtn className={"discard-button"} onClick={addNew}>
 						Eliminar
 					</CDBBtn>
 					<CDBBtn className={"cancel-button"} onClick={handleShow} style={{marginLeft:"15px"}}>
