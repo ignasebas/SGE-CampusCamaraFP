@@ -6,8 +6,45 @@ import ComprasForm from "./ComprasForm";
 import EmpleadosForm from "./EmpleadosForm";
 import ProductosForm from "./ProductosForm";
 import ProveedoresForm from "./ProveedoresForm";
+import { updateCliente } from "../services/clientesAPI";
+import { updateProducto } from "../services/productosAPI";
+import { updateProveedor } from "../services/proveedoresAPI";
+import { updateEmpleado } from "../services/empleadosAPI";
 
-const EditModal = ({handleShow,clientes,compras,empleados,productos,proveedores,ventas}) => {
+const EditModal = ({handleShow,dataModifier,state,clientes,compras,empleados,productos,proveedores,ventas}) => {
+
+	const modalAction = () => {
+		
+		const { data, setData } = dataModifier
+		if (clientes) {
+			const { id, dni, nombre, apellidos, telefono, email, direccion } = state;
+			updateCliente(id, {"nif":dni,"nombre":nombre,"apellidos":apellidos,"telefono":telefono,"email":email,"direccion":direccion})
+			.then(() => {
+				let newData = [...data];
+				let index = newData.findIndex((client) => client._id === id);
+				newData[index] = {"_id": id, "nif":dni,"nombre":nombre,"apellidos":apellidos,"telefono":telefono,"email":email,"direccion":direccion};
+				setData(newData);
+				handleShow();
+			})
+			.catch(error => {
+				handleShow();
+			});
+		} 
+		
+		if (productos) {
+		  	//updateProducto(id);
+			handleShow()
+		}
+
+		if (proveedores) {
+			//updateProveedor(id);
+		  	handleShow()
+		}
+		if (empleados) {
+			//updateEmpleado(id);
+		  	handleShow()
+		}
+	};
 
 	return (
 		<div className="modal-full">
@@ -21,7 +58,7 @@ const EditModal = ({handleShow,clientes,compras,empleados,productos,proveedores,
 						<>
 						</>
 					):(
-						<ClientesForm edit/>
+						<ClientesForm edit state={state}/>
 					)}
 					{!compras ? (
 						<>
@@ -58,7 +95,7 @@ const EditModal = ({handleShow,clientes,compras,empleados,productos,proveedores,
 					<CDBBtn className={"delete-button"} onClick={handleShow}>
 						Cerrar
 					</CDBBtn>
-					<CDBBtn className={"edit-button"} onClick={handleShow} style={{marginLeft:"15px"}}>
+					<CDBBtn className={"edit-button"} onClick={modalAction} style={{marginLeft:"15px"}}>
 						Guardar Cambios
 					</CDBBtn>
 				</div>

@@ -13,34 +13,41 @@ import { postCompras } from "../services/comprasAPI";
 import { postProveedor } from "../services/proveedoresAPI";
 import { postEmpleados } from "../services/empleadosAPI";
 
-const AddModal = ({handleShow,place,state,clientes,compras,empleados,productos,proveedores,ventas}) => {
+const AddModal = ({handleShow,dataModifier,state,clientes,compras,empleados,productos,proveedores,ventas}) => {
 
-	
 	const addNew = () => {
-		if (place === "clientes") {
+		const { data, setData } = dataModifier
+		if (clientes) {
 			const { dni, nombre, apellidos, telefono, email, direccion } = state;
-		  	postCliente({"nif":dni,"nombre":nombre,"apellidos":apellidos,"telefono":telefono,"email":email,"direccion":direccion});
-			handleShow()
+			postCliente({"nif":dni,"nombre":nombre,"apellidos":apellidos,"telefono":telefono,"email":email,"direccion":direccion})
+			.then((newClient) => {
+				setData([...data, newClient]);
+				handleShow();
+			})
+			.catch(error => {
+				handleShow()
+			});
+			
 		} 
 		
-		if (place === "productos") {
+		if (productos) {
 			const { nombre, proveedor, precioVenta, imagen, tasas, descripcion } = state;
 		  	postProducto({"nombre":nombre,"proveedor":proveedor,"precioVenta":precioVenta, "imagen":imagen,"tasas":tasas,"descripcion":descripcion, });
 			handleShow()
 		}
 
-		if (place === "ventas") {
+		if (ventas) {
 			const { dni, nombreCliente, apellidos, email, direccion, fechaVenta, precioTotal, observaciones, descripcion} = state;
 		  	postVentas({"nif":dni, "nombreCliente":nombreCliente, "apellidos":apellidos, "email":email, "direccion":direccion, "fechaVenta":fechaVenta, "precioTotal":precioTotal, "observaciones":observaciones,"descripcion":descripcion});
 			handleShow()
 		}
 
-		if (place === "proveedor") {
+		if (proveedores) {
 			const { cif, nombre, contacto, direccion, telefono, email } = state;
 		  	postProveedor({"cif":cif,"nombre":nombre,"contacto":contacto,"direccion":direccion,"telefono":telefono,"email":email});
 			handleShow()
 		}
-		if (place === "empleados") {
+		if (empleados) {
 			const { nif, nombre, apellidos, telefono, email, direccion, puesto } = state;
 		  	postEmpleados({"Nif":nif,"Nombre":nombre,"Apellidos":apellidos,"Telefono":telefono,"Email":email, "Direccion":direccion,"Puesto":puesto});
 			handleShow()

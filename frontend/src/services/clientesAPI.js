@@ -20,8 +20,8 @@ export const deleteCliente = async (id) => {
   return response.data;
 }
   
-export const updateCliente = async (id) => {
+export const updateCliente = async (id, data) => {
   const apiUrl = getApiUrl(`/updateByIdCliente/${id}`);
-  const response = await axios.patch(apiUrl);
+  const response = await axios.patch(apiUrl, data);
   return response.data;
 }

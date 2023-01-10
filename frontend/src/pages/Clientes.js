@@ -27,12 +27,35 @@ export const Clientes = () => {
 	const [showAdd, setShowAdd] = useState(false);
 	const [showEdit, setShowEdit] = useState(false);
 	const [showDelete, setShowDelete] = useState(false);
-	const handleShowAdd = () => setShowAdd(!showAdd)
-	const handleShowEdit = () => setShowEdit(!showEdit);
+
+	const handleShowAdd = () => {
+		setShowAdd(!showAdd); 
+		if(dni && nombre && apellidos && telefono && email && direccion != ""){
+			setId("");
+			setDni("");
+			setNombre("");
+			setApellidos("");
+			setTelefono("");
+			setEmail("");
+			setDireccion("");
+		}
+	}
+
+	const handleShowEdit = (cliente) => {
+		setShowEdit(!showEdit); 
+		setId(cliente._id);
+		setDni(cliente.nif);
+		setNombre(cliente.nombre);
+		setApellidos(cliente.apellidos);
+		setTelefono(cliente.telefono);
+		setEmail(cliente.email);
+		setDireccion(cliente.direccion);
+		
+	}
 	const handleShowDelete = (cliente) => {
 		setShowDelete(!showDelete); 
 		setId(cliente._id);
-		setDni(cliente.dni);
+		setDni(cliente.nif);
 		setNombre(cliente.nombre);
 		setApellidos(cliente.apellidos);
 		setTelefono(cliente.telefono);
@@ -80,13 +103,13 @@ export const Clientes = () => {
 				<>
 				</>
 			):(
-				<AddModal clientes handleShow={handleShowAdd} place={place} state={state}/>
+				<AddModal clientes handleShow={handleShowAdd} dataModifier={dataModifier} state={state}/>
 			)}
 			{!showEdit ? (
 				<>
 				</>
 			):(
-				<EditModal clientes handleShow={handleShowEdit} place={place}/>
+				<EditModal clientes handleShow={handleShowEdit} dataModifier={dataModifier} state={state}/>
 			)}
 			{!showDelete ? (
 				<>
@@ -134,7 +157,7 @@ export const Clientes = () => {
 													<td>{cliente.email}</td>
 													<td>{cliente.direccion}</td>
 													<td style={{whiteSpace: "nowrap"}}>
-														<CDBBtn onClick={handleShowEdit} className={"edit-button"} style={{marginRight:"10px"}}>
+														<CDBBtn onClick={() => handleShowEdit(cliente)} className={"edit-button"} style={{marginRight:"10px"}}>
 															<CDBIcon icon="pen" className="ml-1" />
 														</CDBBtn>
 														<CDBBtn className={"delete-button"} onClick={() => handleShowDelete(cliente)}>
