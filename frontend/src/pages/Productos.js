@@ -23,13 +23,51 @@ export const Productos = () => {
 	  
 
 	const [data, setData] = useState([]);
+	const [error, setError] = useState(null);
+	const[isLoading, setIsLoading] = useState(false);
+
 	const [showAdd, setShowAdd] = useState(false);
 	const [showEdit, setShowEdit] = useState(false);
 	const [showDelete, setShowDelete] = useState(false);
-	const handleShowAdd = () => setShowAdd(!showAdd);
-	const handleShowEdit = () => setShowEdit(!showEdit);
-	const handleShowDelete = () => setShowDelete(!showDelete);
 
+
+	const handleShowAdd = () => {
+		setShowAdd(!showAdd);
+		if(nombre && proveedorID && proveedorNombre && proveedorPrecioCompra && precioVenta && imagen && tasas && descripcion != ""){
+			setNombre("");
+			setProveedorID("");
+			setProveedorNombre("");
+			setProveedorPrecioCompra("");
+			setPrecioVenta("");
+			setImagen("");
+			setTasas("");
+			setDescripcion("");
+		}
+	}
+
+	const handleShowEdit = (producto) =>{
+		setShowEdit(!showEdit);
+		setNombre(producto._nombre);
+		setProveedorID(producto._proveedorID);
+		setProveedorNombre(producto._proveedorNombre);
+		setProveedorPrecioCompra(producto._proveedorPrecioCompra);
+		setPrecioVenta(producto._precioVenta);
+		setImagen(producto._imagen);
+		setTasas(producto._tasas);
+		setDescripcion(producto._descrpcion);
+	}
+
+	const handleShowDelete = (producto) => {
+		setShowDelete(!showDelete);
+		setNombre(producto._nombre);
+		setProveedorID(producto._proveedorID);
+		setProveedorNombre(producto._proveedorNombre);
+		setProveedorPrecioCompra(producto._proveedorPrecioCompra);
+		setPrecioVenta(producto._precioVenta);
+		setImagen(producto._imagen);
+		setTasas(producto._tasas);
+		setDescripcion(producto._descrpcion);
+	}
 	
 	const [nombre, setNombre] = useState("");
 	const [proveedorID, setProveedorID] = useState("");
@@ -69,19 +107,19 @@ export const Productos = () => {
 				<>
 				</>
 			):(
-				<AddModal productos handleShow={handleShowAdd} place={place} state={state}/>
+				<AddModal productos handleShow={handleShowAdd} dataModifier={dataModifier} state={state}/>
 			)}
 			{!showEdit ? (
 				<>
 				</>
 			):(
-				<EditModal productos handleShow={handleShowEdit}/>
+				<EditModal productos handleShow={handleShowEdit} dataModifier={dataModifier} state={state}/>
 			)}
 			{!showDelete ? (
 				<>
 				</>
 			):(
-				<DeleteModal productos handleShow={handleShowDelete}/>
+				<DeleteModal productos handleShow={handleShowDelete} dataModifier={dataModifier} state={state}/>
 			)}
 		<div className="d-flex profile">
 			<div>

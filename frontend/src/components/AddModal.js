@@ -57,14 +57,26 @@ const AddModal = ({handleShow,dataModifier,state,clientes,compras,empleados,prod
 		}
 
 		if (proveedores) {
-			const { cif, nombre, contacto, direccion, telefono, email } = state;
-		  	postProveedor({"cif":cif,"nombre":nombre,"contacto":contacto,"direccion":direccion,"telefono":telefono,"email":email});
-			handleShow()
+			const { cif, nombre,contacto, direccion, telefono, email } = state;
+		  	postProveedor({"cif":cif,"nombre":nombre,"contacto":contacto,"direccion":direccion,"telefono":telefono,"email":email})
+			.then((newProvedor) => {
+				setData([...data, newProvedor]);
+				handleShow();
+			})
+			.catch(error => {
+				handleShow()
+			});
 		}
 		if (empleados) {
 			const { nif, nombre, apellidos, telefono, email, direccion, puesto } = state;
-		  	postEmpleados({"Nif":nif,"Nombre":nombre,"Apellidos":apellidos,"Telefono":telefono,"Email":email, "Direccion":direccion,"Puesto":puesto});
-			handleShow()
+		  	postEmpleados({"nif":nif,"nombre":nombre,"apellidos":apellidos,"telefono":telefono,"email":email, "direccion":direccion,"puesto":puesto})
+			.then((newEmpleado) => {
+				setData([...data, newEmpleado]);
+				handleShow();
+			})
+			.catch(error => {
+				handleShow()
+			});
 		}
 	};
 	  

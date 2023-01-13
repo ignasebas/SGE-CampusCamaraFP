@@ -27,10 +27,48 @@ export const Empleados = () => {
 	const [showAdd, setShowAdd] = useState(false);
 	const [showEdit, setShowEdit] = useState(false);
 	const [showDelete, setShowDelete] = useState(false);
-	const handleShowAdd = () => setShowAdd(!showAdd);
-	const handleShowEdit = () => setShowEdit(!showEdit);
-	const handleShowDelete = () => setShowDelete(!showDelete);
+	
+	const handleShowAdd = () => {
+		 setShowAdd(!showAdd);
+		if(nif && nombre && apellidos && telefono && email && direccion && puesto !=""){
+			setId("");
+			setNif("");
+			setNombre("");
+			setApellidos("");
+			setTelefono("");
+			setEmail("");
+			setDireccion("");
+			setPuesto("");	
+		}
+	} 
 
+
+	const handleShowEdit = (empleado) => {
+		setShowEdit(!showEdit); 
+		setId(empleado._id);
+		setNif(empleado.nif);
+		setNombre(empleado.nombre);
+		setApellidos(empleado.apellidos);
+		setTelefono(empleado.telefono);
+		setEmail(empleado.email);
+		setDireccion(empleado.direccion);
+		setPuesto(empleado.puesto);
+		
+	}
+
+	const handleShowDelete = (empleado) => {
+		setShowDelete(!showDelete); 
+		setId(empleado._id);
+		setNif(empleado.nif);
+		setNombre(empleado.nombre);
+		setApellidos(empleado.apellidos);
+		setTelefono(empleado.telefono);
+		setEmail(empleado.email);
+		setDireccion(empleado.direccion);	
+		setPuesto(empleado.puesto);
+	}
+	
+	const [id, setId] = useState("");
 	const [nif, setNif] = useState("");
 	const [nombre, setNombre] = useState("");
 	const [apellidos, setApellidos] = useState("");
@@ -38,8 +76,14 @@ export const Empleados = () => {
 	const [email, setEmail] = useState("");
 	const [direccion, setDireccion] = useState("");
 	const [puesto, setPuesto] = useState("");
+	const dataModifier = {
+		data,
+		setData
+	}
 
 	const state = {
+		id,
+		setId,
 		nif,
 		setNif,
 		nombre,
@@ -66,19 +110,19 @@ export const Empleados = () => {
 				<>
 				</>
 			):(
-				<AddModal empleados handleShow={handleShowAdd} place={place} state={state}/>
+				<AddModal empleados handleShow={handleShowAdd} dataModifier={dataModifier} state={state}/>
 			)}
 			{!showEdit ? (
 				<>
 				</>
 			):(
-				<EditModal empleados handleShow={handleShowEdit} place={place}/>
+				<EditModal empleados handleShow={handleShowEdit} dataModifier={dataModifier} state={state}/>
 			)}
 			{!showDelete ? (
 				<>
 				</>
 			):(
-				<DeleteModal empleados handleShow={handleShowDelete} place={place} state={state}/>
+				<DeleteModal empleados handleShow={handleShowDelete} dataModifier={dataModifier} state={state}/>
 			)}
 		<div className="d-flex profile">
 			<div>
@@ -114,16 +158,16 @@ export const Empleados = () => {
 											<tr>
 												<td>{empleado.nif}</td>
 												<td>{empleado.nombre}</td>
-												<td>{empleado.apellido}</td>
+												<td>{empleado.apellidos}</td>
 												<td>{empleado.telefono}</td>
 												<td>{empleado.email}</td>
 												<td>{empleado.direccion}</td>
 												<td>{empleado.puesto}</td>
 												<td style={{whiteSpace: "nowrap"}}>
-													<CDBBtn onClick={handleShowEdit} className={"edit-button"} style={{marginRight:"10px"}}>
+													<CDBBtn onClick={() => handleShowEdit(empleado)} className={"edit-button"} style={{marginRight:"10px"}}>
 														<CDBIcon icon="pen" className="ml-1" />
 													</CDBBtn>
-													<CDBBtn className={"delete-button"} onClick={handleShowDelete}>
+													<CDBBtn className={"delete-button"} onClick={() => handleShowDelete(empleado)}>
 														<CDBIcon icon="trash" className="ml-1" />
 													</CDBBtn>
 												</td>
