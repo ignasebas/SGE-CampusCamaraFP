@@ -69,7 +69,7 @@ export const Compras = () => {
 				<>
 				</>
 			):(
-				<LensModal handleShow={handleShowLens}/>
+				<LensModal compras handleShow={handleShowLens} state={state}/>
 			)}
 		<div className="d-flex profile">
 			<div>

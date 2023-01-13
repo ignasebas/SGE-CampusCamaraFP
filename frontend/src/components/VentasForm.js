@@ -1,6 +1,6 @@
 import React from "react";
 
-const VentasForm = ({add,edit,del,state}) => {
+const VentasForm = ({add,lens,del,state}) => {
 
 	const {
 		dni,
@@ -100,43 +100,33 @@ const VentasForm = ({add,edit,del,state}) => {
 					</center>
 				</>
 			)}
-			{!edit ? (
+			{!lens ? (
 				<>
 				</>
 			):(
 				<center>
-						<table cellPadding={"5px"}>
+						<table cellPadding={"20px"}>
 							<tr>
-								<td><label>NIF/DNI del cliente: </label></td>
-								<td></td>
+								<th>Datos del cliente</th>
+								<th>Infomación de la venta</th>
 							</tr>
 							<tr>
-								<td><label>Nombre del cliente: </label></td>
-								<td></td>
+								<td>NIF/DNI:</td>
+								<td>Fecha:</td>
 							</tr>
 							<tr>
-								<td><label>Apellidos del cliente: </label></td>
-								<td></td>
+								<td>Nombre:</td>
+								<td>Precio total:</td>
 							</tr>
 							<tr>
-								<td><label>Email: </label></td>
-								<td></td>
+								<td>Apellidos:</td>
+								<td>Observaciones:</td>
 							</tr>
 							<tr>
-								<td><label>Dirección: </label></td>
-								<td></td>
+								<td>Email:</td>
 							</tr>
 							<tr>
-								<td><label>Fecha de venta: </label></td>
-								<td></td>
-							</tr>
-							<tr>
-								<td><label>Precio total: </label></td>
-								<td></td>
-							</tr>
-							<tr>
-								<td><label>Observaciones: </label></td>
-								<td></td>
+								<td>Dirección:</td>
 							</tr>
 						</table>
 					</center>
