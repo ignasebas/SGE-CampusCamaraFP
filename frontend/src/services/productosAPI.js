@@ -14,9 +14,9 @@ export const postProducto = async (data) => {
   return response.data;
 }
 
-export const updateProducto = async (id) => {
-  const apiUrl = getApiUrl(`/updateByIdProducto/${id}`)
-  const response = await axios.patch(apiUrl, id);
+export const updateProducto = async (id, data) => {
+  const apiUrl = getApiUrl(`/updateByIdProducto/${id}`);
+  const response = await axios.patch(apiUrl, data);
   return response.data;
 }
 

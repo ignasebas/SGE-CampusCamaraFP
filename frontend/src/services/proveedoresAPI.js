@@ -14,9 +14,9 @@ export const postProveedor = async (data) => {
   return response.data;
 }
 
-export const updateProveedor = async (id) => {
-  const apiUrl = getApiUrl(`/updateByIdProveedor/${id}`)
-  const response = await axios.patch(apiUrl, id);
+export const updateProveedor = async (id, data) => {
+  const apiUrl = getApiUrl(`/updateByIdProveedor/${id}`);
+  const response = await axios.patch(apiUrl, data);
   return response.data;
 }
 

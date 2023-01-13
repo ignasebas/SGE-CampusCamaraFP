@@ -19,9 +19,8 @@ export const deleteCalendario = async (id) => {
   return response.data;
 }
 
-export const updateCalendario = async (id) => {
+export const updateCalendario = async (id, data) => {
   const apiUrl = getApiUrl(`/updateByIdCalendario/${id}`);
-  const response = await axios.patch(apiUrl);
+  const response = await axios.patch(apiUrl, data);
   return response.data;
 }
-  
