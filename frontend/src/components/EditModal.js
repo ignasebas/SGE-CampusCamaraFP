@@ -96,7 +96,7 @@ const EditModal = ({handleShow,dataModifier,state,clientes,compras,empleados,pro
 						<>
 						</>
 					):(
-						<EmpleadosForm edit/>
+						<EmpleadosForm edit state ={state}/>
 					)}
 					{!productos ? (
 						<>

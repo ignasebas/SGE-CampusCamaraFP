@@ -77,6 +77,10 @@ export const Productos = () => {
 	const [imagen, setImagen] = useState("");
 	const [tasas, setTasas] = useState("");
 	const [descripcion, setDescripcion] = useState("");
+	const dataModifier = {
+		data,
+		setData
+	}
 
 	const state = {
 		nombre,
