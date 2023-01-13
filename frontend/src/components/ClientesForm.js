@@ -1,7 +1,22 @@
 import React from "react";
 
 const ClientesForm = ({add,edit,del,state}) => {
-	const { dni, setDni, nombre, setNombre, apellidos, setApellidos, telefono, setTelefono, email, setEmail, direccion, setDireccion } = state;
+
+	const { 
+		dni,
+		setDni, 
+		nombre, 
+		setNombre, 
+		apellidos, 
+		setApellidos, 
+		telefono, 
+		setTelefono, 
+		email, 
+		setEmail, 
+		direccion, 
+		setDireccion 
+	} = state;
+	
 	return (
 		<>
 			{!add && !edit ? (

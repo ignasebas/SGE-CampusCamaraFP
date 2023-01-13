@@ -2,6 +2,8 @@ import React from "react";
 
 const VentasForm = ({add,lens,del,state}) => {
 
+	console.log(state)
+
 	const {
 		dni,
 		setDni,
@@ -115,6 +117,10 @@ const VentasForm = ({add,lens,del,state}) => {
 								<td>Fecha:</td>
 							</tr>
 							<tr>
+								<td>{nombreCliente}</td>
+								<td></td>
+							</tr>
+							<tr>
 								<td>Nombre:</td>
 								<td>Precio total:</td>
 							</tr>
@@ -127,6 +133,7 @@ const VentasForm = ({add,lens,del,state}) => {
 							</tr>
 							<tr>
 								<td>Dirección:</td>
+								
 							</tr>
 						</table>
 					</center>
