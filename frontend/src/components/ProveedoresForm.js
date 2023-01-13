@@ -68,31 +68,35 @@ const ProveedoresForm = ({add,edit,del,state}) => {
 				<>
 				</>
 			):(
-				<>
-					<tr>
-						<td><label>CIF: </label></td>
-						<td><input type={'text'} style={{marginLeft:"20px"}}></input></td>
-					</tr>
-					<tr>
-						<td><label>Nombre: </label></td>
-						<td><input type={'text'} style={{marginLeft:"20px"}}></input></td>
-					</tr>
-					<tr>
-						<td><label>Contacto: </label></td>
-						<td><input type={'text'} style={{marginLeft:"20px"}}></input></td>
-					</tr>
-					<tr>
-						<td><label>Dirección: </label></td>
-						<td><input type={'text'} style={{marginLeft:"20px"}}></input></td>
-					</tr>
-					<tr>
-						<td><label>Teléfono: </label></td>
-						<td><input type={'text'} style={{marginLeft:"20px"}}></input></td>
-					</tr>
-					<tr>
-						<td><label>Email: </label></td>
-						<td><input type={'text'} style={{marginLeft:"20px"}}></input></td>
-					</tr>
+				<>	
+					<center>
+						<table cellPadding={"5px"}>
+							<tr>
+								<td><label>CIF: </label></td>
+								<td><input type={'text'} style={{marginLeft:"20px"}}></input></td>
+							</tr>
+							<tr>
+								<td><label>Nombre: </label></td>
+								<td><input type={'text'} style={{marginLeft:"20px"}}></input></td>
+							</tr>
+							<tr>
+								<td><label>Contacto: </label></td>
+								<td><input type={'text'} style={{marginLeft:"20px"}}></input></td>
+							</tr>
+							<tr>
+								<td><label>Dirección: </label></td>
+								<td><input type={'text'} style={{marginLeft:"20px"}}></input></td>
+							</tr>
+							<tr>
+								<td><label>Teléfono: </label></td>
+								<td><input type={'text'} style={{marginLeft:"20px"}}></input></td>
+							</tr>
+							<tr>
+								<td><label>Email: </label></td>
+								<td><input type={'text'} style={{marginLeft:"20px"}}></input></td>
+							</tr>
+						</table>
+					</center>
 				</>
 			)}
 			{!del ? (

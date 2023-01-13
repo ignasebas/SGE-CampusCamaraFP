@@ -104,7 +104,42 @@ const VentasForm = ({add,edit,del,state}) => {
 				<>
 				</>
 			):(
-				<input type={'text'}></input>
+				<center>
+						<table cellPadding={"5px"}>
+							<tr>
+								<td><label>NIF/DNI del cliente: </label></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td><label>Nombre del cliente: </label></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td><label>Apellidos del cliente: </label></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td><label>Email: </label></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td><label>Dirección: </label></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td><label>Fecha de venta: </label></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td><label>Precio total: </label></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td><label>Observaciones: </label></td>
+								<td></td>
+							</tr>
+						</table>
+					</center>
 			)}
 			{!del ? (
 				<>
