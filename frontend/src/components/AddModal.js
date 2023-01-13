@@ -12,8 +12,10 @@ import { postVentas } from "../services/ventasAPI";
 import { postCompras } from "../services/comprasAPI";
 import { postProveedor } from "../services/proveedoresAPI";
 import { postEmpleados } from "../services/empleadosAPI";
+import { postCalendario } from "../services/calendarioAPI";
 
-const AddModal = ({handleShow,dataModifier,state,clientes,compras,empleados,productos,proveedores,ventas}) => {
+
+const AddModal = ({handleShow,dataModifier,state,clientes,compras,empleados,productos,proveedores,ventas,calendario}) => {
 
 	const addNew = () => {
 		const { data, setData } = dataModifier
@@ -29,6 +31,18 @@ const AddModal = ({handleShow,dataModifier,state,clientes,compras,empleados,prod
 			});
 			
 		} 
+
+		if (calendario) {
+			const { fecha, evento, descripcion,} = state;
+			postCalendario({"fecha":fecha,"evento":evento,"descripcion":descripcion})
+			.then((newCalendar) => {
+				setData([...data, newCalendar]);
+				handleShow();
+			})
+			.catch(error => {
+				handleShow()
+			});
+		}
 		
 		if (productos) {
 			const { nombre, proveedor, precioVenta, imagen, tasas, descripcion } = state;
@@ -55,7 +69,7 @@ const AddModal = ({handleShow,dataModifier,state,clientes,compras,empleados,prod
 		}
 		if (empleados) {
 			const { nif, nombre, apellidos, telefono, email, direccion, puesto } = state;
-		  	postEmpleados({"Nif":nif,"Nombre":nombre,"Apellidos":apellidos,"Telefono":telefono,"Email":email, "Direccion":direccion,"Puesto":puesto})
+		  	postEmpleados({"nif":nif,"nombre":nombre,"apellidos":apellidos,"telefono":telefono,"email":email, "direccion":direccion,"puesto":puesto})
 			.then((newEmpleado) => {
 				setData([...data, newEmpleado]);
 				handleShow();

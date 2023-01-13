@@ -31,6 +31,21 @@ const EditModal = ({handleShow,dataModifier,state,clientes,compras,empleados,pro
 			});
 		} 
 		
+		if (empleados) {
+			const { id, nif, nombre, apellidos, telefono, email, direccion, puesto } = state;
+			updateCliente(id, {"nif":nif,"nombre":nombre,"apellidos":apellidos,"telefono":telefono,"email":email,"direccion":direccion,"puesto":puesto})
+			.then(() => {
+				let newData = [...data];
+				let index = newData.findIndex((empleado) => empleado._id === id);
+				newData[index] = {"_id": id, "nif":nif,"nombre":nombre,"apellidos":apellidos,"telefono":telefono,"email":email,"direccion":direccion,"puesto":puesto};
+				setData(newData);
+				handleShow();
+			})
+			.catch(error => {
+				handleShow();
+			});
+		} 
+
 		if (productos) {
 		  	//updateProducto(id);
 			handleShow()
@@ -81,7 +96,7 @@ const EditModal = ({handleShow,dataModifier,state,clientes,compras,empleados,pro
 						<>
 						</>
 					):(
-						<EmpleadosForm edit/>
+						<EmpleadosForm edit state ={state}/>
 					)}
 					{!productos ? (
 						<>

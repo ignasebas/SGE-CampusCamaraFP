@@ -12,6 +12,8 @@ import { getClientes, postCliente } from "../services/clientesAPI";
 
 export const Clientes = () => {
 
+	const [isLoading, setIsLoading] = useState(false);
+
 	useEffect(() => {
 		setIsLoading(true);
 		getClientes().then(clientData => {
@@ -19,10 +21,8 @@ export const Clientes = () => {
 		});
 	}, []);
 	  
-
 	const [data, setData] = useState([]);
 	const [error, setError] = useState(null);
-	const [isLoading, setIsLoading] = useState(false);
 
 	const [showAdd, setShowAdd] = useState(false);
 	const [showEdit, setShowEdit] = useState(false);
@@ -148,6 +148,7 @@ export const Clientes = () => {
 											</tr>
 										</CDBTableHeader>
 										<CDBTableBody style={{verticalAlign: "middle"}}>
+										{isLoading ? 'Loading...' : ''}
 											{data.map((cliente) =>
 												<tr>
 													<td>{cliente.nif}</td>

@@ -3,8 +3,20 @@ import Sidebar from "../Sidebar";
 import Navbar from "../Navbar";
 import "./Profile.css"
 import {CDBIcon} from "cdbreact";
+import { getAuth, signOut } from "firebase/auth";
 
 export const Profile = () => {
+	const auth = getAuth();
+
+	const handleSubmit = (event) => {
+        signOut(auth).then(() => {
+			window.location.href = "/login"
+		}).catch((error) => {
+			alert(error)
+		});
+    }
+	
+
 
 	return (
 		<div className="d-flex profile">
@@ -48,6 +60,9 @@ export const Profile = () => {
 											<input type="submit" value="Actualizar"></input>
 										</div><br/><br/>
 									</form>
+									<div className="card shadow border-0">
+										<button onClick={handleSubmit}>Cerrar Sesión</button>
+									</div>
 								</div>
 								<div style={{margin:"0 auto", maxWidth:"1320px"}}>
 									<footer className="d-flex mx-auto py-4">
