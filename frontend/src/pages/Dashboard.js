@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import { CDBProgress } from "cdbreact";
+import { CDBProgress, CDBBtn } from "cdbreact";
 import { Pie, Bar } from "react-chartjs-2";
 import Sidebar from "../Sidebar";
 import Navbar from "../Navbar";
@@ -26,6 +26,10 @@ export const Dashboard = () => {
 	const numVentas = ventas.length;
 	const [clientes, setClientes] = useState([]);
 	const numClientes = clientes.length;
+	var totalVentas = 0;
+	ventas.forEach(venta => {
+		totalVentas += venta.precioTotal;
+	});
 
 	const data = {
 		chart1: {
@@ -79,28 +83,35 @@ export const Dashboard = () => {
 					<div style={{ height: "calc(100% - 64px)", overflowY: "scroll" }}>
 						<div className="d-flex card-section">
 							<div className="cards-container">
-								<div className="card-bg w-100 border d-flex flex-column">
+							<div className="card-bg w-100 d-flex flex-column border d-flex flex-column" style={{ gridRow: "span 2" }}>
 									<div className="p-4 d-flex flex-column h-100">
 										<div className="d-flex align-items-center justify-content-between">
-											<h4 className="m-0 h5 font-weight-bold text-dark">Ventas</h4>
-											<div className="py-1 px-2 bg-grey rounded-circle"><i className="fas fa-suitcase"></i></div>
+											<h4 className="m-0 h5 font-weight-bold text-dark">Volumen de ventas</h4>
+											<div className="px-2 py-1 bg-grey rounded-circle"><i className="fas fa-shopping-bag"></i></div>
 										</div>
-										<h4 className="my-4 text-right text-dark h2 font-weight-bold">0000</h4>
-										<CDBProgress value={65} height={8} colors="primary"></CDBProgress>
-										<p className="mt-2 text-success small">
-											<i className="fas fa-angle-up p-0"></i> 27.4%
-											<span style={{ fontSize: "0.95em" }} className="ml-2 font-weight-bold text-muted">Desde el mes pasado</span>
-										</p>
-										<p className="c-p mb-0 text-dark font-weight-bold text-right mt-auto">
-											Más detalles
-											<i className="fas fa-arrow-right ml-1"></i>
-										</p>
+										<div className="mt-5 d-flex align-items-center justify-content-between">
+											<div>
+												<h4 className="m-0 h1 font-weight-bold text-dark">{totalVentas}</h4>
+											</div>
+										</div>
+										<div className="p-0 mt-auto">
+											<Bar height={250} data={data.chart2} options={options} />
+										</div>
+										<CDBBtn color="gray" onClick={
+											() => {
+												window.location.href = "/ventas";
+											}
+										}>
+											<p className="c-p text-dark font-weight-bold text-right mt-3 mb-0">
+												Más detalles&nbsp;&nbsp;&nbsp;<i className="fas fa-arrow-right ml-1"></i>
+											</p>
+										</CDBBtn>
 									</div>
 								</div>
 								<div className="card-bg w-100 d-flex flex-column border d-flex flex-column" style={{ gridRow: "span 2" }}>
 									<div className="p-4 d-flex flex-column h-100">
 										<div className="d-flex align-items-center justify-content-between">
-											<h4 className="m-0 h5 font-weight-bold text-dark">Total clientes</h4>
+											<h4 className="m-0 h5 font-weight-bold text-dark">Número de clientes</h4>
 											<div className="px-2 py-1 bg-grey rounded-circle"><i className="fas fa-shopping-bag"></i></div>
 										</div>
 										<div className="mt-5 d-flex align-items-center justify-content-between">
@@ -111,16 +122,21 @@ export const Dashboard = () => {
 										<div className="p-0 mt-auto">
 											<Bar height={250} data={data.chart2} options={options} />
 										</div>
-										<p className="c-p text-dark font-weight-bold text-right mt-3 mb-0">
-											Más detalles
-											<i className="fas fa-arrow-right ml-1"></i>
-										</p>
+										<CDBBtn color="gray" onClick={
+											() => {
+												window.location.href = "/clientes";
+											}
+										}>
+											<p className="c-p text-dark font-weight-bold text-right mt-3 mb-0">
+												Más detalles&nbsp;&nbsp;&nbsp;<i className="fas fa-arrow-right ml-1"></i>
+											</p>
+										</CDBBtn>
 									</div>
 								</div>
 								<div className="card-bg w-100 d-flex flex-column border d-flex flex-column" style={{ gridRow: "span 2" }}>
 									<div className="p-4 d-flex flex-column h-100">
 										<div className="d-flex align-items-center justify-content-between">
-											<h4 className="m-0 h5 font-weight-bold text-dark">Total ventas</h4>
+											<h4 className="m-0 h5 font-weight-bold text-dark">Número de ventas</h4>
 											<div className="px-2 py-1 bg-grey rounded-circle"><i className="fas fa-shopping-bag"></i></div>
 										</div>
 										<div className="mt-5 d-flex align-items-center justify-content-between">
@@ -131,10 +147,15 @@ export const Dashboard = () => {
 										<div className="p-0 mt-auto">
 											<Bar height={250} data={data.chart2} options={options} />
 										</div>
-										<p className="c-p text-dark font-weight-bold text-right mt-3 mb-0">
-											Más detalles
-											<i className="fas fa-arrow-right ml-1"></i>
-										</p>
+										<CDBBtn color="gray" onClick={
+											() => {
+												window.location.href = "/ventas";
+											}
+										}>
+											<p className="c-p text-dark font-weight-bold text-right mt-3 mb-0">
+												Más detalles&nbsp;&nbsp;&nbsp;<i className="fas fa-arrow-right ml-1"></i>
+											</p>
+										</CDBBtn>
 									</div>
 								</div>
 							</div>
