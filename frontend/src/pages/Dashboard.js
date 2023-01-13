@@ -12,11 +12,15 @@ import { getAuth } from "firebase/auth";
 
 export const Dashboard = () => {
 	const auth = getAuth(app);
-	var user = auth.currentUser;
-	console.log("user", user)
-	if (user == null) {
+	const [logIn, setLogIn] = useState(false);
+	auth.onAuthStateChanged(function(user) {
+	if (user) {
+		console.log(user);
+		setLogIn(true)
+	} else {
 		window.location.href = "/login"
 	}
+	});
 	useEffect(() => {
 		getClientes().then(clientData => {
 		  setClientes(clientData);
@@ -40,7 +44,7 @@ export const Dashboard = () => {
 
 	return (
 		<>
-			{(user == null) ? (
+			{!logIn ? (
 				<>
 				</>
 			):(

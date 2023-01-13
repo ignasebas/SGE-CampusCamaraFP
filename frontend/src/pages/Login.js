@@ -1,15 +1,25 @@
 import React, { useState } from 'react';
 import { NavLink } from "react-router-dom";
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import { app } from '../firebase';
 
 const LoginPage = () => {
+    const auth = getAuth(app);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        // perform authentication here
-        console.log(`Email: ${email}`);
-        console.log(`Password: ${password}`);
+        signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            console.log(userCredential)
+            window.location.href = "/"
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            alert(errorMessage)
+        });
     }
 
     return (
