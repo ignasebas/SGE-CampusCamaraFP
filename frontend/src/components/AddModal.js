@@ -49,7 +49,7 @@ const AddModal = ({handleShow,dataModifier,state,clientes,compras,empleados,prod
 		}
 		if (empleados) {
 			const { nif, nombre, apellidos, telefono, email, direccion, puesto } = state;
-		  	postEmpleados({"Nif":nif,"Nombre":nombre,"Apellidos":apellidos,"Telefono":telefono,"Email":email, "Direccion":direccion,"Puesto":puesto})
+		  	postEmpleados({"nif":nif,"nombre":nombre,"apellidos":apellidos,"telefono":telefono,"email":email, "direccion":direccion,"puesto":puesto})
 			.then((newEmpleado) => {
 				setData([...data, newEmpleado]);
 				handleShow();

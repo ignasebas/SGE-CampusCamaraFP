@@ -28,8 +28,9 @@ export const Empleados = () => {
 	const [showEdit, setShowEdit] = useState(false);
 	const [showDelete, setShowDelete] = useState(false);
 	
-	const handleShowAdd = () => { setShowAdd(!showAdd);
-		if(nif && nombre && apellidos && telefono && email && direccion !=""){
+	const handleShowAdd = () => {
+		 setShowAdd(!showAdd);
+		if(nif && nombre && apellidos && telefono && email && direccion && puesto !=""){
 			setId("");
 			setNif("");
 			setNombre("");
@@ -157,7 +158,7 @@ export const Empleados = () => {
 											<tr>
 												<td>{empleado.nif}</td>
 												<td>{empleado.nombre}</td>
-												<td>{empleado.apellido}</td>
+												<td>{empleado.apellidos}</td>
 												<td>{empleado.telefono}</td>
 												<td>{empleado.email}</td>
 												<td>{empleado.direccion}</td>
