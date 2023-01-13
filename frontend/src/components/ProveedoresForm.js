@@ -69,38 +69,67 @@ const ProveedoresForm = ({add,edit,del,state}) => {
 				</>
 			):(
 				<>
-					<tr>
-						<td><label>CIF: </label></td>
-						<td><input type={'text'} style={{marginLeft:"20px"}}></input></td>
-					</tr>
-					<tr>
-						<td><label>Nombre: </label></td>
-						<td><input type={'text'} style={{marginLeft:"20px"}}></input></td>
-					</tr>
-					<tr>
-						<td><label>Contacto: </label></td>
-						<td><input type={'text'} style={{marginLeft:"20px"}}></input></td>
-					</tr>
-					<tr>
-						<td><label>Dirección: </label></td>
-						<td><input type={'text'} style={{marginLeft:"20px"}}></input></td>
-					</tr>
-					<tr>
-						<td><label>Teléfono: </label></td>
-						<td><input type={'text'} style={{marginLeft:"20px"}}></input></td>
-					</tr>
-					<tr>
-						<td><label>Email: </label></td>
-						<td><input type={'text'} style={{marginLeft:"20px"}}></input></td>
-					</tr>
-				</>
+				<center>
+					<table cellPadding={"5px"}>
+						<tr>
+							<td> <label>CIF: </label> </td> 
+							<td><input 
+								type={'text'} 
+								style={{marginLeft:"20px"}}
+								value={cif}
+								onChange={(event) => setCif(event.target.value)}></input></td>
+						</tr>
+						<tr>
+				
+							<td> <label>Nombre: </label> </td>
+							<td> <input 
+								type={'text'} 
+								style={{marginLeft:"20px"}}
+								value={nombre}
+								onChange={(event) => setNombre(event.target.value)}></input></td>
+						</tr>
+						<tr>
+							<td><label>Contacto: </label></td>
+							<td><input 
+								type={'text'} 
+								style={{marginLeft:"20px"}}
+								value={contacto}
+								onChange={(event) => setContacto(event.target.value)}></input></td>
+						</tr>
+						<tr>
+							<td><label>Dirección: </label></td>
+							<td><input 
+								type={'text'} 
+								style={{marginLeft:"20px"}}
+								value={direccion}
+								onChange={(event) => setDireccion(event.target.value)}></input></td>
+						</tr>
+						<tr>
+							<td><label>Teléfono: </label></td>
+							<td><input 
+								type={'text'} 
+								style={{marginLeft:"20px"}}
+								value={telefono}
+								onChange={(event) => setTelefono(event.target.value)}></input></td>
+						</tr>
+						<tr>
+							<td><label>Email: </label></td>
+							<td><input 
+								type={'text'} 
+								style={{marginLeft:"20px"}}
+								value={email}
+								onChange={(event) => setEmail(event.target.value)}></input></td>
+						</tr>
+					</table>
+				</center>
+			</>
 			)}
 			{!del ? (
 				<>
 				</>
 			):(
 				<div>
-					¿Estás seguro de que deseas eliminar ... de la base de datos?
+					¿Estás seguro de que deseas eliminar a {nombre} de la base de datos?
 				</div>
 			)}
 		</>
