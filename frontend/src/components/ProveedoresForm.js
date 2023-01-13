@@ -9,60 +9,59 @@ const ProveedoresForm = ({add,edit,del,state}) => {
 				</>
 			):(
 				<>
-					<div>
-						<label>CIF: </label>
-						<input 
-							type={'text'} 
-							style={{marginLeft:"20px"}}
-							value={cif}
-							onChange={(event) => setCif(event.target.value)}></input>
-					</div>
-					<br/>
-					<div>
-						<label>Nombre: </label>
-						<input 
-							type={'text'} 
-							style={{marginLeft:"20px"}}
-							value={nombre}
-							onChange={(event) => setNombre(event.target.value)}></input>
-					</div>
-					<br/>
-					<div>
-						<label>Contacto: </label>
-						<input 
-							type={'text'} 
-							style={{marginLeft:"20px"}}
-							value={contacto}
-							onChange={(event) => setContacto(event.target.value)}></input>
-					</div>
-					<br/>
-					<div>
-						<label>Dirección: </label>
-						<input 
-							type={'text'} 
-							style={{marginLeft:"20px"}}
-							value={direccion}
-							onChange={(event) => setDireccion(event.target.value)}></input>
-					</div>
-					<br/>
-					<div>
-						<label>Teléfono: </label>
-						<input 
-							type={'text'} 
-							style={{marginLeft:"20px"}}
-							value={telefono}
-							onChange={(event) => setTelefono(event.target.value)}></input>
-					</div>
-					<br/>
-					<div>
-						<label>Email: </label>
-						<input 
-							type={'text'} 
-							style={{marginLeft:"20px"}}
-							value={email}
-							onChange={(event) => setEmail(event.target.value)}></input>
-					</div>
-			
+					<center>
+						<table cellPadding={"5px"}>
+							<tr>
+								<td> <label>CIF: </label> </td> 
+								<td><input 
+									type={'text'} 
+									style={{marginLeft:"20px"}}
+									value={cif}
+									onChange={(event) => setCif(event.target.value)}></input></td>
+							</tr>
+							<tr>
+					
+							    <td> <label>Nombre: </label> </td>
+								<td> <input 
+									type={'text'} 
+									style={{marginLeft:"20px"}}
+									value={nombre}
+									onChange={(event) => setNombre(event.target.value)}></input></td>
+							</tr>
+							<tr>
+								<td><label>Contacto: </label></td>
+								<td><input 
+									type={'text'} 
+									style={{marginLeft:"20px"}}
+									value={contacto}
+									onChange={(event) => setContacto(event.target.value)}></input></td>
+							</tr>
+							<tr>
+								<td><label>Dirección: </label></td>
+								<td><input 
+									type={'text'} 
+									style={{marginLeft:"20px"}}
+									value={direccion}
+									onChange={(event) => setDireccion(event.target.value)}></input></td>
+							</tr>
+							<tr>
+								<td><label>Teléfono: </label></td>
+								<td><input 
+									type={'text'} 
+									style={{marginLeft:"20px"}}
+									value={telefono}
+									onChange={(event) => setTelefono(event.target.value)}></input></td>
+							</tr>
+							<tr>
+								<td><label>Email: </label></td>
+								<td><input 
+									type={'text'} 
+									style={{marginLeft:"20px"}}
+									value={email}
+									onChange={(event) => setEmail(event.target.value)}></input></td>
+							</tr>
+						</table>
+					</center>
 				</>
 			)}
 			{!edit ? (
@@ -70,35 +69,30 @@ const ProveedoresForm = ({add,edit,del,state}) => {
 				</>
 			):(
 				<>
-						<div>
-						<label>CIF: </label>
-						<input type={'text'} style={{marginLeft:"20px"}}></input>
-					</div>
-					<br/>
-					<div>
-						<label>Nombre: </label>
-						<input type={'text'} style={{marginLeft:"20px"}}></input>
-					</div>
-					<br/>
-					<div>
-						<label>Contacto: </label>
-						<input type={'text'} style={{marginLeft:"20px"}}></input>
-					</div>
-					<br/>
-					<div>
-						<label>Dirección: </label>
-						<input type={'text'} style={{marginLeft:"20px"}}></input>
-					</div>
-					<br/>
-					<div>
-						<label>Teléfono: </label>
-						<input type={'text'} style={{marginLeft:"20px"}}></input>
-					</div>
-					<br/>
-					<div>
-						<label>Email: </label>
-						<input type={'text'} style={{marginLeft:"20px"}}></input>
-			</div>
+					<tr>
+						<td><label>CIF: </label></td>
+						<td><input type={'text'} style={{marginLeft:"20px"}}></input></td>
+					</tr>
+					<tr>
+						<td><label>Nombre: </label></td>
+						<td><input type={'text'} style={{marginLeft:"20px"}}></input></td>
+					</tr>
+					<tr>
+						<td><label>Contacto: </label></td>
+						<td><input type={'text'} style={{marginLeft:"20px"}}></input></td>
+					</tr>
+					<tr>
+						<td><label>Dirección: </label></td>
+						<td><input type={'text'} style={{marginLeft:"20px"}}></input></td>
+					</tr>
+					<tr>
+						<td><label>Teléfono: </label></td>
+						<td><input type={'text'} style={{marginLeft:"20px"}}></input></td>
+					</tr>
+					<tr>
+						<td><label>Email: </label></td>
+						<td><input type={'text'} style={{marginLeft:"20px"}}></input></td>
+					</tr>
 				</>
 			)}
 			{!del ? (
