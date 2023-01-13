@@ -20,21 +20,60 @@ export const Proveedores = () => {
 	  
 
 	const [data, setData] = useState([]);
+	const [error, setError] = useState(null);
+	const [isLoading, setIsLoading] = useState(false);
 
 	const [showAdd, setShowAdd] = useState(false);
 	const [showEdit, setShowEdit] = useState(false);
 	const [showDelete, setShowDelete] = useState(false);
-	const handleShowAdd = () => setShowAdd(!showAdd);
-	const handleShowEdit = () => setShowEdit(!showEdit);
-	const handleShowDelete = () => setShowDelete(!showDelete);
-
+		const handleShowAdd = () => {
+		setShowAdd(!showAdd); 
+		if(id && cif && nombre && contacto && direccion && telefono && email != ""){
+			setId("");
+			setCif("");
+			setNombre("");
+			setContacto("");
+			setDireccion("");
+			setTelefono("");
+			setEmail("");
+		}
+	}
+	const handleShowEdit = (proveedor) => {
+		setShowEdit(!showEdit); 
+		setId(proveedor._id);
+		setCif(proveedor.cif);
+		setNombre(proveedor.nombre);
+		setContacto(proveedor.contacto);
+		setDireccion(proveedor.direccion);
+		setTelefono(proveedor.telefono);
+		setEmail(proveedor.email);
+		
+	}
+	const handleShowDelete = (proveedor) => {
+		setShowDelete(!showDelete); 
+		setId(proveedor._id);
+		setCif(proveedor.cif);
+		setNombre(proveedor.nombre);
+		setContacto(proveedor.contacto);
+		setDireccion(proveedor.direccion);
+		setTelefono(proveedor.telefono);
+		setEmail(proveedor.email);
+		
+	}
+	const [id, setId] = useState("");
 	const [cif, setCif] = useState("");
 	const [nombre, setNombre] = useState("");
 	const [contacto, setContacto] = useState("");
 	const [direccion, setDireccion] = useState("");
 	const [telefono, setTelefono] = useState("");
 	const [email, setEmail] = useState("");
+	const dataModifier = {
+		data,
+		setData
+	}
 	const state = {
+		id,
+		setId,
 		cif,
 		setCif,
 		nombre,
@@ -49,7 +88,9 @@ export const Proveedores = () => {
 		setEmail
 	};
 
-	const place = "proveedor"
+	const place = "proveedores"
+
+	console.log(data)
 
 	return (
 		<>
@@ -57,19 +98,19 @@ export const Proveedores = () => {
 				<>
 				</>
 			):(
-				<AddModal proveedores handleShow={handleShowAdd} state={state} place={place}/>
+				<AddModal proveedores handleShow={handleShowAdd} dataModifier={dataModifier} state={state} />
 			)}
 			{!showEdit ? (
 				<>
 				</>
 			):(
-				<EditModal proveedores handleShow={handleShowEdit} state={state} />
+				<EditModal proveedores handleShow={handleShowEdit} dataModifier={dataModifier} state={state} />
 			)}
 			{!showDelete ? (
 				<>
 				</>
 			):(
-				<DeleteModal proveedores handleShow={handleShowDelete}/>
+				<DeleteModal proveedores handleShow={handleShowDelete} dataModifier={dataModifier} state={state}/>
 			)}
 		<div className="d-flex profile">
 			<div>
@@ -91,6 +132,7 @@ export const Proveedores = () => {
 								<CDBTable striped responsive>
 									<CDBTableHeader>
 										<tr>
+										    <th>Cif</th>		
 											<th>Nombre</th>
 											<th>Contacto</th>
 											<th>Teléfono</th>
@@ -102,6 +144,7 @@ export const Proveedores = () => {
 									<CDBTableBody style={{verticalAlign: "middle"}}>
 										{data.map((proveedor) =>
 											<tr>
+												<td>{proveedor.cif}</td>
 												<td>{proveedor.nombre}</td>
 												<td>{proveedor.contacto}</td>
 												<td>{proveedor.telefono}</td>
@@ -109,11 +152,11 @@ export const Proveedores = () => {
 												<td>{proveedor.direccion}</td>
 												<td style={{whiteSpace: "nowrap"}}>
 
-													<CDBBtn onClick={handleShowEdit} className={"edit-button"} style={{marginRight:"10px"}}>
+													<CDBBtn onClick={() => handleShowEdit (proveedor)} className={"edit-button"} style={{marginRight:"10px"}}>
 														<CDBIcon icon="pen" className="ml-1" />
 													</CDBBtn>
 
-													<CDBBtn className={"delete-button"} onClick={handleShowDelete}>
+													<CDBBtn className={"delete-button"} onClick={() => handleShowDelete(proveedor)}>
 														<CDBIcon icon="trash" className="ml-1" />
 													</CDBBtn>
 												</td>
