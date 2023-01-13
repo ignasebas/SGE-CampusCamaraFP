@@ -132,6 +132,7 @@ export const Proveedores = () => {
 								<CDBTable striped responsive>
 									<CDBTableHeader>
 										<tr>
+										    <th>Cif</th>		
 											<th>Nombre</th>
 											<th>Contacto</th>
 											<th>Teléfono</th>
@@ -143,6 +144,7 @@ export const Proveedores = () => {
 									<CDBTableBody style={{verticalAlign: "middle"}}>
 										{data.map((proveedor) =>
 											<tr>
+												<td>{proveedor.cif}</td>
 												<td>{proveedor.nombre}</td>
 												<td>{proveedor.contacto}</td>
 												<td>{proveedor.telefono}</td>

@@ -37,12 +37,12 @@ const EditModal = ({handleShow,dataModifier,state,clientes,compras,empleados,pro
 		}
 
 		if (proveedores) {
-			const { id, dni, nombre, apellidos, telefono, email, direccion } = state;
-			updateCliente(id, {"cif":dni,"nombre":nombre,"apellidos":apellidos,"telefono":telefono,"email":email,"direccion":direccion})
+			const { id, cif, nombre,contacto, direccion, telefono, email } = state;
+			updateProveedor(id, {"cif":cif,"nombre":nombre,"contacto":contacto,"direccion":direccion,"telefono":telefono,"email":email})
 			.then(() => {
 				let newData = [...data];
-				let index = newData.findIndex((client) => client._id === id);
-				newData[index] = {"_id": id, "nif":dni,"nombre":nombre,"apellidos":apellidos,"telefono":telefono,"email":email,"direccion":direccion};
+				let index = newData.findIndex((proveedor) => proveedor._id === id);
+				newData[index] = {"_id": id, "cif":cif,"nombre":nombre,"contacto":contacto,"direccion":direccion,"telefono":telefono,"email":email};
 				setData(newData);
 				handleShow();
 			})
@@ -93,7 +93,7 @@ const EditModal = ({handleShow,dataModifier,state,clientes,compras,empleados,pro
 						<>
 						</>
 					):(
-						<ProveedoresForm edit/>
+						<ProveedoresForm edit state={state}/>
 					)}
 					{!ventas ? (
 						<>
