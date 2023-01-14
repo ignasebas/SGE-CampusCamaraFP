@@ -8,12 +8,19 @@ import {HiMagnifyingGlass} from 'react-icons/hi2';
 import AddModal from "../components/AddModal"
 import LensModal from "../components/LensModal"
 import { getCompras } from "../services/comprasAPI";
+import Spinner from 'react-bootstrap/Spinner';
 
 export const Compras = () => {
 
+	const [isLoading, setIsLoading] = useState(false);
+
 	useEffect(() => {
+		setTimeout(() => {
+			setIsLoading(true);
+		}, 700);
+		setIsLoading(false);
 		getCompras().then(clientData => {
-		  setData(clientData);
+			setData(clientData);
 		});
 	}, []);
 	  
@@ -98,6 +105,11 @@ export const Compras = () => {
 											<th>Acciones</th>
 										</tr>
 									</CDBTableHeader>
+									{!isLoading ? (
+										<div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+											<Spinner animation="grow" />
+										</div>
+									) : (
 									<CDBTableBody style={{verticalAlign: "middle"}}>
 										{data.map((compra) =>
 											<tr>
@@ -113,6 +125,7 @@ export const Compras = () => {
 											</tr>
 										)}
 									</CDBTableBody>
+									)}
 								</CDBTable>
 							</div>
 								

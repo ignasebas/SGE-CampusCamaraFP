@@ -9,20 +9,24 @@ import AddModal from "../components/AddModal"
 import EditModal from "../components/EditModal"
 import DeleteModal from "../components/DeleteModal"
 import { getEmpleados, postEmpleados } from "../services/empleadosAPI";
+import Spinner from 'react-bootstrap/Spinner';
 
 export const Empleados = () => {
 
+	const [isLoading, setIsLoading] = useState(false);
+
 	useEffect(() => {
-		setIsLoading(true);
-		getEmpleados().then(empleadoData => {
-		  setData(empleadoData);
+		setTimeout(() => {
+			setIsLoading(true);
+		}, 700);
+		setIsLoading(false);
+		getEmpleados().then(clientData => {
+			setData(clientData);
 		});
 	}, []);
 
 	const [data, setData] = useState([]);
 	const [error, setError] = useState(null);
-	const [isLoading, setIsLoading] = useState(false);
-
 
 	const [showAdd, setShowAdd] = useState(false);
 	const [showEdit, setShowEdit] = useState(false);
@@ -153,6 +157,11 @@ export const Empleados = () => {
 											<th>Puesto</th>
 										</tr>
 									</CDBTableHeader>
+									{!isLoading ? (
+										<div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+											<Spinner animation="grow" />
+										</div>
+									) : (
 									<CDBTableBody style={{verticalAlign: "middle"}}>
 										{data.map((empleado) =>
 											<tr>
@@ -175,6 +184,7 @@ export const Empleados = () => {
 										)}
 										
 									</CDBTableBody>
+									)}
 								</CDBTable>
 							</div>
 								

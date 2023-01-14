@@ -18,7 +18,7 @@ const Routes = () => {
   return (
     <Fragment>
       <BrowserRouter>
-        <Route exact path="/" render={() => <Dashboard/> } />
+        <Route exact path="/" render={() => <Dashboard /> }  />
         <Route path="/login" component={LoginPage} />
         <Route path="/register" component={RegisterPage} />
         <Route path="/profile" component={Profile} />

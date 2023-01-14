@@ -9,19 +9,24 @@ import {HiMagnifyingGlass} from 'react-icons/hi2';
 import AddModal from "../components/AddModal"
 import LensModal from "../components/LensModal"
 import { getVentas, postVentas } from "../services/ventasAPI";
+import Spinner from 'react-bootstrap/Spinner';
 
 export const Ventas = () => {
 
+	const [isLoading, setIsLoading] = useState(false);
+
 	useEffect(() => {
-		setIsLoading(true);
+		setTimeout(() => {
+			setIsLoading(true);
+		}, 700);
+		setIsLoading(false);
 		getVentas().then(clientData => {
-		  setData(clientData);
+			setData(clientData);
 		});
 	}, []);
 
 	const [data, setData] = useState([]);
 	const [error, setError] = useState(null);
-	const [isLoading, setIsLoading] = useState(false);
 
 	const [showAdd, setShowAdd] = useState(false);
 	const handleShowAdd = () => setShowAdd(!showAdd);
@@ -116,6 +121,11 @@ export const Ventas = () => {
 											<th>Acciones</th>
 										</tr>
 									</CDBTableHeader>
+									{!isLoading ? (
+										<div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+											<Spinner animation="grow" />
+										</div>
+									) : (
 									<CDBTableBody style={{verticalAlign: "middle"}}>
 										{data.map((venta) =>
 											<tr>
@@ -131,6 +141,7 @@ export const Ventas = () => {
 											</tr>
 										)}
 									</CDBTableBody>
+									)}
 								</CDBTable>
 							</div>
 								

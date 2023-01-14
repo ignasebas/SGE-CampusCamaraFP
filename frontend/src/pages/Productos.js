@@ -9,22 +9,25 @@ import AddModal from "../components/AddModal"
 import EditModal from "../components/EditModal"
 import DeleteModal from "../components/DeleteModal"
 import { getProductos } from "../services/productosAPI";
-
+import Spinner from 'react-bootstrap/Spinner';
 
 export const Productos = () => {
 
+	const[isLoading, setIsLoading] = useState(false);
+
 	useEffect(() => {
-		
+		setTimeout(() => {
+			setIsLoading(true);
+		}, 700);
+		setIsLoading(false);
 		getProductos().then(ProductData => {
-		  setData(ProductData);
+			setData(ProductData);
 		});
-		
 	}, []);
 	  
 
 	const [data, setData] = useState([]);
 	const [error, setError] = useState(null);
-	const[isLoading, setIsLoading] = useState(false);
 
 	const [showAdd, setShowAdd] = useState(false);
 	const [showEdit, setShowEdit] = useState(false);
@@ -154,6 +157,11 @@ export const Productos = () => {
 											<th>Acciones</th>
 										</tr>
 									</CDBTableHeader>
+									{!isLoading ? (
+										<div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+											<Spinner animation="grow" />
+										</div>
+									) : (
 									<CDBTableBody style={{verticalAlign: "middle"}}>
 										{data.map((producto) =>
 											<tr>
@@ -176,6 +184,7 @@ export const Productos = () => {
 										)}
 										
 									</CDBTableBody>
+									)}
 								</CDBTable>
 							</div>
 								
