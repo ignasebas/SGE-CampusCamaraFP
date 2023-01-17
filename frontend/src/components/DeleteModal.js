@@ -43,8 +43,14 @@ const DeleteModal = ({handleShow,dataModifier,state,clientes,compras,empleados,p
 			});
 		}
 		if (empleados) {
-			deleteEmpleados(id);
-		  	handleShow()
+			deleteEmpleados(id)
+			.then(() => {
+				setData(data.filter(empleados => empleados._id !== id));
+				handleShow();
+			})
+			.catch(error => {
+				handleShow();
+			});
 		}
 	};
 
