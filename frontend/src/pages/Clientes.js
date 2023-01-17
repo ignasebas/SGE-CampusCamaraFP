@@ -36,6 +36,7 @@ export const Clientes = () => {
 	}, []);
 
 	const [data, setData] = useState([]);
+	const [error, setError] = useState(null);
 
 	const [showAdd, setShowAdd] = useState(false);
 	const [showEdit, setShowEdit] = useState(false);
