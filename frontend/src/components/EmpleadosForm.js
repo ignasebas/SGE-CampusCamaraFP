@@ -69,7 +69,7 @@ const EmpleadosForm = ({add,edit,del, state}) => {
 				</>
 			):(
 				<div>
-					¿Estás seguro de que deseas eliminar ... de la base de datos?
+					¿Estás seguro de que deseas eliminar a {nombre} de la base de datos?
 				</div>
 			)}
 		</>
