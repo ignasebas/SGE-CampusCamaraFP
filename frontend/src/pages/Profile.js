@@ -20,6 +20,7 @@ export const Profile = () => {
 	const handleUpdateEmail = (event) => {
         updateEmail(auth.currentUser, email).then(() => {
 			alert("Correo actualizado.")
+			document.location.reload()
 		}).catch((error) => {
 			const errorMessage = error.code;
 			if (errorMessage === "auth/requires-recent-login") {
@@ -38,6 +39,7 @@ export const Profile = () => {
 	const handleUpdatePassword = (event) => {
         updatePassword(auth.currentUser, password).then(() => {
 			alert("Contraseña actualiazada.")
+			document.location.reload()
 		  }).catch((error) => {
 				const errorMessage = error.code;
 				if (errorMessage === "auth/requires-recent-login") {
@@ -68,23 +70,23 @@ export const Profile = () => {
 								<h4 className="font-weight-bold" style={{marginBottom:"0"}}><CDBIcon icon="user-circle"/> Perfil</h4>
 							</div>
 							{/*EDITAR A PARTIR DE AQUÍ*/}
-							<div style={{ margin: "0 auto", maxWidth: "1320px"}}>
-								<div className="cards-container1">
-									<div className="card shadow border-0">
+							<div style={{position: 'absolute', left: '50%'}}>
+								<div className="cards-container1" style={{display: 'block'}}>
+									<div className="card shadow border-1" style={{padding: '10px'}}>
 										<form onSubmit={handleUpdateEmail}>
-												<label for="correo">Cambiar correo:</label>
-												<input type="text" name="email" value={email} onChange={(event) => setEmail(event.target.value)} required></input>
+												<label for="correo">Cambiar correo:</label><br/>
+												<input type="text" name="email" value={email} onChange={(event) => setEmail(event.target.value)} required></input><br/>
 												<input type="submit" value="Actualizar"></input>
 										</form>
-									</div>
-									<div className="card shadow border-0"></div>
+									</div><br/>
+									<div className="card shadow border-1" style={{padding: '10px'}}>
 										<form onSubmit={handleUpdatePassword}>
-												<label for="correo">Cambiar contraseña:</label>
-												<input type="password" name="password" value={password} onChange={(event) => setPassword(event.target.value)} required></input>
+												<label for="correo">Cambiar contraseña:</label><br/>
+												<input type="password" name="password" value={password} onChange={(event) => setPassword(event.target.value)} required></input><br/>
 												<input type="submit" value="Actualizar"></input>
 										</form>
-									</div>
-									<div className="card shadow border-0">
+									</div><br/>
+									<div className="card shadow border-1" style={{padding: '10px'}}>
 										<button onClick={handleLogOut}>Cerrar Sesión</button>
 									</div>
 								</div>
@@ -98,5 +100,6 @@ export const Profile = () => {
 					</div>
 				</div>
 			</div>
+		</div>
 	);
 }
