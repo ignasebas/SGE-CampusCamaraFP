@@ -41,7 +41,7 @@ const LoginPage = () => {
                     <button>
                         <NavLink exact to="/register" style={{ textDecoration: 'none', color: 'black'}}>
                             <IoArrowBackCircleSharp/>&nbsp;
-                            Regristrarse
+                            Registrarse
                         </NavLink>
                     </button>
                     <button type='submit'>Iniciar sesión</button>
