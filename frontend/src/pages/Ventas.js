@@ -49,12 +49,12 @@ export const Ventas = () => {
 		setShowLens(!showLens); 
 		setDni(venta.nif);
 		setNombre(venta.nombre);
-		setApellidos(!apellidos);
-		setEmail(!email);
-		setDireccion(!direccion);
-		setFechaVenta(!fechaVenta);
-		setPrecioTotal(!precioTotal);
-		setObservaciones(!observaciones);
+		setApellidos(venta.apellidos);
+		setEmail(venta.email);
+		setDireccion(venta.direccion);
+		setFechaVenta(venta.fechaVenta);
+		setPrecioTotal(venta.precioTotal);
+		setObservaciones(venta.observaciones);
 	}
 
 	const [dni, setDni] = useState("");

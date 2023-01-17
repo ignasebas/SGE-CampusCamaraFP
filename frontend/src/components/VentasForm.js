@@ -107,10 +107,10 @@ const VentasForm = ({add,lens,del,state}) => {
 				</>
 			):(
 				<center>
-						<table cellPadding={"5px"}>
+						<table cellPadding={"15px"}>
 							<tr>
-								<th>Datos del cliente</th>
-								<th>Infomación de la venta</th>
+								<th style={{padding: "0px 150px 0px 0px"}}>Datos del cliente</th>
+								<th style={{padding: "0px 0px 0px 0px"}}>Infomación de la venta</th>
 							</tr>
 							<tr>
 								<td>NIF/DNI:</td>
@@ -125,22 +125,16 @@ const VentasForm = ({add,lens,del,state}) => {
 								<td>Precio total:</td>
 							</tr>
 							<tr>
-								<td>{nombre}</td>
+								<td>{nombre} {apellidos}</td>
 								<td>{precioTotal}</td>
 							</tr>
 							<tr>
-								<td>Apellidos:</td>
+							<td>Email:</td>
 								<td>Observaciones:</td>
 							</tr>
 							<tr>
-								<td>{apellidos}</td>
-								<td>{observaciones}</td>
-							</tr>
-							<tr>
-								<td>Email:</td>
-							</tr>
-							<tr>
 								<td>{email}</td>
+								<td>{observaciones}</td>
 							</tr>
 							<tr>
 								<td>Dirección:</td>
