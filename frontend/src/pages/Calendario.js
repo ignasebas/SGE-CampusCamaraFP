@@ -28,8 +28,6 @@ export const Calendario = () => {
  
 	const onDateChange = (newDate) => {
 		setDate(newDate);
-		console.log(newDate);
-		console.log(date)
 	}
  
 
