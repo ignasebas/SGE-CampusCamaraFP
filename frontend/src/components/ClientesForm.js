@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 
 const ClientesForm = ({add,edit,del,state}) => {
 
@@ -17,6 +17,9 @@ const ClientesForm = ({add,edit,del,state}) => {
 		setDireccion 
 	} = state;
 	
+	const [dniError, setDniError] = useState(false);
+	const [dniErrorMessage, setDniErrorMessage] = useState("Error");
+
 	return (
 		<>
 			{!add && !edit ? (
@@ -35,7 +38,16 @@ const ClientesForm = ({add,edit,del,state}) => {
 									type={'text'} 
 									style={{marginLeft:"20px"}}
 									value={dni}
-									onChange={(event) => setDni(event.target.value)}></input>
+									onChange={(event) => setDni(event.target.value)}>
+								</input>
+								{dniError ? (
+									<p>
+										{dniErrorMessage}
+									</p>
+								):(
+									<>
+									</>
+								)}
 								</td>
 							</tr>
 							<tr>

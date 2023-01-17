@@ -27,6 +27,7 @@ const EditModal = ({handleShow,dataModifier,state,clientes,compras,empleados,pro
 				handleShow();
 			})
 			.catch(error => {
+				console.log(error)
 				handleShow();
 			});
 		} 
