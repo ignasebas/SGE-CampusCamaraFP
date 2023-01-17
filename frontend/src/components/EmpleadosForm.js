@@ -5,7 +5,7 @@ const EmpleadosForm = ({add,edit,del, state}) => {
 
 	return (
 		<>
-			{!add ? (
+			{!add && !edit ? (
 				<>
 				</>
 			):(
@@ -64,51 +64,12 @@ const EmpleadosForm = ({add,edit,del, state}) => {
 					</center>
 				</>
 			)}
-			{!edit ? (
-				<>
-				</>
-			):(
-				<>
-					<center>
-						<table cellPadding={"5px"}>
-							<tr>
-								<td><label>NIF: </label></td>
-								<td><input type={'text'} style={{marginLeft:"20px"}}></input></td>
-							</tr>
-							<tr>
-								<td><label>Nombre: </label></td>
-								<td><input type={'text'} style={{marginLeft:"20px"}}></input></td>
-							</tr>	
-							<tr>
-								<td><label>Apellidos: </label></td>
-								<td><input type={'text'} style={{marginLeft:"20px"}}></input></td>
-							</tr>
-							<tr>
-								<td><label>Teléfono: </label></td>
-								<td><input type={'text'} style={{marginLeft:"20px"}}></input></td>
-							</tr>
-							<tr>
-								<td><label>Email: </label></td>
-								<td><input type={'text'} style={{marginLeft:"20px"}}></input></td>
-							</tr>
-							<tr>
-								<td><label>Dirección: </label></td>
-								<td><input type={'text'} style={{marginLeft:"20px"}}></input></td>
-							</tr>
-							<tr>
-								<td><label>Puesto: </label></td>
-								<td><input type={'text'} style={{marginLeft:"20px"}}></input></td>
-							</tr>
-						</table>
-					</center>			
-				</>
-			)}
 			{!del ? (
 				<>
 				</>
 			):(
 				<div>
-					¿Estás seguro de que deseas eliminar ... de la base de datos?
+					¿Estás seguro de que deseas eliminar a {nombre} de la base de datos?
 				</div>
 			)}
 		</>

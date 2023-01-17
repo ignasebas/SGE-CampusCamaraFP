@@ -1,7 +1,22 @@
-import React from "react";
+import React, {useState} from "react";
 
 const ClientesForm = ({add,edit,del,state}) => {
-	const { dni, setDni, nombre, setNombre, apellidos, setApellidos, telefono, setTelefono, email, setEmail, direccion, setDireccion } = state;
+
+	const { 
+		dni,
+		setDni, 
+		nombre, 
+		setNombre, 
+		apellidos, 
+		setApellidos, 
+		telefono, 
+		setTelefono, 
+		email, 
+		setEmail, 
+		direccion, 
+		setDireccion 
+	} = state;
+
 	return (
 		<>
 			{!add && !edit ? (
@@ -20,7 +35,8 @@ const ClientesForm = ({add,edit,del,state}) => {
 									type={'text'} 
 									style={{marginLeft:"20px"}}
 									value={dni}
-									onChange={(event) => setDni(event.target.value)}></input>
+									onChange={(event) => setDni(event.target.value)}>
+								</input>
 								</td>
 							</tr>
 							<tr>

@@ -1,10 +1,60 @@
-import React from "react";
+import React, { useState } from 'react';
 import Sidebar from "../Sidebar";
 import Navbar from "../Navbar";
 import "./Profile.css"
 import {CDBIcon} from "cdbreact";
-
+import { getAuth, updateEmail, signOut, updatePassword} from "firebase/auth";
 export const Profile = () => {
+	const auth = getAuth();
+	const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+	const handleLogOut = (event) => {
+        signOut(auth).then(() => {
+			window.location.href = "/login"
+		}).catch((error) => {
+			alert(error)
+		});
+    }
+
+	const handleUpdateEmail = (event) => {
+        updateEmail(auth.currentUser, email).then(() => {
+			alert("Correo actualizado.")
+			document.location.reload()
+		}).catch((error) => {
+			const errorMessage = error.code;
+			if (errorMessage === "auth/requires-recent-login") {
+				alert("Por favor, inicia sesión de nuevo.")
+			}
+			if (errorMessage === "auth/invalid-email") {
+				alert("Correo inválido.")
+			}
+			if (errorMessage === "auth/email-already-in-use") {
+				alert("Este correo ya está en uso.")
+			}
+			alert(error)
+		});
+    }
+
+	const handleUpdatePassword = (event) => {
+        updatePassword(auth.currentUser, password).then(() => {
+			alert("Contraseña actualiazada.")
+			document.location.reload()
+		  }).catch((error) => {
+				const errorMessage = error.code;
+				if (errorMessage === "auth/requires-recent-login") {
+					alert("Por favor, inicia sesión de nuevo.")
+				}
+				if (errorMessage === "auth/weak-password") {
+					alert("La contraseña debe tener al menos 6 caracteres.")
+				}
+				if (errorMessage === "auth/invalid-password") {
+					alert("Contraseña inválida.")
+				}
+				alert(error)
+		  });
+    }
+
 
 	return (
 		<div className="d-flex profile">
@@ -20,34 +70,25 @@ export const Profile = () => {
 								<h4 className="font-weight-bold" style={{marginBottom:"0"}}><CDBIcon icon="user-circle"/> Perfil</h4>
 							</div>
 							{/*EDITAR A PARTIR DE AQUÍ*/}
-							<div style={{ margin: "0 auto", maxWidth: "1320px"}}>
-								<div className="cards-container1">
-									<form>
-										<div className="card shadow border-0" >
-											<label for="imagen">Cambiar imagen:</label>
-											<input type="file" name="imagen"></input><br/>
-										</div><br/><br/>
-										<div className="card shadow border-0">
-											<label for="nombre">Cambiar nombre:</label>
-											<input type="text" name="imagen"></input><br />
-
-											<label for="apellidos">Cambiar apellidos:</label>
-											<input type="text" name="imagen"></input><br />
-										</div><br/><br/>
-										<div className="card shadow border-0">
-											<label for="telefono">Cambiar teléfono:</label>
-											<input type="text" name="telefono"></input><br />
-
-											<label for="correo">Cambiar correo:</label>
-											<input type="text" name="correo"></input><br />
-
-											<label for="direccion">Cambiar correo:</label>
-											<input type="text" name="direccion"></input>
-										</div><br/><br/>
-										<div className="card shadow border-0">
-											<input type="submit" value="Actualizar"></input>
-										</div><br/><br/>
-									</form>
+							<div style={{position: 'absolute', left: '50%'}}>
+								<div className="cards-container1" style={{display: 'block'}}>
+									<div className="card shadow border-1" style={{padding: '10px'}}>
+										<form onSubmit={handleUpdateEmail}>
+												<label for="correo">Cambiar correo:</label><br/>
+												<input type="text" name="email" value={email} onChange={(event) => setEmail(event.target.value)} required></input><br/>
+												<input type="submit" value="Actualizar"></input>
+										</form>
+									</div><br/>
+									<div className="card shadow border-1" style={{padding: '10px'}}>
+										<form onSubmit={handleUpdatePassword}>
+												<label for="correo">Cambiar contraseña:</label><br/>
+												<input type="password" name="password" value={password} onChange={(event) => setPassword(event.target.value)} required></input><br/>
+												<input type="submit" value="Actualizar"></input>
+										</form>
+									</div><br/>
+									<div className="card shadow border-1" style={{padding: '10px'}}>
+										<button onClick={handleLogOut}>Cerrar Sesión</button>
+									</div>
 								</div>
 								<div style={{margin:"0 auto", maxWidth:"1320px"}}>
 									<footer className="d-flex mx-auto py-4">
@@ -60,6 +101,5 @@ export const Profile = () => {
 				</div>
 			</div>
 		</div>
-
 	);
 }
