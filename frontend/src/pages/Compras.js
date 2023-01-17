@@ -43,13 +43,13 @@ export const Compras = () => {
 
 	const handleShowLens = (compra) => {
 		setShowLens(!showLens); 
-		setCif(compra.cif),
-		setNombre(compra.nombre),
-		setDireccion(compra.direccion),
-		setTelefono(compra.telefono),
-		setEmail(compra.email),
-		setFechaCompra(compra.fechaCompra),
-		setPrecioTotal(compra.precioTotal),
+		setCif(compra.cif)
+		setNombre(compra.nombre)
+		setDireccion(compra.direccion)
+		setTelefono(compra.telefono)
+		setEmail(compra.email)
+		setFechaCompra(compra.fechaCompra)
+		setPrecioTotal(compra.precioTotal)
 		setObservaciones(compra.observaciones)
 	}
 
