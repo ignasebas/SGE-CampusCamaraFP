@@ -27,7 +27,8 @@ const AddModal = ({handleShow,dataModifier,state,clientes,compras,empleados,prod
 				handleShow();
 			})
 			.catch(error => {
-				handleShow()
+				alert(error.response.data.message)
+				//handleShow()
 			});
 			
 		} 
@@ -40,7 +41,8 @@ const AddModal = ({handleShow,dataModifier,state,clientes,compras,empleados,prod
 				handleShow();
 			})
 			.catch(error => {
-				handleShow()
+				alert(error.response.data.message)
+				//handleShow()
 			});
 		}
 		
@@ -64,7 +66,8 @@ const AddModal = ({handleShow,dataModifier,state,clientes,compras,empleados,prod
 				handleShow();
 			})
 			.catch(error => {
-				handleShow()
+				alert(error.response.data.message)
+				//handleShow()
 			});
 		}
 		if (empleados) {
@@ -75,7 +78,8 @@ const AddModal = ({handleShow,dataModifier,state,clientes,compras,empleados,prod
 				handleShow();
 			})
 			.catch(error => {
-				handleShow()
+				alert(error.response.data.message)
+				//handleShow()
 			});
 		}
 	};

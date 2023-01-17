@@ -18,7 +18,7 @@ export const Clientes = () => {
 	const [isLoading, setIsLoading] = useState(true);
 
 	const auth = getAuth(app);
-	const [logIn, setLogIn] = useState(true);
+	const [logIn, setLogIn] = useState(false);
 	auth.onAuthStateChanged(function(user) {
 	if (user) {
 		console.log(user);
@@ -105,10 +105,7 @@ export const Clientes = () => {
 		setDireccion
 	};
 
-	const place = "clientes"
-
 	console.log(data)
-
 
 	return (
 		<>

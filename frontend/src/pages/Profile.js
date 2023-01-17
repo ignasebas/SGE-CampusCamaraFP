@@ -35,26 +35,13 @@ export const Profile = () => {
 							<div style={{ margin: "0 auto", maxWidth: "1320px"}}>
 								<div className="cards-container1">
 									<form>
-										<div className="card shadow border-0" >
-											<label for="imagen">Cambiar imagen:</label>
-											<input type="file" name="imagen"></input><br/>
-										</div><br/><br/>
 										<div className="card shadow border-0">
 											<label for="nombre">Cambiar nombre:</label>
 											<input type="text" name="imagen"></input><br />
-
-											<label for="apellidos">Cambiar apellidos:</label>
-											<input type="text" name="imagen"></input><br />
 										</div><br/><br/>
 										<div className="card shadow border-0">
-											<label for="telefono">Cambiar teléfono:</label>
-											<input type="text" name="telefono"></input><br />
-
 											<label for="correo">Cambiar correo:</label>
 											<input type="text" name="correo"></input><br />
-
-											<label for="direccion">Cambiar correo:</label>
-											<input type="text" name="direccion"></input>
 										</div><br/><br/>
 										<div className="card shadow border-0">
 											<input type="submit" value="Actualizar"></input>

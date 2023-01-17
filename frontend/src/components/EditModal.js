@@ -27,7 +27,8 @@ const EditModal = ({handleShow,dataModifier,state,clientes,compras,empleados,pro
 				handleShow();
 			})
 			.catch(error => {
-				handleShow();
+				alert(error.response.data.message)
+				//handleShow();
 			});
 		} 
 		
@@ -42,7 +43,8 @@ const EditModal = ({handleShow,dataModifier,state,clientes,compras,empleados,pro
 				handleShow();
 			})
 			.catch(error => {
-				handleShow();
+				alert(error.response.data.message)
+				//handleShow();
 			});
 		} 
 
@@ -62,12 +64,9 @@ const EditModal = ({handleShow,dataModifier,state,clientes,compras,empleados,pro
 				handleShow();
 			})
 			.catch(error => {
-				handleShow();
+				alert(error.response.data.message)
+				//handleShow();
 			});
-		  	handleShow()
-		}
-		if (empleados) {
-			//updateEmpleado(id);
 		  	handleShow()
 		}
 	};
