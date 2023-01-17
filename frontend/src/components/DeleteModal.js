@@ -77,7 +77,7 @@ const DeleteModal = ({handleShow,dataModifier,state,clientes,compras,empleados,p
 						<>
 						</>
 					):(
-						<EmpleadosForm del/>
+						<EmpleadosForm del state={state}/>
 					)}
 					{!productos ? (
 						<>
