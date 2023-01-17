@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { NavLink } from "react-router-dom";
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { app } from '../firebase';
+import "./Login.css";
+import {IoArrowBackCircleSharp} from 'react-icons/io5';
+
 
 const LoginPage = () => {
     const auth = getAuth(app);
@@ -23,36 +26,28 @@ const LoginPage = () => {
     }
 
     return (
-        <div>
+        <><div class="login-form">
             <form onSubmit={handleSubmit}>
-                <label htmlFor="email">Email:</label>
-                <input
-                    type="email"
-                    id="email"
-                    value={email}
-                    onChange={(event) => setEmail(event.target.value)}
-                    required
-                />
-                <br />
-                <label htmlFor="password">Password:</label>
-                <input
-                    type="password"
-                    id="password"
-                    value={password}
-                    onChange={(event) => setPassword(event.target.value)}
-                    required
-                />
-                <br />
-                <button type="submit">Login</button>
-                <br />
-                <NavLink
-                exact
-                to="/register"
-                activeClassName="activeClicked">
-                    Registrate
-                </NavLink>
+                <h1>Inicio de sesión</h1>
+                <div class="content">
+                    <div class="input-field">
+                        <input placeholder="Email" type="email" id="email" value={email} onChange={(event) => setEmail(event.target.value)} required></input>
+                    </div>
+                    <div class="input-field">
+                        <input placeholder="Contraseña" type="password" id="password" value={password} onChange={(event) => setPassword(event.target.value)} required></input>
+                    </div>
+                </div>
+                <div class="action">
+                    <button>
+                        <NavLink exact to="/register" style={{ textDecoration: 'none', color: 'black'}}>
+                            <IoArrowBackCircleSharp/>&nbsp;
+                            Regristrarse
+                        </NavLink>
+                    </button>
+                    <button type='submit'>Iniciar sesión</button>
+                </div>
             </form>
-        </div>
+        </div></>
     );
 };
 
