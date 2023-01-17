@@ -16,9 +16,6 @@ const ClientesForm = ({add,edit,del,state}) => {
 		direccion, 
 		setDireccion 
 	} = state;
-	
-	const [dniError, setDniError] = useState(false);
-	const [dniErrorMessage, setDniErrorMessage] = useState("Error");
 
 	return (
 		<>
@@ -40,14 +37,6 @@ const ClientesForm = ({add,edit,del,state}) => {
 									value={dni}
 									onChange={(event) => setDni(event.target.value)}>
 								</input>
-								{dniError ? (
-									<p>
-										{dniErrorMessage}
-									</p>
-								):(
-									<>
-									</>
-								)}
 								</td>
 							</tr>
 							<tr>
