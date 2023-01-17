@@ -19,13 +19,13 @@ export const Clientes = () => {
 
 	const auth = getAuth(app);
 	const [logIn, setLogIn] = useState(false);
-	auth.onAuthStateChanged(function(user) {
-	if (user) {
-		console.log(user);
-		setLogIn(true)
-	} else {
-		window.location.href = "/login"
-	}
+	auth.onAuthStateChanged(function (user) {
+		if (user) {
+			console.log(user);
+			setLogIn(true)
+		} else {
+			window.location.href = "/login"
+		}
 	});
 
 	useEffect(() => {
@@ -112,7 +112,7 @@ export const Clientes = () => {
 			{!logIn ? (
 				<>
 				</>
-			):(
+			) : (
 				<>
 					{!showAdd ? (
 						<>
@@ -170,8 +170,8 @@ export const Clientes = () => {
 															<th>Acciones</th>
 														</tr>
 													</CDBTableHeader>
-												
-													<CDBTableBody style={{ verticalAlign: "middle" }}>											
+
+													<CDBTableBody style={{ verticalAlign: "middle" }}>
 														{data.map((cliente) =>
 															<tr>
 																<td>{cliente.nif}</td>
