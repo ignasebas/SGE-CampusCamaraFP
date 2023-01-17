@@ -17,15 +17,23 @@ export const Calendario = () => {
 	const [logIn, setLogIn] = useState(false);
 	auth.onAuthStateChanged(function(user) {
 	if (user) {
-		console.log(user);
 		setLogIn(true)
 	} else {
 		window.location.href = "/login"
 	}
 	});
 
+	const [date, setDate] = useState(new Date());
+	const options = { weekday: 'long', day: 'numeric' };
+ 
+	const onDateChange = (newDate) => {
+		setDate(newDate);
+		console.log(newDate);
+		console.log(date)
+	}
+ 
+
 	const [value, onChange] = useState(new Date());
-	const [dia] = useState(new Date());
 
 	return (
 		<>
@@ -47,7 +55,7 @@ export const Calendario = () => {
 											<h4 className="font-weight-bold" style={{ marginBottom: "0" }}><CDBIcon icon="calendar-alt" /> Calendario</h4>
 										</div>
 										<div>
-											<Calendar onChange={onChange}
+											<Calendar onChange={onDateChange}
 												value={value} />
 
 										</div>
@@ -55,7 +63,7 @@ export const Calendario = () => {
 										<div>
 											<div className="card shadow border-0">
 												<div className="card-body">
-													<h4 className="card-title mb-2" style={{ fontWeight: "600" }}>Introduce que tienes el día</h4>
+													<h4 className="card-title mb-2" style={{ fontWeight: "600" }}>Introduce que tienes el día {date.toLocaleDateString("es-ES",options)}</h4>
 													<label>Título &nbsp;</label>
 													<input type="text"></input>
 													<br></br>
