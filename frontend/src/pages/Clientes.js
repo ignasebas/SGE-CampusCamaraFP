@@ -31,7 +31,7 @@ export const Clientes = () => {
 	useEffect(() => {
 		getClientes().then(clientData => {
 			setData(clientData);
-			setIsLoading(true);
+			setIsLoading(false);
 		});
 	}, []);
 
@@ -153,47 +153,47 @@ export const Clientes = () => {
 										</div>
 
 										<CDBTable striped responsive>
-											<CDBTableHeader>
-												<tr>
-													<th>NIF/DNI</th>
-													<th>Nombre</th>
-													<th>Apellidos</th>
-													<th>Teléfono</th>
-													<th>Email</th>
-													<th>Dirección</th>
-													<th>Acciones</th>
-												</tr>
-											</CDBTableHeader>
-											
 											{isLoading ? (
-												<CDBTableBody style={{ verticalAlign: "middle" }}>
-													<tr>
-														<td style={{ colspan:"10", display: "flex", justifyContent: "center", alignItems: "center" }}>
-															<Spinner animation="grow" />
-														</td>
-													</tr>
-												</CDBTableBody>
+
+												<div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+													<Spinner animation="grow" />
+												</div>
+
 											) : (
-												<CDBTableBody style={{ verticalAlign: "middle" }}>											
-													{data.map((cliente) =>
+												<>
+													<CDBTableHeader>
 														<tr>
-															<td>{cliente.nif}</td>
-															<td>{cliente.nombre}</td>
-															<td>{cliente.apellidos}</td>
-															<td>{cliente.telefono}</td>
-															<td>{cliente.email}</td>
-															<td>{cliente.direccion}</td>
-															<td style={{ whiteSpace: "nowrap" }}>
-																<CDBBtn onClick={() => handleShowEdit(cliente)} className={"edit-button"} style={{ marginRight: "10px" }}>
-																	<CDBIcon icon="pen" className="ml-1" />
-																</CDBBtn>
-																<CDBBtn className={"delete-button"} onClick={() => handleShowDelete(cliente)}>
-																	<CDBIcon icon="trash" className="ml-1" />
-																</CDBBtn>
-															</td>
+															<th>NIF/DNI</th>
+															<th>Nombre</th>
+															<th>Apellidos</th>
+															<th>Teléfono</th>
+															<th>Email</th>
+															<th>Dirección</th>
+															<th>Acciones</th>
 														</tr>
-													)}
-												</CDBTableBody>
+													</CDBTableHeader>
+												
+													<CDBTableBody style={{ verticalAlign: "middle" }}>											
+														{data.map((cliente) =>
+															<tr>
+																<td>{cliente.nif}</td>
+																<td>{cliente.nombre}</td>
+																<td>{cliente.apellidos}</td>
+																<td>{cliente.telefono}</td>
+																<td>{cliente.email}</td>
+																<td>{cliente.direccion}</td>
+																<td style={{ whiteSpace: "nowrap" }}>
+																	<CDBBtn onClick={() => handleShowEdit(cliente)} className={"edit-button"} style={{ marginRight: "10px" }}>
+																		<CDBIcon icon="pen" className="ml-1" />
+																	</CDBBtn>
+																	<CDBBtn className={"delete-button"} onClick={() => handleShowDelete(cliente)}>
+																		<CDBIcon icon="trash" className="ml-1" />
+																	</CDBBtn>
+																</td>
+															</tr>
+														)}
+													</CDBTableBody>
+												</>
 											)}
 										</CDBTable>
 									</div>
