@@ -30,9 +30,16 @@ const RegisterPage = () => {
             });
         })
         .catch((error) => {
-            const errorCode = error.code;
             const errorMessage = error.message;
-            alert(errorMessage)
+            if (errorMessage === "The email address is already in use by another account.") {
+                alert("El correo electrónico ya está en uso por otra cuenta.")
+            }
+            if (errorMessage === "The email address is badly formatted.") {
+                alert("El correo electrónico está mal formateado.")
+            }
+            if (errorMessage === "Password should be at least 6 characters") {
+                alert("La contraseña debe tener al menos 6 caracteres.")
+            }
         });
         
 

@@ -19,9 +19,16 @@ const LoginPage = () => {
             window.location.href = "/"
         })
         .catch((error) => {
-            const errorCode = error.code;
             const errorMessage = error.message;
-            alert(errorMessage)
+            if (errorMessage === "The email address is badly formatted.") {
+                alert("El correo electrónico está mal formateado.")
+            }
+            if (errorMessage === "There is no user record corresponding to this identifier. The user may have been deleted.") {
+                alert("No hay registro de usuario correspondiente a este identificador. El usuario puede haber sido eliminado.")
+            }
+            if (errorMessage === "The password is invalid or the user does not have a password.") {
+                alert("La contraseña no es válida o el usuario no tiene una contraseña.")
+            }
         });
     }
 
