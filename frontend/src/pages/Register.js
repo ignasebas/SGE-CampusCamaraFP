@@ -3,6 +3,8 @@ import { NavLink } from "react-router-dom";
 import { postUsuario } from '../services/userAPI';
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { app } from '../firebase';
+import {IoArrowBackCircleSharp} from 'react-icons/io5';
+
 
 const RegisterPage = () => {
     
@@ -41,45 +43,31 @@ const RegisterPage = () => {
     }
 
     return (
-        <div>
+        <><div class="login-form">
             <form onSubmit={handleSubmit}>
-                <label htmlFor="name">Name:</label>
-                <input
-                    type="name"
-                    id="name"
-                    value={name}
-                    onChange={(event) => setName(event.target.value)}
-                    required
-                />
-                <br />
-                <label htmlFor="email">Email:</label>
-                <input
-                    type="email"
-                    id="email"
-                    value={email}
-                    onChange={(event) => setEmail(event.target.value)}
-                    required
-                />
-                <br />
-                <label htmlFor="password">Password:</label>
-                <input
-                    type="password"
-                    id="password"
-                    value={password}
-                    onChange={(event) => setPassword(event.target.value)}
-                    required
-                />
-                <br />
-                <button type="submit">Registrarse</button>
-                <br />
-                <NavLink
-                exact
-                to="/login"
-                activeClassName="activeClicked">
-                    Inicia Sesión
-                </NavLink>
+                <h1>Registrar usuario</h1>
+                <div class="content">
+                    <div class="input-field">
+                        <input placeholder="Nombre" type="name" id="name" value={name} onChange={(event) => setName(event.target.value)} required></input>
+                    </div>
+                    <div class="input-field">
+                        <input placeholder="Email" type="email" id="email" value={email} onChange={(event) => setEmail(event.target.value)} required></input>
+                    </div>
+                    <div class="input-field">
+                        <input placeholder="Contraseña" type="password" id="password" value={password} onChange={(event) => setPassword(event.target.value)} required></input>
+                    </div>
+                </div>
+                <div class="action">
+                    <button>
+                        <NavLink exact to="/login" style={{ textDecoration: 'none', color: 'black'}}>
+                            <IoArrowBackCircleSharp/>&nbsp;
+                            Iniciar sesión
+                        </NavLink>
+                    </button>
+                    <button type='submit'>Registrarse</button>
+                </div>
             </form>
-        </div>
+        </div></>
     );
 };
 

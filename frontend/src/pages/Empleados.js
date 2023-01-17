@@ -195,7 +195,17 @@ export const Empleados = () => {
                     </div>
 
                     <CDBTable striped responsive>
-                      <CDBTableHeader>
+                      
+                      {isLoading ? (
+                        <div
+                          style={{
+                            display: "flex", justifyContent: "center", alignItems: "center",
+                          }}
+                        >
+                          <Spinner animation="grow" />
+                        </div>
+                      ) : (
+						<><CDBTableHeader>
                         <tr>
                           <th>NIF</th>
                           <th>Nombre</th>
@@ -206,18 +216,6 @@ export const Empleados = () => {
                           <th>Puesto</th>
                         </tr>
                       </CDBTableHeader>
-                      {!isLoading ? (
-                        <div
-                          style={{
-                            display: "flex",
-                            justifyContent: "center",
-                            alignItems: "center",
-                          }}
-                        >
-                          <Spinner animation="grow" />
-                        </div>
-                      ) : (
-						
                         <CDBTableBody style={{ verticalAlign: "middle" }}>
                           {data.map((empleado) => (
                             <tr>
@@ -246,6 +244,7 @@ export const Empleados = () => {
                             </tr>
                           ))}
                         </CDBTableBody>
+						</>
                       )}
                     </CDBTable>
                   </div>

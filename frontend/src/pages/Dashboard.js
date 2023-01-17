@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from "react";
-import { CDBProgress, CDBBtn } from "cdbreact";
-import { Pie, Bar } from "react-chartjs-2";
+import { CDBBtn } from "cdbreact";
 import Sidebar from "../Sidebar";
 import Navbar from "../Navbar";
 import "./Dashboard.css";
