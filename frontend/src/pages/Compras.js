@@ -42,7 +42,7 @@ export const Compras = () => {
 	const [showLens, setShowLens] = useState(false);
 
 	const handleShowLens = (compra) => {
-		setShowLens(!showLens); 
+		setShowLens(!showLens)
 		setCif(compra.cif)
 		setNombre(compra.nombre)
 		setDireccion(compra.direccion)
