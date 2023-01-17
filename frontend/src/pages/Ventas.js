@@ -12,7 +12,6 @@ import { getVentas, postVentas } from "../services/ventasAPI";
 import Spinner from 'react-bootstrap/Spinner';
 
 export const Ventas = () => {
-
 	const [isLoading, setIsLoading] = useState(false);
 
 	useEffect(() => {
