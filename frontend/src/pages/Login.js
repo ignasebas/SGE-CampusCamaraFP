@@ -19,15 +19,12 @@ const LoginPage = () => {
             window.location.href = "/"
         })
         .catch((error) => {
-            const errorMessage = error.message;
-            if (errorMessage === "The email address is badly formatted.") {
-                alert("El correo electrónico está mal formateado.")
+            const errorMessage = error.code;
+            if (errorMessage === "auth/user-not-found") {
+                alert("El usuario no existe.")
             }
-            if (errorMessage === "There is no user record corresponding to this identifier. The user may have been deleted.") {
-                alert("No hay registro de usuario correspondiente a este identificador. El usuario puede haber sido eliminado.")
-            }
-            if (errorMessage === "The password is invalid or the user does not have a password.") {
-                alert("La contraseña no es válida o el usuario no tiene una contraseña.")
+            if (errorMessage === "auth/wrong-password") {
+                alert("Contraseña incorrecta.")
             }
         });
     }
@@ -45,16 +42,17 @@ const LoginPage = () => {
                     </div>
                 </div>
                 <div class="action">
-                    <button>
-                        <NavLink exact to="/register" style={{ textDecoration: 'none', color: 'black'}}>
-                            <IoArrowBackCircleSharp/>&nbsp;
-                            Registrarse
-                        </NavLink>
-                    </button>
                     <button type='submit'>Iniciar sesión</button>
                 </div>
             </form>
-        </div></>
+        </div>&nbsp;
+        <div style={{alignContent: 'center', width: '100%', textAlign: 'center', display: 'inline-block'}}>
+            <NavLink exact to="/register" style={{ textDecoration: 'none', color: 'black'}}>
+                <IoArrowBackCircleSharp/>&nbsp;
+                <h6>Registrarse</h6>
+            </NavLink>
+        </div>
+        </>
     );
 };
 

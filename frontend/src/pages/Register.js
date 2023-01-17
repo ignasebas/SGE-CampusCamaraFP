@@ -25,28 +25,24 @@ const RegisterPage = () => {
                 console.log("SUU")
                 window.location.href = "/"
             }).catch((error) => {
-                // An error occurred
-                // ...
+                const errorMessage = error.code;
+                if (errorMessage === "auth/email-already-in-use") {
+                    alert("El usuario ya existe.")
+                }
             });
         })
         .catch((error) => {
-            const errorMessage = error.message;
-            if (errorMessage === "The email address is already in use by another account.") {
-                alert("El correo electrónico ya está en uso por otra cuenta.")
+            const errorMessage = error.code;
+            if (errorMessage === "auth/email-already-in-use") {
+                alert("El usuario ya existe.")
             }
-            if (errorMessage === "The email address is badly formatted.") {
-                alert("El correo electrónico está mal formateado.")
+            if (errorMessage === "auth/invalid-email") {
+                alert("Email inválido.")
             }
-            if (errorMessage === "Password should be at least 6 characters") {
+            if (errorMessage === "auth/weak-password") {
                 alert("La contraseña debe tener al menos 6 caracteres.")
             }
         });
-        
-
-       
-        
-        console.log(`Email: ${email}`);
-        console.log(`Password: ${password}`);
     }
 
     return (
@@ -65,15 +61,15 @@ const RegisterPage = () => {
                     </div>
                 </div>
                 <div class="action">
-                    <button>
-                        <NavLink exact to="/login" style={{ textDecoration: 'none', color: 'black'}}>
-                            <IoArrowBackCircleSharp/>&nbsp;
-                            Iniciar sesión
-                        </NavLink>
-                    </button>
                     <button type='submit'>Registrarse</button>
                 </div>
             </form>
+        </div>
+        <div style={{alignContent: 'center', width: '100%', textAlign: 'center', display: 'inline-block'}}>
+            <NavLink exact to="/login" style={{ textDecoration: 'none', color: 'black'}}>
+                <IoArrowBackCircleSharp/>&nbsp;
+                <h6>Iniciar sesión</h6>
+            </NavLink>
         </div></>
     );
 };
