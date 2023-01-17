@@ -7,7 +7,7 @@ const VentasForm = ({add,lens,del,state}) => {
 	const {
 		dni,
 		setDni,
-		nombreCliente,
+		nombre,
 		setNombre,
 		apellidos,
 		setApellidos,
@@ -47,7 +47,7 @@ const VentasForm = ({add,lens,del,state}) => {
 								<td><input 
 									type={'text'} 
 									style={{marginLeft:"20px"}}
-									value={nombreCliente}
+									value={nombre}
 									onChange={(event) => setNombre(event.target.value)}></input></td>
 							</tr>
 							<tr>
@@ -107,7 +107,7 @@ const VentasForm = ({add,lens,del,state}) => {
 				</>
 			):(
 				<center>
-						<table cellPadding={"20px"}>
+						<table cellPadding={"5px"}>
 							<tr>
 								<th>Datos del cliente</th>
 								<th>Infomación de la venta</th>
@@ -117,23 +117,36 @@ const VentasForm = ({add,lens,del,state}) => {
 								<td>Fecha:</td>
 							</tr>
 							<tr>
-								<td>{nombreCliente}</td>
-								<td></td>
+								<td>{dni}</td>
+								<td>{fechaVenta}</td>
 							</tr>
 							<tr>
 								<td>Nombre:</td>
 								<td>Precio total:</td>
 							</tr>
 							<tr>
+								<td>{nombre}</td>
+								<td>{precioTotal}</td>
+							</tr>
+							<tr>
 								<td>Apellidos:</td>
 								<td>Observaciones:</td>
+							</tr>
+							<tr>
+								<td>{apellidos}</td>
+								<td>{observaciones}</td>
 							</tr>
 							<tr>
 								<td>Email:</td>
 							</tr>
 							<tr>
+								<td>{email}</td>
+							</tr>
+							<tr>
 								<td>Dirección:</td>
-								
+							</tr>
+							<tr>
+								<td>{direccion}</td>
 							</tr>
 						</table>
 					</center>

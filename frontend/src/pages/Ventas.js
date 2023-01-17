@@ -29,14 +29,26 @@ export const Ventas = () => {
 	const [error, setError] = useState(null);
 
 	const [showAdd, setShowAdd] = useState(false);
-	const handleShowAdd = () => setShowAdd(!showAdd);
 	const [showLens, setShowLens] = useState(false);
-	const handleShowLens = () => setShowLens(!showLens);
 
-	const handleShowEdit = (ventas) => {
+	const handleShowAdd = () => {
+		setShowAdd(!showAdd);
+		if (dni && nombre && apellidos && fechaVenta && email && direccion && precioTotal && observaciones != "") {
+			setDni("");
+			setNombre("");
+			setApellidos("");
+			setEmail("");
+			setDireccion("");
+			setFechaVenta("");
+			setPrecioTotal("");
+			setObservaciones("");
+		}
+	}
+
+	const handleShowLens = (venta) => {
 		setShowLens(!showLens); 
-		setDni(!dni);
-		setNombre(!nombreCliente);
+		setDni(venta.nif);
+		setNombre(venta.nombre);
 		setApellidos(!apellidos);
 		setEmail(!email);
 		setDireccion(!direccion);
@@ -46,7 +58,7 @@ export const Ventas = () => {
 	}
 
 	const [dni, setDni] = useState("");
-	const [nombreCliente, setNombre] = useState("");
+	const [nombre, setNombre] = useState("");
 	const [apellidos, setApellidos] = useState("");
 	const [email, setEmail] = useState("");
 	const [direccion, setDireccion] = useState("");
@@ -55,10 +67,15 @@ export const Ventas = () => {
 	const [observaciones, setObservaciones] = useState("");
 	const [productos, setProductos] = useState("");
 
+	const dataModifier = {
+		data,
+		setData
+	}
+
 	const state = {
 		dni,
 		setDni,
-		nombreCliente,
+		nombre,
 		setNombre,
 		apellidos,
 		setApellidos,
@@ -86,7 +103,7 @@ export const Ventas = () => {
 				<>
 				</>
 			):(
-				<AddModal ventas handleShow={handleShowAdd} place={place} state={state}/>
+				<AddModal ventas handleShow={handleShowAdd} dataModifier={dataModifier} state={state}/>
 			)}
 			{!showLens ? (
 				<>
@@ -129,12 +146,12 @@ export const Ventas = () => {
 									<CDBTableBody style={{verticalAlign: "middle"}}>
 										{data.map((venta) =>
 											<tr>
-												<td>{venta.nombreCliente}</td>
+												<td>{venta.nombre}</td>
 												<td>{venta.fechaVenta}</td>
 												<td>{venta.observaciones}</td>
 												<td>{venta.precioTotal} €</td>
 												<td style={{whiteSpace: "nowrap"}}>
-													<CDBBtn onClick={handleShowLens} className={"edit-button"} style={{marginRight:"10px"}}>
+													<CDBBtn onClick={() => handleShowLens(venta)} className={"edit-button"} style={{marginRight:"10px"}}>
 														<HiMagnifyingGlass/>
 													</CDBBtn>
 												</td>
