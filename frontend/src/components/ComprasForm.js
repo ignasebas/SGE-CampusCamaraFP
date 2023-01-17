@@ -106,7 +106,7 @@ const ComprasForm = ({add,lens,del,state}) => {
 				<center>
 					<table cellPadding={"20px"}>
 						<tr>
-							<th>Datos del proveedor</th>
+							<th style={{padding: "0px 150px 0px 0px"}}>Datos del proveedor</th>
 							<th>Infomación de la compra</th>
 						</tr>
 						<tr>
@@ -114,18 +114,36 @@ const ComprasForm = ({add,lens,del,state}) => {
 							<td>Fecha:</td>
 						</tr>
 						<tr>
+								<td>{cif}</td>
+								<td>{fechaCompra}</td>
+							</tr>
+						<tr>
 							<td>Nombre:</td>
 							<td>Precio total:</td>
+						</tr>
+						<tr>
+							<td>{nombre}</td>
+							<td>{precioTotal}</td>
 						</tr>
 						<tr>
 							<td>Direccion:</td>
 							<td>Observaciones:</td>
 						</tr>
 						<tr>
+							<td>{direccion}</td>
+							<td>{observaciones}</td>
+						</tr>
+						<tr>
 							<td>Email:</td>
 						</tr>
 						<tr>
+							<td>{email}</td>
+						</tr>
+						<tr>
 							<td>Teléfono:</td>
+						</tr>
+						<tr>
+							<td>{telefono}</td>
 						</tr>
 					</table>
 				</center>
