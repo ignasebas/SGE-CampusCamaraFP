@@ -29,7 +29,7 @@ const Routes = () => {
         <Route path="/proveedores" component={Proveedores} />
         <Route path="/empleados" component={Empleados} />
         <Route path="/productos" component={Productos} />
-        <Route path="/404" component={Hero404} />
+        <Route path="/hero404" component={Hero404} />
       </BrowserRouter>
     </Fragment>
   );

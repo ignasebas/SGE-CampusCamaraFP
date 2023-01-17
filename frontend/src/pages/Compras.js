@@ -40,7 +40,18 @@ export const Compras = () => {
 	const [showAdd, setShowAdd] = useState(false);
 	const handleShowAdd = () => setShowAdd(!showAdd);
 	const [showLens, setShowLens] = useState(false);
-	const handleShowLens = () => setShowLens(!showLens);
+
+	const handleShowLens = (compra) => {
+		setShowLens(!showLens); 
+		setCif(compra.cif)
+		setNombre(compra.nombre)
+		setDireccion(compra.direccion)
+		setTelefono(compra.telefono)
+		setEmail(compra.email)
+		setFechaCompra(compra.fechaCompra)
+		setPrecioTotal(compra.precioTotal)
+		setObservaciones(compra.observaciones)
+	}
 
 	const [cif, setCif] = useState("");
 	const [nombre, setNombre] = useState("");
@@ -135,7 +146,7 @@ export const Compras = () => {
 																<td>{compra.observaciones}</td>
 																<td>{compra.precioTotal} €</td>
 																<td style={{whiteSpace: "nowrap"}}>
-																	<CDBBtn onClick={handleShowLens} className={"edit-button"} style={{marginRight:"10px"}}>
+																	<CDBBtn onClick={() => handleShowLens(compra)} className={"edit-button"} style={{marginRight:"10px"}}>
 																		<HiMagnifyingGlass/>
 																	</CDBBtn>
 																</td>
