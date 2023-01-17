@@ -1,21 +1,57 @@
-import React from "react";
+import React, { useState } from 'react';
 import Sidebar from "../Sidebar";
 import Navbar from "../Navbar";
 import "./Profile.css"
 import {CDBIcon} from "cdbreact";
-import { getAuth, signOut } from "firebase/auth";
-
+import { getAuth, updateEmail, signOut, updatePassword} from "firebase/auth";
 export const Profile = () => {
 	const auth = getAuth();
+	const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
-	const handleSubmit = (event) => {
+	const handleLogOut = (event) => {
         signOut(auth).then(() => {
 			window.location.href = "/login"
 		}).catch((error) => {
 			alert(error)
 		});
     }
-	
+
+	const handleUpdateEmail = (event) => {
+        updateEmail(auth.currentUser, email).then(() => {
+			alert("Correo actualizado.")
+		}).catch((error) => {
+			const errorMessage = error.code;
+			if (errorMessage === "auth/requires-recent-login") {
+				alert("Por favor, inicia sesión de nuevo.")
+			}
+			if (errorMessage === "auth/invalid-email") {
+				alert("Correo inválido.")
+			}
+			if (errorMessage === "auth/email-already-in-use") {
+				alert("Este correo ya está en uso.")
+			}
+			alert(error)
+		});
+    }
+
+	const handleUpdatePassword = (event) => {
+        updatePassword(auth.currentUser, password).then(() => {
+			alert("Contraseña actualiazada.")
+		  }).catch((error) => {
+				const errorMessage = error.code;
+				if (errorMessage === "auth/requires-recent-login") {
+					alert("Por favor, inicia sesión de nuevo.")
+				}
+				if (errorMessage === "auth/weak-password") {
+					alert("La contraseña debe tener al menos 6 caracteres.")
+				}
+				if (errorMessage === "auth/invalid-password") {
+					alert("Contraseña inválida.")
+				}
+				alert(error)
+		  });
+    }
 
 
 	return (
@@ -34,21 +70,22 @@ export const Profile = () => {
 							{/*EDITAR A PARTIR DE AQUÍ*/}
 							<div style={{ margin: "0 auto", maxWidth: "1320px"}}>
 								<div className="cards-container1">
-									<form>
-										<div className="card shadow border-0">
-											<label for="nombre">Cambiar nombre:</label>
-											<input type="text" name="imagen"></input><br />
-										</div><br/><br/>
-										<div className="card shadow border-0">
-											<label for="correo">Cambiar correo:</label>
-											<input type="text" name="correo"></input><br />
-										</div><br/><br/>
-										<div className="card shadow border-0">
-											<input type="submit" value="Actualizar"></input>
-										</div><br/><br/>
-									</form>
 									<div className="card shadow border-0">
-										<button onClick={handleSubmit}>Cerrar Sesión</button>
+										<form onSubmit={handleUpdateEmail}>
+												<label for="correo">Cambiar correo:</label>
+												<input type="text" name="email" value={email} onChange={(event) => setEmail(event.target.value)} required></input>
+												<input type="submit" value="Actualizar"></input>
+										</form>
+									</div>
+									<div className="card shadow border-0"></div>
+										<form onSubmit={handleUpdatePassword}>
+												<label for="correo">Cambiar contraseña:</label>
+												<input type="password" name="password" value={password} onChange={(event) => setPassword(event.target.value)} required></input>
+												<input type="submit" value="Actualizar"></input>
+										</form>
+									</div>
+									<div className="card shadow border-0">
+										<button onClick={handleLogOut}>Cerrar Sesión</button>
 									</div>
 								</div>
 								<div style={{margin:"0 auto", maxWidth:"1320px"}}>
@@ -61,7 +98,5 @@ export const Profile = () => {
 					</div>
 				</div>
 			</div>
-		</div>
-
 	);
 }
