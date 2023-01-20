@@ -10,6 +10,7 @@ import EditModal from "../components/EditModal"
 import DeleteModal from "../components/DeleteModal"
 import { getProductos } from "../services/productosAPI";
 import Spinner from 'react-bootstrap/Spinner';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export const Productos = () => {
 
@@ -139,9 +140,9 @@ export const Productos = () => {
 							
 							<div className="mt-5">
 								<div className="mb-3 title-with-add">
-									<h4 className="font-weight-bold" style={{marginBottom:"0"}}><CDBIcon icon="flask"/> Productos</h4>
+									<h4 className="font-weight-bold" style={{marginBottom:"0"}}><FontAwesomeIcon icon="fa-solid fa-flask" /> Productos</h4>
 									<CDBBtn className={"add-button"} onClick={handleShowAdd}>
-										<CDBIcon icon="plus" className="ml-1" />
+										<FontAwesomeIcon icon="fa-solid fa-plus" className="ml-1"/>
 									</CDBBtn>
 								</div>
 								
@@ -173,11 +174,11 @@ export const Productos = () => {
 												<td>{producto.descripcion}</td>
 												<td style={{whiteSpace: "nowrap"}}>
 													<CDBBtn onClick={handleShowEdit} className={"edit-button"} style={{marginRight:"10px"}}>
-														<CDBIcon icon="pen" className="ml-1" />
+														<FontAwesomeIcon icon="fa-solid fa-pen" className="ml-1" />
 													</CDBBtn>
 
 													<CDBBtn className={"delete-button"} onClick={handleShowDelete}>
-														<CDBIcon icon="trash" className="ml-1" />
+														<FontAwesomeIcon icon="fa-solid fa-trash" className="ml-1" />
 													</CDBBtn>
 												</td>
 											</tr>

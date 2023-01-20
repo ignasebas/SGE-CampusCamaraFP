@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { CDBBtn } from "cdbreact";
 import { CDBTable, CDBTableHeader, CDBTableBody } from "cdbreact";
 import Sidebar from "../Sidebar";
-import { CDBIcon } from "cdbreact";
 import Navbar from "../Navbar";
 import "./Profile.css"
 import { HiMagnifyingGlass } from 'react-icons/hi2';
@@ -12,9 +11,10 @@ import { getVentas, postVentas } from "../services/ventasAPI";
 import Spinner from 'react-bootstrap/Spinner';
 import { app } from "../firebase";
 import { getAuth } from "firebase/auth";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 
 export const Ventas = () => {
-
 	const [isLoading, setIsLoading] = useState(true);
 
 	const auth = getAuth(app);
@@ -135,9 +135,9 @@ export const Ventas = () => {
 
 									<div className="mt-5">
 										<div className="mb-3 title-with-add">
-											<h4 className="font-weight-bold" style={{ marginBottom: "0" }}><CDBIcon icon="poll" /> Ventas</h4>
+											<h4 className="font-weight-bold" style={{ marginBottom: "0" }}><FontAwesomeIcon icon="fa-solid fa-square-poll-vertical" /> Ventas</h4>
 											<CDBBtn className={"add-button"} onClick={handleShowAdd}>
-												<CDBIcon icon="plus" className="ml-1" />
+												<FontAwesomeIcon icon="fa-solid fa-plus" className="ml-1"/>
 											</CDBBtn>
 										</div>
 

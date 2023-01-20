@@ -11,6 +11,7 @@ import { getCompras } from "../services/comprasAPI";
 import Spinner from 'react-bootstrap/Spinner';
 import { app } from "../firebase";
 import { getAuth } from "firebase/auth";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export const Compras = () => {
 	const[isLoading, setIsLoading] = useState(false);
@@ -116,9 +117,9 @@ export const Compras = () => {
 										
 										<div className="mt-5">
 											<div className="mb-3 title-with-add">
-												<h4 className="font-weight-bold" style={{marginBottom:"0"}}><CDBIcon icon="shopping-cart"/> Compras</h4>
+												<h4 className="font-weight-bold" style={{marginBottom:"0"}}><FontAwesomeIcon icon="fa-solid fa-cart-shopping" /> Compras</h4>
 												<CDBBtn className={"add-button"} onClick={handleShowAdd}>
-													<CDBIcon icon="plus" className="ml-1" />
+													<FontAwesomeIcon icon="fa-solid fa-plus" className="ml-1"/>
 												</CDBBtn>
 											</div>
 											

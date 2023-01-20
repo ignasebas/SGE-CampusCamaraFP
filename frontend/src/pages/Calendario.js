@@ -8,6 +8,7 @@ import "./Profile.css"
 import {CDBIcon} from "cdbreact";
 import { app } from "../firebase";
 import { getAuth } from "firebase/auth";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export const Calendario = () => {
 	
@@ -50,7 +51,7 @@ export const Calendario = () => {
 								<div style={{ height: "calc(100% - 64px)", padding: "20px 5%", overflowY: "scroll" }}>
 									<div className="mt-5">
 										<div className="mb-3 title-with-add">
-											<h4 className="font-weight-bold" style={{ marginBottom: "0" }}><CDBIcon icon="calendar-alt" /> Calendario</h4>
+											<h4 className="font-weight-bold" style={{ marginBottom: "0" }}><FontAwesomeIcon icon="fa-solid fa-calendar-days" /> Calendario</h4>
 										</div>
 										<div>
 											<Calendar onChange={onDateChange}

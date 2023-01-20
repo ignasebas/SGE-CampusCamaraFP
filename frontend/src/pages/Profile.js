@@ -4,6 +4,7 @@ import Navbar from "../Navbar";
 import "./Profile.css"
 import {CDBIcon} from "cdbreact";
 import { getAuth, updateEmail, signOut, updatePassword} from "firebase/auth";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 export const Profile = () => {
 	const auth = getAuth();
 	const [email, setEmail] = useState('');
@@ -67,7 +68,7 @@ export const Profile = () => {
 					<div style={{ height: "calc(100% - 64px)", padding: "20px 5%", overflowY: "scroll" }}>
 						<div className="mt-5">
 							<div className="mb-3 title-with-add">
-								<h4 className="font-weight-bold" style={{marginBottom:"0"}}><CDBIcon icon="user-circle"/> Perfil</h4>
+								<h4 className="font-weight-bold" style={{marginBottom:"0"}}><FontAwesomeIcon icon="fa-solid fa-circle-user" /> Perfil</h4>
 							</div>
 							{/*EDITAR A PARTIR DE AQUÍ*/}
 							<div style={{position: 'absolute', left: '50%'}}>

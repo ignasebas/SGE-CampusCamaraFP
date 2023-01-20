@@ -12,6 +12,7 @@ import { getEmpleados, postEmpleados } from "../services/empleadosAPI";
 import Spinner from "react-bootstrap/Spinner";
 import { app } from "../firebase";
 import { getAuth } from "firebase/auth";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export const Empleados = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -187,10 +188,10 @@ export const Empleados = () => {
                         className="font-weight-bold"
                         style={{ marginBottom: "0" }}
                       >
-                        <CDBIcon icon="sitemap" /> Empleados
+                        <FontAwesomeIcon icon="fa-solid fa-sitemap" /> Empleados
                       </h4>
                       <CDBBtn className={"add-button"} onClick={handleShowAdd}>
-                        <CDBIcon icon="plus" className="ml-1" />
+                        <FontAwesomeIcon icon="fa-solid fa-plus" className="ml-1"/>
                       </CDBBtn>
                     </div>
 
@@ -232,13 +233,13 @@ export const Empleados = () => {
                                   className={"edit-button"}
                                   style={{ marginRight: "10px" }}
                                 >
-                                  <CDBIcon icon="pen" className="ml-1" />
+                                  <FontAwesomeIcon icon="fa-solid fa-pen" className="ml-1" />
                                 </CDBBtn>
                                 <CDBBtn
                                   className={"delete-button"}
                                   onClick={() => handleShowDelete(empleado)}
                                 >
-                                  <CDBIcon icon="trash" className="ml-1" />
+                                  <FontAwesomeIcon icon="fa-solid fa-trash" className="ml-1" />
                                 </CDBBtn>
                               </td>
                             </tr>

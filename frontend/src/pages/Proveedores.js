@@ -12,6 +12,7 @@ import { getProveedores } from "../services/proveedoresAPI";
 import Spinner from 'react-bootstrap/Spinner';
 import { app } from "../firebase";
 import { getAuth } from "firebase/auth";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export const Proveedores = () => {
 
@@ -147,9 +148,9 @@ export const Proveedores = () => {
 										
 										<div className="mt-5">
 											<div className="mb-3 title-with-add">
-												<h4 className="font-weight-bold" style={{marginBottom:"0"}}><CDBIcon icon="boxes"/> Proveedores</h4>
+												<h4 className="font-weight-bold" style={{marginBottom:"0"}}><FontAwesomeIcon icon="fa-solid fa-boxes-stacked" /> Proveedores</h4>
 												<CDBBtn className={"add-button"} onClick={handleShowAdd}>
-													<CDBIcon icon="plus" className="ml-1" />
+													<FontAwesomeIcon icon="fa-solid fa-plus" className="ml-1"/>
 												</CDBBtn>
 											</div>
 											
@@ -185,11 +186,11 @@ export const Proveedores = () => {
 																<td style={{whiteSpace: "nowrap"}}>
 
 																	<CDBBtn onClick={() => handleShowEdit (proveedor)} className={"edit-button"} style={{marginRight:"10px"}}>
-																		<CDBIcon icon="pen" className="ml-1" />
+																		<FontAwesomeIcon icon="fa-solid fa-pen" className="ml-1" />
 																	</CDBBtn>
 
 																	<CDBBtn className={"delete-button"} onClick={() => handleShowDelete(proveedor)}>
-																		<CDBIcon icon="trash" className="ml-1" />
+																		<FontAwesomeIcon icon="fa-solid fa-trash" className="ml-1" />
 																	</CDBBtn>
 																</td>
 															</tr>

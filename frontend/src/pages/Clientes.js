@@ -12,6 +12,7 @@ import { getClientes, postCliente } from "../services/clientesAPI";
 import Spinner from 'react-bootstrap/Spinner';
 import { app } from "../firebase";
 import { getAuth } from "firebase/auth";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export const Clientes = () => {
 
@@ -144,9 +145,9 @@ export const Clientes = () => {
 
 									<div className="mt-5">
 										<div className="mb-3 title-with-add">
-											<h4 className="font-weight-bold" style={{ marginBottom: "0" }}><CDBIcon icon="users" /> Clientes</h4>
+											<h4 className="font-weight-bold" style={{ marginBottom: "0" }}><FontAwesomeIcon icon="fa-solid fa-user" /> Clientes</h4>
 											<CDBBtn className={"add-button"} onClick={handleShowAdd}>
-												<CDBIcon icon="plus" className="ml-1" />
+												<FontAwesomeIcon icon="fa-solid fa-plus" className="ml-1"/>
 											</CDBBtn>
 										</div>
 
@@ -182,10 +183,10 @@ export const Clientes = () => {
 																<td>{cliente.direccion}</td>
 																<td style={{ whiteSpace: "nowrap" }}>
 																	<CDBBtn onClick={() => handleShowEdit(cliente)} className={"edit-button"} style={{ marginRight: "10px" }}>
-																		<CDBIcon icon="pen" className="ml-1" />
+																		<FontAwesomeIcon icon="fa-solid fa-pen" className="ml-1" />
 																	</CDBBtn>
 																	<CDBBtn className={"delete-button"} onClick={() => handleShowDelete(cliente)}>
-																		<CDBIcon icon="trash" className="ml-1" />
+																		<FontAwesomeIcon icon="fa-solid fa-trash" className="ml-1" />
 																	</CDBBtn>
 																</td>
 															</tr>
