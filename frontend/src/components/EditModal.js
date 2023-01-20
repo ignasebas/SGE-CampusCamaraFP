@@ -31,19 +31,8 @@ const EditModal = ({handleShow,dataModifier,state,clientes,compras,empleados,pro
 			});
 		} 
 		
-		if (productos) { //Cambiar los nombres en naranja del updateProducto por los guardados en la base de datos
-			const { nombre, proveedorID, proveedorNombre, proveedorPrecioCompra, precioVenta, imagen, tasas, descripcion } = state;
-			updateProducto(id, {"nombre":nombre,"Id del proveedor":proveedorID, "Nombre del proveedor":proveedorNombre, "Precio de compra":proveedorPrecioCompra, "Precio de venta":precioVenta, "Imagen":imagen, "Tasas":tasas, "Descripción":descripcion})
-			.then(() => {
-				let newData = [...data];
-				let index = newData.findIndex((producto) => producto._id === id);
-				newData[index] = {"_id": id, "nombre":nombre,"Id del proveedor":proveedorID, "Nombre del proveedor":proveedorNombre, "Precio de compra":proveedorPrecioCompra, "Precio de venta":precioVenta, "Imagen":imagen, "Tasas":tasas, "Descripción":descripcion};
-				setData(newData);
-				handleShow();
-			})
-			.catch(error => {
-				handleShow();
-			});
+		if (productos) {
+		  	//updateProducto(id);
 			handleShow()
 		}
 
