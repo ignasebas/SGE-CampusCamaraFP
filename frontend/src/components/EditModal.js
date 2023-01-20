@@ -27,27 +27,11 @@ const EditModal = ({handleShow,dataModifier,state,clientes,compras,empleados,pro
 				handleShow();
 			})
 			.catch(error => {
-				handleShow();
-			});
-		} 
-		
-		/*
-		if (productos) { //Cambiar los nombres en naranja del updateProducto por los guardados en la base de datos
-			const { nombre, proveedorID, proveedorNombre, proveedorPrecioCompra, precioVenta, imagen, tasas, descripcion } = state;
-			updateProducto(id, {"nombre":nombre,"Id del proveedor":proveedorID, "Nombre del proveedor":proveedorNombre, "Precio de compra":proveedorPrecioCompra, "Precio de venta":precioVenta, "Imagen":imagen, "Tasas":tasas, "Descripción":descripcion})
-			.then(() => {
-				let newData = [...data];
-				let index = newData.findIndex((producto) => producto._id === id);
-				newData[index] = {"_id": id, "nombre":nombre,"Id del proveedor":proveedorID, "Nombre del proveedor":proveedorNombre, "Precio de compra":proveedorPrecioCompra, "Precio de venta":precioVenta, "Imagen":imagen, "Tasas":tasas, "Descripción":descripcion};
-				setData(newData);
-				handleShow();
-			})
-			.catch(error => {
 				alert(error.response.data.message)
 				//handleShow();
 			});
-		}
-		*/
+		} 
+		
 		if (empleados) {
 			const { id, nif, nombre, apellidos, telefono, email, direccion, puesto } = state;
 			updateCliente(id, {"nif":nif,"nombre":nombre,"apellidos":apellidos,"telefono":telefono,"email":email,"direccion":direccion,"puesto":puesto})
@@ -59,10 +43,14 @@ const EditModal = ({handleShow,dataModifier,state,clientes,compras,empleados,pro
 				handleShow();
 			})
 			.catch(error => {
-				handleShow();
 				alert(error.response.data.message)
 				//handleShow();
 			});
+		} 
+
+		if (productos) {
+		  	//updateProducto(id);
+			handleShow()
 		}
 
 		if (proveedores) {
@@ -76,12 +64,9 @@ const EditModal = ({handleShow,dataModifier,state,clientes,compras,empleados,pro
 				handleShow();
 			})
 			.catch(error => {
-				handleShow();
+				alert(error.response.data.message)
+				//handleShow();
 			});
-		  	handleShow()
-		}
-		if (empleados) {
-			//updateEmpleado(id);
 		  	handleShow()
 		}
 	};
@@ -110,7 +95,7 @@ const EditModal = ({handleShow,dataModifier,state,clientes,compras,empleados,pro
 						<>
 						</>
 					):(
-						<EmpleadosForm edit/>
+						<EmpleadosForm edit state ={state}/>
 					)}
 					{!productos ? (
 						<>

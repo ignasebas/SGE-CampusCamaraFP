@@ -10,22 +10,24 @@ import EditModal from "../components/EditModal"
 import DeleteModal from "../components/DeleteModal"
 import { getProductos } from "../services/productosAPI";
 import Spinner from 'react-bootstrap/Spinner';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export const Productos = () => {
 
+	const[isLoading, setIsLoading] = useState(false);
+
 	useEffect(() => {
-		
+		setTimeout(() => {
+			setIsLoading(true);
+		}, 700);
+		setIsLoading(false);
 		getProductos().then(ProductData => {
-		  setData(ProductData);
+			setData(ProductData);
 		});
-		
 	}, []);
 	  
 
 	const [data, setData] = useState([]);
 	const [error, setError] = useState(null);
-	const[isLoading, setIsLoading] = useState(false);
 
 	const [showAdd, setShowAdd] = useState(false);
 	const [showEdit, setShowEdit] = useState(false);
@@ -78,6 +80,10 @@ export const Productos = () => {
 	const [imagen, setImagen] = useState("");
 	const [tasas, setTasas] = useState("");
 	const [descripcion, setDescripcion] = useState("");
+	const dataModifier = {
+		data,
+		setData
+	}
 
 	const state = {
 		nombre,
@@ -133,9 +139,9 @@ export const Productos = () => {
 							
 							<div className="mt-5">
 								<div className="mb-3 title-with-add">
-									<h4 className="font-weight-bold" style={{marginBottom:"0"}}><FontAwesomeIcon icon="fa-solid fa-flask" /> Productos</h4>
+									<h4 className="font-weight-bold" style={{marginBottom:"0"}}><CDBIcon icon="flask"/> Productos</h4>
 									<CDBBtn className={"add-button"} onClick={handleShowAdd}>
-										<FontAwesomeIcon icon="fa-solid fa-plus" className="ml-1"/>
+										<CDBIcon icon="plus" className="ml-1" />
 									</CDBBtn>
 								</div>
 								
@@ -151,6 +157,11 @@ export const Productos = () => {
 											<th>Acciones</th>
 										</tr>
 									</CDBTableHeader>
+									{!isLoading ? (
+										<div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+											<Spinner animation="grow" />
+										</div>
+									) : (
 									<CDBTableBody style={{verticalAlign: "middle"}}>
 										{data.map((producto) =>
 											<tr>
@@ -162,17 +173,18 @@ export const Productos = () => {
 												<td>{producto.descripcion}</td>
 												<td style={{whiteSpace: "nowrap"}}>
 													<CDBBtn onClick={handleShowEdit} className={"edit-button"} style={{marginRight:"10px"}}>
-														<FontAwesomeIcon icon="fa-solid fa-pen" className="ml-1" />
+														<CDBIcon icon="pen" className="ml-1" />
 													</CDBBtn>
 
 													<CDBBtn className={"delete-button"} onClick={handleShowDelete}>
-														<FontAwesomeIcon icon="fa-solid fa-trash" className="ml-1" />
+														<CDBIcon icon="trash" className="ml-1" />
 													</CDBBtn>
 												</td>
 											</tr>
 										)}
 										
 									</CDBTableBody>
+									)}
 								</CDBTable>
 							</div>
 								

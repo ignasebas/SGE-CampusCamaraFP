@@ -10,14 +10,17 @@ import { Compras } from "./pages/Compras";
 import { Proveedores } from "./pages/Proveedores";
 import { Empleados } from "./pages/Empleados";
 import { Productos } from "./pages/Productos";
+import LoginPage from "./pages/Login";
+import RegisterPage from "./pages/Register";
 
 const Routes = () => {
 
   return (
     <Fragment>
       <BrowserRouter>
-        <Route exact path="/" render={() => <Dashboard/> } />
-        <Route path="/hero404" component={Hero404} />
+        <Route exact path="/" render={() => <Dashboard /> }  />
+        <Route path="/login" component={LoginPage} />
+        <Route path="/register" component={RegisterPage} />
         <Route path="/profile" component={Profile} />
         <Route path="/calendario" component={Calendario} />
         <Route path="/clientes" component={Clientes} />
@@ -26,6 +29,7 @@ const Routes = () => {
         <Route path="/proveedores" component={Proveedores} />
         <Route path="/empleados" component={Empleados} />
         <Route path="/productos" component={Productos} />
+        <Route path="/hero404" component={Hero404} />
       </BrowserRouter>
     </Fragment>
   );

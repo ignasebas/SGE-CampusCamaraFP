@@ -1,111 +1,125 @@
-import React, {useState, useEffect} from "react";
-import { CDBBtn} from "cdbreact";
+import React, { useState, useEffect } from "react";
+import { CDBBtn } from "cdbreact";
 import { CDBTable, CDBTableHeader, CDBTableBody } from "cdbreact";
 import Sidebar from "../Sidebar";
-import {CDBIcon} from "cdbreact";
+import { CDBIcon } from "cdbreact";
 import Navbar from "../Navbar";
-import "./Profile.css"
-import AddModal from "../components/AddModal"
-import EditModal from "../components/EditModal"
-import DeleteModal from "../components/DeleteModal"
+import "./Profile.css";
+import AddModal from "../components/AddModal";
+import EditModal from "../components/EditModal";
+import DeleteModal from "../components/DeleteModal";
 import { getEmpleados, postEmpleados } from "../services/empleadosAPI";
 import Spinner from "react-bootstrap/Spinner";
 import { app } from "../firebase";
 import { getAuth } from "firebase/auth";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export const Empleados = () => {
+  const [isLoading, setIsLoading] = useState(true);
 
-	useEffect(() => {
-		setIsLoading(true);
-		getEmpleados().then(empleadoData => {
-		  setData(empleadoData);
-		});
-	}, []);
+  const auth = getAuth(app);
+  const [logIn, setLogIn] = useState(false);
+  auth.onAuthStateChanged(function (user) {
+    if (user) {
+      console.log(user);
+      setLogIn(true);
+    } else {
+      window.location.href = "/login";
+    }
+  });
 
-	const [data, setData] = useState([]);
-	const [error, setError] = useState(null);
-	const [isLoading, setIsLoading] = useState(false);
+  useEffect(() => {
+    getEmpleados().then((empleadoData) => {
+      setData(empleadoData);
+      setIsLoading(false);
+    });
+  }, []);
 
+  const [data, setData] = useState([]);
+  const [error, setError] = useState(null);
 
-	const [showAdd, setShowAdd] = useState(false);
-	const [showEdit, setShowEdit] = useState(false);
-	const [showDelete, setShowDelete] = useState(false);
-	
-	const handleShowAdd = () => { setShowAdd(!showAdd);
-		if(nif && nombre && apellidos && telefono && email && direccion !=""){
-			setId("");
-			setNif("");
-			setNombre("");
-			setApellidos("");
-			setTelefono("");
-			setEmail("");
-			setDireccion("");
-			setPuesto("");	
-		}
-	} 
+  const [showAdd, setShowAdd] = useState(false);
+  const [showEdit, setShowEdit] = useState(false);
+  const [showDelete, setShowDelete] = useState(false);
 
+  const handleShowAdd = () => {
+    setShowAdd(!showAdd);
+    if (
+      nif &&
+      nombre &&
+      apellidos &&
+      telefono &&
+      email &&
+      direccion &&
+      puesto != ""
+    ) {
+      setId("");
+      setNif("");
+      setNombre("");
+      setApellidos("");
+      setTelefono("");
+      setEmail("");
+      setDireccion("");
+      setPuesto("");
+    }
+  };
 
-	const handleShowEdit = (empleado) => {
-		setShowEdit(!showEdit); 
-		setId(empleado._id);
-		setNif(empleado.nif);
-		setNombre(empleado.nombre);
-		setApellidos(empleado.apellidos);
-		setTelefono(empleado.telefono);
-		setEmail(empleado.email);
-		setDireccion(empleado.direccion);
-		setPuesto(empleado.puesto);
-		
-	}
+  const handleShowEdit = (empleado) => {
+    setShowEdit(!showEdit);
+    setId(empleado._id);
+    setNif(empleado.nif);
+    setNombre(empleado.nombre);
+    setApellidos(empleado.apellidos);
+    setTelefono(empleado.telefono);
+    setEmail(empleado.email);
+    setDireccion(empleado.direccion);
+    setPuesto(empleado.puesto);
+  };
 
-	const handleShowDelete = (empleado) => {
-		setShowDelete(!showDelete); 
-		setId(empleado._id);
-		setNif(empleado.nif);
-		setNombre(empleado.nombre);
-		setApellidos(empleado.apellidos);
-		setTelefono(empleado.telefono);
-		setEmail(empleado.email);
-		setDireccion(empleado.direccion);	
-		setPuesto(empleado.puesto);
-	}
-	
-	const [id, setId] = useState("");
-	const [nif, setNif] = useState("");
-	const [nombre, setNombre] = useState("");
-	const [apellidos, setApellidos] = useState("");
-	const [telefono, setTelefono] = useState("");
-	const [email, setEmail] = useState("");
-	const [direccion, setDireccion] = useState("");
-	const [puesto, setPuesto] = useState("");
-	const dataModifier = {
-		data,
-		setData
-	}
+  const handleShowDelete = (empleado) => {
+    setShowDelete(!showDelete);
+    setId(empleado._id);
+    setNif(empleado.nif);
+    setNombre(empleado.nombre);
+    setApellidos(empleado.apellidos);
+    setTelefono(empleado.telefono);
+    setEmail(empleado.email);
+    setDireccion(empleado.direccion);
+    setPuesto(empleado.puesto);
+  };
 
-	const state = {
-		id,
-		setId,
-		nif,
-		setNif,
-		nombre,
-		setNombre,
-		apellidos,
-		setApellidos,
-		telefono,
-		setTelefono,
-		email,
-		setEmail,
-		direccion,
-		setDireccion,
-		puesto,
-		setPuesto
-	};
+  const [id, setId] = useState("");
+  const [nif, setNif] = useState("");
+  const [nombre, setNombre] = useState("");
+  const [apellidos, setApellidos] = useState("");
+  const [telefono, setTelefono] = useState("");
+  const [email, setEmail] = useState("");
+  const [direccion, setDireccion] = useState("");
+  const [puesto, setPuesto] = useState("");
+  const dataModifier = {
+    data,
+    setData,
+  };
 
-	const place = "empleados"
+  const state = {
+    id,
+    setId,
+    nif,
+    setNif,
+    nombre,
+    setNombre,
+    apellidos,
+    setApellidos,
+    telefono,
+    setTelefono,
+    email,
+    setEmail,
+    direccion,
+    setDireccion,
+    puesto,
+    setPuesto,
+  };
 
-	console.log(data)
+  const place = "empleados";
 
   console.log(data);
 
@@ -173,10 +187,10 @@ export const Empleados = () => {
                         className="font-weight-bold"
                         style={{ marginBottom: "0" }}
                       >
-                        <FontAwesomeIcon icon="fa-solid fa-sitemap" /> Empleados
+                        <CDBIcon icon="sitemap" /> Empleados
                       </h4>
                       <CDBBtn className={"add-button"} onClick={handleShowAdd}>
-                        <FontAwesomeIcon icon="fa-solid fa-plus" className="ml-1"/>
+                        <CDBIcon icon="plus" className="ml-1" />
                       </CDBBtn>
                     </div>
 
@@ -218,13 +232,13 @@ export const Empleados = () => {
                                   className={"edit-button"}
                                   style={{ marginRight: "10px" }}
                                 >
-                                  <FontAwesomeIcon icon="fa-solid fa-pen" className="ml-1" />
+                                  <CDBIcon icon="pen" className="ml-1" />
                                 </CDBBtn>
                                 <CDBBtn
                                   className={"delete-button"}
                                   onClick={() => handleShowDelete(empleado)}
                                 >
-                                  <FontAwesomeIcon icon="fa-solid fa-trash" className="ml-1" />
+                                  <CDBIcon icon="trash" className="ml-1" />
                                 </CDBBtn>
                               </td>
                             </tr>
