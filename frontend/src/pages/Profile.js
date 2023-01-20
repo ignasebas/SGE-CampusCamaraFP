@@ -70,23 +70,23 @@ export const Profile = () => {
 								<h4 className="font-weight-bold" style={{marginBottom:"0"}}><CDBIcon icon="user-circle"/> Perfil</h4>
 							</div>
 							{/*EDITAR A PARTIR DE AQUÍ*/}
-							<div style={{position: 'absolute', left: '50%'}}>
+							<div style={{position: 'absolute', left: '40%'}}>
 								<div className="cards-container1" style={{display: 'block'}}>
-									<div className="card shadow border-1" style={{padding: '10px'}}>
+									<div style={{padding: '10px'}}>
 										<form onSubmit={handleUpdateEmail}>
 												<label for="correo">Cambiar correo:</label><br/>
-												<input type="text" name="email" value={email} onChange={(event) => setEmail(event.target.value)} required></input><br/>
+												<input type="text" name="email" value={email} onChange={(event) => setEmail(event.target.value)} required></input>&nbsp;
 												<input type="submit" value="Actualizar"></input>
 										</form>
 									</div><br/>
-									<div className="card shadow border-1" style={{padding: '10px'}}>
+									<div style={{padding: '10px'}}>
 										<form onSubmit={handleUpdatePassword}>
 												<label for="correo">Cambiar contraseña:</label><br/>
-												<input type="password" name="password" value={password} onChange={(event) => setPassword(event.target.value)} required></input><br/>
+												<input type="password" name="password" value={password} onChange={(event) => setPassword(event.target.value)} required></input>&nbsp;
 												<input type="submit" value="Actualizar"></input>
 										</form>
 									</div><br/>
-									<div className="card shadow border-1" style={{padding: '10px'}}>
+									<div className="card shadow border-0" style={{padding: '10px'}}>
 										<button onClick={handleLogOut}>Cerrar Sesión</button>
 									</div>
 								</div>
