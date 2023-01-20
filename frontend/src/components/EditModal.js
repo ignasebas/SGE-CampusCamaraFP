@@ -27,8 +27,7 @@ const EditModal = ({handleShow,dataModifier,state,clientes,compras,empleados,pro
 				handleShow();
 			})
 			.catch(error => {
-				alert(error.response.data.message)
-				//handleShow();
+				handleShow();
 			});
 		} 
 		
@@ -77,9 +76,12 @@ const EditModal = ({handleShow,dataModifier,state,clientes,compras,empleados,pro
 				handleShow();
 			})
 			.catch(error => {
-				alert(error.response.data.message)
-				//handleShow();
+				handleShow();
 			});
+		  	handleShow()
+		}
+		if (empleados) {
+			//updateEmpleado(id);
 		  	handleShow()
 		}
 	};
@@ -108,7 +110,7 @@ const EditModal = ({handleShow,dataModifier,state,clientes,compras,empleados,pro
 						<>
 						</>
 					):(
-						<EmpleadosForm edit state ={state}/>
+						<EmpleadosForm edit/>
 					)}
 					{!productos ? (
 						<>

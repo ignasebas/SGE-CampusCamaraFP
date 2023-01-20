@@ -43,14 +43,8 @@ const DeleteModal = ({handleShow,dataModifier,state,clientes,compras,empleados,p
 			});
 		}
 		if (empleados) {
-			deleteEmpleados(id)
-			.then(() => {
-				setData(data.filter(empleados => empleados._id !== id));
-				handleShow();
-			})
-			.catch(error => {
-				handleShow();
-			});
+			deleteEmpleados(id);
+		  	handleShow()
 		}
 	};
 
@@ -77,7 +71,7 @@ const DeleteModal = ({handleShow,dataModifier,state,clientes,compras,empleados,p
 						<>
 						</>
 					):(
-						<EmpleadosForm del state={state}/>
+						<EmpleadosForm del/>
 					)}
 					{!productos ? (
 						<>

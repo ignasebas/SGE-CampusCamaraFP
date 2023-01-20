@@ -11,28 +11,8 @@ import { getAuth } from "firebase/auth";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export const Calendario = () => {
-	
-	const[isLoading, setIsLoading] = useState(false);
-
-	const auth = getAuth(app);
-	const [logIn, setLogIn] = useState(false);
-	auth.onAuthStateChanged(function(user) {
-	if (user) {
-		setLogIn(true)
-	} else {
-		window.location.href = "/login"
-	}
-	});
-
-	const [date, setDate] = useState(new Date());
-	const options = { weekday: 'long', day: 'numeric' };
- 
-	const onDateChange = (newDate) => {
-		setDate(newDate);
-	}
- 
-
 	const [value, onChange] = useState(new Date());
+	const [dia] = useState(new Date());
 
 	return (
 		<>
@@ -76,19 +56,18 @@ export const Calendario = () => {
 												</div>
 											</div>
 										</div>
-										<div style={{ margin: "0 auto", maxWidth: "1320px" }}>
-
-
-											<footer className="d-flex mx-auto py-4">
-											</footer>
-										</div>
 									</div>
-								</div>
+							<div style={{margin:"0 auto", maxWidth:"1320px"}}>
+									
+								
+							<footer className="d-flex mx-auto py-4">
+							</footer>
 							</div>
 						</div>
 					</div>
-				</>
-			)}
-		</>
-	)
+				</div>
+			</div>
+		</div>
+
+	);
 }

@@ -14,25 +14,10 @@ import { getAuth } from "firebase/auth";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export const Compras = () => {
-	const[isLoading, setIsLoading] = useState(false);
 
-	const auth = getAuth(app);
-	const [logIn, setLogIn] = useState(false);
-	auth.onAuthStateChanged(function(user) {
-	if (user) {
-		console.log(user);
-		setLogIn(true)
-	} else {
-		window.location.href = "/login"
-	}
-	});
 	useEffect(() => {
-		setTimeout(() => {
-			setIsLoading(true);
-		}, 700);
-		setIsLoading(false);
 		getCompras().then(clientData => {
-			setData(clientData);
+		  setData(clientData);
 		});
 	}, []);
 	  
@@ -41,18 +26,7 @@ export const Compras = () => {
 	const [showAdd, setShowAdd] = useState(false);
 	const handleShowAdd = () => setShowAdd(!showAdd);
 	const [showLens, setShowLens] = useState(false);
-
-	const handleShowLens = (compra) => {
-		setShowLens(!showLens)
-		setCif(compra.cif)
-		setNombre(compra.nombre)
-		setDireccion(compra.direccion)
-		setTelefono(compra.telefono)
-		setEmail(compra.email)
-		setFechaCompra(compra.fechaCompra)
-		setPrecioTotal(compra.precioTotal)
-		setObservaciones(compra.observaciones)
-	}
+	const handleShowLens = () => setShowLens(!showLens);
 
 	const [cif, setCif] = useState("");
 	const [nombre, setNombre] = useState("");
@@ -169,7 +143,69 @@ export const Compras = () => {
 						</div>
 					</div>
 				</>
+			):(
+				<AddModal compras handleShow={handleShowAdd} state={state} place={place}/>
 			)}
+			{!showLens ? (
+				<>
+				</>
+			):(
+				<LensModal handleShow={handleShowLens}/>
+			)}
+		<div className="d-flex profile">
+			<div>
+				<Sidebar/>
+			</div>
+			<div style={{flex:"1 1 auto", display:"flex", flexFlow:"column", height:"100vh", overflowY:"hidden"}}>
+				<Navbar/>
+				<div style={{height:"100%"}}>					
+					<div style={{height:"calc(100% - 64px)", padding:"20px 5%", overflowY:"scroll"}}>
+							
+							<div className="mt-5">
+								<div className="mb-3 title-with-add">
+									<h4 className="font-weight-bold" style={{marginBottom:"0"}}><CDBIcon icon="shopping-cart"/> Compras</h4>
+									<CDBBtn className={"add-button"} onClick={handleShowAdd}>
+										<CDBIcon icon="plus" className="ml-1" />
+									</CDBBtn>
+								</div>
+								
+								<CDBTable striped responsive>
+									<CDBTableHeader>
+										<tr>
+											<th>Proveedor</th>
+											<th>Fecha de compra</th>
+											<th>Observaciones</th>
+											<th>Precio total</th>
+											<th>Acciones</th>
+										</tr>
+									</CDBTableHeader>
+									<CDBTableBody style={{verticalAlign: "middle"}}>
+										{data.map((compra) =>
+											<tr>
+												<td>{compra.nombre}</td>
+												<td>{compra.fechaCompra}</td>
+												<td>{compra.observaciones}</td>
+												<td>{compra.precioTotal} €</td>
+												<td style={{whiteSpace: "nowrap"}}>
+													<CDBBtn onClick={handleShowLens} className={"edit-button"} style={{marginRight:"10px"}}>
+														<HiMagnifyingGlass/>
+													</CDBBtn>
+												</td>
+											</tr>
+										)}
+									</CDBTableBody>
+								</CDBTable>
+							</div>
+								
+							<div style={{margin:"0 auto", maxWidth:"1320px"}}>
+								<footer className="d-flex mx-auto py-4">
+									<small className="mx-auto my-1 text-center">&copy; EMS Tech, 2022. All rights reserved.</small>
+								</footer>
+							</div>
+					</div>
+				</div>
+			</div>
+		</div>
 		</>
-	)
+	);
 }

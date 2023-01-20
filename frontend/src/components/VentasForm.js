@@ -1,13 +1,11 @@
 import React from "react";
 
-const VentasForm = ({add,lens,del,state}) => {
-
-	console.log(state)
+const VentasForm = ({add,edit,del,state}) => {
 
 	const {
 		dni,
 		setDni,
-		nombre,
+		nombreCliente,
 		setNombre,
 		apellidos,
 		setApellidos,
@@ -47,7 +45,7 @@ const VentasForm = ({add,lens,del,state}) => {
 								<td><input 
 									type={'text'} 
 									style={{marginLeft:"20px"}}
-									value={nombre}
+									value={nombreCliente}
 									onChange={(event) => setNombre(event.target.value)}></input></td>
 							</tr>
 							<tr>
@@ -102,48 +100,11 @@ const VentasForm = ({add,lens,del,state}) => {
 					</center>
 				</>
 			)}
-			{!lens ? (
+			{!edit ? (
 				<>
 				</>
 			):(
-				<center>
-						<table cellPadding={"15px"}>
-							<tr>
-								<th style={{padding: "0px 150px 0px 0px"}}>Datos del cliente</th>
-								<th style={{padding: "0px 0px 0px 0px"}}>Infomación de la venta</th>
-							</tr>
-							<tr>
-								<td>NIF/DNI:</td>
-								<td>Fecha:</td>
-							</tr>
-							<tr>
-								<td>{dni}</td>
-								<td>{fechaVenta}</td>
-							</tr>
-							<tr>
-								<td>Nombre:</td>
-								<td>Precio total:</td>
-							</tr>
-							<tr>
-								<td>{nombre} {apellidos}</td>
-								<td>{precioTotal}</td>
-							</tr>
-							<tr>
-							<td>Email:</td>
-								<td>Observaciones:</td>
-							</tr>
-							<tr>
-								<td>{email}</td>
-								<td>{observaciones}</td>
-							</tr>
-							<tr>
-								<td>Dirección:</td>
-							</tr>
-							<tr>
-								<td>{direccion}</td>
-							</tr>
-						</table>
-					</center>
+				<input type={'text'}></input>
 			)}
 			{!del ? (
 				<>
