@@ -27,12 +27,10 @@ const EditModal = ({handleShow,dataModifier,state,clientes,compras,empleados,pro
 				handleShow();
 			})
 			.catch(error => {
-				alert(error.response.data.message)
-				//handleShow();
+				handleShow();
 			});
 		} 
 		
-<<<<<<< HEAD
 		if (productos) { //Cambiar los nombres en naranja del updateProducto por los guardados en la base de datos
 			const { nombre, proveedorID, proveedorNombre, proveedorPrecioCompra, precioVenta, imagen, tasas, descripcion } = state;
 			updateProducto(id, {"nombre":nombre,"Id del proveedor":proveedorID, "Nombre del proveedor":proveedorNombre, "Precio de compra":proveedorPrecioCompra, "Precio de venta":precioVenta, "Imagen":imagen, "Tasas":tasas, "Descripción":descripcion})
@@ -40,31 +38,12 @@ const EditModal = ({handleShow,dataModifier,state,clientes,compras,empleados,pro
 				let newData = [...data];
 				let index = newData.findIndex((producto) => producto._id === id);
 				newData[index] = {"_id": id, "nombre":nombre,"Id del proveedor":proveedorID, "Nombre del proveedor":proveedorNombre, "Precio de compra":proveedorPrecioCompra, "Precio de venta":precioVenta, "Imagen":imagen, "Tasas":tasas, "Descripción":descripcion};
-=======
-		if (empleados) {
-			const { id, nif, nombre, apellidos, telefono, email, direccion, puesto } = state;
-			updateCliente(id, {"nif":nif,"nombre":nombre,"apellidos":apellidos,"telefono":telefono,"email":email,"direccion":direccion,"puesto":puesto})
-			.then(() => {
-				let newData = [...data];
-				let index = newData.findIndex((empleado) => empleado._id === id);
-				newData[index] = {"_id": id, "nif":nif,"nombre":nombre,"apellidos":apellidos,"telefono":telefono,"email":email,"direccion":direccion,"puesto":puesto};
->>>>>>> 077510df479bf4bc456c3ae8b416f6aa20d4efeb
 				setData(newData);
 				handleShow();
 			})
 			.catch(error => {
-<<<<<<< HEAD
 				handleShow();
 			});
-=======
-				alert(error.response.data.message)
-				//handleShow();
-			});
-		} 
-
-		if (productos) {
-		  	//updateProducto(id);
->>>>>>> 077510df479bf4bc456c3ae8b416f6aa20d4efeb
 			handleShow()
 		}
 
@@ -79,9 +58,12 @@ const EditModal = ({handleShow,dataModifier,state,clientes,compras,empleados,pro
 				handleShow();
 			})
 			.catch(error => {
-				alert(error.response.data.message)
-				//handleShow();
+				handleShow();
 			});
+		  	handleShow()
+		}
+		if (empleados) {
+			//updateEmpleado(id);
 		  	handleShow()
 		}
 	};
@@ -110,7 +92,7 @@ const EditModal = ({handleShow,dataModifier,state,clientes,compras,empleados,pro
 						<>
 						</>
 					):(
-						<EmpleadosForm edit state ={state}/>
+						<EmpleadosForm edit/>
 					)}
 					{!productos ? (
 						<>

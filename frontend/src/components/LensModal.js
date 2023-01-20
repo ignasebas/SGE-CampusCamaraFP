@@ -1,10 +1,9 @@
 import React from "react";
 import { CDBBtn} from "cdbreact";
-import VentasForm from "./VentasForm";
-import ComprasForm from "./ComprasForm";
+import {SlClose} from 'react-icons/sl';
 import {HiMagnifyingGlass} from 'react-icons/hi2';
 
-const LensModal = ({handleShow, ventas, compras, state}) => {
+const LensModal = ({handleShow}) => {
 
 	return (
 		<div className="modal-full">
@@ -13,20 +12,7 @@ const LensModal = ({handleShow, ventas, compras, state}) => {
 					<div><HiMagnifyingGlass/></div>
 				</div>
 				<div>
-				<div className="modal-body">
-					{!compras ? (
-						<>
-						</>
-					):(
-						<ComprasForm lens state={state}/>
-					)}
-					{!ventas ? (
-						<>
-						</>
-					):(
-						<VentasForm lens state={state}/>
-					)}
-				</div>
+					<center><img className="image404" alt="404" src="/pagame.webp"  width="500px" /></center>
 				</div>
 				<div className="modal-footer">
                     <CDBBtn className={"cancel-button"} onClick={handleShow}>

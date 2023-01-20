@@ -1,6 +1,6 @@
 import React from "react";
 
-const ComprasForm = ({add,lens,del,state}) => {
+const ComprasForm = ({add,edit,del,state}) => {
 
 	const {
 		cif,
@@ -31,7 +31,7 @@ const ComprasForm = ({add,lens,del,state}) => {
 				<center>
 					<table cellPadding={"5px"}>
 						<tr>
-							<td><label>CIF: </label></td>
+							<td><label>Nombre del cif: </label></td>
 							<input 
 							type={'text'} 
 							style={{marginLeft:"20px"}}
@@ -39,7 +39,7 @@ const ComprasForm = ({add,lens,del,state}) => {
 							onChange={(event) => setCif(event.target.value)}></input>
 						</tr>
 						<tr>
-							<td><label>Nombre de proveedor: </label></td>
+							<td><label>Nombre: </label></td>
 							<input 
 							type={'text'} 
 							style={{marginLeft:"20px"}}
@@ -55,7 +55,7 @@ const ComprasForm = ({add,lens,del,state}) => {
 							onChange={(event) => setDireccion(event.target.value)}></input>
 						</tr>
 						<tr>
-							<td><label>Teléfono: </label></td>
+							<td><label>Numero de telefono: </label></td>
 							<input 
 							type={'text'} 
 							style={{marginLeft:"20px"}}
@@ -99,54 +99,11 @@ const ComprasForm = ({add,lens,del,state}) => {
 				</>
 				
 			)}
-			{!lens ? (
+			{!edit ? (
 				<>
 				</>
 			):(
-				<center>
-					<table cellPadding={"20px"}>
-						<tr>
-							<th style={{padding: "0px 150px 0px 0px"}}>Datos del proveedor</th>
-							<th>Infomación de la compra</th>
-						</tr>
-						<tr>
-							<td>CIF:</td>
-							<td>Fecha:</td>
-						</tr>
-						<tr>
-								<td>{cif}</td>
-								<td>{fechaCompra}</td>
-							</tr>
-						<tr>
-							<td>Nombre:</td>
-							<td>Precio total:</td>
-						</tr>
-						<tr>
-							<td>{nombre}</td>
-							<td>{precioTotal}</td>
-						</tr>
-						<tr>
-							<td>Direccion:</td>
-							<td>Observaciones:</td>
-						</tr>
-						<tr>
-							<td>{direccion}</td>
-							<td>{observaciones}</td>
-						</tr>
-						<tr>
-							<td>Email:</td>
-						</tr>
-						<tr>
-							<td>{email}</td>
-						</tr>
-						<tr>
-							<td>Teléfono:</td>
-						</tr>
-						<tr>
-							<td>{telefono}</td>
-						</tr>
-					</table>
-				</center>
+				<input type={'text'}></input>
 			)}
 			{!del ? (
 				<>
