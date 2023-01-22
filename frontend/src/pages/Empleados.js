@@ -195,56 +195,58 @@ export const Empleados = () => {
                     </div>
 
                     <CDBTable striped responsive>
-                      
                       {isLoading ? (
                         <div
                           style={{
-                            display: "flex", justifyContent: "center", alignItems: "center",
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
                           }}
                         >
                           <Spinner animation="grow" />
                         </div>
                       ) : (
-						<><CDBTableHeader>
-                        <tr>
-                          <th>NIF</th>
-                          <th>Nombre</th>
-                          <th>Apellidos</th>
-                          <th>Teléfono</th>
-                          <th>Email</th>
-                          <th>Dirección</th>
-                          <th>Puesto</th>
-                        </tr>
-                      </CDBTableHeader>
-                        <CDBTableBody style={{ verticalAlign: "middle" }}>
-                          {data.map((empleado) => (
+                        <>
+                          <CDBTableHeader>
                             <tr>
-                              <td>{empleado.nif}</td>
-                              <td>{empleado.nombre}</td>
-                              <td>{empleado.apellidos}</td>
-                              <td>{empleado.telefono}</td>
-                              <td>{empleado.email}</td>
-                              <td>{empleado.direccion}</td>
-                              <td>{empleado.puesto}</td>
-                              <td style={{ whiteSpace: "nowrap" }}>
-                                <CDBBtn
-                                  onClick={() => handleShowEdit(empleado)}
-                                  className={"edit-button"}
-                                  style={{ marginRight: "10px" }}
-                                >
-                                  <CDBIcon icon="pen" className="ml-1" />
-                                </CDBBtn>
-                                <CDBBtn
-                                  className={"delete-button"}
-                                  onClick={() => handleShowDelete(empleado)}
-                                >
-                                  <CDBIcon icon="trash" className="ml-1" />
-                                </CDBBtn>
-                              </td>
+                              <th>NIF</th>
+                              <th>Nombre</th>
+                              <th>Apellidos</th>
+                              <th>Teléfono</th>
+                              <th>Email</th>
+                              <th>Dirección</th>
+                              <th>Puesto</th>
                             </tr>
-                          ))}
-                        </CDBTableBody>
-						</>
+                          </CDBTableHeader>
+                          <CDBTableBody style={{ verticalAlign: "middle" }}>
+                            {data.map((empleado) => (
+                              <tr>
+                                <td>{empleado.nif}</td>
+                                <td>{empleado.nombre}</td>
+                                <td>{empleado.apellidos}</td>
+                                <td>{empleado.telefono}</td>
+                                <td>{empleado.email}</td>
+                                <td>{empleado.direccion}</td>
+                                <td>{empleado.puesto}</td>
+                                <td style={{ whiteSpace: "nowrap" }}>
+                                  <CDBBtn
+                                    onClick={() => handleShowEdit(empleado)}
+                                    className={"edit-button"}
+                                    style={{ marginRight: "10px" }}
+                                  >
+                                    <CDBIcon icon="pen" className="ml-1" />
+                                  </CDBBtn>
+                                  <CDBBtn
+                                    className={"delete-button"}
+                                    onClick={() => handleShowDelete(empleado)}
+                                  >
+                                    <CDBIcon icon="trash" className="ml-1" />
+                                  </CDBBtn>
+                                </td>
+                              </tr>
+                            ))}
+                          </CDBTableBody>
+                        </>
                       )}
                     </CDBTable>
                   </div>

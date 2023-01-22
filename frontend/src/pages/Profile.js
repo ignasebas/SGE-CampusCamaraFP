@@ -20,7 +20,7 @@ export const Profile = () => {
 	const handleUpdateEmail = (event) => {
         updateEmail(auth.currentUser, email).then(() => {
 			alert("Correo actualizado.")
-			document.location.reload()
+			setTimeout(() => handleLogOut(), 500)
 		}).catch((error) => {
 			const errorMessage = error.code;
 			if (errorMessage === "auth/requires-recent-login") {
@@ -39,8 +39,8 @@ export const Profile = () => {
 	const handleUpdatePassword = (event) => {
         updatePassword(auth.currentUser, password).then(() => {
 			alert("Contraseña actualiazada.")
-			document.location.reload()
-		  }).catch((error) => {
+			setTimeout(() => handleLogOut(), 500)
+		}).catch((error) => {
 				const errorMessage = error.code;
 				if (errorMessage === "auth/requires-recent-login") {
 					alert("Por favor, inicia sesión de nuevo.")
@@ -73,7 +73,7 @@ export const Profile = () => {
 							<div style={{position: 'absolute', left: '40%'}}>
 								<div className="cards-container1" style={{display: 'block'}}>
 									<div style={{padding: '10px'}}>
-										<form onSubmit={handleUpdateEmail}>
+										<form method='post' onSubmit={handleUpdateEmail}>
 												<label for="correo">Cambiar correo:</label><br/>
 												<input type="text" name="email" value={email} onChange={(event) => setEmail(event.target.value)} required></input>&nbsp;
 												<input type="submit" value="Actualizar"></input>

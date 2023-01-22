@@ -1,0 +1,16 @@
+{
+  "ignoreUnresolved": [],
+  "ignoreUnused": [
+    "@fortawesome/free-solid-svg-icons",
+    "@fortawesome/react-fontawesome",
+    "@testing-library/jest-dom",
+    "@testing-library/react",
+    "@testing-library/user-event",
+    "bootstrap",
+    "dompurify",
+    "react-scripts"
+  ],
+  "ignoreUnimported": [
+    "src/setupTests.js"
+  ]
+}
