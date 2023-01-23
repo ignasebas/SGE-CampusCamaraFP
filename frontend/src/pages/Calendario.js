@@ -52,7 +52,6 @@ export const Calendario = () => {
   const handleShowAdd = () => {
     setShowAdd(!showAdd);
     if (evento && fecha && descripcion != "") {
-      setId("");
       setEvento("");
       setFecha("");
       setDescripcion("");
