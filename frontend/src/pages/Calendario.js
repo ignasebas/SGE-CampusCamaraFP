@@ -52,7 +52,7 @@ export const Calendario = () => {
 										<div className="mb-3 title-with-add">
 											<h4 className="font-weight-bold" style={{ marginBottom: "0" }}><CDBIcon icon="calendar-alt" /> Calendario</h4>
 										</div>
-										<div>
+										<div style={{display: "flex", justifyContent: "center", alignItems: "center" }}>
 											<Calendar onChange={onDateChange}
 												value={value} />
 

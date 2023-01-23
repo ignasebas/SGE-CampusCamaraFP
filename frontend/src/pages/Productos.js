@@ -149,6 +149,12 @@ export const Productos = () => {
 								</div>
 								
 								<CDBTable striped responsive>
+								{!isLoading ? (
+										<div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+											<Spinner animation="grow" />
+										</div>
+									) : (
+										<>
 									<CDBTableHeader>
 										<tr>
 											<th>Precio de venta</th>
@@ -160,11 +166,6 @@ export const Productos = () => {
 											<th>Acciones</th>
 										</tr>
 									</CDBTableHeader>
-									{!isLoading ? (
-										<div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-											<Spinner animation="grow" />
-										</div>
-									) : (
 									<CDBTableBody style={{verticalAlign: "middle"}}>
 										{data.map((producto) =>
 											<tr>
@@ -187,8 +188,10 @@ export const Productos = () => {
 										)}
 										
 									</CDBTableBody>
+									</>
 									)}
 								</CDBTable>
+
 							</div>
 								
 							<div style={{margin:"0 auto", maxWidth:"1320px"}}>

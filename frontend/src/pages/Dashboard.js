@@ -11,6 +11,7 @@ import { getAuth } from "firebase/auth";
 import { getEmpleados } from "../services/empleadosAPI";
 import { getProveedores } from "../services/proveedoresAPI";
 import { getProductos } from "../services/productosAPI";
+import { CDBIcon } from "cdbreact";
 
 
 export const Dashboard = () => {
@@ -98,7 +99,7 @@ export const Dashboard = () => {
 											<div className="p-4 d-flex flex-column h-100">
 												<div className="d-flex align-items-center justify-content-between">
 													<h4 className="m-0 h5 font-weight-bold text-dark">Volumen de ventas</h4>
-													<div className="px-2 py-1 bg-grey rounded-circle"><i className="fas fa-shopping-bag"></i></div>
+													<div className="px-2 py-1 bg-grey rounded-circle"><CDBIcon icon="poll" /></div>
 												</div>
 												<div className="mt-5 d-flex align-items-center justify-content-between">
 													<div>
@@ -119,30 +120,8 @@ export const Dashboard = () => {
 										<div className="card-bg w-100 d-flex flex-column border d-flex flex-column" style={{ gridRow: "span 2" }}>
 											<div className="p-4 d-flex flex-column h-100">
 												<div className="d-flex align-items-center justify-content-between">
-													<h4 className="m-0 h5 font-weight-bold text-dark">Número de clientes</h4>
-													<div className="px-2 py-1 bg-grey rounded-circle"><i className="fas fa-shopping-bag"></i></div>
-												</div>
-												<div className="mt-5 d-flex align-items-center justify-content-between">
-													<div>
-														<h4 className="m-0 h1 font-weight-bold text-dark">{numClientes}</h4>
-													</div>
-												</div>
-												<CDBBtn color="gray" onClick={
-													() => {
-														window.location.href = "/clientes";
-													}
-												}>
-													<p className="c-p text-dark font-weight-bold text-right mt-3 mb-0">
-														Más detalles&nbsp;&nbsp;&nbsp;<i className="fas fa-arrow-right ml-1"></i>
-													</p>
-												</CDBBtn>
-											</div>
-										</div>
-										<div className="card-bg w-100 d-flex flex-column border d-flex flex-column" style={{ gridRow: "span 2" }}>
-											<div className="p-4 d-flex flex-column h-100">
-												<div className="d-flex align-items-center justify-content-between">
 													<h4 className="m-0 h5 font-weight-bold text-dark">Número de ventas</h4>
-													<div className="px-2 py-1 bg-grey rounded-circle"><i className="fas fa-shopping-bag"></i></div>
+													<div className="px-2 py-1 bg-grey rounded-circle"><CDBIcon icon="poll" /></div>
 												</div>
 												<div className="mt-5 d-flex align-items-center justify-content-between">
 													<div>
@@ -163,8 +142,30 @@ export const Dashboard = () => {
 										<div className="card-bg w-100 d-flex flex-column border d-flex flex-column" style={{ gridRow: "span 2" }}>
 											<div className="p-4 d-flex flex-column h-100">
 												<div className="d-flex align-items-center justify-content-between">
-													<h4 className="m-0 h5 font-weight-bold text-dark">Empleados</h4>
-													<div className="px-2 py-1 bg-grey rounded-circle"><i className="fas fa-shopping-bag"></i></div>
+													<h4 className="m-0 h5 font-weight-bold text-dark">Número de clientes</h4>
+													<div className="px-2 py-1 bg-grey rounded-circle"><CDBIcon icon="users" /></div>
+												</div>
+												<div className="mt-5 d-flex align-items-center justify-content-between">
+													<div>
+														<h4 className="m-0 h1 font-weight-bold text-dark">{numClientes}</h4>
+													</div>
+												</div>
+												<CDBBtn color="gray" onClick={
+													() => {
+														window.location.href = "/clientes";
+													}
+												}>
+													<p className="c-p text-dark font-weight-bold text-right mt-3 mb-0">
+														Más detalles&nbsp;&nbsp;&nbsp;<i className="fas fa-arrow-right ml-1"></i>
+													</p>
+												</CDBBtn>
+											</div>
+										</div>
+										<div className="card-bg w-100 d-flex flex-column border d-flex flex-column" style={{ gridRow: "span 2" }}>
+											<div className="p-4 d-flex flex-column h-100">
+												<div className="d-flex align-items-center justify-content-between">
+													<h4 className="m-0 h5 font-weight-bold text-dark">Número de empleados</h4>
+													<div className="px-2 py-1 bg-grey rounded-circle"><CDBIcon icon="sitemap" /></div>
 												</div>
 												<div className="mt-5 d-flex align-items-center justify-content-between">
 													<div>
@@ -185,8 +186,8 @@ export const Dashboard = () => {
 										<div className="card-bg w-100 d-flex flex-column border d-flex flex-column" style={{ gridRow: "span 2" }}>
 											<div className="p-4 d-flex flex-column h-100">
 												<div className="d-flex align-items-center justify-content-between">
-													<h4 className="m-0 h5 font-weight-bold text-dark">Compras</h4>
-													<div className="px-2 py-1 bg-grey rounded-circle"><i className="fas fa-shopping-bag"></i></div>
+													<h4 className="m-0 h5 font-weight-bold text-dark">Número de compras</h4>
+													<div className="px-2 py-1 bg-grey rounded-circle"><CDBIcon icon="shopping-cart" /></div>
 												</div>
 												<div className="mt-5 d-flex align-items-center justify-content-between">
 													<div>
@@ -207,8 +208,8 @@ export const Dashboard = () => {
 										<div className="card-bg w-100 d-flex flex-column border d-flex flex-column" style={{ gridRow: "span 2" }}>
 											<div className="p-4 d-flex flex-column h-100">
 												<div className="d-flex align-items-center justify-content-between">
-													<h4 className="m-0 h5 font-weight-bold text-dark">Proveedores</h4>
-													<div className="px-2 py-1 bg-grey rounded-circle"><i className="fas fa-shopping-bag"></i></div>
+													<h4 className="m-0 h5 font-weight-bold text-dark">Número de proveedores</h4>
+													<div className="px-2 py-1 bg-grey rounded-circle"><CDBIcon icon="boxes" /></div>
 												</div>
 												<div className="mt-5 d-flex align-items-center justify-content-between">
 													<div>
@@ -229,8 +230,8 @@ export const Dashboard = () => {
 										<div className="card-bg w-100 d-flex flex-column border d-flex flex-column" style={{ gridRow: "span 2" }}>
 											<div className="p-4 d-flex flex-column h-100">
 												<div className="d-flex align-items-center justify-content-between">
-													<h4 className="m-0 h5 font-weight-bold text-dark">Productos</h4>
-													<div className="px-2 py-1 bg-grey rounded-circle"><i className="fas fa-shopping-bag"></i></div>
+													<h4 className="m-0 h5 font-weight-bold text-dark">Número de productos</h4>
+													<div className="px-2 py-1 bg-grey rounded-circle"><CDBIcon icon="flask"/></div>
 												</div>
 												<div className="mt-5 d-flex align-items-center justify-content-between">
 													<div>
@@ -249,7 +250,13 @@ export const Dashboard = () => {
 											</div>
 										</div>
 									</div>
-									
+								</div>
+								<div style={{ margin: "0 auto", maxWidth: "1320px" }}>
+									<footer className="d-flex mx-auto py-4">
+										<small className="mx-auto my-1 text-center">
+											&copy; EMS Tech, 2022. All rights reserved.
+										</small>
+									</footer>
 								</div>
 							</div>
 						</div>
