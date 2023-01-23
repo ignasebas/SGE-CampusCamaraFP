@@ -89,7 +89,7 @@ export const Profile = () => {
 								</div><br/><br/>
 								<div style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
 									<form method='POST'>
-										<input type="submit" onClick={handleLogOut} style={{backgroundColor: 'red', color: 'white', borderRadius:'8px', padding: '10px'}} value="Cerrar sesión"></input>
+										<input type="submit" onClick={handleLogOut} style={{backgroundColor: '#b0210b', color: 'white', borderRadius:'8px', padding: '10px'}} value="Cerrar sesión"></input>
 									</form>
 								</div>
 								<div style={{margin:"0 auto", maxWidth:"1320px"}}>

@@ -198,7 +198,7 @@ export const Proveedores = () => {
                         <>
                           <CDBTableHeader>
                             <tr>
-                              <th>Cif</th>
+                              <th>CIF</th>
                               <th>Nombre</th>
                               <th>Contacto</th>
                               <th>Teléfono</th>
