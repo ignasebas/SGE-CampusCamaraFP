@@ -81,6 +81,7 @@ export const Productos = () => {
 	const [imagen, setImagen] = useState("");
 	const [tasas, setTasas] = useState("");
 	const [descripcion, setDescripcion] = useState("");
+
 	const dataModifier = {
 		data,
 		setData
@@ -106,8 +107,6 @@ export const Productos = () => {
 		descripcion,
 		setDescripcion
 	};
-
-	const place = "productos"
 
 	console.log(data)
 
