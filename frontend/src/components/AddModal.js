@@ -6,6 +6,7 @@ import ComprasForm from "./ComprasForm";
 import EmpleadosForm from "./EmpleadosForm";
 import ProductosForm from "./ProductosForm";
 import ProveedoresForm from "./ProveedoresForm";
+import CalendarioForm from "./CalendarioForm";
 import { postCliente } from "../services/clientesAPI";
 import { postProducto } from "../services/productosAPI";
 import { postVentas } from "../services/ventasAPI";
@@ -35,8 +36,8 @@ const AddModal = ({handleShow,dataModifier,state,clientes,compras,empleados,prod
 		} 
 
 		if (calendario) {
-			const { fecha, evento, descripcion,} = state;
-			postCalendario({"fecha":fecha,"evento":evento,"descripcion":descripcion})
+			const { evento, fecha, descripcion,} = state;
+			postCalendario({"evento":evento,"fecha":fecha,"descripcion":descripcion})
 			.then((newCalendar) => {
 				setData([...data, newCalendar]);
 				handleShow();
@@ -164,6 +165,12 @@ const AddModal = ({handleShow,dataModifier,state,clientes,compras,empleados,prod
 						</>
 					):(
 						<VentasForm add state={state}/>
+					)}
+					{!calendario ? (
+						<>
+						</>
+					):(
+						<CalendarioForm add state={state}/>
 					)}
 				</div>
 				<div className="modal-footer">
