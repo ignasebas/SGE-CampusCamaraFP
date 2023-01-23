@@ -16,7 +16,7 @@ import { getAuth } from "firebase/auth";
 import { getCalendario, postCalendario } from "../services/calendarioAPI";
 
 export const Calendario = () => {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const auth = getAuth(app);
   const [logIn, setLogIn] = useState(false);

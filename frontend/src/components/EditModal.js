@@ -54,7 +54,9 @@ const EditModal = ({handleShow,dataModifier,state,clientes,calendario,compras,em
 			const { id, evento, fecha, descripcion } = state;
 			updateCalendario(id, {"evento":evento,"fecha":fecha,"descripcion":descripcion})
 			.then(() => {
+				console.log(state)
 				let newData = [...data];
+				
 				let index = newData.findIndex((calendar) => calendar._id === id);
 				newData[index] = {"_id": id, "evento":evento,"fecha":fecha,"descripcion":descripcion};
 				setData(newData);
