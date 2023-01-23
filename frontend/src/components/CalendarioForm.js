@@ -5,9 +5,9 @@ const CalendarioForm = ({add,edit,del,state}) => {
 	const { 
 		evento,
         setEvento,
-        descripcion,
         fecha,
         setFecha,
+		descripcion,
         setDescripcion
 	} = state;
 
@@ -36,7 +36,7 @@ const CalendarioForm = ({add,edit,del,state}) => {
 							<tr>
 							<td><label>Fecha: </label></td>
 							<td><input 
-								type={'text'} 
+								type={'date'} 
 								style={{marginLeft:"20px"}}
 								value={fecha}
 								onChange={(event) => setFecha(event.target.value)}></input></td>
