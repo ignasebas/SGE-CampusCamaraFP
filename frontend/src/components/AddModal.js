@@ -18,6 +18,7 @@ import { postCalendario } from "../services/calendarioAPI";
 const AddModal = ({handleShow,dataModifier,state,clientes,compras,empleados,productos,proveedores,ventas,calendario}) => {
 
 	const addNew = () => {
+		console.log(compras)
 		const { data, setData } = dataModifier
 		if (clientes) {
 			const { dni, nombre, apellidos, telefono, email, direccion } = state;
@@ -54,10 +55,32 @@ const AddModal = ({handleShow,dataModifier,state,clientes,compras,empleados,prod
 
 		if (ventas) {
 			console.log(state)
-			const { dni, nombre, apellidos, email, direccion, fechaVenta, precioTotal, observaciones, descripcion} = state;
-		  	postVentas({"nif":dni, "nombre":nombre, "apellidos":apellidos, "email":email, "direccion":direccion, "fechaVenta":fechaVenta, "precioTotal":precioTotal, "observaciones":observaciones,"descripcion":descripcion});
-			handleShow()
+			const { dni, nombre, apellidos, email, direccion, fechaVenta, precioTotal, observaciones, descripcion,productos} = state;
+		  	postVentas({"nif":dni, "nombre":nombre, "apellidos":apellidos, "email":email, "direccion":direccion, "fechaVenta":fechaVenta, "precioTotal":precioTotal, "observaciones":observaciones,"descripcion":descripcion, "productos": productos })
+			.then((newData) => {
+				setData([...data, newData]);
+				handleShow();
+			})
+			.catch(error => {
+				alert(error.response.data.message)
+				//handleShow()
+			});
+			
 		}
+
+		if (compras) {
+			console.log(state)
+			const { cif, nombre, direccion, telefono, email, fechaCompra, precioTotal, observaciones, productos } = state;
+			postCompras({ "cif": cif, "nombre": nombre, "direccion": direccion, "telefono": telefono, "email": email, "fechaCompra": fechaCompra, "precioTotal": precioTotal, "observaciones": observaciones, "productos": productos })
+			.then((newData) => {
+				setData([...data, newData]);
+				handleShow();
+			})
+			.catch(error => {
+				alert(error.response.data.message)
+				//handleShow()
+			});
+		}		
 
 		if (proveedores) {
 			const { cif, nombre,contacto, direccion, telefono, email } = state;

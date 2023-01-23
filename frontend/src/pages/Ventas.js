@@ -14,31 +14,30 @@ import { app } from "../firebase";
 import { getAuth } from "firebase/auth";
 
 export const Ventas = () => {
-  const [isLoading, setIsLoading] = useState(true);
+	const [isLoading, setIsLoading] = useState(true);
 
-  const auth = getAuth(app);
-  const [logIn, setLogIn] = useState(false);
-  auth.onAuthStateChanged(function (user) {
-    if (user) {
-      console.log(user);
-      setLogIn(true);
-    } else {
-      window.location.href = "/login";
-    }
-  });
+	const auth = getAuth(app);
+	const [logIn, setLogIn] = useState(false);
+	auth.onAuthStateChanged(function (user) {
+		if (user) {
+			setLogIn(true);
+		} else {
+			window.location.href = "/login";
+		}
+	});
 
-  useEffect(() => {
-    getVentas().then((clientData) => {
-      setData(clientData);
-      setIsLoading(false);
-    });
-  }, []);
+	useEffect(() => {
+		getVentas().then((clientData) => {
+			setData(clientData);
+			setIsLoading(false);
+		});
+	}, []);
 
-  const [data, setData] = useState([]);
-  const [error, setError] = useState(null);
+	const [data, setData] = useState([]);
+	const [error, setError] = useState(null);
 
-  const [showAdd, setShowAdd] = useState(false);
-  const [showLens, setShowLens] = useState(false);
+	const [showAdd, setShowAdd] = useState(false);
+	const [showLens, setShowLens] = useState(false);
 
   const handleShowAdd = () => {
     setShowAdd(!showAdd);
@@ -83,7 +82,26 @@ export const Ventas = () => {
   const [fechaVenta, setFechaVenta] = useState("");
   const [precioTotal, setPrecioTotal] = useState("");
   const [observaciones, setObservaciones] = useState("");
-  const [productos, setProductos] = useState("");
+  const [productos, setProductos] = useState([
+		{
+			nombre: "Product 1",
+			precioVenta: 12.99,
+			tasas: 10,
+			descripcion: "This is a description of Product 1"
+		},
+		{
+			nombre: "Product 2",
+			precioVenta: 24.99,
+			tasas: 15,
+			descripcion: "This is a description of Product 2"
+		},
+		{
+			nombre: "Product 3",
+			precioVenta: 34.99,
+			tasas: 20,
+			descripcion: "This is a description of Product 3"
+		}
+	]);
 
   const dataModifier = {
     data,
