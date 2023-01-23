@@ -5,13 +5,16 @@ import VentasForm from "./VentasForm";
 import ComprasForm from "./ComprasForm";
 import EmpleadosForm from "./EmpleadosForm";
 import ProductosForm from "./ProductosForm";
+import CalendarioForm from "./CalendarioForm";
 import ProveedoresForm from "./ProveedoresForm";
 import { deleteCliente } from "../services/clientesAPI";
 import { deleteProducto } from "../services/productosAPI";
 import { deleteProveedor } from "../services/proveedoresAPI";
 import { deleteEmpleados } from "../services/empleadosAPI";
+import { deleteCalendario } from "../services/calendarioAPI";
+import { Calendario } from "../pages/Calendario";
 
-const DeleteModal = ({handleShow,dataModifier,state,clientes,compras,empleados,productos,proveedores,ventas}) => {
+const DeleteModal = ({handleShow,dataModifier,state,clientes,compras,calendario,empleados,productos,proveedores,ventas}) => {
 
 	const addNew = () => {
 		const { id } = state;
@@ -52,6 +55,16 @@ const DeleteModal = ({handleShow,dataModifier,state,clientes,compras,empleados,p
 				handleShow();
 			});
 		}
+		if (calendario) {
+			deleteCalendario(id)
+			.then(() => {
+				setData(data.filter(calendario => calendario._id !== id));
+				handleShow();
+			})
+			.catch(error => {
+				handleShow();
+			});
+		}
 	};
 
 	return (
@@ -78,6 +91,12 @@ const DeleteModal = ({handleShow,dataModifier,state,clientes,compras,empleados,p
 						</>
 					):(
 						<EmpleadosForm del state={state}/>
+					)}
+					{!calendario ? (
+						<>
+						</>
+					):(
+						<CalendarioForm del state={state}/>
 					)}
 					{!productos ? (
 						<>

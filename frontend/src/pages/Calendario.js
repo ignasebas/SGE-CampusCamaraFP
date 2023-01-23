@@ -13,6 +13,7 @@ import "./Profile.css";
 import { CDBIcon } from "cdbreact";
 import { app } from "../firebase";
 import { getAuth } from "firebase/auth";
+import { getCalendario, postCalendario } from "../services/calendarioAPI";
 
 export const Calendario = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -26,6 +27,13 @@ export const Calendario = () => {
       window.location.href = "/login";
     }
   });
+
+  useEffect(() => {
+    getCalendario().then((calendarData) => {
+      setData(calendarData);
+      setIsLoading(false);
+    });
+  }, []);
 
   const [date, setDate] = useState(new Date());
   const options = { weekday: "long", day: "numeric" };
@@ -173,20 +181,7 @@ export const Calendario = () => {
                     >
                       <CDBBtn className={"add-button"} onClick={handleShowAdd} style={{ marginRight: "10px" }}>
                         <CDBIcon icon="plus" className="ml-1" />
-                      </CDBBtn>
-					  
-                      <CDBBtn
-                        onClick={() => handleShowEdit(date)}
-                        className={"edit-button"}
-                        style={{ marginRight: "10px" }}
-                      >
-                        <CDBIcon icon="pen" className="ml-1" />
-                      </CDBBtn>
-                      <CDBBtn
-                        className={"delete-button"}
-                        onClick={() => handleShowDelete(date)}
-                      >
-                        <CDBIcon icon="trash" className="ml-1" />
+                    
                       </CDBBtn>
                     </div>
                     <br></br>
@@ -208,7 +203,7 @@ export const Calendario = () => {
                           <CDBTableHeader>
                             <tr>
                               <th>Evento</th>
-                              <th>fecha</th>
+                              <th>Fecha</th>
                               <th>Descripción</th>
                             </tr>
                           </CDBTableHeader>
