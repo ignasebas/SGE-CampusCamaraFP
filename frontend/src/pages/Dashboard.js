@@ -4,10 +4,11 @@ import Sidebar from "../Sidebar";
 import Navbar from "../Navbar";
 import "./Dashboard.css";
 import { getVentas } from "../services/ventasAPI";
+import { getCompras } from "../services/comprasAPI";
 import { getClientes } from "../services/clientesAPI";
 import { app } from "../firebase";
 import { getAuth } from "firebase/auth";
-
+import { getEmpleados } from "../services/empleadosAPI";
 
 export const Dashboard = () => {
 	const auth = getAuth(app);
@@ -32,10 +33,27 @@ export const Dashboard = () => {
 		});
 	}, []);
 
+	useEffect(() => {
+		getEmpleados().then(empleadosData => {
+		  setEmpleados(empleadosData);
+		});
+	}, []);
+
+	useEffect(() => {
+		getCompras().then(comprasData => {
+		  setCompras(comprasData);
+		});
+	}, []);
+	
+
 	const [ventas, setVentas] = useState([]);
 	const numVentas = ventas.length;
+	const [compras, setCompras] = useState([]);
+	const numCompras = compras.length;
 	const [clientes, setClientes] = useState([]);
 	const numClientes = clientes.length;
+	const [empleados, setEmpleados] = useState([]);
+	const numEmpleados = empleados.length;
 	var totalVentas = 0;
 	ventas.forEach(venta => {
 		totalVentas += venta.precioTotal;
@@ -115,6 +133,50 @@ export const Dashboard = () => {
 												<CDBBtn color="gray" onClick={
 													() => {
 														window.location.href = "/ventas";
+													}
+												}>
+													<p className="c-p text-dark font-weight-bold text-right mt-3 mb-0">
+														Más detalles&nbsp;&nbsp;&nbsp;<i className="fas fa-arrow-right ml-1"></i>
+													</p>
+												</CDBBtn>
+											</div>
+										</div>
+										<div className="card-bg w-100 d-flex flex-column border d-flex flex-column" style={{ gridRow: "span 2" }}>
+											<div className="p-4 d-flex flex-column h-100">
+												<div className="d-flex align-items-center justify-content-between">
+													<h4 className="m-0 h5 font-weight-bold text-dark">Empleados</h4>
+													<div className="px-2 py-1 bg-grey rounded-circle"><i className="fas fa-shopping-bag"></i></div>
+												</div>
+												<div className="mt-5 d-flex align-items-center justify-content-between">
+													<div>
+														<h4 className="m-0 h1 font-weight-bold text-dark">{numEmpleados}</h4>
+													</div>
+												</div>
+												<CDBBtn color="gray" onClick={
+													() => {
+														window.location.href = "/empleados";
+													}
+												}>
+													<p className="c-p text-dark font-weight-bold text-right mt-3 mb-0">
+														Más detalles&nbsp;&nbsp;&nbsp;<i className="fas fa-arrow-right ml-1"></i>
+													</p>
+												</CDBBtn>
+											</div>
+										</div>
+										<div className="card-bg w-100 d-flex flex-column border d-flex flex-column" style={{ gridRow: "span 2" }}>
+											<div className="p-4 d-flex flex-column h-100">
+												<div className="d-flex align-items-center justify-content-between">
+													<h4 className="m-0 h5 font-weight-bold text-dark">Compras</h4>
+													<div className="px-2 py-1 bg-grey rounded-circle"><i className="fas fa-shopping-bag"></i></div>
+												</div>
+												<div className="mt-5 d-flex align-items-center justify-content-between">
+													<div>
+														<h4 className="m-0 h1 font-weight-bold text-dark">{numCompras}</h4>
+													</div>
+												</div>
+												<CDBBtn color="gray" onClick={
+													() => {
+														window.location.href = "/compras";
 													}
 												}>
 													<p className="c-p text-dark font-weight-bold text-right mt-3 mb-0">
