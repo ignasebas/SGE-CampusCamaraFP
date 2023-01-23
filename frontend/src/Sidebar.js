@@ -70,12 +70,6 @@ const Sidebar = () => {
               <NavLink exact to="/productos" activeClassName="activeClicked">
                 <CDBSidebarMenuItem icon="flask">Productos</CDBSidebarMenuItem>
               </NavLink>
-
-              <NavLink exact to="/hero404" activeClassName="activeClicked">
-                <CDBSidebarMenuItem icon="exclamation-circle">
-                  404 page
-                </CDBSidebarMenuItem>
-              </NavLink>
             </CDBSidebarMenu>
           </CDBSidebarContent>
 
