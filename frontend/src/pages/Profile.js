@@ -70,25 +70,27 @@ export const Profile = () => {
 								<h4 className="font-weight-bold" style={{marginBottom:"0"}}><CDBIcon icon="user-circle"/> Perfil</h4>
 							</div>
 							{/*EDITAR A PARTIR DE AQUÍ*/}
-							<div style={{position: 'absolute', left: '40%'}}>
-								<div className="cards-container1" style={{display: 'block'}}>
-									<div style={{padding: '10px'}}>
-										<form method='post' onSubmit={handleUpdateEmail}>
+							<div>
+								<div className="cards-container2" style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
+									<div className="card shadow border-2" style={{padding: '10px'}}>
+										<form method='POST'>
 												<label for="correo">Cambiar correo:</label><br/>
 												<input type="text" name="email" value={email} onChange={(event) => setEmail(event.target.value)} required></input>&nbsp;
-												<input type="submit" value="Actualizar"></input>
+												<input type="submit" onClick={{handleUpdateEmail}} value="Actualizar"></input>
 										</form>
 									</div><br/>
-									<div style={{padding: '10px'}}>
-										<form onSubmit={handleUpdatePassword}>
+									<div className="card shadow border-2" style={{padding: '10px'}}>
+										<form method='POST'>
 												<label for="correo">Cambiar contraseña:</label><br/>
 												<input type="password" name="password" value={password} onChange={(event) => setPassword(event.target.value)} required></input>&nbsp;
-												<input type="submit" value="Actualizar"></input>
+												<input type="submit" onClick={{handleUpdatePassword}} value="Actualizar"></input>
 										</form>
-									</div><br/>
-									<div className="card shadow border-0" style={{padding: '10px'}}>
-										<button onClick={handleLogOut}>Cerrar Sesión</button>
 									</div>
+								</div><br/><br/>
+								<div style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
+									<form method='POST'>
+										<input type="submit" onClick={handleLogOut} value="Cerrar Sesión"></input>
+									</form>
 								</div>
 								<div style={{margin:"0 auto", maxWidth:"1320px"}}>
 									<footer className="d-flex mx-auto py-4">
