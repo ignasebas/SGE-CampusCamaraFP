@@ -13,7 +13,7 @@ import { app } from "../firebase";
 import { getAuth } from "firebase/auth";
 
 export const Compras = () => {
-	const [isLoading, setIsLoading] = useState(false);
+	const [isLoading, setIsLoading] = useState(true);
 
 	const auth = getAuth(app);
 	const [logIn, setLogIn] = useState(false);
@@ -25,12 +25,9 @@ export const Compras = () => {
 		}
 	});
 	useEffect(() => {
-		setTimeout(() => {
-		setIsLoading(true);
-		}, 700);
-		setIsLoading(false);
 		getCompras().then((clientData) => {
 			setData(clientData);
+			setIsLoading(false);
 		});
 	}, []);
 
@@ -164,12 +161,12 @@ export const Compras = () => {
 						</div>
 
 						<CDBTable striped responsive>
-						{!isLoading ? (
-														<div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-															<Spinner animation="grow" />
-														</div>
-													) : (
-													<>
+						{isLoading ? (
+							<div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+								<Spinner animation="grow" />
+							</div>
+						) : (
+						<>
 						<CDBTableHeader>
 							<tr>
 							<th>Proveedor</th>

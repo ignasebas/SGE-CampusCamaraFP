@@ -13,15 +13,12 @@ import Spinner from 'react-bootstrap/Spinner';
 
 export const Productos = () => {
 
-	const[isLoading, setIsLoading] = useState(false);
+	const[isLoading, setIsLoading] = useState(true);
 
 	useEffect(() => {
-		setTimeout(() => {
-			setIsLoading(true);
-		}, 700);
-		setIsLoading(false);
 		getProductos().then(ProductData => {
 			setData(ProductData);
+			setIsLoading(false);
 		});
 	}, []);
 	  
@@ -148,7 +145,7 @@ export const Productos = () => {
 								</div>
 								
 								<CDBTable striped responsive>
-								{!isLoading ? (
+								{isLoading ? (
 										<div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
 											<Spinner animation="grow" />
 										</div>

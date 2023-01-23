@@ -14,7 +14,7 @@ import { app } from "../firebase";
 import { getAuth } from "firebase/auth";
 
 export const Proveedores = () => {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const auth = getAuth(app);
   const [logIn, setLogIn] = useState(false);
@@ -28,12 +28,9 @@ export const Proveedores = () => {
   });
 
   useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(true);
-    }, 700);
-    setIsLoading(false);
     getProveedores().then((ProveedorData) => {
       setData(ProveedorData);
+      setIsLoading(false);
     });
   }, []);
 
@@ -187,7 +184,7 @@ export const Proveedores = () => {
                     </div>
 
                     <CDBTable striped responsive>
-                      {!isLoading ? (
+                      {isLoading ? (
                         <div
                           style={{
                             display: "flex",
