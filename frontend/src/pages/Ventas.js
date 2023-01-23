@@ -151,7 +151,7 @@ export const Ventas = () => {
 													<th>Acciones</th>
 												</tr>
 											</CDBTableHeader>
-											{!isLoading ? (
+											{isLoading ? (
 												<div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
 													<Spinner animation="grow" />
 												</div>
