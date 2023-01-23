@@ -77,6 +77,7 @@ export const Dashboard = () => {
 	ventas.forEach(venta => {
 		totalVentas += venta.precioTotal;
 	});
+	Math.round(totalVentas);
 
 	return (
 		<>
