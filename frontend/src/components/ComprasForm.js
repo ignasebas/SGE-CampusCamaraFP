@@ -18,9 +18,12 @@ const ComprasForm = ({add,lens,del,state}) => {
 		precioTotal,
 		setPrecioTotal,
 		observaciones,
-		setObservaciones
+		setObservaciones,
+		productos,
 		
 	}=state;
+
+	console.log(productos)
 	return (
 		<>
 			{!add ? (
@@ -145,6 +148,22 @@ const ComprasForm = ({add,lens,del,state}) => {
 						<tr>
 							<td>{telefono}</td>
 						</tr>
+						{productos.map((product, index) => (
+							<tr key={index}>
+								<td>
+									<label>Product name: </label>{product.nombre}
+								</td>
+								<td>
+									<label>Product price: </label>{product.precioVenta.$numberDecimal}
+								</td>
+								<td>
+									<label>Product taxes: </label>{product.tasas}
+								</td>
+								<td>
+									<label>Product description: </label>{product.descripcion}
+								</td>
+							</tr>
+						))}
 					</table>
 				</center>
 			)}

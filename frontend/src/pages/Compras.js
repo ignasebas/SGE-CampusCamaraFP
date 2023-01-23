@@ -46,6 +46,8 @@ export const Compras = () => {
 		setFechaCompra(compra.fechaCompra);
 		setPrecioTotal(compra.precioTotal);
 		setObservaciones(compra.observaciones);
+		setProductos(compra.productos);
+		console.log(compra.productos)
 	};
 	
 	const [cif, setCif] = useState("");
@@ -56,26 +58,7 @@ export const Compras = () => {
 	const [fechaCompra, setFechaCompra] = useState("");
 	const [precioTotal, setPrecioTotal] = useState("");
 	const [observaciones, setObservaciones] = useState("");
-	const [productos, setProductos] = useState([
-		{
-			nombre: "Product 1",
-			precioVenta: 12.99,
-			tasas: 10,
-			descripcion: "This is a description of Product 1"
-		},
-		{
-			nombre: "Product 2",
-			precioVenta: 24.99,
-			tasas: 15,
-			descripcion: "This is a description of Product 2"
-		},
-		{
-			nombre: "Product 3",
-			precioVenta: 34.99,
-			tasas: 20,
-			descripcion: "This is a description of Product 3"
-		}
-	]);
+	const [productos, setProductos] = useState("");
 
 	const dataModifier = {
 		data,

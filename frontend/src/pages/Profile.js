@@ -10,7 +10,6 @@ export const Profile = () => {
     const [password, setPassword] = useState('');
   	const name = auth.currentUser.displayName;
 
-
 	const handleLogOut = (event) => {
         signOut(auth).then(() => {
 			window.location.href = "/login"
@@ -56,7 +55,6 @@ export const Profile = () => {
 				alert(error)
 		  });
     }
-
 
 	return (
 		<div className="d-flex profile">
