@@ -121,49 +121,35 @@ const ComprasForm = ({add,lens,del,state}) => {
 								<td>{fechaCompra}</td>
 							</tr>
 						<tr>
-							<td>Nombre:</td>
-							<td>Precio total:</td>
+							<td>Nombre:&nbsp;{nombre}</td>
+							<td>Precio total:&nbsp;{precioTotal}</td>
 						</tr>
 						<tr>
-							<td>{nombre}</td>
-							<td>{precioTotal}</td>
+							<td>Direccion:&nbsp;{direccion}</td>
+							<td>Observaciones:&nbsp;{observaciones}</td>
 						</tr>
 						<tr>
-							<td>Direccion:</td>
-							<td>Observaciones:</td>
+							<td>Email:&nbsp;{email}</td>
 						</tr>
 						<tr>
-							<td>{direccion}</td>
-							<td>{observaciones}</td>
+							<td>Teléfono:&nbsp;{telefono}</td>
 						</tr>
-						<tr>
-							<td>Email:</td>
-						</tr>
-						<tr>
-							<td>{email}</td>
-						</tr>
-						<tr>
-							<td>Teléfono:</td>
-						</tr>
-						<tr>
-							<td>{telefono}</td>
-						</tr>
+						<br/>
+						<label>Productos:</label>
 						{productos.map((product, index) => (
-							<tr key={index}>
-								<td>
-									<label>Product name: </label>{product.nombre}
-								</td>
-								<td>
-									<label>Product price: </label>{product.precioVenta.$numberDecimal}
-								</td>
-								<td>
-									<label>Product taxes: </label>{product.tasas}
-								</td>
-								<td>
-									<label>Product description: </label>{product.descripcion}
-								</td>
-							</tr>
-						))}
+								
+								<tr key={index}>
+									<td>
+										<label>Nombre:&nbsp;</label>{product.nombre}
+									</td>
+									<td>
+										<label>Precio:&nbsp;</label>{product.precioVenta.$numberDecimal} €
+									</td>
+									<td>
+										<label>Tasas:&nbsp;</label>{product.tasas} %
+									</td>
+								</tr>
+							))}
 					</table>
 				</center>
 			)}

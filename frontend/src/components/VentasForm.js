@@ -117,52 +117,36 @@ const VentasForm = ({add,lens,del,state}) => {
 				<center>
 						<table cellPadding={"15px"}>
 							<tr>
-								<th style={{padding: "0px 150px 0px 0px"}}>Datos del cliente</th>
+								<th style={{padding: "0px 140px 0px 0px"}}>Datos del cliente</th>
 								<th style={{padding: "0px 0px 0px 0px"}}>Infomación de la venta</th>
 							</tr>
 							<tr>
-								<td>NIF/DNI:</td>
-								<td>Fecha:</td>
+								<td>NIF/DNI: {dni}</td>
+								<td>Fecha: {fechaVenta}</td>
 							</tr>
 							<tr>
-								<td>{dni}</td>
-								<td>{fechaVenta}</td>
+								<td>Nombre: {nombre} {apellidos}</td>
+								<td>Precio total: {precioTotal}</td>
 							</tr>
 							<tr>
-								<td>Nombre:</td>
-								<td>Precio total:</td>
+								<td>Email: {email}</td>
+								<td>Observaciones:&nbsp;{observaciones}</td>
 							</tr>
 							<tr>
-								<td>{nombre} {apellidos}</td>
-								<td>{precioTotal}</td>
+								<td>Dirección: {direccion}</td>
 							</tr>
-							<tr>
-								<td>Email:</td>
-								<td>Observaciones:</td>
-							</tr>
-							<tr>
-								<td>{email}</td>
-								<td>{observaciones}</td>
-							</tr>
-							<tr>
-								<td>Dirección:</td>
-							</tr>
-							<tr>
-								<td>{direccion}</td>
-							</tr>
+							<br/>
+							<label>Productos:</label>
 							{productos.map((product, index) => (
 								<tr key={index}>
 									<td>
-										<label>Product name: </label>{product.nombre}
+										Nombre:&nbsp;{product.nombre}
 									</td>
 									<td>
-										<label>Product price: </label>{product.precioVenta.$numberDecimal}
+										Precio:&nbsp;{product.precioVenta.$numberDecimal} €
 									</td>
 									<td>
-										<label>Product taxes: </label>{product.tasas}
-									</td>
-									<td>
-										<label>Product description: </label>{product.descripcion}
+										Tasas:&nbsp;{product.tasas} %
 									</td>
 								</tr>
 							))}
