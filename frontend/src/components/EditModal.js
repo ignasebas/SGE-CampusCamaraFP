@@ -49,7 +49,7 @@ const EditModal = ({handleShow,dataModifier,state,clientes,compras,empleados,pro
 		} 
 
 		if (productos) {
-			const { nombre, proveedorID, proveedorNombre, proveedorPrecioCompra, precioVenta, imagen, tasas, descripcion } = state;
+			const { id, nombre, proveedorID, proveedorNombre, proveedorPrecioCompra, precioVenta, imagen, tasas, descripcion } = state;
 			updateProducto(id, {"nombre":nombre,"proveedorid":proveedorID, "proveedornombre":proveedorNombre, "proveedorpreciocompra":proveedorPrecioCompra, "precioVenta":precioVenta, "imagen":imagen, "tasas":tasas, "descripción":descripcion})
 			.then(() => {
 				let newData = [...data];

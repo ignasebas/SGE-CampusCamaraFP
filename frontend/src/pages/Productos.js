@@ -72,6 +72,7 @@ export const Productos = () => {
 		setDescripcion(producto._descrpcion);
 	}
 	
+	const [id, setId] = useState("");
 	const [nombre, setNombre] = useState("");
 	const [proveedorID, setProveedorID] = useState("");
 	const [proveedorNombre, setProveedorNombre] = useState("");
@@ -86,6 +87,8 @@ export const Productos = () => {
 	}
 
 	const state = {
+		id,
+    	setId,
 		nombre,
 		setNombre,
 		proveedorID,
