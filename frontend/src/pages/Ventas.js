@@ -49,6 +49,7 @@ export const Ventas = () => {
       email &&
       direccion &&
       precioTotal &&
+      productos &&
       observaciones !== ""
     ) {
       setDni("");
@@ -58,6 +59,7 @@ export const Ventas = () => {
       setDireccion("");
       setFechaVenta("");
       setPrecioTotal("");
+      setProductos("");
       setObservaciones("");
     }
   };
@@ -71,6 +73,7 @@ export const Ventas = () => {
     setDireccion(venta.direccion);
     setFechaVenta(venta.fechaVenta);
     setPrecioTotal(venta.precioTotal);
+    setProductos(venta.productos);
     setObservaciones(venta.observaciones);
   };
 

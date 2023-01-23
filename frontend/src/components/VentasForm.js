@@ -91,6 +91,14 @@ const VentasForm = ({add,lens,del,state}) => {
 									onChange={(event) => setPrecioTotal(event.target.value)}></input></td>
 							</tr>
 							<tr>
+								<td><label>Productos: </label></td>
+								<td><input 
+									type={'text'} 
+									style={{marginLeft:"20px"}}
+									value={productos}
+									onChange={(event) => setProductos(event.target.value)}></input></td>
+							</tr>
+							<tr>
 								<td><label>Observaciones: </label></td>
 								<td><input 
 									type={'text'} 
@@ -129,7 +137,7 @@ const VentasForm = ({add,lens,del,state}) => {
 								<td>{precioTotal}</td>
 							</tr>
 							<tr>
-							<td>Email:</td>
+								<td>Email:</td>
 								<td>Observaciones:</td>
 							</tr>
 							<tr>
@@ -138,9 +146,11 @@ const VentasForm = ({add,lens,del,state}) => {
 							</tr>
 							<tr>
 								<td>Dirección:</td>
+								<td>Productos:</td>
 							</tr>
 							<tr>
 								<td>{direccion}</td>
+								<td>{productos}</td>
 							</tr>
 						</table>
 					</center>
