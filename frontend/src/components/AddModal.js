@@ -48,9 +48,22 @@ const AddModal = ({handleShow,dataModifier,state,clientes,compras,empleados,prod
 		}
 		
 		if (productos) {
-			const { nombre, proveedor, precioVenta, imagen, tasas, descripcion } = state;
-		  	postProducto({"nombre":nombre,"proveedor":proveedor,"precioVenta":precioVenta, "imagen":imagen,"tasas":tasas,"descripcion":descripcion, });
-			handleShow()
+			console.log(state);
+			const { nombre, proveedorID, proveedorNombre, proveedorPrecioCompra, precioVenta, imagen, tasas, descripcion } = state;
+			const proveedor = {
+				"id": proveedorID,
+				"nombre": proveedorNombre,
+				"precioCompra": proveedorPrecioCompra
+			};
+		  	postProducto({"nombre":nombre,"proveedor":proveedor,"precioVenta":precioVenta, "imagen":imagen,"tasas":tasas,"descripcion":descripcion, })
+			.then((newData) => {
+				setData([...data, newData]);
+				handleShow();
+			})
+			.catch(error => {
+				alert(error.response.data.message)
+				//handleShow()
+			});
 		}
 
 		if (ventas) {
