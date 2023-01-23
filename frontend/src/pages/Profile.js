@@ -8,6 +8,8 @@ export const Profile = () => {
 	const auth = getAuth();
 	const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+  	const name = auth.currentUser.displayName;
+
 
 	const handleLogOut = (event) => {
         signOut(auth).then(() => {
@@ -20,6 +22,7 @@ export const Profile = () => {
 	const handleUpdateEmail = (event) => {
         updateEmail(auth.currentUser, email).then(() => {
 			alert("Correo actualizado.")
+			setTimeout(() => handleLogOut(), 500)
 		}).catch((error) => {
 			const errorMessage = error.code;
 			if (errorMessage === "auth/requires-recent-login") {
@@ -38,7 +41,8 @@ export const Profile = () => {
 	const handleUpdatePassword = (event) => {
         updatePassword(auth.currentUser, password).then(() => {
 			alert("Contraseña actualiazada.")
-		  }).catch((error) => {
+			setTimeout(() => handleLogOut(), 500)
+		}).catch((error) => {
 				const errorMessage = error.code;
 				if (errorMessage === "auth/requires-recent-login") {
 					alert("Por favor, inicia sesión de nuevo.")
@@ -65,28 +69,30 @@ export const Profile = () => {
 					<div style={{ height: "calc(100% - 64px)", padding: "20px 5%", overflowY: "scroll" }}>
 						<div className="mt-5">
 							<div className="mb-3 title-with-add">
-								<h4 className="font-weight-bold" style={{marginBottom:"0"}}><CDBIcon icon="user-circle"/> Perfil</h4>
+								<h4 className="font-weight-bold" style={{marginBottom:"0"}}><CDBIcon icon="user-circle"/> Hola, {name}</h4>
 							</div>
 							{/*EDITAR A PARTIR DE AQUÍ*/}
-							<div style={{ margin: "0 auto", maxWidth: "1320px"}}>
-								<div className="cards-container1">
-									<div className="card shadow border-0">
-										<form onSubmit={handleUpdateEmail}>
-												<label for="correo">Cambiar correo:</label>
-												<input type="text" name="email" value={email} onChange={(event) => setEmail(event.target.value)} required></input>
-												<input type="submit" value="Actualizar"></input>
+							<div>
+								<div className="cards-container2" style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
+									<div className="card shadow border-2" style={{padding: '10px'}}>
+										<form method='POST'>
+												<label for="correo">Cambiar correo:</label><br/>
+												<input type="text" name="email" value={email} onChange={(event) => setEmail(event.target.value)} required></input>&nbsp;
+												<input type="submit" onClick={{handleUpdateEmail}} value="Actualizar"></input>
+										</form>
+									</div><br/>
+									<div className="card shadow border-2" style={{padding: '10px'}}>
+										<form method='POST'>
+												<label for="correo">Cambiar contraseña:</label><br/>
+												<input type="password" name="password" value={password} onChange={(event) => setPassword(event.target.value)} required></input>&nbsp;
+												<input type="submit" onClick={{handleUpdatePassword}} value="Actualizar"></input>
 										</form>
 									</div>
-									<div className="card shadow border-0"></div>
-										<form onSubmit={handleUpdatePassword}>
-												<label for="correo">Cambiar contraseña:</label>
-												<input type="password" name="password" value={password} onChange={(event) => setPassword(event.target.value)} required></input>
-												<input type="submit" value="Actualizar"></input>
-										</form>
-									</div>
-									<div className="card shadow border-0">
-										<button onClick={handleLogOut}>Cerrar Sesión</button>
-									</div>
+								</div><br/><br/>
+								<div style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
+									<form method='POST'>
+										<input type="submit" onClick={handleLogOut} style={{backgroundColor: 'red', color: 'white', borderRadius:'8px', padding: '10px'}} value="Cerrar sesión"></input>
+									</form>
 								</div>
 								<div style={{margin:"0 auto", maxWidth:"1320px"}}>
 									<footer className="d-flex mx-auto py-4">
@@ -98,5 +104,6 @@ export const Profile = () => {
 					</div>
 				</div>
 			</div>
+		</div>
 	);
 }

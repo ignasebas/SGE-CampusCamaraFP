@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { NavLink } from "react-router-dom";
-import { postUsuario } from '../services/userAPI';
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { app } from '../firebase';
 import {IoArrowBackCircleSharp} from 'react-icons/io5';

@@ -13,15 +13,12 @@ import Spinner from 'react-bootstrap/Spinner';
 
 export const Productos = () => {
 
-	const[isLoading, setIsLoading] = useState(false);
+	const[isLoading, setIsLoading] = useState(true);
 
 	useEffect(() => {
-		setTimeout(() => {
-			setIsLoading(true);
-		}, 700);
-		setIsLoading(false);
 		getProductos().then(ProductData => {
 			setData(ProductData);
+			setIsLoading(false);
 		});
 	}, []);
 	  
@@ -72,6 +69,7 @@ export const Productos = () => {
 		setDescripcion(producto._descrpcion);
 	}
 	
+	const [id, setId] = useState("");
 	const [nombre, setNombre] = useState("");
 	const [proveedorID, setProveedorID] = useState("");
 	const [proveedorNombre, setProveedorNombre] = useState("");
@@ -80,12 +78,15 @@ export const Productos = () => {
 	const [imagen, setImagen] = useState("");
 	const [tasas, setTasas] = useState("");
 	const [descripcion, setDescripcion] = useState("");
+
 	const dataModifier = {
 		data,
 		setData
 	}
 
 	const state = {
+		id,
+    	setId,
 		nombre,
 		setNombre,
 		proveedorID,
@@ -103,8 +104,6 @@ export const Productos = () => {
 		descripcion,
 		setDescripcion
 	};
-
-	const place = "productos"
 
 	console.log(data)
 
@@ -146,6 +145,12 @@ export const Productos = () => {
 								</div>
 								
 								<CDBTable striped responsive>
+								{isLoading ? (
+										<div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+											<Spinner animation="grow" />
+										</div>
+									) : (
+										<>
 									<CDBTableHeader>
 										<tr>
 											<th>Precio de venta</th>
@@ -157,11 +162,6 @@ export const Productos = () => {
 											<th>Acciones</th>
 										</tr>
 									</CDBTableHeader>
-									{!isLoading ? (
-										<div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-											<Spinner animation="grow" />
-										</div>
-									) : (
 									<CDBTableBody style={{verticalAlign: "middle"}}>
 										{data.map((producto) =>
 											<tr>
@@ -184,8 +184,10 @@ export const Productos = () => {
 										)}
 										
 									</CDBTableBody>
+									</>
 									)}
 								</CDBTable>
+
 							</div>
 								
 							<div style={{margin:"0 auto", maxWidth:"1320px"}}>
