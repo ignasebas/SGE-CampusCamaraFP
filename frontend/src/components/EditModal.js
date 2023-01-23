@@ -5,13 +5,15 @@ import VentasForm from "./VentasForm";
 import ComprasForm from "./ComprasForm";
 import EmpleadosForm from "./EmpleadosForm";
 import ProductosForm from "./ProductosForm";
+import CalendarioForm from "./CalendarioForm";
 import ProveedoresForm from "./ProveedoresForm";
 import { updateCliente } from "../services/clientesAPI";
 import { updateProducto } from "../services/productosAPI";
 import { updateProveedor } from "../services/proveedoresAPI";
 import { updateEmpleado } from "../services/empleadosAPI";
+import { updateCalendario } from "../services/empleadosAPI";
 
-const EditModal = ({handleShow,dataModifier,state,clientes,compras,empleados,productos,proveedores,ventas}) => {
+const EditModal = ({handleShow,dataModifier,state,clientes,calendario,compras,empleados,productos,proveedores,ventas}) => {
 
 	const modalAction = () => {
 		
@@ -39,6 +41,22 @@ const EditModal = ({handleShow,dataModifier,state,clientes,compras,empleados,pro
 				let newData = [...data];
 				let index = newData.findIndex((empleado) => empleado._id === id);
 				newData[index] = {"_id": id, "nif":nif,"nombre":nombre,"apellidos":apellidos,"telefono":telefono,"email":email,"direccion":direccion,"puesto":puesto};
+				setData(newData);
+				handleShow();
+			})
+			.catch(error => {
+				alert(error.response.data.message)
+				//handleShow();
+			});
+		} 
+
+		if (calendario) {
+			const { id, evento, fecha, descripcion } = state;
+			updateCalendario(id, {"evento":evento,"fecha":fecha,"descripcion":descripcion})
+			.then(() => {
+				let newData = [...data];
+				let index = newData.findIndex((calendario) => calendario._id === id);
+				newData[index] = {"_id": id, "evento":evento,"fecha":fecha,"descripcion":descripcion};
 				setData(newData);
 				handleShow();
 			})
@@ -107,6 +125,12 @@ const EditModal = ({handleShow,dataModifier,state,clientes,compras,empleados,pro
 						</>
 					):(
 						<EmpleadosForm edit state ={state}/>
+					)}
+					{!calendario ? (
+						<>
+						</>
+					):(
+						<CalendarioForm edit state ={state}/>
 					)}
 					{!productos ? (
 						<>
