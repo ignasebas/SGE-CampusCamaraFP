@@ -35,32 +35,9 @@ export const Calendario = () => {
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
 
-<<<<<<< Updated upstream
   const [showAdd, setShowAdd] = useState(false);
   const [showEdit, setShowEdit] = useState(false);
   const [showDelete, setShowDelete] = useState(false);
-=======
-										</div>
-										<br></br><br></br>
-										<div>
-											<div className="card shadow border-0" >
-												<div className="card-body">
-													<h4 className="card-title mb-2" style={{ fontWeight: "600" }}>Introduce que tienes el día {date.toLocaleDateString("es-ES",options)}</h4>
-													<label>Título &nbsp;</label>
-													<input type="text"></input>
-													<br></br>
-													<br></br>
-													<textarea rows="10" cols="26" wrap="soft">Descripción</textarea>
-													<br></br>
-													<br></br>
-													<div className="justify-content-end pr-1">
-													<CDBBtn className={"add-button"} >Introducir</CDBBtn>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div style={{ margin: "0 auto", maxWidth: "1320px" }}>
->>>>>>> Stashed changes
 
   const handleShowAdd = () => {
     setShowAdd(!showAdd);
