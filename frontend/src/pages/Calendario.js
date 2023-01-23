@@ -94,6 +94,8 @@ export const Calendario = () => {
     setDescripcion,
   };
 
+  console.log(data);
+
   return (
     <>
       {!logIn ? (
