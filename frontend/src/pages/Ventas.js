@@ -73,7 +73,7 @@ export const Ventas = () => {
     setDireccion(venta.direccion);
     setFechaVenta(venta.fechaVenta);
     setPrecioTotal(venta.precioTotal);
-    setProductos(venta.productos);
+    setProductos(productos.nombre);
     setObservaciones(venta.observaciones);
   };
 
