@@ -174,7 +174,7 @@ export const Calendario = () => {
                       </CDBBtn>
 					  
                       <CDBBtn
-                        onClick={() => handleShowEdit(calendario)}
+                        onClick={() => handleShowEdit(date)}
                         className={"edit-button"}
                         style={{ marginRight: "10px" }}
                       >
@@ -182,7 +182,7 @@ export const Calendario = () => {
                       </CDBBtn>
                       <CDBBtn
                         className={"delete-button"}
-                        onClick={() => handleShowDelete(calendario)}
+                        onClick={() => handleShowDelete(date)}
                       >
                         <CDBIcon icon="trash" className="ml-1" />
                       </CDBBtn>
