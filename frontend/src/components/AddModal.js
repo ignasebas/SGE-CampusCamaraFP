@@ -54,8 +54,8 @@ const AddModal = ({handleShow,dataModifier,state,clientes,compras,empleados,prod
 
 		if (ventas) {
 			console.log(state)
-			const { dni, nombreCliente, apellidos, email, direccion, fechaVenta, precioTotal, observaciones, descripcion} = state;
-		  	postVentas({"nif":dni, "nombre":nombreCliente, "apellidos":apellidos, "email":email, "direccion":direccion, "fechaVenta":fechaVenta, "precioVenta":precioTotal, "observaciones":observaciones,"descripcion":descripcion});
+			const { dni, nombre, apellidos, email, direccion, fechaVenta, precioTotal, observaciones, descripcion} = state;
+		  	postVentas({"nif":dni, "nombre":nombre, "apellidos":apellidos, "email":email, "direccion":direccion, "fechaVenta":fechaVenta, "precioTotal":precioTotal, "observaciones":observaciones,"descripcion":descripcion});
 			handleShow()
 		}
 
