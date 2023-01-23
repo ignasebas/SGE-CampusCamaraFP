@@ -146,14 +146,28 @@ const VentasForm = ({add,lens,del,state}) => {
 							</tr>
 							<tr>
 								<td>Dirección:</td>
-								<td>Productos:</td>
 							</tr>
 							<tr>
 								<td>{direccion}</td>
-								<td>{productos}</td>
 							</tr>
+							{productos.map((product, index) => (
+								<tr key={index}>
+									<td>
+										<label>Product name: </label>{product.nombre}
+									</td>
+									<td>
+										<label>Product price: </label>{product.precioVenta.$numberDecimal}
+									</td>
+									<td>
+										<label>Product taxes: </label>{product.tasas}
+									</td>
+									<td>
+										<label>Product description: </label>{product.descripcion}
+									</td>
+								</tr>
+							))}
 						</table>
-					</center>
+				</center>
 			)}
 			{!del ? (
 				<>

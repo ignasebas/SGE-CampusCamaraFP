@@ -72,9 +72,9 @@ export const Ventas = () => {
     setEmail(venta.email);
     setDireccion(venta.direccion);
     setFechaVenta(venta.fechaVenta);
-    setPrecioTotal(venta.precioTotal);
-    setProductos(productos.nombre[0]);
+    setPrecioTotal(venta.precioTotal)
     setObservaciones(venta.observaciones);
+    setProductos(venta.productos);
   };
 
   const [dni, setDni] = useState("");
@@ -85,26 +85,7 @@ export const Ventas = () => {
   const [fechaVenta, setFechaVenta] = useState("");
   const [precioTotal, setPrecioTotal] = useState("");
   const [observaciones, setObservaciones] = useState("");
-  const [productos, setProductos] = useState([
-		{
-			nombre: "Product 1",
-			precioVenta: 12.99,
-			tasas: 10,
-			descripcion: "This is a description of Product 1"
-		},
-		{
-			nombre: "Product 2",
-			precioVenta: 24.99,
-			tasas: 15,
-			descripcion: "This is a description of Product 2"
-		},
-		{
-			nombre: "Product 3",
-			precioVenta: 34.99,
-			tasas: 20,
-			descripcion: "This is a description of Product 3"
-		}
-	]);
+  const [productos, setProductos] = useState("");
 
   const dataModifier = {
     data,
@@ -213,8 +194,8 @@ export const Ventas = () => {
                             </tr>
                           </CDBTableHeader>
                           <CDBTableBody style={{ verticalAlign: "middle" }}>
-                            {data.map((venta) => (
-                              <tr>
+                            {data.map((venta, index) => (
+                              <tr key={index}>
                                 <td>{venta.nombre}</td>
                                 <td>{venta.fechaVenta}</td>
                                 <td>{venta.observaciones}</td>
