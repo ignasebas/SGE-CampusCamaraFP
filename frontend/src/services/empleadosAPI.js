@@ -16,7 +16,7 @@ export const postEmpleados = async (data) => {
   return response.data;
 }
 
-export const updateCalendario = async (id, data) => {
+export const updateEmpleados = async (id, data) => {
   const apiUrl = getApiUrl(`/updateByIdEmpleado/${id}`);
   const response = await axios.patch(apiUrl, data);
   return response.data;

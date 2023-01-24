@@ -10,8 +10,8 @@ import ProveedoresForm from "./ProveedoresForm";
 import { updateCliente } from "../services/clientesAPI";
 import { updateProducto } from "../services/productosAPI";
 import { updateProveedor } from "../services/proveedoresAPI";
-import { updateEmpleado } from "../services/empleadosAPI";
-import { updateCalendario } from "../services/empleadosAPI";
+import { updateEmpleados} from "../services/empleadosAPI";
+import { updateCalendario } from "../services/calendarioAPI";
 
 const EditModal = ({handleShow,dataModifier,state,clientes,calendario,compras,empleados,productos,proveedores,ventas}) => {
 
@@ -36,7 +36,7 @@ const EditModal = ({handleShow,dataModifier,state,clientes,calendario,compras,em
 		
 		if (empleados) {
 			const { id, nif, nombre, apellidos, telefono, email, direccion, puesto } = state;
-			updateCliente(id, {"nif":nif,"nombre":nombre,"apellidos":apellidos,"telefono":telefono,"email":email,"direccion":direccion,"puesto":puesto})
+			updateEmpleados(id, {"nif":nif,"nombre":nombre,"apellidos":apellidos,"telefono":telefono,"email":email,"direccion":direccion,"puesto":puesto})
 			.then(() => {
 				let newData = [...data];
 				let index = newData.findIndex((empleado) => empleado._id === id);
