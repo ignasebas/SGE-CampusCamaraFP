@@ -57,7 +57,9 @@ export const Calendario = () => {
       setDescripcion("");
     }
   };
+
   const handleShowEdit = (calendario) => {
+    console.log(calendario);
     setShowEdit(!showEdit);
     setId(calendario._id);
     setEvento(calendario.evento);
