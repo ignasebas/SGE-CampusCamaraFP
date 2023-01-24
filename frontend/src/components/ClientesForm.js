@@ -16,7 +16,7 @@ const ClientesForm = ({add,edit,del,state}) => {
 		direccion, 
 		setDireccion 
 	} = state;
-
+	console.log(state)
 	return (
 		<>
 			{!add && !edit ? (

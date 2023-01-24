@@ -46,27 +46,30 @@ export const Productos = () => {
 	}
 
 	const handleShowEdit = (producto) =>{
+		console.log(producto)
 		setShowEdit(!showEdit);
-		setNombre(producto._nombre);
-		setProveedorID(producto._proveedorID);
-		setProveedorNombre(producto._proveedorNombre);
-		setProveedorPrecioCompra(producto._proveedorPrecioCompra);
-		setPrecioVenta(producto._precioVenta);
-		setImagen(producto._imagen);
-		setTasas(producto._tasas);
-		setDescripcion(producto._descrpcion);
+		setId(producto._id);
+		setNombre(producto.nombre);
+		setProveedorID(producto.proveedor.id);
+		setProveedorNombre(producto.proveedor.nombre);
+		setProveedorPrecioCompra(producto.proveedor.precioCompra.$numberDecimal);
+		setPrecioVenta(producto.precioVenta.$numberDecimal);
+		setImagen(producto.imagen);
+		setTasas(producto.tasas);
+		setDescripcion(producto.descripcion);
 	}
 
 	const handleShowDelete = (producto) => {
 		setShowDelete(!showDelete);
-		setNombre(producto._nombre);
-		setProveedorID(producto._proveedorID);
-		setProveedorNombre(producto._proveedorNombre);
-		setProveedorPrecioCompra(producto._proveedorPrecioCompra);
-		setPrecioVenta(producto._precioVenta);
-		setImagen(producto._imagen);
-		setTasas(producto._tasas);
-		setDescripcion(producto._descrpcion);
+		setId(producto._id);
+		setNombre(producto.nombre);
+		setProveedorID(producto.proveedor.id);
+		setProveedorNombre(producto.proveedor.nombre);
+		setProveedorPrecioCompra(producto.proveedor.precioCompra.$numberDecimal);
+		setPrecioVenta(producto.precioVenta.$numberDecimal);
+		setImagen(producto.imagen);
+		setTasas(producto.tasas);
+		setDescripcion(producto.descripcion);
 	}
 	
 	const [id, setId] = useState("");
@@ -172,11 +175,11 @@ export const Productos = () => {
 												<td>{producto.imagen}</td>
 												<td>{producto.descripcion}</td>
 												<td style={{whiteSpace: "nowrap"}}>
-													<CDBBtn onClick={handleShowEdit} className={"edit-button"} style={{marginRight:"10px"}}>
+													<CDBBtn onClick={() => handleShowEdit(producto)} className={"edit-button"} style={{marginRight:"10px"}}>
 														<CDBIcon icon="pen" className="ml-1" />
 													</CDBBtn>
 
-													<CDBBtn className={"delete-button"} onClick={handleShowDelete}>
+													<CDBBtn className={"delete-button"} onClick={() => handleShowDelete(producto)}>
 														<CDBIcon icon="trash" className="ml-1" />
 													</CDBBtn>
 												</td>

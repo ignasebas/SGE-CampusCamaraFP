@@ -52,17 +52,19 @@ const EditModal = ({handleShow,dataModifier,state,clientes,calendario,compras,em
 
 		if (calendario) {
 			const { id, evento, fecha, descripcion } = state;
+			console.log(state);
 			updateCalendario(id, {"evento":evento,"fecha":fecha,"descripcion":descripcion})
 			.then(() => {
-				console.log(state)
-				let newData = [...data];
 				
+				let newData = [...data];
+				console.log(newData)
 				let index = newData.findIndex((calendar) => calendar._id === id);
 				newData[index] = {"_id": id, "evento":evento,"fecha":fecha,"descripcion":descripcion};
 				setData(newData);
 				handleShow();
 			})
 			.catch(error => {
+				console.log(error	)
 				alert(error.response.data.message)
 				//handleShow();
 			});
@@ -70,9 +72,15 @@ const EditModal = ({handleShow,dataModifier,state,clientes,calendario,compras,em
 
 		if (productos) {
 			const { id, nombre, proveedorID, proveedorNombre, proveedorPrecioCompra, precioVenta, imagen, tasas, descripcion } = state;
-			updateProducto(id, {"nombre":nombre,"proveedorid":proveedorID, "proveedornombre":proveedorNombre, "proveedorpreciocompra":proveedorPrecioCompra, "precioVenta":precioVenta, "imagen":imagen, "tasas":tasas, "descripción":descripcion})
+			const proveedor = {
+				"id": proveedorID,
+				"nombre": proveedorNombre,
+				"precioCompra": proveedorPrecioCompra
+			};
+			updateProducto(id, {"nombre":nombre,"proveedor":proveedor, "precioVenta":precioVenta, "imagen":imagen, "tasas":tasas, "descripción":descripcion})
 			.then(() => {
 				let newData = [...data];
+				console.log(newData)
 				let index = newData.findIndex((producto) => producto._id === id);
 				newData[index] = {"_id": id, "nombre":nombre,"Id del proveedor":proveedorID, "Nombre del proveedor":proveedorNombre, "Precio de compra":proveedorPrecioCompra, "Precio de venta":precioVenta, "Imagen":imagen, "Tasas":tasas, "Descripción":descripcion};
 				setData(newData);
@@ -101,6 +109,8 @@ const EditModal = ({handleShow,dataModifier,state,clientes,calendario,compras,em
 		  	handleShow()
 		}
 	};
+
+	console.log(state)
 
 	return (
 		<div className="modal-full">
@@ -138,7 +148,7 @@ const EditModal = ({handleShow,dataModifier,state,clientes,calendario,compras,em
 						<>
 						</>
 					):(
-						<ProveedoresForm edit state={state}/>
+						<ProductosForm edit state={state}/>
 					)}
 					{!proveedores ? (
 						<>
