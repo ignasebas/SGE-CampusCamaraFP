@@ -56,7 +56,7 @@ const AddModal = ({handleShow,dataModifier,state,clientes,compras,empleados,prod
 				"nombre": proveedorNombre,
 				"precioCompra": proveedorPrecioCompra
 			};
-		  	postProducto({"nombre":nombre,"proveedor":proveedor,"precioVenta":precioVenta, "imagen":imagen,"tasas":tasas,"descripcion":descripcion, })
+		  	postProducto({"nombre":nombre,"proveedor":proveedor,"precioVenta":precioVenta, "imagen":imagen,"tasas":tasas,"descripcion":descripcion })
 			.then((newData) => {
 				setData([...data, newData]);
 				handleShow();
