@@ -31,8 +31,14 @@ const DeleteModal = ({handleShow,dataModifier,state,clientes,compras,calendario,
 		} 
 		
 		if (productos) {
-		  	deleteProducto(id);
-			handleShow()
+		  	deleteProducto(id)
+			.then(() => {
+				setData(data.filter(producto => producto._id !== id));
+				handleShow();
+			})
+			.catch(error => {
+				handleShow();
+			});
 		}
 
 		if (proveedores) {
@@ -102,7 +108,7 @@ const DeleteModal = ({handleShow,dataModifier,state,clientes,compras,calendario,
 						<>
 						</>
 					):(
-						<ProductosForm del />
+						<ProductosForm del state={state} />
 					)}
 					{!proveedores ? (
 						<>
