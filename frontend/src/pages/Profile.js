@@ -19,7 +19,7 @@ export const Profile = () => {
     }
 
 	const handleUpdateEmail = (event) => {
-        updateEmail(auth.currentUser, email).then(() => {
+         updateEmail(auth.currentUser, email).then(() => {
 			alert("Correo actualizado.")
 			setTimeout(() => handleLogOut(), 500)
 		}).catch((error) => {
@@ -73,17 +73,17 @@ export const Profile = () => {
 							<div>
 								<div className="cards-container2" style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
 									<div className="card shadow border-2" style={{padding: '10px'}}>
-										<form method='POST'>
+										<form>
 												<label for="correo">Cambiar correo:</label><br/>
 												<input type="text" name="email" value={email} onChange={(event) => setEmail(event.target.value)} required></input>&nbsp;
-												<input type="submit" onClick={{handleUpdateEmail}} value="Actualizar"></input>
+												<input type="submit" onClick={() => handleUpdateEmail()} value="Actualizar"></input>
 										</form>
 									</div><br/>
 									<div className="card shadow border-2" style={{padding: '10px'}}>
-										<form method='POST'>
+										<form>
 												<label for="correo">Cambiar contraseña:</label><br/>
 												<input type="password" name="password" value={password} onChange={(event) => setPassword(event.target.value)} required></input>&nbsp;
-												<input type="submit" onClick={{handleUpdatePassword}} value="Actualizar"></input>
+												<input type="submit" onClick={() => handleUpdatePassword()} value="Actualizar"></input>
 										</form>
 									</div>
 								</div><br/><br/>

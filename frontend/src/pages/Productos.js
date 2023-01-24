@@ -159,7 +159,7 @@ export const Productos = () => {
 											<th>Precio de venta</th>
 											<th>Precio de compra</th>
 											<th>Tasas</th>
-											<th>ID Proveedor</th>
+											<th>Nombre Proveedor</th>
 											<th>Imagen</th>
 											<th>Descripción</th>
 											<th>Acciones</th>
@@ -171,7 +171,7 @@ export const Productos = () => {
 												<td>{producto.precioVenta.$numberDecimal}</td>
 												<td>{producto.proveedor.precioCompra.$numberDecimal}</td>
 												<td>{producto.tasas}</td>
-												<td>{producto.proveedor.id}</td>
+												<td>{producto.proveedor.nombre}</td>
 												<td>{producto.imagen}</td>
 												<td>{producto.descripcion}</td>
 												<td style={{whiteSpace: "nowrap"}}>
