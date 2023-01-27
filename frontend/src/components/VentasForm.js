@@ -27,13 +27,20 @@ const VentasForm = ({add,lens,del,state}) => {
 		clienteData,
 	} = state;
 
-	const [style, setStyle] = useState("");
-	const addProduct = (venta) => {
-		setProductos(oldArray => [...oldArray, venta]);
-		setStyle("product-selected");
+	const [selectedProductos, setSelectedProductos] = useState(-1);
+	const addProduct = (id, venta) => {
+
+		const productExists = productos.some(product => product._id === venta._id);
+
+		if (!productExists) {
+			setSelectedProductos(id);
+			setProductos(oldArray => [...oldArray, venta]);
+		}
 	};
 
-	const addCliente = (cliente) => {
+	const [selectedCliente, setSelectedCliente] = useState(-1);
+	const addCliente = (id, cliente) => {
+		setSelectedCliente(id);
 		setDni(cliente.nif);
 		setNombre(cliente.nombre);
 		setApellidos(cliente.apellidos);
@@ -54,7 +61,7 @@ const VentasForm = ({add,lens,del,state}) => {
 								<div>
 									<label>Cliente:</label>
 									{clienteData.map((cliente, index) => (
-										<tr key={index} onClick={() => addCliente(cliente)}>
+										<tr key={index} style={{backgroundColor: selectedCliente === index ? "#bfbfbf" : ""}} onClick={() => addCliente(index, cliente)}>
 											<td>
 												Nombre:&nbsp;{cliente.nombre}
 											</td>
@@ -89,16 +96,16 @@ const VentasForm = ({add,lens,del,state}) => {
 								<br/>
 								<div>
 									<label>Productos:</label>
-									{productoData.map((product, index) => (
-										<tr key={index} className={style} onClick={() => addProduct(product)}>
+									{productoData.map((producto, index) => (
+										<tr key={index} style={{backgroundColor: productos.some(product => product._id === producto._id) ? "#bfbfbf" : ""}} onClick={() => addProduct(index, producto)}>
 											<td>
-												Nombre:&nbsp;{product.nombre}
+												Nombre:&nbsp;{producto.nombre}
 											</td>
 											<td>
-												Precio:&nbsp;{product.precioVenta.$numberDecimal} €
+												Precio:&nbsp;{producto.precioVenta.$numberDecimal} €
 											</td>
 											<td>
-												Tasas:&nbsp;{product.tasas} %
+												Tasas:&nbsp;{producto.tasas} %
 											</td>
 										</tr>
 									))}

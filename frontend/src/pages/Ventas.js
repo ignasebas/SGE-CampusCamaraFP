@@ -58,7 +58,7 @@ export const Ventas = () => {
     setDireccion("");
     setFechaVenta("");
     setPrecioTotal("");
-    setProductos("");
+    setProductos([]);
     setObservaciones("");
   };
   const handleShowLens = (venta) => {
@@ -82,7 +82,7 @@ export const Ventas = () => {
   const [fechaVenta, setFechaVenta] = useState("");
   const [precioTotal, setPrecioTotal] = useState("");
   const [observaciones, setObservaciones] = useState("");
-  const [productos, setProductos] = useState("");
+  const [productos, setProductos] = useState([]);
 
   const dataModifier = {
     data,

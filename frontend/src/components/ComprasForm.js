@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 
 const ComprasForm = ({add,lens,del,state}) => {
 
@@ -27,11 +27,21 @@ const ComprasForm = ({add,lens,del,state}) => {
 		
 	}=state;
 
-	const addProduct = (venta) => {
-		setProductos(oldArray => [...oldArray, venta]);
+	const [selectedProductos, setSelectedProductos] = useState(-1);
+	const addProduct = (id,venta) => {
+		
+
+		const productExists = productos.some(product => product._id === venta._id);
+
+		if (!productExists) {
+			setSelectedProductos(id);
+			setProductos(oldArray => [...oldArray, venta]);
+		}
 	};
 
-	const addProveedor = (proveedor) => {
+	const [selectedProveedor, setSelectedProvedor] = useState(-1);
+	const addProveedor = (id, proveedor) => {
+		setSelectedProvedor(id);
 		setCif(proveedor.cif);
 		setNombre(proveedor.nombre);
 		setDireccion(proveedor.direccion);
@@ -51,7 +61,7 @@ const ComprasForm = ({add,lens,del,state}) => {
 						<div>
 							<label>Proveedor:</label>
 							{proveedorData.map((proveedor, index) => (
-								<tr key={index} onClick={() => addProveedor(proveedor)}>
+								<tr key={index} style={{backgroundColor: selectedProveedor === index ? "#bfbfbf" : ""}} onClick={() => addProveedor(index,proveedor)}>
 									<td>
 										Nombre:&nbsp;{proveedor.nombre}
 									</td>
@@ -86,16 +96,16 @@ const ComprasForm = ({add,lens,del,state}) => {
 						<br/>
 						<div>
 							<label>Productos:</label>
-							{productoData.map((product, index) => (
-								<tr key={index} onClick={() => addProduct(product)}>
+							{productoData.map((producto, index) => (
+								<tr key={index} style={{backgroundColor: productos.some(product => product._id === producto._id) ? "#bfbfbf" : ""}} onClick={() => addProduct(index, producto)}>
 									<td>
-										Nombre:&nbsp;{product.nombre}
+										Nombre:&nbsp;{producto.nombre}
 									</td>
 									<td>
-										Precio:&nbsp;{product.precioVenta.$numberDecimal} €
+										Precio:&nbsp;{producto.precioVenta.$numberDecimal} €
 									</td>
 									<td>
-										Tasas:&nbsp;{product.tasas} %
+										Tasas:&nbsp;{producto.tasas} %
 									</td>
 								</tr>
 							))}
