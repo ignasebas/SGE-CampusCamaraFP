@@ -20,10 +20,15 @@ const ComprasForm = ({add,lens,del,state}) => {
 		observaciones,
 		setObservaciones,
 		productos,
+		setProductos,
+		productoData,
 		
 	}=state;
 
-	console.log(productos)
+	const addProduct = (venta) => {
+		setProductos(oldArray => [...oldArray, venta]);
+	};
+
 	return (
 		<>
 			{!add ? (
@@ -97,6 +102,23 @@ const ComprasForm = ({add,lens,del,state}) => {
 							value={observaciones}
 							onChange={(event) => setObservaciones(event.target.value)}></input>
 						</tr>
+						<br/>
+						<div>
+							<label>Productos:</label>
+							{productoData.map((product, index) => (
+								<tr key={index} onClick={() => addProduct(product)}>
+									<td>
+										Nombre:&nbsp;{product.nombre}
+									</td>
+									<td>
+										Precio:&nbsp;{product.precioVenta.$numberDecimal} €
+									</td>
+									<td>
+										Tasas:&nbsp;{product.tasas} %
+									</td>
+								</tr>
+							))}
+						</div>
 					</table>
 				</center>
 				</>

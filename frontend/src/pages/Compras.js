@@ -11,6 +11,7 @@ import { getCompras } from "../services/comprasAPI";
 import Spinner from "react-bootstrap/Spinner";
 import { app } from "../firebase";
 import { getAuth } from "firebase/auth";
+import { getProductos } from "../services/productosAPI";
 
 export const Compras = () => {
 	const [isLoading, setIsLoading] = useState(true);
@@ -27,11 +28,15 @@ export const Compras = () => {
 	useEffect(() => {
 		getCompras().then((clientData) => {
 			setData(clientData);
-			setIsLoading(false);
+			getProductos().then(ProductData => {
+				setProductoData(ProductData);
+				setIsLoading(false);
+			});
 		});
 	}, []);
 
 	const [data, setData] = useState([]);
+	const [productoData, setProductoData] = useState([]);
 	const [showAdd, setShowAdd] = useState(false);
 	const handleShowAdd = () => setShowAdd(!showAdd);
 	const [showLens, setShowLens] = useState(false);
@@ -82,7 +87,9 @@ export const Compras = () => {
 		setPrecioTotal,
 		observaciones,
 		setObservaciones,
-		productos
+		productos,
+		setProductos,
+		productoData,
 	};
 
 	console.log(data);
