@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 
 const VentasForm = ({add,lens,del,state}) => {
 
@@ -22,8 +22,15 @@ const VentasForm = ({add,lens,del,state}) => {
 		observaciones,
 		setObservaciones,
 		productos,
-	 	setProductos
+	 	setProductos,
+		productoData,
 	} = state;
+
+	const [style, setStyle] = useState("");
+	const addProduct = (venta) => {
+		setProductos(oldArray => [...oldArray, venta]);
+		setStyle("product-selected");
+	};
 
 	return (
 		<>
@@ -91,14 +98,6 @@ const VentasForm = ({add,lens,del,state}) => {
 									onChange={(event) => setPrecioTotal(event.target.value)}></input></td>
 							</tr>
 							<tr>
-								<td><label>Productos: </label></td>
-								<td><input 
-									type={'text'} 
-									style={{marginLeft:"20px"}}
-									value={productos}
-									onChange={(event) => setProductos(event.target.value)}></input></td>
-							</tr>
-							<tr>
 								<td><label>Observaciones: </label></td>
 								<td><input 
 									type={'text'} 
@@ -106,6 +105,23 @@ const VentasForm = ({add,lens,del,state}) => {
 									value={observaciones}
 									onChange={(event) => setObservaciones(event.target.value)}></input></td>
 							</tr>
+							<br/>
+							<div>
+								<label>Productos:</label>
+								{productoData.map((product, index) => (
+									<tr key={index} className={style} onClick={() => addProduct(product)}>
+										<td>
+											Nombre:&nbsp;{product.nombre}
+										</td>
+										<td>
+											Precio:&nbsp;{product.precioVenta.$numberDecimal} €
+										</td>
+										<td>
+											Tasas:&nbsp;{product.tasas} %
+										</td>
+									</tr>
+								))}
+							</div>
 						</table>
 					</center>
 				</>

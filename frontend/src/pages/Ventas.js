@@ -12,6 +12,7 @@ import { getVentas, postVentas } from "../services/ventasAPI";
 import Spinner from "react-bootstrap/Spinner";
 import { app } from "../firebase";
 import { getAuth } from "firebase/auth";
+import { getProductos } from "../services/productosAPI";
 
 export const Ventas = () => {
 	const [isLoading, setIsLoading] = useState(true);
@@ -29,11 +30,15 @@ export const Ventas = () => {
 	useEffect(() => {
 		getVentas().then((clientData) => {
 			setData(clientData);
-			setIsLoading(false);
+      getProductos().then(ProductData => {
+        setProductoData(ProductData);
+        setIsLoading(false);
+      });
 		});
 	}, []);
 
 	const [data, setData] = useState([]);
+  const [productoData, setProductoData] = useState([]);
 	const [error, setError] = useState(null);
 
 	const [showAdd, setShowAdd] = useState(false);
@@ -111,6 +116,7 @@ export const Ventas = () => {
     setObservaciones,
     productos,
     setProductos,
+    productoData,
   };
 
   console.log(data);
