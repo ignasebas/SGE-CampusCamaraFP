@@ -43,7 +43,20 @@ export const Compras = () => {
 	const [productoData, setProductoData] = useState([]);
 	const [proveedorData, setProveedorData] = useState([]);
 	const [showAdd, setShowAdd] = useState(false);
-	const handleShowAdd = () => setShowAdd(!showAdd);
+	const handleShowAdd = () => {
+		setShowAdd(!showAdd);
+	
+		setCif("");
+		setNombre("");
+		setDireccion("");
+		setTelefono("");
+		setEmail("");
+		setFechaCompra("");
+		setPrecioTotal("");
+		setObservaciones("");
+		setProductos("");
+		
+	  };
 	const [showLens, setShowLens] = useState(false);
 
 	const handleShowLens = (compra) => {

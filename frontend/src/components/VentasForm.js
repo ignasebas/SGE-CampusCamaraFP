@@ -50,58 +50,60 @@ const VentasForm = ({add,lens,del,state}) => {
 				<>
 					<center>
 						<table cellPadding={"5px"}>
-							<div>
-								<label>Cliente:</label>
-								{clienteData.map((cliente, index) => (
-									<tr key={index} onClick={() => addCliente(cliente)}>
-										<td>
-											Nombre:&nbsp;{cliente.nombre}
-										</td>
-									</tr>
-								))}
-							</div>
-							<br/>
-							<tr>
-								<td><label>Fecha de venta: </label></td>
-								<td><input 
-									type={'text'} 
-									style={{marginLeft:"20px"}}
-									value={fechaVenta}
-									onChange={(event) => setFechaVenta(event.target.value)}></input></td>
-							</tr>
-							<tr>
-								<td><label>Precio total: </label></td>
-								<td><input 
-									type={'text'} 
-									style={{marginLeft:"20px"}}
-									value={precioTotal}
-									onChange={(event) => setPrecioTotal(event.target.value)}></input></td>
-							</tr>
-							<tr>
-								<td><label>Observaciones: </label></td>
-								<td><input 
-									type={'text'} 
-									style={{marginLeft:"20px"}}
-									value={observaciones}
-									onChange={(event) => setObservaciones(event.target.value)}></input></td>
-							</tr>
-							<br/>
-							<div>
-								<label>Productos:</label>
-								{productoData.map((product, index) => (
-									<tr key={index} className={style} onClick={() => addProduct(product)}>
-										<td>
-											Nombre:&nbsp;{product.nombre}
-										</td>
-										<td>
-											Precio:&nbsp;{product.precioVenta.$numberDecimal} €
-										</td>
-										<td>
-											Tasas:&nbsp;{product.tasas} %
-										</td>
-									</tr>
-								))}
-							</div>
+							<tbody>
+								<div>
+									<label>Cliente:</label>
+									{clienteData.map((cliente, index) => (
+										<tr key={index} onClick={() => addCliente(cliente)}>
+											<td>
+												Nombre:&nbsp;{cliente.nombre}
+											</td>
+										</tr>
+									))}
+								</div>
+								<br/>
+								<tr>
+									<td><label>Fecha de venta: </label></td>
+									<td><input 
+										type={'text'} 
+										style={{marginLeft:"20px"}}
+										value={fechaVenta}
+										onChange={(event) => setFechaVenta(event.target.value)}></input></td>
+								</tr>
+								<tr>
+									<td><label>Precio total: </label></td>
+									<td><input 
+										type={'text'} 
+										style={{marginLeft:"20px"}}
+										value={precioTotal}
+										onChange={(event) => setPrecioTotal(event.target.value)}></input></td>
+								</tr>
+								<tr>
+									<td><label>Observaciones: </label></td>
+									<td><input 
+										type={'text'} 
+										style={{marginLeft:"20px"}}
+										value={observaciones}
+										onChange={(event) => setObservaciones(event.target.value)}></input></td>
+								</tr>
+								<br/>
+								<div>
+									<label>Productos:</label>
+									{productoData.map((product, index) => (
+										<tr key={index} className={style} onClick={() => addProduct(product)}>
+											<td>
+												Nombre:&nbsp;{product.nombre}
+											</td>
+											<td>
+												Precio:&nbsp;{product.precioVenta.$numberDecimal} €
+											</td>
+											<td>
+												Tasas:&nbsp;{product.tasas} %
+											</td>
+										</tr>
+									))}
+								</div>
+							</tbody>
 						</table>
 					</center>
 				</>

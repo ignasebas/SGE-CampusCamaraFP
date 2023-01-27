@@ -51,29 +51,16 @@ export const Ventas = () => {
 
   const handleShowAdd = () => {
     setShowAdd(!showAdd);
-    if (
-      dni &&
-      nombre &&
-      apellidos &&
-      fechaVenta &&
-      email &&
-      direccion &&
-      precioTotal &&
-      productos &&
-      observaciones !== ""
-    ) {
-      setDni("");
-      setNombre("");
-      setApellidos("");
-      setEmail("");
-      setDireccion("");
-      setFechaVenta("");
-      setPrecioTotal("");
-      setProductos("");
-      setObservaciones("");
-    }
+    setDni("");
+    setNombre("");
+    setApellidos("");
+    setEmail("");
+    setDireccion("");
+    setFechaVenta("");
+    setPrecioTotal("");
+    setProductos("");
+    setObservaciones("");
   };
-
   const handleShowLens = (venta) => {
     setShowLens(!showLens);
     setDni(venta.nif);
