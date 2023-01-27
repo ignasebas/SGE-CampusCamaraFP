@@ -24,12 +24,21 @@ const VentasForm = ({add,lens,del,state}) => {
 		productos,
 	 	setProductos,
 		productoData,
+		clienteData,
 	} = state;
 
 	const [style, setStyle] = useState("");
 	const addProduct = (venta) => {
 		setProductos(oldArray => [...oldArray, venta]);
 		setStyle("product-selected");
+	};
+
+	const addCliente = (cliente) => {
+		setDni(cliente.nif);
+		setNombre(cliente.nombre);
+		setApellidos(cliente.apellidos);
+		setDireccion(cliente.direccion);
+		setEmail(cliente.email);
 	};
 
 	return (
@@ -41,46 +50,17 @@ const VentasForm = ({add,lens,del,state}) => {
 				<>
 					<center>
 						<table cellPadding={"5px"}>
-							<tr>
-								<td><label>NIF/DNI del cliente: </label></td>
-								<td><input 
-									type={'text'} 
-									style={{marginLeft:"20px"}}
-									value={dni}
-									onChange={(event) => setDni(event.target.value)}></input></td>
-							</tr>
-							<tr>
-								<td><label>Nombre del cliente: </label></td>
-								<td><input 
-									type={'text'} 
-									style={{marginLeft:"20px"}}
-									value={nombre}
-									onChange={(event) => setNombre(event.target.value)}></input></td>
-							</tr>
-							<tr>
-								<td><label>Apellidos del cliente: </label></td>
-								<td><input 
-									type={'text'} 
-									style={{marginLeft:"20px"}}
-									value={apellidos}
-									onChange={(event) => setApellidos(event.target.value)}></input></td>
-							</tr>
-							<tr>
-								<td><label>Email: </label></td>
-								<td><input 
-									type={'text'} 
-									style={{marginLeft:"20px"}}
-									value={email}
-									onChange={(event) => setEmail(event.target.value)}></input></td>
-							</tr>
-							<tr>
-								<td><label>Dirección: </label></td>
-								<td><input 
-									type={'text'} 
-									style={{marginLeft:"20px"}}
-									value={direccion}
-									onChange={(event) => setDireccion(event.target.value)}></input></td>
-							</tr>
+							<div>
+								<label>Cliente:</label>
+								{clienteData.map((cliente, index) => (
+									<tr key={index} onClick={() => addCliente(cliente)}>
+										<td>
+											Nombre:&nbsp;{cliente.nombre}
+										</td>
+									</tr>
+								))}
+							</div>
+							<br/>
 							<tr>
 								<td><label>Fecha de venta: </label></td>
 								<td><input 
