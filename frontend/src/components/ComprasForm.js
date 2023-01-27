@@ -2,6 +2,7 @@ import React from "react";
 
 const ComprasForm = ({add,lens,del,state}) => {
 
+	console.log(state)
 	const {
 		cif,
 		setCif,
@@ -22,11 +23,20 @@ const ComprasForm = ({add,lens,del,state}) => {
 		productos,
 		setProductos,
 		productoData,
+		proveedorData,
 		
 	}=state;
 
 	const addProduct = (venta) => {
 		setProductos(oldArray => [...oldArray, venta]);
+	};
+
+	const addProveedor = (proveedor) => {
+		setCif(proveedor.cif);
+		setNombre(proveedor.nombre);
+		setDireccion(proveedor.direccion);
+		setTelefono(proveedor.telefono);
+		setEmail(proveedor.email);
 	};
 
 	return (
@@ -38,46 +48,17 @@ const ComprasForm = ({add,lens,del,state}) => {
 				<>
 				<center>
 					<table cellPadding={"5px"}>
-						<tr>
-							<td><label>CIF: </label></td>
-							<input 
-							type={'text'} 
-							style={{marginLeft:"20px"}}
-							value={cif}
-							onChange={(event) => setCif(event.target.value)}></input>
-						</tr>
-						<tr>
-							<td><label>Nombre de proveedor: </label></td>
-							<input 
-							type={'text'} 
-							style={{marginLeft:"20px"}}
-							value={nombre}
-							onChange={(event) => setNombre(event.target.value)}></input>
-						</tr>
-						<tr>
-							<td><label>Direccion: </label></td>
-							<input 
-							type={'text'} 
-							style={{marginLeft:"20px"}}
-							value={direccion}
-							onChange={(event) => setDireccion(event.target.value)}></input>
-						</tr>
-						<tr>
-							<td><label>Teléfono: </label></td>
-							<input 
-							type={'text'} 
-							style={{marginLeft:"20px"}}
-							value={telefono}
-							onChange={(event) => setTelefono(event.target.value)}></input>
-						</tr>
-						<tr>
-							<td><label>Email: </label></td>
-							<input 
-							type={'text'} 
-							style={{marginLeft:"20px"}}
-							value={email}
-							onChange={(event) => setEmail(event.target.value)}></input>
-						</tr>
+						<div>
+							<label>Proveedor:</label>
+							{proveedorData.map((proveedor, index) => (
+								<tr key={index} onClick={() => addProveedor(proveedor)}>
+									<td>
+										Nombre:&nbsp;{proveedor.nombre}
+									</td>
+								</tr>
+							))}
+						</div>
+						<br/>
 						<tr>
 							<td><label>Fecha de la compra: </label></td>
 							<input 
