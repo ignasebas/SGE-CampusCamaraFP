@@ -116,13 +116,9 @@ const ComprasForm = ({add,lens,del,state}) => {
 							<th>Infomación de la compra</th>
 						</tr>
 						<tr>
-							<td>CIF:</td>
-							<td>Fecha:</td>
+							<td>CIF:&nbsp;{cif}</td>
+							<td>Fecha:&nbsp;{fechaCompra}</td>
 						</tr>
-						<tr>
-								<td>{cif}</td>
-								<td>{fechaCompra}</td>
-							</tr>
 						<tr>
 							<td>Nombre:&nbsp;{nombre}</td>
 							<td>Precio total:&nbsp;{precioTotal}</td>
